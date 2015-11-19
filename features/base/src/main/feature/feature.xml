@@ -76,12 +76,13 @@
   <feature name="shk-tp-base" description="openHAB TargetPlatform Base" version="${project.version}">
     <details>openHAB targetplatform non-ESH and non-OH specific part to be splitted</details>
 
-    <feature>equinox-ds</feature>
-    <feature>equinox-event</feature>
+    <!--<feature>equinox-ds</feature>-->
+    <feature>scr</feature>
+
+    <!--<feature>equinox-event</feature>-->
 
     <feature>javax-http-servlet</feature>
     <feature>shk-tp-jaxrs</feature>
-    <bundle start-level="54">mvn:${dep.bsn.com.google.guava.groupId}/${dep.bsn.com.google.guava.artifactId}/${dep.bsn.com.google.guava.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.com.ibm.icu.groupId}/${dep.bsn.com.ibm.icu.artifactId}/${dep.bsn.com.ibm.icu.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.com.ibm.icu.base.groupId}/${dep.bsn.com.ibm.icu.base.artifactId}/${dep.bsn.com.ibm.icu.base.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.javax.activation.groupId}/${dep.bsn.javax.activation.artifactId}/${dep.bsn.javax.activation.version}</bundle>
@@ -101,36 +102,20 @@
     <bundle start-level="54">mvn:${dep.bsn.org.apache.httpcomponents.httpcore.groupId}/${dep.bsn.org.apache.httpcomponents.httpcore.artifactId}/${dep.bsn.org.apache.httpcomponents.httpcore.version}</bundle>
   </feature>
 
-  <feature name="shk-tp-eclipse" description="openHAB TargetPlatform Base" version="${project.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.commands.groupId}/${dep.bsn.org.eclipse.core.commands.artifactId}/${dep.bsn.org.eclipse.core.commands.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.contenttype.groupId}/${dep.bsn.org.eclipse.core.contenttype.artifactId}/${dep.bsn.org.eclipse.core.contenttype.version}</bundle>
+  <feature name="shk-tp-todo" description="openHAB TargetPlatform Base" version="${project.version}">
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.expressions.groupId}/${dep.bsn.org.eclipse.core.expressions.artifactId}/${dep.bsn.org.eclipse.core.expressions.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.filesystem.groupId}/${dep.bsn.org.eclipse.core.filesystem.artifactId}/${dep.bsn.org.eclipse.core.filesystem.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.jobs.groupId}/${dep.bsn.org.eclipse.core.jobs.artifactId}/${dep.bsn.org.eclipse.core.jobs.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.resources.groupId}/${dep.bsn.org.eclipse.core.resources.artifactId}/${dep.bsn.org.eclipse.core.resources.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.runtime.groupId}/${dep.bsn.org.eclipse.core.runtime.artifactId}/${dep.bsn.org.eclipse.core.runtime.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.variables.groupId}/${dep.bsn.org.eclipse.core.variables.artifactId}/${dep.bsn.org.eclipse.core.variables.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.debug.core.groupId}/${dep.bsn.org.eclipse.debug.core.artifactId}/${dep.bsn.org.eclipse.debug.core.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.app.groupId}/${dep.bsn.org.eclipse.equinox.app.artifactId}/${dep.bsn.org.eclipse.equinox.app.version}</bundle>
-    <bundle start-level="51">mvn:${dep.bsn.org.eclipse.equinox.common.groupId}/${dep.bsn.org.eclipse.equinox.common.artifactId}/${dep.bsn.org.eclipse.equinox.common.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.launcher.groupId}/${dep.bsn.org.eclipse.equinox.launcher.artifactId}/${dep.bsn.org.eclipse.equinox.launcher.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.preferences.groupId}/${dep.bsn.org.eclipse.equinox.preferences.artifactId}/${dep.bsn.org.eclipse.equinox.preferences.version}</bundle>
-    <bundle start-level="52">mvn:${dep.bsn.org.eclipse.equinox.registry.groupId}/${dep.bsn.org.eclipse.equinox.registry.artifactId}/${dep.bsn.org.eclipse.equinox.registry.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.supplement.groupId}/${dep.bsn.org.eclipse.equinox.supplement.artifactId}/${dep.bsn.org.eclipse.equinox.supplement.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.util.groupId}/${dep.bsn.org.eclipse.equinox.util.artifactId}/${dep.bsn.org.eclipse.equinox.util.version}</bundle>
-  </feature>
-
-  <feature name="shk-tp-rm" description="openHAB TargetPlatform Base" version="${project.version}">
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.jdt.core.groupId}/${dep.bsn.org.eclipse.jdt.core.artifactId}/${dep.bsn.org.eclipse.jdt.core.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.jdt.debug.groupId}/${dep.bsn.org.eclipse.jdt.debug.artifactId}/${dep.bsn.org.eclipse.jdt.debug.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.jdt.launching.groupId}/${dep.bsn.org.eclipse.jdt.launching.artifactId}/${dep.bsn.org.eclipse.jdt.launching.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.com.google.inject.groupId}/${dep.bsn.com.google.inject.artifactId}/${dep.bsn.com.google.inject.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.antlr.runtime.groupId}/${dep.bsn.org.antlr.runtime.artifactId}/${dep.bsn.org.antlr.runtime.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.codegen.groupId}/${dep.bsn.org.eclipse.emf.codegen.artifactId}/${dep.bsn.org.eclipse.emf.codegen.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.codegen.ecore.groupId}/${dep.bsn.org.eclipse.emf.codegen.ecore.artifactId}/${dep.bsn.org.eclipse.emf.codegen.ecore.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.common.groupId}/${dep.bsn.org.eclipse.emf.common.artifactId}/${dep.bsn.org.eclipse.emf.common.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.ecore.groupId}/${dep.bsn.org.eclipse.emf.ecore.artifactId}/${dep.bsn.org.eclipse.emf.ecore.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.ecore.xmi.groupId}/${dep.bsn.org.eclipse.emf.ecore.xmi.artifactId}/${dep.bsn.org.eclipse.emf.ecore.xmi.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.mwe.core.groupId}/${dep.bsn.org.eclipse.emf.mwe.core.artifactId}/${dep.bsn.org.eclipse.emf.mwe.core.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.mwe.utils.groupId}/${dep.bsn.org.eclipse.emf.mwe.utils.artifactId}/${dep.bsn.org.eclipse.emf.mwe.utils.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.mwe2.lib.groupId}/${dep.bsn.org.eclipse.emf.mwe2.lib.artifactId}/${dep.bsn.org.eclipse.emf.mwe2.lib.version}</bundle>
@@ -138,17 +123,10 @@
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.text.groupId}/${dep.bsn.org.eclipse.text.artifactId}/${dep.bsn.org.eclipse.text.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xpand.groupId}/${dep.bsn.org.eclipse.xpand.artifactId}/${dep.bsn.org.eclipse.xpand.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtend.groupId}/${dep.bsn.org.eclipse.xtend.artifactId}/${dep.bsn.org.eclipse.xtend.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtend.lib.groupId}/${dep.bsn.org.eclipse.xtend.lib.artifactId}/${dep.bsn.org.eclipse.xtend.lib.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtend.typesystem.emf.groupId}/${dep.bsn.org.eclipse.xtend.typesystem.emf.artifactId}/${dep.bsn.org.eclipse.xtend.typesystem.emf.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.groupId}/${dep.bsn.org.eclipse.xtext.artifactId}/${dep.bsn.org.eclipse.xtext.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.common.types.groupId}/${dep.bsn.org.eclipse.xtext.common.types.artifactId}/${dep.bsn.org.eclipse.xtext.common.types.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.ecore.groupId}/${dep.bsn.org.eclipse.xtext.ecore.artifactId}/${dep.bsn.org.eclipse.xtext.ecore.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.generator.groupId}/${dep.bsn.org.eclipse.xtext.generator.artifactId}/${dep.bsn.org.eclipse.xtext.generator.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.smap.groupId}/${dep.bsn.org.eclipse.xtext.smap.artifactId}/${dep.bsn.org.eclipse.xtext.smap.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.util.groupId}/${dep.bsn.org.eclipse.xtext.util.artifactId}/${dep.bsn.org.eclipse.xtext.util.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.xbase.groupId}/${dep.bsn.org.eclipse.xtext.xbase.artifactId}/${dep.bsn.org.eclipse.xtext.xbase.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.xbase.lib.groupId}/${dep.bsn.org.eclipse.xtext.xbase.lib.artifactId}/${dep.bsn.org.eclipse.xtext.xbase.lib.version}</bundle>
-    <bundle start-level="54">mvn:${dep.bsn.org.objectweb.asm.groupId}/${dep.bsn.org.objectweb.asm.artifactId}/${dep.bsn.org.objectweb.asm.version}</bundle>
   </feature>
 
   <feature name="shk-tp-jaxrs" version="${project.version}">
@@ -201,210 +179,243 @@
 
   <!-- for bundle specific stuff -->
 
-  <feature name="bsn-com.google.guava">
-    <bundle>mvn:tmp.need.a.home/com.google.guava/10.0.1.v201203051515</bundle>
-    <feature>bsn-com.google.guava-rb</feature>
+  <feature name="bsn-com.google.guava" version="${dep.bsn.com.google.guava.version}">
+    <bundle start-level="54">mvn:${dep.bsn.com.google.guava.groupId}/${dep.bsn.com.google.guava.artifactId}/${dep.bsn.com.google.guava.version}</bundle>
+    <feature version="${dep.bsn.com.google.guava.version}">bsn-com.google.guava-rb</feature>
   </feature>
 
-  <feature name="bsn-com.google.inject">
-    <bundle>mvn:tmp.need.a.home/com.google.inject/3.0.0.v201312141243</bundle>
-    <feature>bsn-com.google.inject-rb</feature>
+  <feature name="bsn-com.google.inject" version="${dep.bsn.com.google.inject.version}">
+    <bundle start-level="54">mvn:${dep.bsn.com.google.inject.groupId}/${dep.bsn.com.google.inject.artifactId}/${dep.bsn.com.google.inject.version}</bundle>
+    <feature version="${dep.bsn.com.google.inject.version}">bsn-com.google.inject-rb</feature>
   </feature>
 
-  <feature name="bsn-org.antlr.runtime">
-    <bundle>mvn:tmp.need.a.home/org.antlr.runtime/3.2.0.v201101311130</bundle>
-    <feature>bsn-org.antlr.runtime-rb</feature>
+  <feature name="bsn-org.antlr.runtime" version="${dep.bsn.org.antlr.runtime.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.antlr.runtime.groupId}/${dep.bsn.org.antlr.runtime.artifactId}/${dep.bsn.org.antlr.runtime.version}</bundle>
+    <feature version="${dep.bsn.org.antlr.runtime.version}">bsn-org.antlr.runtime-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.core.contenttype">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.core.contenttype/3.4.200.v20140207-1251</bundle>
-    <feature>bsn-org.eclipse.core.contenttype-rb</feature>
+  <feature name="bsn-org.eclipse.core.commands" version="${dep.bsn.org.eclipse.core.commands.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.commands.groupId}/${dep.bsn.org.eclipse.core.commands.artifactId}/${dep.bsn.org.eclipse.core.commands.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.core.commands.version}">bsn-org.eclipse.core.commands</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.core.jobs">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.core.jobs/3.6.1.v20141014-1248</bundle>
-    <feature>bsn-org.eclipse.core.jobs-rb</feature>
+  <feature name="bsn-org.eclipse.core.contenttype" version="${dep.bsn.org.eclipse.core.contenttype.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.contenttype.groupId}/${dep.bsn.org.eclipse.core.contenttype.artifactId}/${dep.bsn.org.eclipse.core.contenttype.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.core.contenttype.version}">bsn-org.eclipse.core.contenttype-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.core.runtime">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.core.runtime/3.10.0.v20140318-2214</bundle>
-    <feature>bsn-org.eclipse.core.runtime-rb</feature>
+  <feature name="bsn-org.eclipse.core.jobs" version="${dep.bsn.org.eclipse.core.jobs.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.jobs.groupId}/${dep.bsn.org.eclipse.core.jobs.artifactId}/${dep.bsn.org.eclipse.core.jobs.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.core.jobs.version}">bsn-org.eclipse.core.jobs-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.emf.common">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.emf.common/2.10.1.v20150123-0348</bundle>
-    <feature>bsn-org.eclipse.emf.common-rb</feature>
+  <feature name="bsn-org.eclipse.core.runtime" version="${dep.bsn.org.eclipse.core.runtime.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.runtime.groupId}/${dep.bsn.org.eclipse.core.runtime.artifactId}/${dep.bsn.org.eclipse.core.runtime.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.core.runtime.version}">bsn-org.eclipse.core.runtime-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.emf.ecore">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.emf.ecore/2.10.2.v20150123-0348</bundle>
-    <feature>bsn-org.eclipse.emf.ecore-rb</feature>
+  <feature name="bsn-org.eclipse.emf.common" version="${dep.bsn.org.eclipse.emf.common.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.common.groupId}/${dep.bsn.org.eclipse.emf.common.artifactId}/${dep.bsn.org.eclipse.emf.common.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.emf.common.version}">bsn-org.eclipse.emf.common-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.emf.ecore.xmi">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.emf.ecore.xmi/2.10.2.v20150123-0348</bundle>
-    <feature>bsn-org.eclipse.emf.ecore.xmi-rb</feature>
+  <feature name="bsn-org.eclipse.emf.ecore" version="${dep.bsn.org.eclipse.emf.ecore.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.ecore.groupId}/${dep.bsn.org.eclipse.emf.ecore.artifactId}/${dep.bsn.org.eclipse.emf.ecore.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.emf.ecore.version}">bsn-org.eclipse.emf.ecore-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.equinox.app">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.equinox.app/1.3.200.v20130910-1609</bundle>
-    <feature>bsn-org.eclipse.equinox.app-rb</feature>
+  <feature name="bsn-org.eclipse.emf.ecore.xmi" version="${dep.bsn.org.eclipse.emf.ecore.xmi.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.ecore.xmi.groupId}/${dep.bsn.org.eclipse.emf.ecore.xmi.artifactId}/${dep.bsn.org.eclipse.emf.ecore.xmi.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.emf.ecore.xmi.version}">bsn-org.eclipse.emf.ecore.xmi-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.equinox.common">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.equinox.common/3.6.200.v20130402-1505</bundle>
-    <feature>bsn-org.eclipse.equinox.common-rb</feature>
+  <feature name="bsn-org.eclipse.equinox.app" version="${dep.bsn.org.eclipse.equinox.app.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.app.groupId}/${dep.bsn.org.eclipse.equinox.app.artifactId}/${dep.bsn.org.eclipse.equinox.app.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.equinox.app.version}">bsn-org.eclipse.equinox.app-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.equinox.preferences">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.equinox.preferences/3.5.200.v20140224-1527</bundle>
-    <feature>bsn-org.eclipse.equinox.preferences-rb</feature>
+  <feature name="bsn-org.eclipse.equinox.common" version="${dep.bsn.org.eclipse.equinox.common.version}">
+    <bundle start-level="51">mvn:${dep.bsn.org.eclipse.equinox.common.groupId}/${dep.bsn.org.eclipse.equinox.common.artifactId}/${dep.bsn.org.eclipse.equinox.common.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.equinox.common.version}">bsn-org.eclipse.equinox.common-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.equinox.registry">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.equinox.registry/3.5.400.v20140428-1507</bundle>
-    <feature>bsn-org.eclipse.equinox.registry-rb</feature>
+  <feature name="bsn-org.eclipse.equinox.preferences" version="${dep.bsn.org.eclipse.equinox.preferences.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.preferences.groupId}/${dep.bsn.org.eclipse.equinox.preferences.artifactId}/${dep.bsn.org.eclipse.equinox.preferences.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.equinox.preferences.version}">bsn-org.eclipse.equinox.preferences-rb</feature>
+  </feature>
+
+  <feature name="bsn-org.eclipse.equinox.registry" version="${dep.bsn.org.eclipse.equinox.registry.version}">
+    <bundle start-level="52">mvn:${dep.bsn.org.eclipse.equinox.registry.groupId}/${dep.bsn.org.eclipse.equinox.registry.artifactId}/${dep.bsn.org.eclipse.equinox.registry.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.equinox.registry.version}">bsn-org.eclipse.equinox.registry-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.osgi" version="${dep.org.eclipse.osgi.version}">
     <!-- TODO -->
     <!-- This is not done at all, just a workaround to get another bundle that supply org.eclipse.osgi stuff -->
-    <bundle>mvn:${project.groupId}/shk-repackage-org.eclipse.osgi/${project.version}</bundle>
+    <!--<bundle>mvn:${project.groupId}/shk-repackage-org.eclipse.osgi/${project.version}</bundle>-->
   </feature>
 
-  <feature name="bsn-org.eclipse.xtend.lib">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.xtend.lib/2.6.2.v201407030533</bundle>
-    <feature>bsn-org.eclipse.xtend.lib-rb</feature>
+  <feature name="bsn-org.eclipse.xtend.lib" version="${dep.bsn.org.eclipse.xtend.lib.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtend.lib.groupId}/${dep.bsn.org.eclipse.xtend.lib.artifactId}/${dep.bsn.org.eclipse.xtend.lib.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.xtend.lib.version}">bsn-org.eclipse.xtend.lib-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.xtext/2.6.2.v201407030533</bundle>
-    <feature>bsn-org.eclipse.xtext-rb</feature>
+  <feature name="bsn-org.eclipse.xtext" version="${dep.bsn.org.eclipse.xtext.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.groupId}/${dep.bsn.org.eclipse.xtext.artifactId}/${dep.bsn.org.eclipse.xtext.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.xtext.version}">bsn-org.eclipse.xtext-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext.common.types">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.xtext.common.types/2.6.2.v201407030533</bundle>
-    <feature>bsn-org.eclipse.xtext.common.types-rb</feature>
+  <feature name="bsn-org.eclipse.xtext.common.types" version="${dep.bsn.org.eclipse.xtext.common.types.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.common.types.groupId}/${dep.bsn.org.eclipse.xtext.common.types.artifactId}/${dep.bsn.org.eclipse.xtext.common.types.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.xtext.common.types.version}">bsn-org.eclipse.xtext.common.types-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext.util">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.xtext.util/2.6.2.v201407030533</bundle>
-    <feature>bsn-org.eclipse.xtext.util-rb</feature>
+  <feature name="bsn-org.eclipse.xtext.util" version="${dep.bsn.org.eclipse.xtext.util.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.util.groupId}/${dep.bsn.org.eclipse.xtext.util.artifactId}/${dep.bsn.org.eclipse.xtext.util.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.xtext.util.version}">bsn-org.eclipse.xtext.util-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext.xbase">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.xtext.xbase/2.6.2.v201407030533</bundle>
-    <feature>bsn-org.eclipse.xtext.xbase-rb</feature>
+  <feature name="bsn-org.eclipse.xtext.xbase" version="${dep.bsn.org.eclipse.xtext.xbase.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.xbase.groupId}/${dep.bsn.org.eclipse.xtext.xbase.artifactId}/${dep.bsn.org.eclipse.xtext.xbase.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.xtext.xbase.version}">bsn-org.eclipse.xtext.xbase-rb</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext.xbase.lib">
-    <bundle>mvn:tmp.need.a.home/org.eclipse.xtext.xbase.lib/2.6.2.v201407030533</bundle>
-    <feature>bsn-org.eclipse.xtext.xbase.lib-rb</feature>
+  <feature name="bsn-org.eclipse.xtext.xbase.lib" version="${dep.bsn.org.eclipse.xtext.xbase.lib.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.xbase.lib.groupId}/${dep.bsn.org.eclipse.xtext.xbase.lib.artifactId}/${dep.bsn.org.eclipse.xtext.xbase.lib.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.xtext.xbase.lib.version}">bsn-org.eclipse.xtext.xbase.lib-rb</feature>
   </feature>
 
-  <feature name="bsn-org.objectweb.asm">
-    <bundle>mvn:tmp.need.a.home/org.objectweb.asm/5.0.1.v201404251740</bundle>
-    <feature>bsn-org.objectweb.asm-rb</feature>
+  <feature name="bsn-org.objectweb.asm" version="${dep.bsn.org.objectweb.asm.version}">
+    <bundle start-level="54">mvn:${dep.bsn.org.objectweb.asm.groupId}/${dep.bsn.org.objectweb.asm.artifactId}/${dep.bsn.org.objectweb.asm.version}</bundle>
+    <feature version="${dep.bsn.org.objectweb.asm.version}">bsn-org.objectweb.asm-rb</feature>
   </feature>
 
-  <feature name="bsn-com.google.guava-rb">
-    <!-- TODO -->
+  <feature name="bsn-com.google.guava-rb" version="10.0.1.v201203051515">
   </feature>
 
-  <feature name="bsn-com.google.inject-rb">
+  <feature name="bsn-com.google.inject-rb" version="3.0.0.v201312141243">
   </feature>
 
-  <feature name="bsn-org.antlr.runtime-rb">
+  <feature name="bsn-org.antlr.runtime-rb" version="3.2.0.v201101311130">
   </feature>
 
-  <feature name="bsn-org.eclipse.core.contenttype-rb">
-    <feature>bsn-org.eclipse.equinox.common</feature>
-    <feature>bsn-org.eclipse.equinox.preferences</feature>
-    <feature>bsn-org.eclipse.equinox.registry</feature>
+  <feature name="bsn-org.eclipse.core.commands-rb" version="3.6.100.v20140528-1422">
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.common</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.core.jobs-rb">
-    <feature>bsn-org.eclipse.equinox.common</feature>
+  <feature name="bsn-org.eclipse.core.contenttype-rb" version="3.4.200.v20140207-1251">
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.common</feature>
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.preferences</feature>
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.registry</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.core.runtime-rb">
-    <feature>bsn-org.eclipse.core.contenttype</feature>
-    <feature>bsn-org.eclipse.core.jobs</feature>
-    <feature>bsn-org.eclipse.equinox.app</feature>
-    <feature>bsn-org.eclipse.equinox.common</feature>
-    <feature>bsn-org.eclipse.equinox.preferences</feature>
-    <feature>bsn-org.eclipse.equinox.registry</feature>
-    <feature>bsn-org.eclipse.osgi</feature>
+  <feature name="bsn-org.eclipse.core.jobs-rb" version="3.6.1.v20141014-1248">
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.common</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.emf.common-rb">
+  <feature name="bsn-org.eclipse.core.runtime-rb" version="3.10.0.v20140318-2214">
+    <feature version="[3.3.0,4.0.0)">bsn-org.eclipse.core.contenttype</feature>
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.core.jobs</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature ccversion="1.0.0">bsn-org.eclipse.equinox.app</feature>-->
+    <feature version="[1.0.0,2.0.0)">bsn-org.eclipse.equinox.app</feature>
+    <feature version="[3.6.100,4.0.0)">bsn-org.eclipse.equinox.common</feature>
+    <feature version="[3.4.0,4.0.0)">bsn-org.eclipse.equinox.preferences</feature>
+    <feature version="[3.4.0,4.0.0)">bsn-org.eclipse.equinox.registry</feature>
+    <feature version="[3.7.0,4.0.0)">bsn-org.eclipse.osgi</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.emf.ecore-rb">
-    <feature>bsn-org.eclipse.emf.common</feature>
+  <feature name="bsn-org.eclipse.emf.common-rb" version="2.10.1.v20150123-0348">
   </feature>
 
-  <feature name="bsn-org.eclipse.emf.ecore.xmi-rb">
-    <feature>bsn-org.eclipse.emf.ecore</feature>
+  <feature name="bsn-org.eclipse.emf.ecore-rb" version="2.10.2.v20150123-0348">
+    <feature version="[2.10.0,3.0.0)">bsn-org.eclipse.emf.common</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.equinox.app-rb">
-    <feature>bsn-org.eclipse.equinox.common</feature>
-    <feature>bsn-org.eclipse.equinox.registry</feature>
+  <feature name="bsn-org.eclipse.emf.ecore.xmi-rb" version="2.10.2.v20150123-0348">
+    <feature version="[2.10.0,3.0.0)">bsn-org.eclipse.emf.ecore</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.equinox.common-rb">
+  <feature name="bsn-org.eclipse.equinox.app-rb" version="1.3.200.v20130910-1609">
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.common</feature>
+    <feature version="[3.4.0,4.0.0)">bsn-org.eclipse.equinox.registry</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.equinox.preferences-rb">
-    <feature>bsn-org.eclipse.equinox.common</feature>
+  <feature name="bsn-org.eclipse.equinox.common-rb" version="3.6.200.v20130402-1505">
   </feature>
 
-  <feature name="bsn-org.eclipse.equinox.registry-rb">
-    <feature>bsn-org.eclipse.equinox.common</feature>
+  <feature name="bsn-org.eclipse.equinox.preferences-rb" version="3.5.200.v20140224-1527">
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.common</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtend.lib-rb">
-    <feature>bsn-org.eclipse.xtext.xbase.lib</feature>
+  <feature name="bsn-org.eclipse.equinox.registry-rb" version="3.5.400.v20140428-1507">
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.common</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext-rb">
-    <feature>bsn-org.antlr.runtime</feature>
-    <feature>bsn-org.eclipse.emf.common</feature>
-    <feature>bsn-org.eclipse.emf.ecore</feature>
-    <feature>bsn-org.eclipse.emf.ecore.xmi</feature>
-    <feature>bsn-org.eclipse.xtext.util</feature>
+  <feature name="bsn-org.eclipse.xtend.lib-rb" version="2.6.2.v201407030533">
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.6.2">bsn-org.eclipse.xtext.xbase.lib</feature>-->
+    <feature version="[2.6.2,3.0.0)">bsn-org.eclipse.xtext.xbase.lib</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext.common.types-rb">
-    <feature>bsn-com.google.inject</feature>
-    <feature>bsn-org.eclipse.emf.common</feature>
-    <feature>bsn-org.eclipse.emf.ecore</feature>
-    <feature>bsn-org.eclipse.xtext</feature>
-    <feature>bsn-org.objectweb.asm</feature>
+  <feature name="bsn-org.eclipse.xtext-rb" version="2.6.2.v201407030533">
+    <feature version="[3.2.0,3.2.1)">bsn-org.antlr.runtime</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.9.0">bsn-org.eclipse.emf.common</feature>-->
+    <feature version="[2.9.0,3.0.0)">bsn-org.eclipse.emf.common</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.9.0">bsn-org.eclipse.emf.ecore</feature>-->
+    <feature version="[2.9.0,3.0.0)">bsn-org.eclipse.emf.ecore</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.9.0">bsn-org.eclipse.emf.ecore.xmi</feature>-->
+    <feature version="[2.9.0,3.0.0)">bsn-org.eclipse.emf.ecore.xmi</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.6.2">bsn-org.eclipse.xtext.util</feature>-->
+    <feature version="[2.6.2,3.0.0)">bsn-org.eclipse.xtext.util</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext.util-rb">
-    <feature>bsn-org.eclipse.emf.ecore</feature>
+  <feature name="bsn-org.eclipse.xtext.common.types-rb" version="2.6.2.v201407030533">
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="3.0.0">bsn-com.google.inject</feature>-->
+    <feature version="[3.0.0,4.0.0)">bsn-com.google.inject</feature>
+    <feature version="[2.10.0,3.0.0)">bsn-org.eclipse.emf.common</feature>
+    <feature version="[2.10.0,3.0.0)">bsn-org.eclipse.emf.ecore</feature>
+    <feature version="[2.6.0,3.0.0)">bsn-org.eclipse.xtext</feature>
+    <feature version="[5.0.1,6.0.0)">bsn-org.objectweb.asm</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext.xbase-rb">
-    <feature>bsn-org.antlr.runtime</feature>
-    <feature>bsn-org.eclipse.emf.common</feature>
-    <feature>bsn-org.eclipse.emf.ecore</feature>
-    <feature>bsn-org.eclipse.xtend.lib</feature>
-    <feature>bsn-org.eclipse.xtext</feature>
-    <feature>bsn-org.eclipse.xtext.common.types</feature>
-    <feature>bsn-org.eclipse.xtext.util</feature>
-    <feature>bsn-org.eclipse.xtext.xbase.lib</feature>
+  <feature name="bsn-org.eclipse.xtext.util-rb" version="2.6.2.v201407030533">
+    <!-- INFO: changed version constraint to get it working -->
+    <!-- <feature version="2.3.2">bsn-org.eclipse.emf.ecore</feature> -->
+    <feature version="[2.3.2,3.0.0)">bsn-org.eclipse.emf.ecore</feature>
   </feature>
 
-  <feature name="bsn-org.eclipse.xtext.xbase.lib-rb">
-    <feature>bsn-com.google.guava</feature>
+  <feature name="bsn-org.eclipse.xtext.xbase-rb" version="2.6.2.v201407030533">
+    <feature version="[3.2.0,3.2.1)">bsn-org.antlr.runtime</feature>
+    <feature version="[2.10.0,3.0.0)">bsn-org.eclipse.emf.common</feature>
+    <feature version="[2.10.0,3.0.0)">bsn-org.eclipse.emf.ecore</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.6.2">bsn-org.eclipse.xtend.lib</feature>-->
+    <feature version="[2.6.2,3.0.0)">bsn-org.eclipse.xtend.lib</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.6.2">bsn-org.eclipse.xtext</feature>-->
+    <feature version="[2.6.2,3.0.0)">bsn-org.eclipse.xtext</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.6.2">bsn-org.eclipse.xtext.common.types</feature>-->
+    <feature version="[2.6.2,3.0.0)">bsn-org.eclipse.xtext.common.types</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.6.2">bsn-org.eclipse.xtext.util</feature>-->
+    <feature version="[2.6.2,3.0.0)">bsn-org.eclipse.xtext.util</feature>
+    <!-- INFO: changed version constraint to get it working -->
+    <!--<feature version="2.6.2">bsn-org.eclipse.xtext.xbase.lib</feature>-->
+    <feature version="[2.6.2,3.0.0)">bsn-org.eclipse.xtext.xbase.lib</feature>
   </feature>
 
-  <feature name="bsn-org.objectweb.asm-rb">
+  <feature name="bsn-org.eclipse.xtext.xbase.lib-rb" version="2.6.2.v201407030533">
+    <feature version="[10.0.1,16.0.0)">bsn-com.google.guava</feature>
   </feature>
 
+  <feature name="bsn-org.objectweb.asm-rb" version="5.0.1.v201404251740">
+  </feature>
 
 </features>
