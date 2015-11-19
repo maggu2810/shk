@@ -68,65 +68,6 @@
 
     <!-- some stuff realted to a custom target platform -->
 
-    <dep.bsn.com.eclipsesource.jaxrs.jersey-min.groupId>com.eclipsesource.jaxrs</dep.bsn.com.eclipsesource.jaxrs.jersey-min.groupId>
-    <dep.bsn.com.eclipsesource.jaxrs.jersey-min.artifactId>jersey-min</dep.bsn.com.eclipsesource.jaxrs.jersey-min.artifactId>
-    <dep.bsn.com.eclipsesource.jaxrs.jersey-min.version>2.18</dep.bsn.com.eclipsesource.jaxrs.jersey-min.version>
-
-    <dep.bsn.com.eclipsesource.jaxrs.provider.gson.groupId>com.eclipsesource.jaxrs</dep.bsn.com.eclipsesource.jaxrs.provider.gson.groupId>
-    <dep.bsn.com.eclipsesource.jaxrs.provider.gson.artifactId>provider-gson</dep.bsn.com.eclipsesource.jaxrs.provider.gson.artifactId>
-    <dep.bsn.com.eclipsesource.jaxrs.provider.gson.version>2.3</dep.bsn.com.eclipsesource.jaxrs.provider.gson.version>
-
-    <dep.bsn.com.eclipsesource.jaxrs.publisher.groupId>com.eclipsesource.jaxrs</dep.bsn.com.eclipsesource.jaxrs.publisher.groupId>
-    <dep.bsn.com.eclipsesource.jaxrs.publisher.artifactId>publisher</dep.bsn.com.eclipsesource.jaxrs.publisher.artifactId>
-    <dep.bsn.com.eclipsesource.jaxrs.publisher.version>5.0</dep.bsn.com.eclipsesource.jaxrs.publisher.version>
-
-    <dep.bsn.com.google.gson.groupId>com.google.code.gson</dep.bsn.com.google.gson.groupId>
-    <dep.bsn.com.google.gson.artifactId>gson</dep.bsn.com.google.gson.artifactId>
-    <dep.bsn.com.google.gson.version>2.3.1</dep.bsn.com.google.gson.version>
-
-    <dep.jetty.osgi.boot.groupId>org.eclipse.jetty.osgi</dep.jetty.osgi.boot.groupId>
-    <dep.jetty.osgi.boot.artifactId>jetty-osgi-boot</dep.jetty.osgi.boot.artifactId>
-    <dep.jetty.osgi.boot.version>9.2.12.v20150709</dep.jetty.osgi.boot.version>
-    <dep.jetty.osgi.httpservice.groupId>org.eclipse.jetty.osgi</dep.jetty.osgi.httpservice.groupId>
-    <dep.jetty.osgi.httpservice.artifactId>jetty-httpservice</dep.jetty.osgi.httpservice.artifactId>
-    <dep.jetty.osgi.httpservice.version>9.2.12.v20150709</dep.jetty.osgi.httpservice.version>
-    <dep.jetty.client.groupId>org.eclipse.jetty</dep.jetty.client.groupId>
-    <dep.jetty.client.artifactId>jetty-client</dep.jetty.client.artifactId>
-    <dep.jetty.client.version>9.2.12.v20150709</dep.jetty.client.version>
-    <dep.jetty.continuation.groupId>org.eclipse.jetty</dep.jetty.continuation.groupId>
-    <dep.jetty.continuation.artifactId>jetty-continuation</dep.jetty.continuation.artifactId>
-    <dep.jetty.continuation.version>9.2.12.v20150709</dep.jetty.continuation.version>
-    <dep.jetty.deploy.groupId>org.eclipse.jetty</dep.jetty.deploy.groupId>
-    <dep.jetty.deploy.artifactId>jetty-deploy</dep.jetty.deploy.artifactId>
-    <dep.jetty.deploy.version>9.2.12.v20150709</dep.jetty.deploy.version>
-    <dep.jetty.http.groupId>org.eclipse.jetty</dep.jetty.http.groupId>
-    <dep.jetty.http.artifactId>jetty-http</dep.jetty.http.artifactId>
-    <dep.jetty.http.version>9.2.12.v20150709</dep.jetty.http.version>
-    <dep.jetty.io.groupId>org.eclipse.jetty</dep.jetty.io.groupId>
-    <dep.jetty.io.artifactId>jetty-io</dep.jetty.io.artifactId>
-    <dep.jetty.io.version>9.2.12.v20150709</dep.jetty.io.version>
-    <dep.jetty.rewrite.groupId>org.eclipse.jetty</dep.jetty.rewrite.groupId>
-    <dep.jetty.rewrite.artifactId>jetty-rewrite</dep.jetty.rewrite.artifactId>
-    <dep.jetty.rewrite.version>9.2.12.v20150709</dep.jetty.rewrite.version>
-    <dep.jetty.security.groupId>org.eclipse.jetty</dep.jetty.security.groupId>
-    <dep.jetty.security.artifactId>jetty-security</dep.jetty.security.artifactId>
-    <dep.jetty.security.version>9.2.12.v20150709</dep.jetty.security.version>
-    <dep.jetty.server.groupId>org.eclipse.jetty</dep.jetty.server.groupId>
-    <dep.jetty.server.artifactId>jetty-server</dep.jetty.server.artifactId>
-    <dep.jetty.server.version>9.2.12.v20150709</dep.jetty.server.version>
-    <dep.jetty.servlet.groupId>org.eclipse.jetty</dep.jetty.servlet.groupId>
-    <dep.jetty.servlet.artifactId>jetty-servlet</dep.jetty.servlet.artifactId>
-    <dep.jetty.servlet.version>9.2.12.v20150709</dep.jetty.servlet.version>
-    <dep.jetty.util.groupId>org.eclipse.jetty</dep.jetty.util.groupId>
-    <dep.jetty.util.artifactId>jetty-util</dep.jetty.util.artifactId>
-    <dep.jetty.util.version>9.2.12.v20150709</dep.jetty.util.version>
-    <dep.jetty.webapp.groupId>org.eclipse.jetty</dep.jetty.webapp.groupId>
-    <dep.jetty.webapp.artifactId>jetty-webapp</dep.jetty.webapp.artifactId>
-    <dep.jetty.webapp.version>9.2.12.v20150709</dep.jetty.webapp.version>
-    <dep.jetty.xml.groupId>org.eclipse.jetty</dep.jetty.xml.groupId>
-    <dep.jetty.xml.artifactId>jetty-xml</dep.jetty.xml.artifactId>
-    <dep.jetty.xml.version>9.2.12.v20150709</dep.jetty.xml.version>
-
     <dep.bsn.com.google.guava.groupId>tmp.need.a.home</dep.bsn.com.google.guava.groupId>
     <dep.bsn.com.google.guava.artifactId>com.google.guava</dep.bsn.com.google.guava.artifactId>
     <dep.bsn.com.google.guava.version>10.0.1.v201203051515</dep.bsn.com.google.guava.version>
