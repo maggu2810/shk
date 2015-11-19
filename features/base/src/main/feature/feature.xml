@@ -80,9 +80,13 @@
     <feature>scr</feature>
 
     <!--<feature>equinox-event</feature>-->
+    <!-- use eventadmin by startup.properties now -->
 
-    <feature>javax-http-servlet</feature>
+    <!-- <feature>javax-http-servlet</feature> -->
+    <feature>pax-http-jetty</feature>
+
     <feature>shk-tp-jaxrs</feature>
+
     <bundle start-level="54">mvn:${dep.bsn.com.ibm.icu.groupId}/${dep.bsn.com.ibm.icu.artifactId}/${dep.bsn.com.ibm.icu.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.com.ibm.icu.base.groupId}/${dep.bsn.com.ibm.icu.base.artifactId}/${dep.bsn.com.ibm.icu.base.version}</bundle>
     <bundle start-level="54">mvn:${dep.bsn.javax.activation.groupId}/${dep.bsn.javax.activation.artifactId}/${dep.bsn.javax.activation.version}</bundle>
@@ -136,46 +140,54 @@
     <bundle start-level="54">mvn:${dep.bsn.com.google.gson.groupId}/${dep.bsn.com.google.gson.artifactId}/${dep.bsn.com.google.gson.version}</bundle>
   </feature>
 
-  <feature name="shk-tp-jetty" description="Jetty as it is used for openHAB" version="9.2.12.1">
-    <feature>javax-http-servlet</feature>
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.http.servlet.groupId}/${dep.bsn.org.eclipse.equinox.http.servlet.artifactId}/${dep.bsn.org.eclipse.equinox.http.servlet.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.client.groupId}/${dep.jetty.client.artifactId}/${dep.jetty.client.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.continuation.groupId}/${dep.jetty.continuation.artifactId}/${dep.jetty.continuation.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.deploy.groupId}/${dep.jetty.deploy.artifactId}/${dep.jetty.deploy.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.http.groupId}/${dep.jetty.http.artifactId}/${dep.jetty.http.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.io.groupId}/${dep.jetty.io.artifactId}/${dep.jetty.io.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.osgi.boot.groupId}/${dep.jetty.osgi.boot.artifactId}/${dep.jetty.osgi.boot.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.osgi.httpservice.groupId}/${dep.jetty.osgi.httpservice.artifactId}/${dep.jetty.osgi.httpservice.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.rewrite.groupId}/${dep.jetty.rewrite.artifactId}/${dep.jetty.rewrite.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.security.groupId}/${dep.jetty.security.artifactId}/${dep.jetty.security.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.server.groupId}/${dep.jetty.server.artifactId}/${dep.jetty.server.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.servlet.groupId}/${dep.jetty.servlet.artifactId}/${dep.jetty.servlet.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.util.groupId}/${dep.jetty.util.artifactId}/${dep.jetty.util.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.webapp.groupId}/${dep.jetty.webapp.artifactId}/${dep.jetty.webapp.version}</bundle>
-    <bundle start-level="54">mvn:${dep.jetty.xml.groupId}/${dep.jetty.xml.artifactId}/${dep.jetty.xml.version}</bundle>
-  </feature>
+  <!--
+    <feature name="shk-tp-jetty" description="Jetty as it is used for openHAB" version="9.2.12.1">
+      <feature>javax-http-servlet</feature>
+      <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.http.servlet.groupId}/${dep.bsn.org.eclipse.equinox.http.servlet.artifactId}/${dep.bsn.org.eclipse.equinox.http.servlet.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.client.groupId}/${dep.jetty.client.artifactId}/${dep.jetty.client.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.continuation.groupId}/${dep.jetty.continuation.artifactId}/${dep.jetty.continuation.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.deploy.groupId}/${dep.jetty.deploy.artifactId}/${dep.jetty.deploy.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.http.groupId}/${dep.jetty.http.artifactId}/${dep.jetty.http.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.io.groupId}/${dep.jetty.io.artifactId}/${dep.jetty.io.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.osgi.boot.groupId}/${dep.jetty.osgi.boot.artifactId}/${dep.jetty.osgi.boot.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.osgi.httpservice.groupId}/${dep.jetty.osgi.httpservice.artifactId}/${dep.jetty.osgi.httpservice.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.rewrite.groupId}/${dep.jetty.rewrite.artifactId}/${dep.jetty.rewrite.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.security.groupId}/${dep.jetty.security.artifactId}/${dep.jetty.security.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.server.groupId}/${dep.jetty.server.artifactId}/${dep.jetty.server.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.servlet.groupId}/${dep.jetty.servlet.artifactId}/${dep.jetty.servlet.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.util.groupId}/${dep.jetty.util.artifactId}/${dep.jetty.util.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.webapp.groupId}/${dep.jetty.webapp.artifactId}/${dep.jetty.webapp.version}</bundle>
+      <bundle start-level="54">mvn:${dep.jetty.xml.groupId}/${dep.jetty.xml.artifactId}/${dep.jetty.xml.version}</bundle>
+    </feature>
+  -->
 
-  <feature name="javax-http-servlet" description="Begin with migration to PAX Web" version="0.1">
-    <bundle start-level="30">mvn:${dep.javax.servlet.api.groupId}/${dep.javax.servlet.api.artifactId}/${dep.javax.servlet.api.version}</bundle>
-    <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-api/4.2.0</bundle>
-    <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/4.2.0</bundle>
-    <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-spi/4.2.0</bundle>
-  </feature>
+  <!--
+    <feature name="javax-http-servlet" description="Begin with migration to PAX Web" version="0.1">
+      <bundle start-level="30">mvn:${dep.javax.servlet.api.groupId}/${dep.javax.servlet.api.artifactId}/${dep.javax.servlet.api.version}</bundle>
+      <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-api/4.2.0</bundle>
+      <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/4.2.0</bundle>
+      <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-spi/4.2.0</bundle>
+    </feature>
+  -->
 
-  <feature name="equinox-event" description="OSGi Event Admin service specification for event-based communication" version="${dep.bsn.org.eclipse.equinox.event.version}">
-    <bundle start-level="5">mvn:${dep.bsn.org.eclipse.equinox.util.groupId}/${dep.bsn.org.eclipse.equinox.util.artifactId}/${dep.bsn.org.eclipse.equinox.util.version}</bundle>
-    <bundle start-level="5">mvn:${dep.org.osgi.compendium.split.groupId}/${dep.org.osgi.compendium.split.event.artifact}/${dep.org.osgi.compendium.split.version}</bundle>
-    <bundle start-level="5">mvn:${dep.bsn.org.eclipse.equinox.event.groupId}/${dep.bsn.org.eclipse.equinox.event.artifactId}/${dep.bsn.org.eclipse.equinox.event.version}</bundle>
-  </feature>
+  <!--
+    <feature name="equinox-event" description="OSGi Event Admin service specification for event-based communication" version="${dep.bsn.org.eclipse.equinox.event.version}">
+      <bundle start-level="5">mvn:${dep.bsn.org.eclipse.equinox.util.groupId}/${dep.bsn.org.eclipse.equinox.util.artifactId}/${dep.bsn.org.eclipse.equinox.util.version}</bundle>
+      <bundle start-level="5">mvn:${dep.org.osgi.compendium.split.groupId}/${dep.org.osgi.compendium.split.event.artifact}/${dep.org.osgi.compendium.split.version}</bundle>
+      <bundle start-level="5">mvn:${dep.bsn.org.eclipse.equinox.event.groupId}/${dep.bsn.org.eclipse.equinox.event.artifactId}/${dep.bsn.org.eclipse.equinox.event.version}</bundle>
+    </feature>
+  -->
 
-  <feature name="equinox-ds" description="Declarative Service support" version="${dep.bsn.org.eclipse.equinox.ds.version}">
-    <bundle start-level="30">mvn:${dep.bsn.org.eclipse.equinox.util.groupId}/${dep.bsn.org.eclipse.equinox.util.artifactId}/${dep.bsn.org.eclipse.equinox.util.version}</bundle>
-    <bundle start-level="30">mvn:${dep.org.osgi.compendium.split.groupId}/${dep.org.osgi.compendium.split.component.artifact}/${dep.org.osgi.compendium.split.version}</bundle>
-    <bundle start-level="30">mvn:${dep.bsn.org.eclipse.equinox.ds.groupId}/${dep.bsn.org.eclipse.equinox.ds.artifactId}/${dep.bsn.org.eclipse.equinox.ds.version}</bundle>
-    <capability>
-      osgi.extender;osgi.extender=&quot;osgi.component&quot;;uses:=&quot;org.osgi.service.component&quot;;version:Version=&quot;1.2.1&quot;
-    </capability>
-  </feature>
+  <!--
+    <feature name="equinox-ds" description="Declarative Service support" version="${dep.bsn.org.eclipse.equinox.ds.version}">
+      <bundle start-level="30">mvn:${dep.bsn.org.eclipse.equinox.util.groupId}/${dep.bsn.org.eclipse.equinox.util.artifactId}/${dep.bsn.org.eclipse.equinox.util.version}</bundle>
+      <bundle start-level="30">mvn:${dep.org.osgi.compendium.split.groupId}/${dep.org.osgi.compendium.split.component.artifact}/${dep.org.osgi.compendium.split.version}</bundle>
+      <bundle start-level="30">mvn:${dep.bsn.org.eclipse.equinox.ds.groupId}/${dep.bsn.org.eclipse.equinox.ds.artifactId}/${dep.bsn.org.eclipse.equinox.ds.version}</bundle>
+      <capability>
+        osgi.extender;osgi.extender=&quot;osgi.component&quot;;uses:=&quot;org.osgi.service.component&quot;;version:Version=&quot;1.2.1&quot;
+      </capability>
+    </feature>
+  -->
 
   <!-- for bundle specific stuff -->
 
