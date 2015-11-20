@@ -82,7 +82,7 @@
     <details>targetplatform non-ESH specific part to be splitted</details>
     <feature>scr</feature>
     <!-- use eventadmin by startup.properties now -->
-    <feature>pax-http-jetty</feature>
+    <feature>war</feature>
     <feature>shk-tp-jaxrs-min</feature>
     <feature>shk-jax-rs-provider-gson</feature>
     <bundle start-level="54">mvn:${dep.bsn.com.ibm.icu.groupId}/${dep.bsn.com.ibm.icu.artifactId}/${dep.bsn.com.ibm.icu.version}</bundle>
