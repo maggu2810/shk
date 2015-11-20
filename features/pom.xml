@@ -13,7 +13,6 @@
 
   <modules>
     <module>base</module>
-    <module>eventadmin</module>
   </modules>
 
 </project>

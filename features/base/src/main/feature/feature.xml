@@ -80,8 +80,8 @@
 
   <feature name="shk-tp-base" description="TargetPlatform Base" version="${project.version}">
     <details>targetplatform non-ESH specific part to be splitted</details>
+    <feature>eventadmin</feature>
     <feature>scr</feature>
-    <!-- use eventadmin by startup.properties now -->
     <feature>war</feature>
     <feature>shk-tp-jaxrs-min</feature>
     <feature>shk-jax-rs-provider-gson</feature>
