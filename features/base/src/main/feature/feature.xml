@@ -16,25 +16,18 @@
     <feature>shk-esh-console</feature>
   </feature>
 
+  <feature name="shk-tp-base" description="TargetPlatform Base" version="${project.version}">
+    <feature>eventadmin</feature>
+    <feature>scr</feature>
+    <feature>war</feature>
+    <feature>shk-tp-jaxrs-min</feature>
+    <feature>shk-jax-rs-provider-gson</feature>
+  </feature>
+
   <feature name="shk-esh-base" description="ESH" version="${project.version}">
     <details>ESH specific part</details>
     <feature>shk-tp-base</feature>
-    <!-- features that are necessary to get the ESH stuff satisfied, but no requirement for ourself -->
-    <feature>bsn-org.eclipse.emf.common</feature>
-    <feature>bsn-org.eclipse.emf.ecore</feature>
-    <feature>bsn-com.google.inject</feature>
-    <feature>bsn-org.eclipse.core.runtime</feature>
-    <feature>bsn-org.eclipse.xtext.common.types</feature>
-    <feature>bsn-org.eclipse.xtext.xbase.lib</feature>
-    <feature>bsn-org.eclipse.xtext.xbase</feature>
-    <!-- bundles that are necessary to get the ESH stuff satisfied, but no requirement for ourself -->
-    <bundle start-level="54">mvn:${dep.apache.commons.codec.groupId}/${dep.apache.commons.codec.artifactId}/${dep.apache.commons.codec.version}</bundle>
-    <bundle start-level="54">mvn:${dep.apache.commons.collections.groupId}/${dep.apache.commons.collections.artifactId}/${dep.apache.commons.collections.version}</bundle>
-    <bundle start-level="54">mvn:${dep.apache.commons.exec.groupId}/${dep.apache.commons.exec.artifactId}/${dep.apache.commons.exec.version}</bundle>
-    <bundle start-level="54">mvn:${dep.apache.commons.httpclient.groupId}/${dep.apache.commons.httpclient.artifactId}/${dep.apache.commons.httpclient.version}</bundle>
-    <bundle start-level="54">mvn:${dep.apache.commons.io.groupId}/${dep.apache.commons.io.artifactId}/${dep.apache.commons.io.version}</bundle>
-    <bundle start-level="54">mvn:${dep.apache.commons.lang.groupId}/${dep.apache.commons.lang.artifactId}/${dep.apache.commons.lang.version}</bundle>
-    <bundle start-level="54">mvn:${dep.apache.commons.net.groupId}/${dep.apache.commons.net.artifactId}/${dep.apache.commons.net.version}</bundle>
+    <feature dependency="true">shk-deps</feature>
     <!-- ESH bundles -->
     <bundle start-level="54">mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.core/${esh.version}</bundle>
     <bundle start-level="54">mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.discovery/${esh.version}</bundle>
@@ -88,15 +81,6 @@
     <!--<bundle start-level="50">mvn:de.maggu2810.playground/karaf-console-equinox/1.0.0</bundle>-->
   </feature>
 
-  <feature name="shk-tp-base" description="TargetPlatform Base" version="${project.version}">
-    <details>targetplatform non-ESH specific part to be splitted</details>
-    <feature>eventadmin</feature>
-    <feature>scr</feature>
-    <feature>war</feature>
-    <feature>shk-tp-jaxrs-min</feature>
-    <feature>shk-jax-rs-provider-gson</feature>
-  </feature>
-
   <feature name="shk-tp-jaxrs-min" version="5.2">
     <feature dependency="true">http</feature>
     <bundle dependency="true">mvn:com.eclipsesource.jaxrs/jersey-min/2.22.1</bundle>
@@ -107,6 +91,31 @@
     <feature dependency="true" version="5.2">shk-tp-jaxrs-min</feature>
     <bundle dependency="true">mvn:com.google.code.gson/gson/2.3.1</bundle>
     <bundle>mvn:com.eclipsesource.jaxrs/provider-gson/2.3</bundle>
+  </feature>
+
+  <feature name="shk-deps" version="${project.version}" description="Used to resolve dependencies only (see details).">
+    <details>
+      This is only used to provide optional dependencies to resolve features.
+      There is no intention that this feature is installed manually or to provide some function on its own.
+      Use this in other features with the dependency attribute set to true only.
+      All bundles and features that are part of this one have to set the depencency attribute to true.
+    </details>
+
+    <feature dependency="true">bsn-org.eclipse.emf.common</feature>
+    <feature dependency="true">bsn-org.eclipse.emf.ecore</feature>
+    <feature dependency="true">bsn-com.google.inject</feature>
+    <feature dependency="true">bsn-org.eclipse.core.runtime</feature>
+    <feature dependency="true">bsn-org.eclipse.xtext.common.types</feature>
+    <feature dependency="true">bsn-org.eclipse.xtext.xbase.lib</feature>
+    <feature dependency="true">bsn-org.eclipse.xtext.xbase</feature>
+
+    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.codec.groupId}/${dep.apache.commons.codec.artifactId}/${dep.apache.commons.codec.version}</bundle>
+    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.collections.groupId}/${dep.apache.commons.collections.artifactId}/${dep.apache.commons.collections.version}</bundle>
+    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.exec.groupId}/${dep.apache.commons.exec.artifactId}/${dep.apache.commons.exec.version}</bundle>
+    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.httpclient.groupId}/${dep.apache.commons.httpclient.artifactId}/${dep.apache.commons.httpclient.version}</bundle>
+    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.io.groupId}/${dep.apache.commons.io.artifactId}/${dep.apache.commons.io.version}</bundle>
+    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.lang.groupId}/${dep.apache.commons.lang.artifactId}/${dep.apache.commons.lang.version}</bundle>
+    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.net.groupId}/${dep.apache.commons.net.artifactId}/${dep.apache.commons.net.version}</bundle>
   </feature>
 
   <!-- for bundle specific stuff -->
