@@ -29,56 +29,56 @@
     <feature>shk-tp-base</feature>
     <feature dependency="true">shk-deps</feature>
     <!-- ESH bundles -->
-    <bundle start-level="54">mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.core/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.discovery/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.dispatch/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.xml/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.autoupdate/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.binding.xml/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.id/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.persistence/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.scheduler/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.thing/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.thing.xml/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.transform/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.monitor/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.multimedia/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.net/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.core/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.sitemap/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.sse/${esh.version}</bundle>
-    <bundle start-level="55">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.core/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item.runtime/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence.runtime/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule.runtime/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script.runtime/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap.runtime/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing/${esh.version}</bundle>
-    <bundle start-level="53">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing.runtime/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.exec/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.javascript/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.map/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.regex/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xpath/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xslt/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome/org.eclipse.smarthome.ui/${esh.version}</bundle>
-    <bundle start-level="54">mvn:org.eclipse.smarthome/org.eclipse.smarthome.ui.icon/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.core/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.discovery/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.dispatch/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.config/org.eclipse.smarthome.config.xml/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.autoupdate/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.binding.xml/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.id/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.persistence/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.scheduler/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.thing/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.thing.xml/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.transform/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.monitor/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.multimedia/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.net/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.core/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.sitemap/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.sse/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.core/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item.runtime/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence.runtime/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule.runtime/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script.runtime/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap.runtime/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing.runtime/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.exec/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.javascript/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.map/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.regex/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xpath/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xslt/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome/org.eclipse.smarthome.ui/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome/org.eclipse.smarthome.ui.icon/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-console" description="Karaf Console support for SmartHome stuff" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature>shell</feature>
-    <bundle start-level="54">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.karaf/${esh.version}</bundle>
-    <!--<bundle start-level="50">mvn:de.maggu2810.playground/karaf-console-equinox/1.0.0</bundle>-->
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.karaf/${esh.version}</bundle>
+    <!--<bundle>mvn:de.maggu2810.playground/karaf-console-equinox/1.0.0</bundle>-->
   </feature>
 
   <feature name="shk-tp-jaxrs-min" version="5.2">
@@ -109,84 +109,84 @@
     <feature dependency="true">bsn-org.eclipse.xtext.xbase.lib</feature>
     <feature dependency="true">bsn-org.eclipse.xtext.xbase</feature>
 
-    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.codec.groupId}/${dep.apache.commons.codec.artifactId}/${dep.apache.commons.codec.version}</bundle>
-    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.collections.groupId}/${dep.apache.commons.collections.artifactId}/${dep.apache.commons.collections.version}</bundle>
-    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.exec.groupId}/${dep.apache.commons.exec.artifactId}/${dep.apache.commons.exec.version}</bundle>
-    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.httpclient.groupId}/${dep.apache.commons.httpclient.artifactId}/${dep.apache.commons.httpclient.version}</bundle>
-    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.io.groupId}/${dep.apache.commons.io.artifactId}/${dep.apache.commons.io.version}</bundle>
-    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.lang.groupId}/${dep.apache.commons.lang.artifactId}/${dep.apache.commons.lang.version}</bundle>
-    <bundle start-level="54" dependency="true">mvn:${dep.apache.commons.net.groupId}/${dep.apache.commons.net.artifactId}/${dep.apache.commons.net.version}</bundle>
+    <bundle dependency="true">mvn:${dep.apache.commons.codec.groupId}/${dep.apache.commons.codec.artifactId}/${dep.apache.commons.codec.version}</bundle>
+    <bundle dependency="true">mvn:${dep.apache.commons.collections.groupId}/${dep.apache.commons.collections.artifactId}/${dep.apache.commons.collections.version}</bundle>
+    <bundle dependency="true">mvn:${dep.apache.commons.exec.groupId}/${dep.apache.commons.exec.artifactId}/${dep.apache.commons.exec.version}</bundle>
+    <bundle dependency="true">mvn:${dep.apache.commons.httpclient.groupId}/${dep.apache.commons.httpclient.artifactId}/${dep.apache.commons.httpclient.version}</bundle>
+    <bundle dependency="true">mvn:${dep.apache.commons.io.groupId}/${dep.apache.commons.io.artifactId}/${dep.apache.commons.io.version}</bundle>
+    <bundle dependency="true">mvn:${dep.apache.commons.lang.groupId}/${dep.apache.commons.lang.artifactId}/${dep.apache.commons.lang.version}</bundle>
+    <bundle dependency="true">mvn:${dep.apache.commons.net.groupId}/${dep.apache.commons.net.artifactId}/${dep.apache.commons.net.version}</bundle>
   </feature>
 
   <!-- for bundle specific stuff -->
 
   <feature name="bsn-com.google.guava" version="${dep.bsn.com.google.guava.version}">
-    <bundle start-level="54">mvn:${dep.bsn.com.google.guava.groupId}/${dep.bsn.com.google.guava.artifactId}/${dep.bsn.com.google.guava.version}</bundle>
+    <bundle>mvn:${dep.bsn.com.google.guava.groupId}/${dep.bsn.com.google.guava.artifactId}/${dep.bsn.com.google.guava.version}</bundle>
     <feature version="${dep.bsn.com.google.guava.version}">bsn-com.google.guava-rb</feature>
   </feature>
 
   <feature name="bsn-com.google.inject" version="${dep.bsn.com.google.inject.version}">
-    <bundle start-level="54">mvn:${dep.bsn.com.google.inject.groupId}/${dep.bsn.com.google.inject.artifactId}/${dep.bsn.com.google.inject.version}</bundle>
+    <bundle>mvn:${dep.bsn.com.google.inject.groupId}/${dep.bsn.com.google.inject.artifactId}/${dep.bsn.com.google.inject.version}</bundle>
     <feature version="${dep.bsn.com.google.inject.version}">bsn-com.google.inject-rb</feature>
   </feature>
 
   <feature name="bsn-org.antlr.runtime" version="${dep.bsn.org.antlr.runtime.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.antlr.runtime.groupId}/${dep.bsn.org.antlr.runtime.artifactId}/${dep.bsn.org.antlr.runtime.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.antlr.runtime.groupId}/${dep.bsn.org.antlr.runtime.artifactId}/${dep.bsn.org.antlr.runtime.version}</bundle>
     <feature version="${dep.bsn.org.antlr.runtime.version}">bsn-org.antlr.runtime-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.core.commands" version="${dep.bsn.org.eclipse.core.commands.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.commands.groupId}/${dep.bsn.org.eclipse.core.commands.artifactId}/${dep.bsn.org.eclipse.core.commands.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.core.commands.groupId}/${dep.bsn.org.eclipse.core.commands.artifactId}/${dep.bsn.org.eclipse.core.commands.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.core.commands.version}">bsn-org.eclipse.core.commands</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.core.contenttype" version="${dep.bsn.org.eclipse.core.contenttype.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.contenttype.groupId}/${dep.bsn.org.eclipse.core.contenttype.artifactId}/${dep.bsn.org.eclipse.core.contenttype.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.core.contenttype.groupId}/${dep.bsn.org.eclipse.core.contenttype.artifactId}/${dep.bsn.org.eclipse.core.contenttype.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.core.contenttype.version}">bsn-org.eclipse.core.contenttype-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.core.jobs" version="${dep.bsn.org.eclipse.core.jobs.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.jobs.groupId}/${dep.bsn.org.eclipse.core.jobs.artifactId}/${dep.bsn.org.eclipse.core.jobs.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.core.jobs.groupId}/${dep.bsn.org.eclipse.core.jobs.artifactId}/${dep.bsn.org.eclipse.core.jobs.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.core.jobs.version}">bsn-org.eclipse.core.jobs-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.core.runtime" version="${dep.bsn.org.eclipse.core.runtime.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.core.runtime.groupId}/${dep.bsn.org.eclipse.core.runtime.artifactId}/${dep.bsn.org.eclipse.core.runtime.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.core.runtime.groupId}/${dep.bsn.org.eclipse.core.runtime.artifactId}/${dep.bsn.org.eclipse.core.runtime.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.core.runtime.version}">bsn-org.eclipse.core.runtime-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.emf.common" version="${dep.bsn.org.eclipse.emf.common.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.common.groupId}/${dep.bsn.org.eclipse.emf.common.artifactId}/${dep.bsn.org.eclipse.emf.common.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.emf.common.groupId}/${dep.bsn.org.eclipse.emf.common.artifactId}/${dep.bsn.org.eclipse.emf.common.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.emf.common.version}">bsn-org.eclipse.emf.common-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.emf.ecore" version="${dep.bsn.org.eclipse.emf.ecore.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.ecore.groupId}/${dep.bsn.org.eclipse.emf.ecore.artifactId}/${dep.bsn.org.eclipse.emf.ecore.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.emf.ecore.groupId}/${dep.bsn.org.eclipse.emf.ecore.artifactId}/${dep.bsn.org.eclipse.emf.ecore.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.emf.ecore.version}">bsn-org.eclipse.emf.ecore-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.emf.ecore.xmi" version="${dep.bsn.org.eclipse.emf.ecore.xmi.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.emf.ecore.xmi.groupId}/${dep.bsn.org.eclipse.emf.ecore.xmi.artifactId}/${dep.bsn.org.eclipse.emf.ecore.xmi.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.emf.ecore.xmi.groupId}/${dep.bsn.org.eclipse.emf.ecore.xmi.artifactId}/${dep.bsn.org.eclipse.emf.ecore.xmi.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.emf.ecore.xmi.version}">bsn-org.eclipse.emf.ecore.xmi-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.equinox.app" version="${dep.bsn.org.eclipse.equinox.app.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.app.groupId}/${dep.bsn.org.eclipse.equinox.app.artifactId}/${dep.bsn.org.eclipse.equinox.app.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.equinox.app.groupId}/${dep.bsn.org.eclipse.equinox.app.artifactId}/${dep.bsn.org.eclipse.equinox.app.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.equinox.app.version}">bsn-org.eclipse.equinox.app-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.equinox.common" version="${dep.bsn.org.eclipse.equinox.common.version}">
-    <bundle start-level="51">mvn:${dep.bsn.org.eclipse.equinox.common.groupId}/${dep.bsn.org.eclipse.equinox.common.artifactId}/${dep.bsn.org.eclipse.equinox.common.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.equinox.common.groupId}/${dep.bsn.org.eclipse.equinox.common.artifactId}/${dep.bsn.org.eclipse.equinox.common.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.equinox.common.version}">bsn-org.eclipse.equinox.common-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.equinox.preferences" version="${dep.bsn.org.eclipse.equinox.preferences.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.equinox.preferences.groupId}/${dep.bsn.org.eclipse.equinox.preferences.artifactId}/${dep.bsn.org.eclipse.equinox.preferences.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.equinox.preferences.groupId}/${dep.bsn.org.eclipse.equinox.preferences.artifactId}/${dep.bsn.org.eclipse.equinox.preferences.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.equinox.preferences.version}">bsn-org.eclipse.equinox.preferences-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.equinox.registry" version="${dep.bsn.org.eclipse.equinox.registry.version}">
-    <bundle start-level="52">mvn:${dep.bsn.org.eclipse.equinox.registry.groupId}/${dep.bsn.org.eclipse.equinox.registry.artifactId}/${dep.bsn.org.eclipse.equinox.registry.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.equinox.registry.groupId}/${dep.bsn.org.eclipse.equinox.registry.artifactId}/${dep.bsn.org.eclipse.equinox.registry.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.equinox.registry.version}">bsn-org.eclipse.equinox.registry-rb</feature>
   </feature>
 
@@ -197,37 +197,37 @@
   </feature>
 
   <feature name="bsn-org.eclipse.xtend.lib" version="${dep.bsn.org.eclipse.xtend.lib.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtend.lib.groupId}/${dep.bsn.org.eclipse.xtend.lib.artifactId}/${dep.bsn.org.eclipse.xtend.lib.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.xtend.lib.groupId}/${dep.bsn.org.eclipse.xtend.lib.artifactId}/${dep.bsn.org.eclipse.xtend.lib.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.xtend.lib.version}">bsn-org.eclipse.xtend.lib-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.xtext" version="${dep.bsn.org.eclipse.xtext.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.groupId}/${dep.bsn.org.eclipse.xtext.artifactId}/${dep.bsn.org.eclipse.xtext.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.xtext.groupId}/${dep.bsn.org.eclipse.xtext.artifactId}/${dep.bsn.org.eclipse.xtext.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.xtext.version}">bsn-org.eclipse.xtext-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.xtext.common.types" version="${dep.bsn.org.eclipse.xtext.common.types.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.common.types.groupId}/${dep.bsn.org.eclipse.xtext.common.types.artifactId}/${dep.bsn.org.eclipse.xtext.common.types.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.xtext.common.types.groupId}/${dep.bsn.org.eclipse.xtext.common.types.artifactId}/${dep.bsn.org.eclipse.xtext.common.types.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.xtext.common.types.version}">bsn-org.eclipse.xtext.common.types-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.xtext.util" version="${dep.bsn.org.eclipse.xtext.util.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.util.groupId}/${dep.bsn.org.eclipse.xtext.util.artifactId}/${dep.bsn.org.eclipse.xtext.util.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.xtext.util.groupId}/${dep.bsn.org.eclipse.xtext.util.artifactId}/${dep.bsn.org.eclipse.xtext.util.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.xtext.util.version}">bsn-org.eclipse.xtext.util-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.xtext.xbase" version="${dep.bsn.org.eclipse.xtext.xbase.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.xbase.groupId}/${dep.bsn.org.eclipse.xtext.xbase.artifactId}/${dep.bsn.org.eclipse.xtext.xbase.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.xtext.xbase.groupId}/${dep.bsn.org.eclipse.xtext.xbase.artifactId}/${dep.bsn.org.eclipse.xtext.xbase.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.xtext.xbase.version}">bsn-org.eclipse.xtext.xbase-rb</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.xtext.xbase.lib" version="${dep.bsn.org.eclipse.xtext.xbase.lib.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.eclipse.xtext.xbase.lib.groupId}/${dep.bsn.org.eclipse.xtext.xbase.lib.artifactId}/${dep.bsn.org.eclipse.xtext.xbase.lib.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.eclipse.xtext.xbase.lib.groupId}/${dep.bsn.org.eclipse.xtext.xbase.lib.artifactId}/${dep.bsn.org.eclipse.xtext.xbase.lib.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.xtext.xbase.lib.version}">bsn-org.eclipse.xtext.xbase.lib-rb</feature>
   </feature>
 
   <feature name="bsn-org.objectweb.asm" version="${dep.bsn.org.objectweb.asm.version}">
-    <bundle start-level="54">mvn:${dep.bsn.org.objectweb.asm.groupId}/${dep.bsn.org.objectweb.asm.artifactId}/${dep.bsn.org.objectweb.asm.version}</bundle>
+    <bundle>mvn:${dep.bsn.org.objectweb.asm.groupId}/${dep.bsn.org.objectweb.asm.artifactId}/${dep.bsn.org.objectweb.asm.version}</bundle>
     <feature version="${dep.bsn.org.objectweb.asm.version}">bsn-org.objectweb.asm-rb</feature>
   </feature>
 
