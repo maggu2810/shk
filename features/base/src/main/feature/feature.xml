@@ -201,7 +201,7 @@
   <feature name="shk-esh-ui-classic" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
-    <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui.classic/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.extensions.ui/org.eclipse.smarthome.ui.classic/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-ui-paper" version="${esh.version}">
