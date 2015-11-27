@@ -90,11 +90,6 @@
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mdns/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mqtt/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.upnp/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item.ui/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence.ui/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule.ui/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script.ui/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing.ui/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.jsonpath/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.scale/${esh.version}</bundle>-->
