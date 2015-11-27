@@ -77,8 +77,8 @@
     <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.regex/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xpath/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xslt/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome/org.eclipse.smarthome.ui/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome/org.eclipse.smarthome.ui.icon/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui.icon/${esh.version}</bundle>
   </feature>
 
   <!-- All remaining (TODO: sort) Eclipse SmartHome bundles, create features for them -->
