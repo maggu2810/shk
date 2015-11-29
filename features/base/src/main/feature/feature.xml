@@ -93,7 +93,7 @@
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.jsonpath/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.scale/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.extensions.ui.iconset/org.eclipse.smarthome.ui.iconset.classic/${esh.version}</bundle>-->
+  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.extension.ui.iconset/org.eclipse.smarthome.ui.iconset.classic/${esh.version}</bundle>-->
 
   <feature name="shk-jax-rs-min" version="5.2">
     <feature dependency="true">http</feature>
@@ -189,19 +189,19 @@
   <feature name="shk-esh-ui-basic" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
-    <bundle>mvn:org.eclipse.smarthome.extensions.ui/org.eclipse.smarthome.ui.basic/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.basic/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-ui-classic" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
-    <bundle>mvn:org.eclipse.smarthome.extensions.ui/org.eclipse.smarthome.ui.classic/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.classic/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-ui-paper" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
-    <bundle>mvn:org.eclipse.smarthome.extensions.ui/org.eclipse.smarthome.ui.paper/${esh.version}</bundle>
+    <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.paper/${esh.version}</bundle>
   </feature>
 
   <!-- for bundle specific stuff -->
