@@ -132,7 +132,7 @@
     <feature dependency="true">bsn-org.eclipse.emf.common</feature>
     <feature dependency="true">bsn-org.eclipse.emf.ecore</feature>
     <feature dependency="true">bsn-com.google.inject</feature>
-    <feature dependency="true">bsn-org.eclipse.core.runtime</feature>
+    <feature dependency="true">bsn-org.eclipse.equinox.registry</feature>
     <feature dependency="true">bsn-org.eclipse.xtext.common.types</feature>
     <feature dependency="true">bsn-org.eclipse.xtext.xbase.lib</feature>
     <feature dependency="true">bsn-org.eclipse.xtext.xbase</feature>
@@ -287,14 +287,18 @@
   </feature>
 
   <feature name="bsn-org.eclipse.equinox.registry" version="${dep.bsn.org.eclipse.equinox.registry.version}">
+    <feature dependency="true">bsn-org.eclipse.equinox.supplement</feature>
     <bundle>mvn:${dep.bsn.org.eclipse.equinox.registry.groupId}/${dep.bsn.org.eclipse.equinox.registry.artifactId}/${dep.bsn.org.eclipse.equinox.registry.version}</bundle>
     <feature version="${dep.bsn.org.eclipse.equinox.registry.version}">bsn-org.eclipse.equinox.registry-rb</feature>
   </feature>
 
+  <feature name="bsn-org.eclipse.equinox.supplement" version="${dep.bsn.org.eclipse.equinox.supplement.version}">
+    <bundle>mvn:${dep.bsn.org.eclipse.equinox.supplement.groupId}/${dep.bsn.org.eclipse.equinox.supplement.artifactId}/${dep.bsn.org.eclipse.equinox.supplement.version}</bundle>
+    <feature version="${dep.bsn.org.eclipse.equinox.supplement.version}">bsn-org.eclipse.equinox.supplement-rb</feature>
+  </feature>
+
   <feature name="bsn-org.eclipse.osgi" version="${dep.bsn.org.eclipse.osgi.version}">
-    <!-- TODO -->
-    <!-- This is not done at all, just a workaround to get another bundle that supply org.eclipse.osgi stuff -->
-    <!--<bundle>mvn:${project.groupId}/shk-repackage-org.eclipse.osgi/${project.version}</bundle>-->
+    <feature dependency="true">bsn-org.eclipse.equinox.supplement</feature>
   </feature>
 
   <feature name="bsn-org.eclipse.xtend.lib" version="${dep.bsn.org.eclipse.xtend.lib.version}">
@@ -391,6 +395,10 @@
   </feature>
 
   <feature name="bsn-org.eclipse.equinox.registry-rb" version="3.5.400.v20140428-1507">
+    <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.common</feature>
+  </feature>
+
+  <feature name="bsn-org.eclipse.equinox.supplement-rb" version="1.5.100.v20140428-1446">
     <feature version="[3.2.0,4.0.0)">bsn-org.eclipse.equinox.common</feature>
   </feature>
 

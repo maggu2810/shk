@@ -110,6 +110,9 @@
     <dep.bsn.org.eclipse.equinox.registry.groupId>tmp.need.a.home</dep.bsn.org.eclipse.equinox.registry.groupId>
     <dep.bsn.org.eclipse.equinox.registry.artifactId>org.eclipse.equinox.registry</dep.bsn.org.eclipse.equinox.registry.artifactId>
     <dep.bsn.org.eclipse.equinox.registry.version>3.5.400.v20140428-1507</dep.bsn.org.eclipse.equinox.registry.version>
+    <dep.bsn.org.eclipse.equinox.supplement.groupId>tmp.need.a.home</dep.bsn.org.eclipse.equinox.supplement.groupId>
+    <dep.bsn.org.eclipse.equinox.supplement.artifactId>org.eclipse.equinox.supplement</dep.bsn.org.eclipse.equinox.supplement.artifactId>
+    <dep.bsn.org.eclipse.equinox.supplement.version>1.5.100.v20140428-1446</dep.bsn.org.eclipse.equinox.supplement.version>
     <dep.bsn.org.eclipse.osgi.version>3.10.2.v20150203-1939</dep.bsn.org.eclipse.osgi.version>
     <dep.bsn.org.eclipse.xtend.lib.groupId>tmp.need.a.home</dep.bsn.org.eclipse.xtend.lib.groupId>
     <dep.bsn.org.eclipse.xtend.lib.artifactId>org.eclipse.xtend.lib</dep.bsn.org.eclipse.xtend.lib.artifactId>
