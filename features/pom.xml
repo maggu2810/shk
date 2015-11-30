@@ -13,6 +13,7 @@
 
   <modules>
     <module>base</module>
+    <!--<module>base.verify</module>-->
   </modules>
 
 </project>
