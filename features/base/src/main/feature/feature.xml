@@ -170,12 +170,6 @@
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.yahooweather/${esh.version}</bundle>
   </feature>
 
-  <feature name="shk-esh-binding-yahooweather" version="${esh.version}">
-    <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
-    <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.yahooweather/${esh.version}</bundle>
-  </feature>
-
   <feature name="shk-esh-io-console-karaf" description="Karaf Console support for SmartHome stuff" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
