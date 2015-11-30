@@ -77,18 +77,6 @@
     <dep.bsn.org.antlr.runtime.artifactId>org.antlr.runtime</dep.bsn.org.antlr.runtime.artifactId>
     <dep.bsn.org.antlr.runtime.version>3.2.0.v201101311130</dep.bsn.org.antlr.runtime.version>
 
-    <dep.bsn.org.eclipse.core.commands.groupId>tmp.need.a.home</dep.bsn.org.eclipse.core.commands.groupId>
-    <dep.bsn.org.eclipse.core.commands.artifactId>org.eclipse.core.commands</dep.bsn.org.eclipse.core.commands.artifactId>
-    <dep.bsn.org.eclipse.core.commands.version>3.6.100.v20140528-1422</dep.bsn.org.eclipse.core.commands.version>
-    <dep.bsn.org.eclipse.core.contenttype.groupId>tmp.need.a.home</dep.bsn.org.eclipse.core.contenttype.groupId>
-    <dep.bsn.org.eclipse.core.contenttype.artifactId>org.eclipse.core.contenttype</dep.bsn.org.eclipse.core.contenttype.artifactId>
-    <dep.bsn.org.eclipse.core.contenttype.version>3.4.200.v20140207-1251</dep.bsn.org.eclipse.core.contenttype.version>
-    <dep.bsn.org.eclipse.core.jobs.groupId>tmp.need.a.home</dep.bsn.org.eclipse.core.jobs.groupId>
-    <dep.bsn.org.eclipse.core.jobs.artifactId>org.eclipse.core.jobs</dep.bsn.org.eclipse.core.jobs.artifactId>
-    <dep.bsn.org.eclipse.core.jobs.version>3.6.1.v20141014-1248</dep.bsn.org.eclipse.core.jobs.version>
-    <dep.bsn.org.eclipse.core.runtime.groupId>tmp.need.a.home</dep.bsn.org.eclipse.core.runtime.groupId>
-    <dep.bsn.org.eclipse.core.runtime.artifactId>org.eclipse.core.runtime</dep.bsn.org.eclipse.core.runtime.artifactId>
-    <dep.bsn.org.eclipse.core.runtime.version>3.10.0.v20140318-2214</dep.bsn.org.eclipse.core.runtime.version>
     <dep.bsn.org.eclipse.emf.common.groupId>tmp.need.a.home</dep.bsn.org.eclipse.emf.common.groupId>
     <dep.bsn.org.eclipse.emf.common.artifactId>org.eclipse.emf.common</dep.bsn.org.eclipse.emf.common.artifactId>
     <dep.bsn.org.eclipse.emf.common.version>2.10.1.v20150123-0348</dep.bsn.org.eclipse.emf.common.version>
@@ -98,22 +86,15 @@
     <dep.bsn.org.eclipse.emf.ecore.xmi.groupId>tmp.need.a.home</dep.bsn.org.eclipse.emf.ecore.xmi.groupId>
     <dep.bsn.org.eclipse.emf.ecore.xmi.artifactId>org.eclipse.emf.ecore.xmi</dep.bsn.org.eclipse.emf.ecore.xmi.artifactId>
     <dep.bsn.org.eclipse.emf.ecore.xmi.version>2.10.2.v20150123-0348</dep.bsn.org.eclipse.emf.ecore.xmi.version>
-    <dep.bsn.org.eclipse.equinox.app.groupId>tmp.need.a.home</dep.bsn.org.eclipse.equinox.app.groupId>
-    <dep.bsn.org.eclipse.equinox.app.artifactId>org.eclipse.equinox.app</dep.bsn.org.eclipse.equinox.app.artifactId>
-    <dep.bsn.org.eclipse.equinox.app.version>1.3.200.v20130910-1609</dep.bsn.org.eclipse.equinox.app.version>
     <dep.bsn.org.eclipse.equinox.common.groupId>tmp.need.a.home</dep.bsn.org.eclipse.equinox.common.groupId>
     <dep.bsn.org.eclipse.equinox.common.artifactId>org.eclipse.equinox.common</dep.bsn.org.eclipse.equinox.common.artifactId>
     <dep.bsn.org.eclipse.equinox.common.version>3.6.200.v20130402-1505</dep.bsn.org.eclipse.equinox.common.version>
-    <dep.bsn.org.eclipse.equinox.preferences.groupId>tmp.need.a.home</dep.bsn.org.eclipse.equinox.preferences.groupId>
-    <dep.bsn.org.eclipse.equinox.preferences.artifactId>org.eclipse.equinox.preferences</dep.bsn.org.eclipse.equinox.preferences.artifactId>
-    <dep.bsn.org.eclipse.equinox.preferences.version>3.5.200.v20140224-1527</dep.bsn.org.eclipse.equinox.preferences.version>
     <dep.bsn.org.eclipse.equinox.registry.groupId>tmp.need.a.home</dep.bsn.org.eclipse.equinox.registry.groupId>
     <dep.bsn.org.eclipse.equinox.registry.artifactId>org.eclipse.equinox.registry</dep.bsn.org.eclipse.equinox.registry.artifactId>
     <dep.bsn.org.eclipse.equinox.registry.version>3.5.400.v20140428-1507</dep.bsn.org.eclipse.equinox.registry.version>
     <dep.bsn.org.eclipse.equinox.supplement.groupId>tmp.need.a.home</dep.bsn.org.eclipse.equinox.supplement.groupId>
     <dep.bsn.org.eclipse.equinox.supplement.artifactId>org.eclipse.equinox.supplement</dep.bsn.org.eclipse.equinox.supplement.artifactId>
     <dep.bsn.org.eclipse.equinox.supplement.version>1.5.100.v20140428-1446</dep.bsn.org.eclipse.equinox.supplement.version>
-    <dep.bsn.org.eclipse.osgi.version>3.10.2.v20150203-1939</dep.bsn.org.eclipse.osgi.version>
     <dep.bsn.org.eclipse.xtend.lib.groupId>tmp.need.a.home</dep.bsn.org.eclipse.xtend.lib.groupId>
     <dep.bsn.org.eclipse.xtend.lib.artifactId>org.eclipse.xtend.lib</dep.bsn.org.eclipse.xtend.lib.artifactId>
     <dep.bsn.org.eclipse.xtend.lib.version>2.6.2.v201407030533</dep.bsn.org.eclipse.xtend.lib.version>
