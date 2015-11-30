@@ -87,9 +87,6 @@
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.extension.sample/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.eclipse/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.rfc147/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mdns/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mqtt/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.upnp/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.jsonpath/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.scale/${esh.version}</bundle>-->
@@ -184,6 +181,24 @@
     <feature dependency="true">shk-deps</feature>
     <feature>shell</feature>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.karaf/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-io-transport-mdns" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-deps</feature>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mdns/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-io-transport-mqtt" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-deps</feature>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mqtt/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-io-transport-upnp" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-deps</feature>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.upnp/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-ui-basic" version="${esh.version}">
