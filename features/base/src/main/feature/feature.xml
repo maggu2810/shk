@@ -92,18 +92,6 @@
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.scale/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.extension.ui.iconset/org.eclipse.smarthome.ui.iconset.classic/${esh.version}</bundle>-->
 
-  <feature name="shk-jax-rs-min" version="5.2">
-    <feature dependency="true">http</feature>
-    <bundle dependency="true">mvn:com.eclipsesource.jaxrs/jersey-min/2.22.1</bundle>
-    <bundle>mvn:com.eclipsesource.jaxrs/publisher/5.2</bundle>
-  </feature>
-
-  <feature name="shk-jax-rs-provider-gson" version="2.3">
-    <feature dependency="true" version="5.2">shk-jax-rs-min</feature>
-    <bundle dependency="true">mvn:com.google.code.gson/gson/2.3.1</bundle>
-    <bundle>mvn:com.eclipsesource.jaxrs/provider-gson/2.3</bundle>
-  </feature>
-
   <feature name="shk-deps" version="${project.version}" description="Used to resolve dependencies only (see details).">
     <details>
       This is only used to provide optional dependencies to resolve features.
@@ -143,6 +131,7 @@
   <feature name="shk-esh-binding-hue" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
+    <feature>shk-esh-io-transport-upnp</feature>
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.hue/${esh.version}</bundle>
   </feature>
 
@@ -180,18 +169,21 @@
   <feature name="shk-esh-io-transport-mdns" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
+    <feature>shk-jmdns</feature>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mdns/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-io-transport-mqtt" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
+    <feature>shk-paho</feature>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mqtt/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-io-transport-upnp" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
+    <feature>shk-jupnp</feature>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.upnp/${esh.version}</bundle>
   </feature>
 
@@ -211,6 +203,35 @@
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
     <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.paper/${esh.version}</bundle>
+  </feature>
+
+  <!-- other features -->
+
+  <feature name="shk-jax-rs-min" version="5.2">
+    <feature dependency="true">http</feature>
+    <bundle dependency="true">mvn:com.eclipsesource.jaxrs/jersey-min/2.22.1</bundle>
+    <bundle>mvn:com.eclipsesource.jaxrs/publisher/5.2</bundle>
+  </feature>
+
+  <feature name="shk-jax-rs-provider-gson" version="2.3">
+    <feature dependency="true" version="5.2">shk-jax-rs-min</feature>
+    <bundle dependency="true">mvn:com.google.code.gson/gson/2.3.1</bundle>
+    <bundle>mvn:com.eclipsesource.jaxrs/provider-gson/2.3</bundle>
+  </feature>
+
+  <feature name="shk-jmdns" version="${dep.jmdns.version}">
+    <bundle>mvn:org.openhab.jmdns/jmdns/${dep.jmdns.version}</bundle>
+  </feature>
+
+  <feature name="shk-jupnp" version="${dep.jupnp.version}">
+    <feature dependency="true">http</feature>
+    <bundle>mvn:${dep.apache.httpcomponents.httpcore.groupId}/${dep.apache.httpcomponents.httpcore.artifactId}/${dep.apache.httpcomponents.httpcore.version}</bundle>
+    <bundle>mvn:${dep.apache.httpcomponents.httpclient.groupId}/${dep.apache.httpcomponents.httpclient.artifactId}/${dep.apache.httpcomponents.httpclient.version}</bundle>
+    <bundle>mvn:org.jupnp/org.jupnp/${dep.jupnp.version}</bundle>
+  </feature>
+
+  <feature name="shk-paho" version="${dep.paho.version}">
+    <bundle>mvn:org.eclipse.paho/org.eclipse.paho.client.mqttv3/${dep.paho.version}</bundle>
   </feature>
 
   <!-- for bundle specific stuff -->
