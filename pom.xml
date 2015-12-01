@@ -65,12 +65,10 @@
     <dep.apache.commons.net.groupId>commons-net</dep.apache.commons.net.groupId>
     <dep.apache.commons.net.artifactId>commons-net</dep.apache.commons.net.artifactId>
     <dep.apache.commons.net.version>3.2</dep.apache.commons.net.version>
-    <dep.apache.httpcomponents.httpcore.groupId>org.apache.httpcomponents</dep.apache.httpcomponents.httpcore.groupId>
+    <dep.apache.httpcomponents.groupId>org.apache.httpcomponents</dep.apache.httpcomponents.groupId>
     <dep.apache.httpcomponents.httpcore.artifactId>httpcore-osgi</dep.apache.httpcomponents.httpcore.artifactId>
-    <dep.apache.httpcomponents.httpcore.version>4.2.3</dep.apache.httpcomponents.httpcore.version>
-    <dep.apache.httpcomponents.httpclient.groupId>org.apache.httpcomponents</dep.apache.httpcomponents.httpclient.groupId>
     <dep.apache.httpcomponents.httpclient.artifactId>httpclient-osgi</dep.apache.httpcomponents.httpclient.artifactId>
-    <dep.apache.httpcomponents.httpclient.version>4.2.3</dep.apache.httpcomponents.httpclient.version>
+    <dep.apache.httpcomponents.version>4.2.3</dep.apache.httpcomponents.version>
 
     <dep.jmdns.version>3.4.2</dep.jmdns.version>
     <dep.jupnp.version>2.0.0</dep.jupnp.version>

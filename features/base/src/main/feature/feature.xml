@@ -207,6 +207,11 @@
 
   <!-- other features -->
 
+  <feature name="shk-apache-httpclient" version="${dep.apache.httpcomponents.version}">
+    <bundle>mvn:${dep.apache.httpcomponents.groupId}/${dep.apache.httpcomponents.httpcore.artifactId}/${dep.apache.httpcomponents.version}</bundle>
+    <bundle>mvn:${dep.apache.httpcomponents.groupId}/${dep.apache.httpcomponents.httpclient.artifactId}/${dep.apache.httpcomponents.version}</bundle>
+  </feature>
+
   <feature name="shk-jax-rs-min" version="5.2">
     <feature dependency="true">http</feature>
     <bundle dependency="true">mvn:com.eclipsesource.jaxrs/jersey-min/2.22.1</bundle>
@@ -225,8 +230,7 @@
 
   <feature name="shk-jupnp" version="${dep.jupnp.version}">
     <feature dependency="true">http</feature>
-    <bundle>mvn:${dep.apache.httpcomponents.httpcore.groupId}/${dep.apache.httpcomponents.httpcore.artifactId}/${dep.apache.httpcomponents.httpcore.version}</bundle>
-    <bundle>mvn:${dep.apache.httpcomponents.httpclient.groupId}/${dep.apache.httpcomponents.httpclient.artifactId}/${dep.apache.httpcomponents.httpclient.version}</bundle>
+    <feature>shk-apache-httpclient</feature>
     <bundle>mvn:org.jupnp/org.jupnp/${dep.jupnp.version}</bundle>
   </feature>
 
