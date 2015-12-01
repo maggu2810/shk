@@ -35,6 +35,14 @@
       <classifier>features</classifier>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.openhab.features</groupId>
+      <artifactId>org.openhab.feature.addons</artifactId>
+      <version>${oh2.version}</version>
+      <type>xml</type>
+      <classifier>features</classifier>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -55,6 +63,7 @@
                 <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
                 <descriptor>mvn:${project.groupId}/shk-feature-base/${project.version}/xml/features</descriptor>
                 <descriptor>mvn:${project.groupId}/shk-feature-oh2-base/${project.version}/xml/features</descriptor>
+                <descriptor>mvn:org.openhab.features/org.openhab.feature.addons/${oh2.version}/xml/features</descriptor>
               </descriptors>
               <distribution>org.apache.karaf.features:framework</distribution>
               <javase>1.8</javase>
