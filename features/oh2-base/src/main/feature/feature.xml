@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <feature name="openhab-runtime-base" description="openHAB Runtime (OH)" version="${oh2.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.openhab.bundles.core/org.openhab.core/${oh2.version}</bundle>
+    <bundle>mvn:org.openhab.bundles.core/org.openhab.core.karaf/${oh2.version}</bundle>
+  </feature>
+
+  <feature name="openhab-misc-compat1x" description="Compatibility runtime for openHAB 1 addons" version="${oh2.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.openhab.bundles.core/org.openhab.core.compat1x/${oh2.version}</bundle>
+  </feature>
+
+  <feature name="openhab-misc-restdocs" description="REST Documentation" version="${oh2.version}">
+    <feature>shk-esh-base</feature>
+    <feature>openhab-ui-dashboard</feature>
+    <bundle>mvn:org.openhab.bundles.io/org.openhab.io.rest.docs/${oh2.version}</bundle>
+  </feature>
+
+  <feature name="openhab-ui-dashboard" description="Dashboard" version="${oh2.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.openhab.bundles.ui/org.openhab.ui.dashboard/${oh2.version}</bundle>
+  </feature>
+
+</features>

@@ -13,7 +13,8 @@
 
   <modules>
     <module>base</module>
-    <module>base.verify</module>
+    <module>oh2-base</module>
+    <module>verify</module>
   </modules>
 
 </project>
