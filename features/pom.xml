@@ -13,7 +13,6 @@
 
   <modules>
     <module>base</module>
-    <module>oh2-base</module>
     <module>verify</module>
   </modules>
 
