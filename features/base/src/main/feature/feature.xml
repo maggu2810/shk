@@ -219,7 +219,7 @@
   </feature>
 
   <feature name="shk-jax-rs-provider-gson" version="2.3">
-    <feature dependency="true" version="5.2">shk-jax-rs-min</feature>
+    <feature dependency="true" version="[5.2,5.3)">shk-jax-rs-min</feature>
     <bundle dependency="true">mvn:com.google.code.gson/gson/2.3.1</bundle>
     <bundle>mvn:com.eclipsesource.jaxrs/provider-gson/2.3</bundle>
   </feature>
