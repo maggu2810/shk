@@ -40,9 +40,6 @@
     <karaf.version>4.0.3</karaf.version>
 
     <esh.version>0.8.0-SNAPSHOT</esh.version>
-    <oh2.version>2.0.0-SNAPSHOT</oh2.version>
-
-    <!-- currently used -->
 
     <dep.apache.commons.codec.groupId>commons-codec</dep.apache.commons.codec.groupId>
     <dep.apache.commons.codec.artifactId>commons-codec</dep.apache.commons.codec.artifactId>
