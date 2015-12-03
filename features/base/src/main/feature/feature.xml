@@ -226,7 +226,7 @@
 
   <feature name="shk-jax-rs-provider-swagger" version="1.0.0-SNAPSHOT">
     <feature dependency="true" version="[5.2,5.3)">shk-jax-rs-min</feature>
-    <bundle>mvn:com.eclipsesource.jaxrs/swagger-all/1.5.4</bundle>
+    <bundle>mvn:de.maggu2810.playground.com.eclipsesource.jaxrs/swagger-all/1.5.4.sp1</bundle>
     <bundle>mvn:com.eclipsesource/com.eclipsesource.jaxrs.provider.swagger/1.0.0-SNAPSHOT</bundle>
   </feature>
 
