@@ -54,6 +54,7 @@
               </framework>
               <features>
                 <feature>shk-esh-*</feature>
+                <feature>shk-jax-*</feature>
               </features>
               <verifyTransitive>false</verifyTransitive>
               <ignoreMissingConditions>true</ignoreMissingConditions>
