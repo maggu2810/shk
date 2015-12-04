@@ -147,6 +147,13 @@
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.ntp/${esh.version}</bundle>
   </feature>
 
+  <feature name="shk-esh-binding-sonos" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-deps</feature>
+    <feature>shk-esh-io-transport-upnp</feature>
+    <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.sonos/${esh.version}</bundle>
+  </feature>
+
   <feature name="shk-esh-binding-wemo" version="${esh.version}">
     <feature>shk-esh-base</feature>
     <feature dependency="true">shk-deps</feature>
