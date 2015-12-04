@@ -126,7 +126,7 @@
   </properties>
 
   <modules>
-    <module>distributions</module>
+    <!--<module>distributions</module>-->
     <module>features</module>
   </modules>
 
