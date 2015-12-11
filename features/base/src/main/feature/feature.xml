@@ -118,9 +118,9 @@
       All bundles and features that are part of this one have to set the depencency attribute to true.
     </details>
 
-    <bundle dependency="true">mvn:tmp.need.a.home/org.eclipse.equinox.common/3.6.200.v20130402-1505</bundle>
-    <bundle dependency="true">mvn:tmp.need.a.home/org.eclipse.equinox.registry/3.5.400.v20140428-1507</bundle>
-    <bundle dependency="true">mvn:tmp.need.a.home/org.eclipse.equinox.supplement/1.5.100.v20140428-1446</bundle>
+    <bundle dependency="true">mvn:org.eclipse.scout.sdk.deps/org.eclipse.equinox.common/3.7.0.v20150402-1709</bundle>
+    <bundle dependency="true">mvn:org.eclipse.scout.sdk.deps/org.eclipse.equinox.registry/3.6.0.v20150318-1503</bundle>
+    <bundle dependency="true">mvn:tmp.need.a.home/org.eclipse.equinox.supplement/1.6.0.v20141009-1504</bundle>
 
     <bundle dependency="true">mvn:p2.osgi.bundle/com.google.guava/10.0.1.v201203051515</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/com.google.inject/3.0.0.v201312141243</bundle>
