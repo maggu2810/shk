@@ -135,7 +135,7 @@
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.common.types/2.8.4.v201508050135</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.smap/2.8.4.v201508050135</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.util/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.xbase/2.8.4.v201508050135</bundle>
+    <bundle dependency="true">mvn:tmp.need.a.home/org.eclipse.xtext.xbase/2.8.4.v201508050135</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.xbase.lib/2.8.4.v201508050135</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.objectweb.asm/5.0.1.v201404251740</bundle>
   </feature>
