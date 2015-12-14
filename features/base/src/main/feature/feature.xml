@@ -110,7 +110,7 @@
     <bundle dependency="true">mvn:${dep.apache.commons.net.groupId}/${dep.apache.commons.net.artifactId}/${dep.apache.commons.net.version}</bundle>
   </feature>
 
-  <feature name="shk-deps-xtext" version="${project.version}" description="Used to resolve Xtext dependencies only (see details).">
+  <feature name="shk-deps-xtext" version="${esh.version}" description="Used to resolve Xtext dependencies only (see details).">
     <details>
       This is only used to provide optional dependencies to resolve features that needs Xtext or related stuff.
       There is no intention that this feature is installed manually or to provide some function on its own.
@@ -118,14 +118,47 @@
       All bundles and features that are part of this one have to set the depencency attribute to true.
     </details>
 
+    <!-- All bundles defined here are used by ALL our Xtext bundles -->
     <bundle dependency="true">mvn:org.eclipse.scout.sdk.deps/org.eclipse.equinox.common/3.7.0.v20150402-1709</bundle>
     <bundle dependency="true">mvn:org.eclipse.scout.sdk.deps/org.eclipse.equinox.registry/3.6.0.v20150318-1503</bundle>
     <bundle dependency="true">mvn:tmp.need.a.home/org.eclipse.equinox.supplement/1.6.0.v20141009-1504</bundle>
-
     <bundle dependency="true">mvn:p2.osgi.bundle/com.google.guava/10.0.1.v201203051515</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/com.google.inject/3.0.0.v201312141243</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/com.ibm.icu/52.1.0.v201404241930</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.antlr.runtime/3.2.0.v201101311130</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.objectweb.asm/5.0.1.v201404251740</bundle>
+
+    <!-- Choose one Xtext version that should be used. -->
+    <feature version="[2.6.2,2.6.3)" dependency="true">shk-deps-xtext-special</feature>
+    <!--<feature version="[2.8.4,2.8.5)" dependency="true">shk-deps-xtext-special</feature>-->
+  </feature>
+
+  <feature name="shk-deps-xtext-special" version="2.6.2" description="Used to resolve Xtext dependencies only (see details).">
+    <details>
+      This is only used to provide optional dependencies to resolve features that needs Xtext or related stuff.
+      There is no intention that this feature is installed manually or to provide some function on its own.
+      Use this in other features with the dependency attribute set to true only.
+      All bundles and features that are part of this one have to set the depencency attribute to true.
+    </details>
+
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.common/2.10.1.v20150123-0348</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.ecore/2.10.2.v20150123-0348</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.ecore.xmi/2.10.2.v20150123-0348</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtend.lib/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.common.types/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.util/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.xbase/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.xbase.lib/2.6.2.v201407030533</bundle>
+  </feature>
+
+  <feature name="shk-deps-xtext-special" version="2.8.4" description="Used to resolve Xtext dependencies only (see details).">
+    <details>
+      This is only used to provide optional dependencies to resolve features that needs Xtext or related stuff.
+      There is no intention that this feature is installed manually or to provide some function on its own.
+      Use this in other features with the dependency attribute set to true only.
+      All bundles and features that are part of this one have to set the depencency attribute to true.
+    </details>
+
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.common/2.11.0.v20150512-0501</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.ecore/2.11.0.v20150512-0501</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.ecore.xmi/2.11.0.v20150512-0501</bundle>
@@ -133,11 +166,10 @@
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtend.lib.macro/2.8.4.v201508050135</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext/2.8.4.v201508050135</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.common.types/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.smap/2.8.4.v201508050135</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.util/2.8.4.v201508050135</bundle>
+    <!-- Need a patched version. See: https://bugs.eclipse.org/bugs/show_bug.cgi?id=484222 -->
     <bundle dependency="true">mvn:tmp.need.a.home/org.eclipse.xtext.xbase/2.8.4.v201508050135</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.xbase.lib/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.objectweb.asm/5.0.1.v201404251740</bundle>
   </feature>
 
   <!-- ESH bundles -->
