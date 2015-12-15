@@ -129,7 +129,6 @@
 
     <!-- Choose one Xtext version that should be used. -->
     <feature version="[2.6.2,2.6.3)" dependency="true">shk-deps-xtext-special</feature>
-    <!--<feature version="[2.8.4,2.8.5)" dependency="true">shk-deps-xtext-special</feature>-->
   </feature>
 
   <feature name="shk-deps-xtext-special" version="2.6.2" description="Used to resolve Xtext dependencies only (see details).">
@@ -150,27 +149,6 @@
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.xbase/2.6.2.v201407030533</bundle>
     <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.xbase.lib/2.6.2.v201407030533</bundle>
   </feature>
-
-    <!-- Need a patched version of xtext.xbase. See: https://bugs.eclipse.org/bugs/show_bug.cgi?id=484222 -->
-<!--  <feature name="shk-deps-xtext-special" version="2.8.4" description="Used to resolve Xtext dependencies only (see details).">
-    <details>
-      This is only used to provide optional dependencies to resolve features that needs Xtext or related stuff.
-      There is no intention that this feature is installed manually or to provide some function on its own.
-      Use this in other features with the dependency attribute set to true only.
-      All bundles and features that are part of this one have to set the depencency attribute to true.
-    </details>
-
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.common/2.11.0.v20150512-0501</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.ecore/2.11.0.v20150512-0501</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.emf.ecore.xmi/2.11.0.v20150512-0501</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtend.lib/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtend.lib.macro/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.common.types/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.util/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:tmp.need.a.home/org.eclipse.xtext.xbase/2.8.4.v201508050135</bundle>
-    <bundle dependency="true">mvn:p2.osgi.bundle/org.eclipse.xtext.xbase.lib/2.8.4.v201508050135</bundle>
-  </feature>-->
 
   <!-- ESH bundles -->
 
