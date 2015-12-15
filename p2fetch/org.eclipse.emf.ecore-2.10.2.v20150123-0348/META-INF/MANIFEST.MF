@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-SymbolicName: shk-p2fetch-org.eclipse.emf.ecore-2.10.2.v20150123-0348
-Bundle-Version: 1.0.3.qualifier
-Require-Bundle: org.eclipse.emf.ecore;bundle-version="[2.10.2.v20150123-0348,2.10.2.v20150123-0348]"

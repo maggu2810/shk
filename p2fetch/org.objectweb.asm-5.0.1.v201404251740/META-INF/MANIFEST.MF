@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-SymbolicName: shk-p2fetch-org.objectweb.asm-5.0.1.v201404251740
-Bundle-Version: 1.0.3.qualifier
-Require-Bundle: org.objectweb.asm;bundle-version="[5.0.1.v201404251740,5.0.1.v201404251740]"

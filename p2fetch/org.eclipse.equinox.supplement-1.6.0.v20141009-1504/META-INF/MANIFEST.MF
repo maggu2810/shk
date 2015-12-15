@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-SymbolicName: shk-p2fetch-org.eclipse.equinox.supplement-1.6.0.v20141009-1504
-Bundle-Version: 1.0.3.qualifier
-Require-Bundle: org.eclipse.equinox.supplement;bundle-version="[1.6.0.v20141009-1504,1.6.0.v20141009-1504]"

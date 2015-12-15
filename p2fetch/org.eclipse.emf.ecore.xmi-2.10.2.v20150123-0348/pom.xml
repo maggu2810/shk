@@ -4,20 +4,30 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.playground.shk</groupId>
+    <groupId>de.maggu2810.playground.shk.p2fetch</groupId>
     <artifactId>shk-p2fetch</artifactId>
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>shk-p2fetch-org.eclipse.emf.ecore.xmi-2.10.2.v20150123-0348</artifactId>
-  <packaging>eclipse-plugin</packaging>
+  <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+  <version>2.10.2.v20150123-0348</version>
+  <packaging>pom</packaging>
 
-  <repositories>
-    <repository>
-      <id>eclipse-luna-201502271000</id>
-      <url>http://download.eclipse.org/releases/luna/201502271000</url>
-      <layout>p2</layout>
-    </repository>
-  </repositories>
+  <properties>
+    <p2repo>http://download.eclipse.org/releases/luna/201502271000</p2repo>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>download-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

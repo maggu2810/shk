@@ -4,20 +4,30 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.playground.shk</groupId>
+    <groupId>de.maggu2810.playground.shk.p2fetch</groupId>
     <artifactId>shk-p2fetch</artifactId>
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>shk-p2fetch-org.antlr.runtime-3.2.0.v201101311130</artifactId>
-  <packaging>eclipse-plugin</packaging>
+  <artifactId>org.antlr.runtime</artifactId>
+  <version>3.2.0.v201101311130</version>
+  <packaging>pom</packaging>
 
-  <repositories>
-    <repository>
-      <id>eclipse-orbit-drops-R20140525021250</id>
-      <url>http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/</url>
-      <layout>p2</layout>
-    </repository>
-  </repositories>
+  <properties>
+    <p2repo>http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository</p2repo>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>download-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
