@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: shk-p2fetch-org.antlr.runtime-3.2.0.v201101311130
+Bundle-Version: 1.0.3.qualifier
+Require-Bundle: org.antlr.runtime;bundle-version="[3.2.0.v201101311130,3.2.0.v201101311130]"

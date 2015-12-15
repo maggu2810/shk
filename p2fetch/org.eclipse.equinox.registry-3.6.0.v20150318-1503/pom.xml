@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001 XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.playground.shk</groupId>
+    <artifactId>shk-p2fetch</artifactId>
+    <version>1.0.3-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>shk-p2fetch-org.eclipse.equinox.registry-3.6.0.v20150318-1503</artifactId>
+  <packaging>eclipse-plugin</packaging>
+
+  <repositories>
+    <repository>
+      <id>eclipse-mars-201506241002</id>
+      <url>http://download.eclipse.org/releases/mars/201506241002</url>
+      <layout>p2</layout>
+    </repository>
+  </repositories>
+
+</project>

@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: shk-p2fetch-org.eclipse.emf.common-2.10.1.v20150123-0348
+Bundle-Version: 1.0.3.qualifier
+Require-Bundle: org.eclipse.emf.common;bundle-version="[2.10.1.v20150123-0348,2.10.1.v20150123-0348]"

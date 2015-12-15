@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001 XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.playground.shk</groupId>
+    <artifactId>shk</artifactId>
+    <version>1.0.3-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>shk-p2fetch</artifactId>
+  <packaging>pom</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <modules>
+    <module>com.google.guava-10.0.1.v201203051515</module>
+    <module>com.google.inject-3.0.0.v201312141243</module>
+    <module>org.antlr.runtime-3.2.0.v201101311130</module>
+    <module>org.eclipse.emf.common-2.10.1.v20150123-0348</module>
+    <module>org.eclipse.emf.ecore-2.10.2.v20150123-0348</module>
+    <module>org.eclipse.emf.ecore.xmi-2.10.2.v20150123-0348</module>
+    <module>org.eclipse.equinox.common-3.7.0.v20150402-1709</module>
+    <module>org.eclipse.equinox.registry-3.6.0.v20150318-1503</module>
+    <module>org.eclipse.equinox.supplement-1.6.0.v20141009-1504</module>
+    <module>org.eclipse.xtend.lib-2.6.2.v201407030533</module>
+    <module>org.eclipse.xtext-2.6.2.v201407030533</module>
+    <module>org.eclipse.xtext.common.types-2.6.2.v201407030533</module>
+    <module>org.eclipse.xtext.util-2.6.2.v201407030533</module>
+    <module>org.eclipse.xtext.xbase-2.6.2.v201407030533</module>
+    <module>org.eclipse.xtext.xbase.lib-2.6.2.v201407030533</module>
+    <module>org.objectweb.asm-5.0.1.v201404251740</module>
+  </modules>
+
+</project>

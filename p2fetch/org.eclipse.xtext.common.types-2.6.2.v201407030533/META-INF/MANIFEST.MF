@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: shk-p2fetch-org.eclipse.xtext.common.types-2.6.2.v201407030533
+Bundle-Version: 1.0.3.qualifier
+Require-Bundle: org.eclipse.xtext.common.types;bundle-version="[2.6.2.v201407030533,2.6.2.v201407030533]"

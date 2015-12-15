@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: shk-p2fetch-com.google.guava-10.0.1.v201203051515
+Bundle-Version: 1.0.3.qualifier
+Require-Bundle: com.google.guava;bundle-version="[10.0.1.v201203051515,10.0.1.v201203051515]"
