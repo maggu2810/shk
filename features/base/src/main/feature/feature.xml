@@ -26,9 +26,9 @@
     <feature>shk-jax-rs-provider-gson</feature>
   </feature>
 
-  <feature name="shk-equinox-utils" version="${project.version}">
+  <!--  <feature name="shk-equinox-utils" version="${project.version}">
     <bundle>mvn:de.maggu2810.playground/karaf-console-equinox/1.0.0</bundle>
-  </feature>
+  </feature>-->
 
   <feature name="shk-esh-base" description="ESH" version="${project.version}">
     <details>ESH specific part</details>
@@ -91,6 +91,17 @@
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.extension.ui.iconset/org.eclipse.smarthome.ui.iconset.classic/${esh.version}</bundle>-->
 
   <feature name="shk-deps" version="${project.version}" description="Used to resolve dependencies only (see details).">
+    <details>
+      This is only used to provide optional dependencies to resolve features.
+      There is no intention that this feature is installed manually or to provide some function on its own.
+      Use this in other features with the dependency attribute set to true only.
+      All bundles and features that are part of this one have to set the depencency attribute to true.
+    </details>
+
+    <feature dependency="true">shk-deps-commons</feature>
+  </feature>
+
+  <feature name="shk-deps-commons" version="${project.version}" description="Used to resolve dependencies only (see details).">
     <details>
       This is only used to provide optional dependencies to resolve features.
       There is no intention that this feature is installed manually or to provide some function on its own.
