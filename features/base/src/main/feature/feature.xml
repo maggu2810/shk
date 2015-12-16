@@ -83,14 +83,11 @@
   </feature>
 
   <!-- All remaining (TODO: sort) Eclipse SmartHome bundles, create features for them -->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.api/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.json/${esh.version}</bundle>-->
+  <!--<bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.sample-handler/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.extension.sample/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.eclipse/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.rfc147/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.jsonpath/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.scale/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.extension.ui.iconset/org.eclipse.smarthome.ui.iconset.classic/${esh.version}</bundle>-->
 
   <feature name="shk-deps" version="${project.version}" description="Used to resolve dependencies only (see details).">
@@ -163,87 +160,176 @@
 
   <!-- ESH bundles -->
 
+  <feature name="shk-esh-automation-api" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.api/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-commands" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <feature dependency="true">shk-esh-automation-core</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.commands/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-core" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.core/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-module-core" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.module.core/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-module-script" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.module.script/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-module-script-defaultscope" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <feature dependency="true">shk-esh-automation-module-script</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.module.script.defaultscope/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-module-timer" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.module.timer/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-parser-gson" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.parser.gson/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-providers" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <feature dependency="true">shk-esh-automation-core</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.providers/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-automation-rest" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <feature dependency="true">shk-esh-automation-api</feature>
+    <bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.rest/${esh.version}</bundle>
+  </feature>
+
   <feature name="shk-esh-binding-hue" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <feature>shk-esh-io-transport-upnp</feature>
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.hue/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-binding-lifx" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.lifx/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-binding-ntp" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.ntp/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-binding-sonos" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <feature>shk-esh-io-transport-upnp</feature>
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.sonos/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-binding-wemo" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.wemo/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-binding-yahooweather" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <bundle>mvn:org.eclipse.smarthome.binding/org.eclipse.smarthome.binding.yahooweather/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-io-console-karaf" description="Karaf Console support for SmartHome stuff" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <feature>shell</feature>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.karaf/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-io-transport-mdns" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <feature>shk-jmdns</feature>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mdns/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-io-transport-mqtt" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <feature>shk-paho</feature>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.mqtt/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-io-transport-upnp" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <feature>shk-jupnp</feature>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.upnp/${esh.version}</bundle>
   </feature>
 
+  <feature name="shk-esh-transform-exec" description="Exec Transformation" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.exec/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-transform-javascript" description="Javascript Transformation" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.javascript/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-transform-jsonpath" description="JSONPath Transformation" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.jsonpath/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-transform-map" description="Map Transformation" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.map/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-transform-regex" description="RegEx Transformation" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.regex/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-transform-scale" description="Scale Transformation" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.scale/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-transform-xpath" description="XPath Transformation" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xpath/${esh.version}</bundle>
+  </feature>
+
+  <feature name="shk-esh-transform-xslt" description="XSLT Transformation" version="${esh.version}">
+    <feature>shk-esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xslt/${esh.version}</bundle>
+  </feature>
+
   <feature name="shk-esh-ui-basic" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.basic/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-ui-classic" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.classic/${esh.version}</bundle>
   </feature>
 
   <feature name="shk-esh-ui-paper" version="${esh.version}">
     <feature>shk-esh-base</feature>
-    <feature dependency="true">shk-deps</feature>
     <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.paper/${esh.version}</bundle>
   </feature>
 
