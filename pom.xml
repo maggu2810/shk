@@ -54,6 +54,9 @@
     <dep.apache.commons.exec.groupId>org.apache.commons</dep.apache.commons.exec.groupId>
     <dep.apache.commons.exec.artifactId>commons-exec</dep.apache.commons.exec.artifactId>
     <dep.apache.commons.exec.version>1.1</dep.apache.commons.exec.version>
+    <dep.apache.commons.fileupload.groupId>commons-fileupload</dep.apache.commons.fileupload.groupId>
+    <dep.apache.commons.fileupload.artifactId>commons-fileupload</dep.apache.commons.fileupload.artifactId>
+    <dep.apache.commons.fileupload.version>1.3.1</dep.apache.commons.fileupload.version>
     <dep.apache.commons.httpclient.groupId>org.apache.servicemix.bundles</dep.apache.commons.httpclient.groupId>
     <dep.apache.commons.httpclient.artifactId>org.apache.servicemix.bundles.commons-httpclient</dep.apache.commons.httpclient.artifactId>
     <dep.apache.commons.httpclient.version>3.1_7</dep.apache.commons.httpclient.version>
