@@ -101,6 +101,17 @@
       All bundles and features that are part of this one have to set the depencency attribute to true.
     </details>
 
+    <feature dependency="true">shk-deps-commons</feature>
+  </feature>
+
+  <feature name="shk-deps-commons" version="${project.version}" description="Used to resolve dependencies only (see details).">
+    <details>
+      This is only used to provide optional dependencies to resolve features.
+      There is no intention that this feature is installed manually or to provide some function on its own.
+      Use this in other features with the dependency attribute set to true only.
+      All bundles and features that are part of this one have to set the depencency attribute to true.
+    </details>
+
     <bundle dependency="true">mvn:${dep.apache.commons.codec.groupId}/${dep.apache.commons.codec.artifactId}/${dep.apache.commons.codec.version}</bundle>
     <bundle dependency="true">mvn:${dep.apache.commons.collections.groupId}/${dep.apache.commons.collections.artifactId}/${dep.apache.commons.collections.version}</bundle>
     <bundle dependency="true">mvn:${dep.apache.commons.exec.groupId}/${dep.apache.commons.exec.artifactId}/${dep.apache.commons.exec.version}</bundle>
