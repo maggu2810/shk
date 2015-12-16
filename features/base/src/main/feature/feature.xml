@@ -26,9 +26,9 @@
     <feature>shk-jax-rs-provider-gson</feature>
   </feature>
 
-  <feature name="shk-equinox-utils" version="${project.version}">
+  <!--  <feature name="shk-equinox-utils" version="${project.version}">
     <bundle>mvn:de.maggu2810.playground/karaf-console-equinox/1.0.0</bundle>
-  </feature>
+  </feature>-->
 
   <feature name="shk-esh-base" description="ESH" version="${project.version}">
     <details>ESH specific part</details>
