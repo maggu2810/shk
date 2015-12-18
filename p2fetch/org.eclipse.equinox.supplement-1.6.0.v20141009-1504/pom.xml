@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.maggu2810.playground.shk.p2fetch</groupId>
     <artifactId>shk-p2fetch</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4-SNAPSHOT</version>
   </parent>
 
   <artifactId>org.eclipse.equinox.supplement-1.6.0.v20141009-1504</artifactId>
