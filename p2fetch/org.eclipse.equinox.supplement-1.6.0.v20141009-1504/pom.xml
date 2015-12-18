@@ -8,12 +8,13 @@
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.eclipse.equinox.supplement</artifactId>
-  <version>1.6.0.v20141009-1504</version>
+  <artifactId>org.eclipse.equinox.supplement-1.6.0.v20141009-1504</artifactId>
   <packaging>pom</packaging>
 
   <properties>
     <p2repo>http://download.eclipse.org/releases/neon/201508211000</p2repo>
+    <p2fetch.bsn>org.eclipse.equinox.supplement</p2fetch.bsn>
+    <p2fetch.version>1.6.0.v20141009-1504</p2fetch.version>
   </properties>
 
   <build>

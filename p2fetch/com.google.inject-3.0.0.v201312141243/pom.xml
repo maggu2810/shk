@@ -8,12 +8,13 @@
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>com.google.inject</artifactId>
-  <version>3.0.0.v201312141243</version>
+  <artifactId>com.google.inject-3.0.0.v201312141243</artifactId>
   <packaging>pom</packaging>
 
   <properties>
     <p2repo>http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository</p2repo>
+    <p2fetch.bsn>com.google.inject</p2fetch.bsn>
+    <p2fetch.version>3.0.0.v201312141243</p2fetch.version>
   </properties>
 
   <build>

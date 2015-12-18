@@ -8,12 +8,13 @@
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.eclipse.emf.common</artifactId>
-  <version>2.10.1.v20150123-0348</version>
+  <artifactId>org.eclipse.emf.common-2.10.1.v20150123-0348</artifactId>
   <packaging>pom</packaging>
 
   <properties>
     <p2repo>http://download.eclipse.org/releases/luna/201502271000</p2repo>
+    <p2fetch.bsn>org.eclipse.emf.common</p2fetch.bsn>
+    <p2fetch.version>2.10.1.v20150123-0348</p2fetch.version>
   </properties>
 
   <build>

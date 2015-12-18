@@ -8,12 +8,13 @@
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.objectweb.asm</artifactId>
-  <version>5.0.1.v201404251740</version>
+  <artifactId>org.objectweb.asm-5.0.1.v201404251740</artifactId>
   <packaging>pom</packaging>
 
   <properties>
     <p2repo>http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository</p2repo>
+    <p2fetch.bsn>org.objectweb.asm</p2fetch.bsn>
+    <p2fetch.version>5.0.1.v201404251740</p2fetch.version>
   </properties>
 
   <build>

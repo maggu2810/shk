@@ -8,12 +8,13 @@
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.eclipse.xtext.xbase</artifactId>
-  <version>2.6.2.v201407030533</version>
+  <artifactId>org.eclipse.xtext.xbase-2.6.2.v201407030533</artifactId>
   <packaging>pom</packaging>
 
   <properties>
     <p2repo>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/maintenance/R201407030533</p2repo>
+    <p2fetch.bsn>org.eclipse.xtext.xbase</p2fetch.bsn>
+    <p2fetch.version>2.6.2.v201407030533</p2fetch.version>
   </properties>
 
   <build>
