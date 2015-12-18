@@ -9,7 +9,7 @@
   <!-- MUST FIT: project.groupId AND shk.groupId -->
   <groupId>de.maggu2810.playground.shk</groupId>
   <artifactId>shk</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.0.3</version>
   <packaging>pom</packaging>
 
   <licenses>
@@ -23,6 +23,7 @@
     <connection>scm:git:https://github.com/maggu2810/shk.git</connection>
     <developerConnection>scm:git:git@github.com:maggu2810/shk.git</developerConnection>
     <url>https://github.com/maggu2810/shk</url>
+    <tag>shk-1.0.3</tag>
   </scm>
 
   <issueManagement>
