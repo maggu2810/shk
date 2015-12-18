@@ -26,7 +26,7 @@
                 <goal>wget</goal>
               </goals>
               <configuration>
-                <url>${p2repo}/plugins/${project.artifactId}_${project.version}.jar</url>
+                <url>${p2repo}/plugins/${p2fetch.bsn}_${p2fetch.version}.jar</url>
                 <unpack>false</unpack>
                 <outputDirectory>${project.build.directory}/download</outputDirectory>
                 <!--<md5></md5>-->
@@ -48,7 +48,7 @@
               <configuration>
                 <artifacts>
                   <artifact>
-                    <file>${project.build.directory}/download/${project.artifactId}_${project.version}.jar</file>
+                    <file>${project.build.directory}/download/${p2fetch.bsn}_${p2fetch.version}.jar</file>
                     <type>jar</type>
                   </artifact>
                 </artifacts>

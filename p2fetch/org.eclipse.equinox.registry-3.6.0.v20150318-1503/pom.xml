@@ -8,12 +8,13 @@
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.eclipse.equinox.registry</artifactId>
-  <version>3.6.0.v20150318-1503</version>
+  <artifactId>org.eclipse.equinox.registry-3.6.0.v20150318-1503</artifactId>
   <packaging>pom</packaging>
 
   <properties>
     <p2repo>http://download.eclipse.org/releases/mars/201506241002</p2repo>
+    <p2fetch.bsn>org.eclipse.equinox.registry</p2fetch.bsn>
+    <p2fetch.version>3.6.0.v20150318-1503</p2fetch.version>
   </properties>
 
   <build>

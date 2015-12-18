@@ -127,13 +127,13 @@
     </details>
 
     <!-- All bundles defined here are used by ALL our Xtext bundles -->
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.common/3.7.0.v20150402-1709</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.registry/3.6.0.v20150318-1503</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.supplement/1.6.0.v20141009-1504</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/com.google.guava/10.0.1.v201203051515</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/com.google.inject/3.0.0.v201312141243</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.antlr.runtime/3.2.0.v201101311130</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.objectweb.asm/5.0.1.v201404251740</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.common-3.7.0.v20150402-1709/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.registry-3.6.0.v20150318-1503/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.supplement-1.6.0.v20141009-1504/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/com.google.guava-10.0.1.v201203051515/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/com.google.inject-3.0.0.v201312141243/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.antlr.runtime-3.2.0.v201101311130/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.objectweb.asm-5.0.1.v201404251740/${project.version}</bundle>
 
     <!-- Choose one Xtext version that should be used. -->
     <feature version="[2.6.2,2.6.3)" dependency="true">shk-deps-xtext-special</feature>
@@ -147,15 +147,15 @@
       All bundles and features that are part of this one have to set the depencency attribute to true.
     </details>
 
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.common/2.10.1.v20150123-0348</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.ecore/2.10.2.v20150123-0348</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.ecore.xmi/2.10.2.v20150123-0348</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtend.lib/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.common.types/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.util/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.xbase/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.xbase.lib/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.common-2.10.1.v20150123-0348/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.ecore-2.10.2.v20150123-0348/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.ecore.xmi-2.10.2.v20150123-0348/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtend.lib-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.common.types-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.util-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.xbase-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.xbase.lib-2.6.2.v201407030533/${project.version}</bundle>
   </feature>
 
   <!-- ESH bundles -->

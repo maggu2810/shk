@@ -8,12 +8,13 @@
     <version>1.0.3-SNAPSHOT</version>
   </parent>
 
-  <artifactId>org.eclipse.equinox.common</artifactId>
-  <version>3.7.0.v20150402-1709</version>
+  <artifactId>org.eclipse.equinox.common-3.7.0.v20150402-1709</artifactId>
   <packaging>pom</packaging>
 
   <properties>
     <p2repo>http://download.eclipse.org/releases/neon/201508211000</p2repo>
+    <p2fetch.bsn>org.eclipse.equinox.common</p2fetch.bsn>
+    <p2fetch.version>3.7.0.v20150402-1709</p2fetch.version>
   </properties>
 
   <build>

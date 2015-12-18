@@ -14,98 +14,98 @@
   <dependencies>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>com.google.guava</artifactId>
-      <version>10.0.1.v201203051515</version>
+      <artifactId>com.google.guava-10.0.1.v201203051515</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>com.google.inject</artifactId>
-      <version>3.0.0.v201312141243</version>
+      <artifactId>com.google.inject-3.0.0.v201312141243</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.antlr.runtime</artifactId>
-      <version>3.2.0.v201101311130</version>
+      <artifactId>org.antlr.runtime-3.2.0.v201101311130</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.emf.common</artifactId>
-      <version>2.10.1.v20150123-0348</version>
+      <artifactId>org.eclipse.emf.common-2.10.1.v20150123-0348</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.emf.ecore</artifactId>
-      <version>2.10.2.v20150123-0348</version>
+      <artifactId>org.eclipse.emf.ecore-2.10.2.v20150123-0348</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-      <version>2.10.2.v20150123-0348</version>
+      <artifactId>org.eclipse.emf.ecore.xmi-2.10.2.v20150123-0348</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.equinox.common</artifactId>
-      <version>3.7.0.v20150402-1709</version>
+      <artifactId>org.eclipse.equinox.common-3.7.0.v20150402-1709</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.equinox.registry</artifactId>
-      <version>3.6.0.v20150318-1503</version>
+      <artifactId>org.eclipse.equinox.registry-3.6.0.v20150318-1503</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.equinox.supplement</artifactId>
-      <version>1.6.0.v20141009-1504</version>
+      <artifactId>org.eclipse.equinox.supplement-1.6.0.v20141009-1504</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.xtend.lib</artifactId>
-      <version>2.6.2.v201407030533</version>
+      <artifactId>org.eclipse.xtend.lib-2.6.2.v201407030533</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.xtext</artifactId>
-      <version>2.6.2.v201407030533</version>
+      <artifactId>org.eclipse.xtext-2.6.2.v201407030533</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.xtext.common.types</artifactId>
-      <version>2.6.2.v201407030533</version>
+      <artifactId>org.eclipse.xtext.common.types-2.6.2.v201407030533</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.xtext.util</artifactId>
-      <version>2.6.2.v201407030533</version>
+      <artifactId>org.eclipse.xtext.util-2.6.2.v201407030533</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.xtext.xbase</artifactId>
-      <version>2.6.2.v201407030533</version>
+      <artifactId>org.eclipse.xtext.xbase-2.6.2.v201407030533</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.eclipse.xtext.xbase.lib</artifactId>
-      <version>2.6.2.v201407030533</version>
+      <artifactId>org.eclipse.xtext.xbase.lib-2.6.2.v201407030533</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${shk.groupId}.p2fetch</groupId>
-      <artifactId>org.objectweb.asm</artifactId>
-      <version>5.0.1.v201404251740</version>
+      <artifactId>org.objectweb.asm-5.0.1.v201404251740</artifactId>
+      <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
