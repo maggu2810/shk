@@ -74,11 +74,6 @@
     <dep.apache.httpcomponents.httpclient.artifactId>httpclient-osgi</dep.apache.httpcomponents.httpclient.artifactId>
     <dep.apache.httpcomponents.version>4.2.3</dep.apache.httpcomponents.version>
 
-    <!-- If you want to use the same as Xtext is using, don't change this. -->
-    <dep.guava.groupId>${shk.groupId}.p2fetch</dep.guava.groupId>
-    <dep.guava.artifactId>com.google.guava</dep.guava.artifactId>
-    <dep.guava.version>10.0.1.v201203051515</dep.guava.version>
-
     <dep.jmdns.version>3.4.2</dep.jmdns.version>
     <dep.jupnp.version>2.0.0</dep.jupnp.version>
     <dep.paho.version>1.0.2</dep.paho.version>
