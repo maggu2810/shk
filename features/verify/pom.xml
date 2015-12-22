@@ -47,7 +47,7 @@
               </framework>
               <features>
                 <feature>esh-*</feature>
-                <feature>shk-jax-*</feature>
+                <feature>shk-*</feature>
               </features>
               <verifyTransitive>false</verifyTransitive>
               <ignoreMissingConditions>true</ignoreMissingConditions>
