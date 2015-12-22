@@ -45,12 +45,6 @@
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing.runtime/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.exec/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.javascript/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.map/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.regex/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xpath/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xslt/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui.icon/${esh.version}</bundle>
   </feature>
