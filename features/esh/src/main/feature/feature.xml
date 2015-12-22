@@ -5,6 +5,7 @@
     <details>ESH specific part</details>
 
     <feature>esh-tp-base</feature>
+
     <feature dependency="true">esh-tp-commons</feature>
 
     <feature dependency="true">esh-tp-xtext</feature>
@@ -44,9 +45,7 @@
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap.runtime/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing.runtime/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui.icon/${esh.version}</bundle>
   </feature>
 
   <!-- ESH bundles -->
@@ -172,6 +171,11 @@
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.upnp/${esh.version}</bundle>
   </feature>
 
+  <feature name="esh-storage-mapdb" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>
+  </feature>
+
   <feature name="esh-transform-exec" description="Exec Transformation" version="${esh.version}">
     <feature>esh-base</feature>
     <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.exec/${esh.version}</bundle>
@@ -225,6 +229,17 @@
   <feature name="esh-ui-paper" version="${esh.version}">
     <feature>esh-base</feature>
     <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.paper/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-ui-icon" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui.icon/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-ui-iconset-classic" version="${esh.version}">
+    <feature>esh-base</feature>
+    <feature>esh-ui-icon</feature>
+    <bundle>mvn:org.eclipse.smarthome.extension.ui.iconset/org.eclipse.smarthome.ui.iconset.classic/${esh.version}</bundle>
   </feature>
 
 </features>

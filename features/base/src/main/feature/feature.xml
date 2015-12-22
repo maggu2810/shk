@@ -11,11 +11,13 @@
 
   <feature name="shk-runtime" description="${project.name}" version="${project.version}">
     <details>${project.description}</details>
-    <feature>shk-tp-base</feature>
     <!-- As long as the Equinox framework is used, we could force them (but needs a repo first, ...) -->
     <!--<feature>shk-equinox-utils</feature>-->
     <feature>esh-base</feature>
     <feature>esh-io-console-karaf</feature>
+    <feature>esh-storage-mapdb</feature>
+    <feature>esh-ui-iconset-classic</feature>
+    <feature>war</feature>
   </feature>
 
   <!--  <feature name="shk-equinox-utils" version="${project.version}">
@@ -67,8 +69,6 @@
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.extension.sample/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.eclipse/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.rfc147/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.storage/org.eclipse.smarthome.storage.mapdb/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.extension.ui.iconset/org.eclipse.smarthome.ui.iconset.classic/${esh.version}</bundle>-->
 
   <feature name="shk-deps" version="${project.version}" description="Used to resolve dependencies only (see details).">
     <details>
@@ -141,7 +141,6 @@
   <feature name="esh-tp-base" description="TargetPlatform Base" version="${project.version}">
     <feature>eventadmin</feature>
     <feature>scr</feature>
-    <feature>war</feature>
     <feature>shk-jax-rs-min</feature>
     <feature>shk-jax-rs-provider-gson</feature>
   </feature>
