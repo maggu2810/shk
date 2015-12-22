@@ -44,7 +44,7 @@
 
     <karaf.version>4.0.3</karaf.version>
 
-    <esh.version>0.8.0-SNAPSHOT</esh.version>
+    <esh.version>0.8.0.b1</esh.version>
 
     <dep.apache.commons.codec.groupId>commons-codec</dep.apache.commons.codec.groupId>
     <dep.apache.commons.codec.artifactId>commons-codec</dep.apache.commons.codec.artifactId>
@@ -163,14 +163,23 @@
       <url>https://jcenter.bintray.com/</url>
     </repository>
     <repository>
-      <id>eclipse</id>
+      <id>eclipse-releases</id>
+      <name>Eclipse Release Repository</name>
+      <layout>default</layout>
+      <url>https://repo.eclipse.org/content/repositories/releases/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <!--    <repository>
+      <id>eclipse-snapshots</id>
       <name>Eclipse Snapshot Repository</name>
       <layout>default</layout>
       <url>https://repo.eclipse.org/content/repositories/snapshots/</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-    </repository>
+    </repository>-->
     <repository>
       <id>tmp-jaxrs-swagger</id>
       <url>https://github.com/maggu2810/openhab2-mvn-repo/raw/jaxrs-swagger</url>
