@@ -30,16 +30,8 @@
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.net/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.core/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.sitemap/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.sse/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.core/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui/${esh.version}</bundle>
   </feature>
 
   <!-- ESH bundles -->
@@ -144,6 +136,12 @@
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.karaf/${esh.version}</bundle>
   </feature>
 
+  <feature name="esh-io-rest-sitemap" version="${esh.version}">
+    <feature>esh-base</feature>
+    <feature>esh-ui</feature>
+    <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.sitemap/${esh.version}</bundle>
+  </feature>
+
   <feature name="esh-io-transport-mdns" version="${esh.version}">
     <feature>esh-base</feature>
     <feature dependency="true">esh-tp-jmdns</feature>
@@ -165,33 +163,75 @@
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.upnp/${esh.version}</bundle>
   </feature>
 
+  <feature name="esh-model-item" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item/${esh.version}</bundle>
+  </feature>
+
   <feature name="esh-model-item-runtime" version="${esh.version}">
     <feature>esh-base</feature>
+    <feature>esh-model-item</feature>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-persistence" version="${esh.version}">
+    <feature>esh-base</feature>
+    <feature>esh-model-item</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence/${esh.version}</bundle>
   </feature>
 
   <feature name="esh-model-persistence-runtime" version="${esh.version}">
     <feature>esh-base</feature>
+    <feature>esh-model-persistence</feature>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-rule" version="${esh.version}">
+    <feature>esh-base</feature>
+    <feature>esh-model-item</feature>
+    <feature>esh-model-persistence</feature>
+    <feature>esh-model-script</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule/${esh.version}</bundle>
   </feature>
 
   <feature name="esh-model-rule-runtime" version="${esh.version}">
     <feature>esh-base</feature>
+    <feature>esh-model-rule</feature>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-script" version="${esh.version}">
+    <feature>esh-base</feature>
+    <feature>esh-model-persistence</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script/${esh.version}</bundle>
   </feature>
 
   <feature name="esh-model-script-runtime" version="${esh.version}">
     <feature>esh-base</feature>
+    <feature>esh-model-script</feature>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-sitemap" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap/${esh.version}</bundle>
   </feature>
 
   <feature name="esh-model-sitemap-runtime" version="${esh.version}">
     <feature>esh-base</feature>
+    <feature>esh-model-sitemap</feature>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-thing" version="${esh.version}">
+    <feature>esh-base</feature>
+    <feature>esh-model-item</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing/${esh.version}</bundle>
   </feature>
 
   <feature name="esh-model-thing-runtime" version="${esh.version}">
     <feature>esh-base</feature>
+    <feature>esh-model-thing</feature>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing.runtime/${esh.version}</bundle>
   </feature>
 
@@ -240,13 +280,22 @@
     <bundle>mvn:org.eclipse.smarthome.transform/org.eclipse.smarthome.transform.xslt/${esh.version}</bundle>
   </feature>
 
+  <feature name="esh-ui" version="${esh.version}">
+    <feature>esh-base</feature>
+    <feature>esh-model-item</feature>
+    <feature>esh-model-sitemap</feature>
+    <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui/${esh.version}</bundle>
+  </feature>
+
   <feature name="esh-ui-basic" version="${esh.version}">
     <feature>esh-base</feature>
+    <feature>esh-ui</feature>
     <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.basic/${esh.version}</bundle>
   </feature>
 
   <feature name="esh-ui-classic" version="${esh.version}">
     <feature>esh-base</feature>
+    <feature>esh-ui</feature>
     <bundle>mvn:org.eclipse.smarthome.extension.ui/org.eclipse.smarthome.ui.classic/${esh.version}</bundle>
   </feature>
 

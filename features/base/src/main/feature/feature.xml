@@ -15,6 +15,7 @@
     <!--<feature>shk-equinox-utils</feature>-->
     <feature>esh-base</feature>
     <feature>esh-io-console-karaf</feature>
+    <feature>esh-io-rest-sitemap</feature>
     <feature>esh-model-item-runtime</feature>
     <feature>esh-model-persistence-runtime</feature>
     <feature>esh-model-rule-runtime</feature>
@@ -149,6 +150,9 @@
     <feature>scr</feature>
     <feature>shk-jax-rs-min</feature>
     <feature>shk-jax-rs-provider-gson</feature>
+
+    <!-- TODO: bundled in ESH io bundle -->
+    <bundle dependency="true">mvn:io.swagger/swagger-annotations/1.5.4</bundle>
   </feature>
 
   <feature name="esh-tp-commons" version="${project.version}">
