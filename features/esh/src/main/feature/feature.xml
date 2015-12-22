@@ -34,17 +34,11 @@
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.rest.sse/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.core/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item.runtime/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence.runtime/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule.runtime/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script.runtime/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap.runtime/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing/${esh.version}</bundle>
-    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing.runtime/${esh.version}</bundle>
     <bundle>mvn:org.eclipse.smarthome.ui/org.eclipse.smarthome.ui/${esh.version}</bundle>
   </feature>
 
@@ -169,6 +163,36 @@
     <feature dependency="true">esh-tp-jupnp</feature>
     <requirement>esh.tp;filter:="(feature=jupnp)"</requirement>
     <bundle>mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.transport.upnp/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-item-runtime" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.item.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-persistence-runtime" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.persistence.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-rule-runtime" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.rule.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-script-runtime" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.script.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-sitemap-runtime" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.sitemap.runtime/${esh.version}</bundle>
+  </feature>
+
+  <feature name="esh-model-thing-runtime" version="${esh.version}">
+    <feature>esh-base</feature>
+    <bundle>mvn:org.eclipse.smarthome.model/org.eclipse.smarthome.model.thing.runtime/${esh.version}</bundle>
   </feature>
 
   <feature name="esh-storage-mapdb" version="${esh.version}">
