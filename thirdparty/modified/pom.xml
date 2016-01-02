@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.maggu2810.shk.thirdparty</groupId>
     <artifactId>shk-thirdparty</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.1</version>
   </parent>
 
   <groupId>de.maggu2810.shk.thirdparty.modified</groupId>
