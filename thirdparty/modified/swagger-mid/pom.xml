@@ -7,7 +7,7 @@
   <parent>
     <groupId>de.maggu2810.shk.thirdparty.modified</groupId>
     <artifactId>shk-thirdparty-modified</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
   </parent>
 
   <artifactId>swagger-mid</artifactId>
