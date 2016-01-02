@@ -77,9 +77,8 @@
   </properties>
 
   <modules>
-    <module>distributions</module>
     <module>features</module>
-    <module>thirdparty</module>
+    <module>distributions</module>
   </modules>
 
   <build>
@@ -176,6 +175,16 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>-->
+    <repository>
+      <id>bintray-maggu2810-maven</id>
+      <url>http://dl.bintray.com/maggu2810/maven</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
   </repositories>
 
   <distributionManagement>
