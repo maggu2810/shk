@@ -6,7 +6,7 @@
     <maven>3.0</maven>
   </prerequisites>
 
-  <groupId>de.maggu2810.playground.shk</groupId>
+  <groupId>de.maggu2810.shk</groupId>
   <artifactId>shk</artifactId>
   <version>1.0.5-SNAPSHOT</version>
   <packaging>pom</packaging>

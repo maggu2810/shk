@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.playground.shk</groupId>
+    <groupId>de.maggu2810.shk</groupId>
     <artifactId>shk</artifactId>
     <version>1.0.5-SNAPSHOT</version>
   </parent>
 
-  <groupId>de.maggu2810.playground.shk.thirdparty</groupId>
+  <groupId>de.maggu2810.shk.thirdparty</groupId>
   <artifactId>shk-thirdparty</artifactId>
   <packaging>pom</packaging>
 

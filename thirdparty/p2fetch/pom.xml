@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.playground.shk.thirdparty</groupId>
+    <groupId>de.maggu2810.shk.thirdparty</groupId>
     <artifactId>shk-thirdparty</artifactId>
     <version>1.0.5-SNAPSHOT</version>
   </parent>
 
-  <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+  <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
   <artifactId>shk-thirdparty-p2fetch</artifactId>
   <packaging>pom</packaging>
 

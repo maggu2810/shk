@@ -5,7 +5,7 @@
   <!-- https://raw.githubusercontent.com/hstaudacher/osgi-jax-rs-connector/6c7f8215f621657be2f9256625a24eddb4d82493/build/com.eclipsesource.jaxrs.swagger.all/pom.xml -->
 
   <parent>
-    <groupId>de.maggu2810.playground.shk.thirdparty.modified</groupId>
+    <groupId>de.maggu2810.shk.thirdparty.modified</groupId>
     <artifactId>shk-thirdparty-modified</artifactId>
     <version>1.0.5-SNAPSHOT</version>
   </parent>

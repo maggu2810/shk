@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.playground.shk</groupId>
+    <groupId>de.maggu2810.shk</groupId>
     <artifactId>shk-features</artifactId>
     <version>1.0.5-SNAPSHOT</version>
   </parent>

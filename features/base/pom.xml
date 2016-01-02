@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.playground.shk</groupId>
+    <groupId>de.maggu2810.shk</groupId>
     <artifactId>shk-features</artifactId>
     <version>1.0.5-SNAPSHOT</version>
   </parent>
@@ -13,103 +13,103 @@
 
   <dependencies>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>com.google.guava-10.0.1.v201203051515</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>com.google.inject-3.0.0.v201312141243</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.antlr.runtime-3.2.0.v201101311130</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.emf.common-2.10.1.v20150123-0348</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.emf.ecore-2.10.2.v20150123-0348</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.emf.ecore.xmi-2.10.2.v20150123-0348</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.equinox.common-3.7.0.v20150402-1709</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.equinox.registry-3.6.0.v20150318-1503</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.equinox.supplement-1.6.0.v20141009-1504</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.xtend.lib-2.6.2.v201407030533</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.xtext-2.6.2.v201407030533</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.xtext.common.types-2.6.2.v201407030533</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.xtext.util-2.6.2.v201407030533</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.xtext.xbase-2.6.2.v201407030533</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.eclipse.xtext.xbase.lib-2.6.2.v201407030533</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.p2fetch</groupId>
       <artifactId>org.objectweb.asm-5.0.1.v201404251740</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.playground.shk.thirdparty.modified</groupId>
+      <groupId>de.maggu2810.shk.thirdparty.modified</groupId>
       <artifactId>swagger-mid</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
