@@ -3,12 +3,6 @@
 
   <!-- <feature name="${project.artifactId}" description="${project.name}" version="${project.version}"> -->
 
-  <feature name="shk-web-test">
-    <feature>shk-runtime</feature>
-    <bundle>mvn:org.openhab.bundles.ui/org.openhab.ui.dashboard/2.0.0-SNAPSHOT</bundle>
-    <feature>esh-ui-paper</feature>
-  </feature>
-
   <feature name="shk-runtime" description="${project.name}" version="${project.version}">
     <details>${project.description}</details>
     <!-- As long as the Equinox framework is used, we could force them (but needs a repo first, ...) -->
@@ -36,22 +30,22 @@
     <bundle>mvn:${dep.apache.httpcomponents.groupId}/${dep.apache.httpcomponents.httpclient.artifactId}/${dep.apache.httpcomponents.version}</bundle>
   </feature>
 
-  <feature name="shk-jax-rs-min" version="5.2">
+  <feature name="shk-jax-rs-min" version="5.3">
     <feature dependency="true">http</feature>
     <bundle dependency="true">mvn:com.eclipsesource.jaxrs/jersey-min/2.22.1</bundle>
-    <bundle>mvn:com.eclipsesource.jaxrs/publisher/5.2</bundle>
+    <bundle>mvn:com.eclipsesource.jaxrs/publisher/5.3</bundle>
   </feature>
 
   <feature name="shk-jax-rs-provider-gson" version="2.3">
-    <feature dependency="true" version="[5.2,5.3)">shk-jax-rs-min</feature>
+    <feature dependency="true" version="[5.3,5.4)">shk-jax-rs-min</feature>
     <bundle dependency="true">mvn:com.google.code.gson/gson/2.3.1</bundle>
     <bundle>mvn:com.eclipsesource.jaxrs/provider-gson/2.3</bundle>
   </feature>
 
-  <feature name="shk-jax-rs-provider-swagger" version="1.0.0-SNAPSHOT">
-    <feature dependency="true" version="[5.2,5.3)">shk-jax-rs-min</feature>
-    <bundle>mvn:de.maggu2810.playground.com.eclipsesource.jaxrs/swagger-all/1.5.4.sp2</bundle>
-    <bundle>mvn:com.eclipsesource/com.eclipsesource.jaxrs.provider.swagger/1.0.0-SNAPSHOT</bundle>
+  <feature name="shk-jax-rs-provider-swagger" version="1.0.sp1">
+    <feature dependency="true" version="[5.3,5.4)">shk-jax-rs-min</feature>
+    <bundle>mvn:de.maggu2810.playground.shk.thirdparty.modified/swagger-mid/${project.version}</bundle>
+    <bundle>mvn:com.eclipsesource.jaxrs/provider-swagger/1.1</bundle>
   </feature>
 
   <feature name="shk-jmdns" version="${dep.jmdns.version}">
@@ -114,13 +108,13 @@
     </details>
 
     <!-- All bundles defined here are used by ALL our Xtext bundles -->
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.common-3.7.0.v20150402-1709/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.registry-3.6.0.v20150318-1503/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.equinox.supplement-1.6.0.v20141009-1504/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/com.google.guava-10.0.1.v201203051515/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/com.google.inject-3.0.0.v201312141243/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.antlr.runtime-3.2.0.v201101311130/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.objectweb.asm-5.0.1.v201404251740/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.equinox.common-3.7.0.v20150402-1709/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.equinox.registry-3.6.0.v20150318-1503/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.equinox.supplement-1.6.0.v20141009-1504/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/com.google.guava-10.0.1.v201203051515/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/com.google.inject-3.0.0.v201312141243/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.antlr.runtime-3.2.0.v201101311130/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.objectweb.asm-5.0.1.v201404251740/${project.version}</bundle>
   </feature>
 
   <feature name="shk-deps-xtext-special" version="2.6.2" description="Used to resolve Xtext dependencies only (see details).">
@@ -131,15 +125,15 @@
       All bundles and features that are part of this one have to set the depencency attribute to true.
     </details>
     <feature dependency="true">shk-deps-xtext-common</feature>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.common-2.10.1.v20150123-0348/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.ecore-2.10.2.v20150123-0348/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.emf.ecore.xmi-2.10.2.v20150123-0348/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtend.lib-2.6.2.v201407030533/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext-2.6.2.v201407030533/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.common.types-2.6.2.v201407030533/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.util-2.6.2.v201407030533/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.xbase-2.6.2.v201407030533/${project.version}</bundle>
-    <bundle dependency="true">mvn:${shk.groupId}.p2fetch/org.eclipse.xtext.xbase.lib-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.emf.common-2.10.1.v20150123-0348/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.emf.ecore-2.10.2.v20150123-0348/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.emf.ecore.xmi-2.10.2.v20150123-0348/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.xtend.lib-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.xtext-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.xtext.common.types-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.xtext.util-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.xtext.xbase-2.6.2.v201407030533/${project.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.playground.shk.thirdparty.p2fetch/org.eclipse.xtext.xbase.lib-2.6.2.v201407030533/${project.version}</bundle>
     <capability>esh.tp;feature=xtext;version=2.6.2</capability>
   </feature>
 

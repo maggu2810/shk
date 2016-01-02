@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- This is a modified version of: -->
+  <!-- https://raw.githubusercontent.com/hstaudacher/osgi-jax-rs-connector/6c7f8215f621657be2f9256625a24eddb4d82493/build/com.eclipsesource.jaxrs.swagger.all/pom.xml -->
+
+  <parent>
+    <groupId>de.maggu2810.playground.shk.thirdparty.modified</groupId>
+    <artifactId>shk-thirdparty-modified</artifactId>
+    <version>1.0.4-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>swagger-mid</artifactId>
+
+  <properties>
+    <bundle.version>1.5.5</bundle.version>
+    <swagger.version>1.5.5</swagger.version>
+    <jersey.version>2.22</jersey.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <!--
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <version>2.4</version>
+              <configuration>
+                <archive>
+                  <index>false</index>
+                  <manifest>
+                    <addClasspath>false</addClasspath>
+                  </manifest>
+                  <manifestEntries>
+                    <Built-By>EclipseSource</Built-By>
+                  </manifestEntries>
+                </archive>
+              </configuration>
+            </plugin>
+      -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+            <Bundle-Version>${bundle.version}</Bundle-Version>
+            <_exportcontents>
+              io.swagger.*,
+              com.fasterxml.jackson.*;version="2.4.5"
+            </_exportcontents>
+            <Import-Package>
+              !com.google.*,
+              !org.apache.commons.*,
+              !org.dom4j.*,
+              !org.joda.*,
+              !org.w3c.*,
+              !org.xml.sax.*,
+              !com.sun.jdi.*,
+              !sun.misc.*,
+              !javax.activation.*,
+              javax.servlet.*;version="[2.3.0,4.0.0)";resolution:=optional,
+              javax.validation.*;version="[1.1.0,2.0.0)";resolution:=optional,
+              org.glassfish.jersey.*,
+              *
+            </Import-Package>
+            <Embed-Dependency>*;scope=compile|runtime;inline=true;artifactId=!slf4j-*</Embed-Dependency>
+            <Embed-Directory>dependencies</Embed-Directory>
+            <Embed-StripGroup>true</Embed-StripGroup>
+            <Embed-Transitive>true</Embed-Transitive>
+          </instructions>
+        </configuration>
+        <executions>
+          <execution>
+            <id>osgi-bundle</id>
+            <phase>package</phase>
+            <goals>
+              <goal>bundle</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-jersey2-jaxrs</artifactId>
+      <version>${swagger.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet-core</artifactId>
+      <version>${jersey.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-multipart</artifactId>
+      <version>${jersey.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+</project>

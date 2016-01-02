@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
+    <artifactId>shk-thirdparty-p2fetch</artifactId>
+    <version>1.0.4-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>org.eclipse.emf.ecore.xmi-2.10.2.v20150123-0348</artifactId>
+  <packaging>pom</packaging>
+
+  <properties>
+    <p2repo>http://download.eclipse.org/releases/luna/201502271000</p2repo>
+    <p2fetch.bsn>org.eclipse.emf.ecore.xmi</p2fetch.bsn>
+    <p2fetch.version>2.10.2.v20150123-0348</p2fetch.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>download-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

@@ -6,7 +6,6 @@
     <maven>3.0</maven>
   </prerequisites>
 
-  <!-- MUST FIT: project.groupId AND shk.groupId -->
   <groupId>de.maggu2810.playground.shk</groupId>
   <artifactId>shk</artifactId>
   <version>1.0.4-SNAPSHOT</version>
@@ -32,9 +31,6 @@
   </issueManagement>
 
   <properties>
-    <!-- MUST FIT: project.groupId AND shk.groupId -->
-    <shk.groupId>de.maggu2810.playground.shk</shk.groupId>
-
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -83,7 +79,7 @@
   <modules>
     <module>distributions</module>
     <module>features</module>
-    <module>p2fetch</module>
+    <module>thirdparty</module>
   </modules>
 
   <build>
@@ -180,13 +176,6 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>-->
-    <repository>
-      <id>tmp-jaxrs-swagger</id>
-      <url>https://github.com/maggu2810/openhab2-mvn-repo/raw/jaxrs-swagger</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
   </repositories>
 
 </project>
