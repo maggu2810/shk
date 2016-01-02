@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
     <artifactId>shk-thirdparty-p2fetch</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5-SNAPSHOT</version>
   </parent>
 
   <artifactId>org.objectweb.asm-5.0.1.v201404251740</artifactId>
