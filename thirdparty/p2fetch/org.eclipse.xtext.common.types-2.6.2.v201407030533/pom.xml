@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.maggu2810.playground.shk.thirdparty.p2fetch</groupId>
     <artifactId>shk-thirdparty-p2fetch</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
   </parent>
 
   <artifactId>org.eclipse.xtext.common.types-2.6.2.v201407030533</artifactId>
