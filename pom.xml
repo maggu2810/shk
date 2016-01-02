@@ -178,4 +178,11 @@
     </repository>-->
   </repositories>
 
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/maggu2810/maven/shk</url>
+    </repository>
+  </distributionManagement>
+
 </project>
