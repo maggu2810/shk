@@ -11,15 +11,6 @@
   <artifactId>shk-feature-base</artifactId>
   <packaging>feature</packaging>
 
-  <dependencies>
-    <dependency>
-      <groupId>de.maggu2810.shk.thirdparty.modified</groupId>
-      <artifactId>swagger-mid</artifactId>
-      <version>${project.version}</version>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
-
   <build>
     <plugins>
       <plugin>
