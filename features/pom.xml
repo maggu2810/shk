@@ -13,7 +13,6 @@
 
   <modules>
     <module>base</module>
-    <module>esh</module>
     <module>verify</module>
   </modules>
 

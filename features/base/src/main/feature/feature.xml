@@ -144,9 +144,8 @@
     <feature>scr</feature>
     <feature>shk-jax-rs-min</feature>
     <feature>shk-jax-rs-provider-gson</feature>
-
-    <!-- TODO: bundled in ESH io bundle -->
-    <bundle dependency="true">mvn:io.swagger/swagger-annotations/1.5.5</bundle>
+    <feature>shk-jax-rs-provider-swagger</feature>
+    <bundle>mvn:io.swagger/swagger-annotations/1.5.5</bundle>
   </feature>
 
   <feature name="esh-tp-commons" version="${project.version}">
