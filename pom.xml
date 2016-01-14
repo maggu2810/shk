@@ -78,7 +78,7 @@
 
   <modules>
     <module>features</module>
-    <module>distributions</module>
+    <!-- <module>distributions</module> -->
   </modules>
 
   <build>
