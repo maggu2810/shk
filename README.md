@@ -13,8 +13,7 @@ REPO_URL=""
 VERSION_RELEASE=""
 VERSION_NEXT=""
 
-mvn -B -DpreparationGoals="clean install" -DignoreSnapshots=true \
--DdevelopmentVersion="${VERSION_NEXT}" -DreleaseVersion="${VERSION_RELEASE}" \
--Darguments="-DaltDeploymentRepository=artifactory.buildsystem::default::http://${REPO_USER}:${REPO_PASS}@${REPO_URL} \
--Dresume=false release:prepare release:perform
+mvn -B -DpreparationGoals="clean install" -DdevelopmentVersion="${VERSION_NEXT}" -DreleaseVersion="${VERSION_RELEASE}" release:prepare release:perform
+
+# -Darguments="-DaltDeploymentRepository=artifactory.buildsystem::default::http://${REPO_USER}:${REPO_PASS}@${REPO_URL} \
 ```
