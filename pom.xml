@@ -73,7 +73,7 @@
     <dep.apache.httpcomponents.version>4.2.3</dep.apache.httpcomponents.version>
 
     <dep.jmdns.version>3.4.2</dep.jmdns.version>
-    <dep.jupnp.version>2.0.0</dep.jupnp.version>
+    <dep.jupnp.version>2.1.0.RC1</dep.jupnp.version>
     <dep.paho.version>1.0.2</dep.paho.version>
   </properties>
 
