@@ -41,23 +41,6 @@
     <bundle>mvn:com.eclipsesource.jaxrs/provider-swagger/1.1</bundle>
   </feature>
 
-  <feature name="shk-jmdns" version="${dep.jmdns.version}">
-    <bundle>mvn:org.openhab.jmdns/jmdns/${dep.jmdns.version}</bundle>
-    <capability>esh.tp;feature=jmdns</capability>
-  </feature>
-
-  <feature name="shk-jupnp" version="${dep.jupnp.version}">
-    <feature dependency="true">http</feature>
-    <feature>kat-apache-httpcomponents-httpclient</feature>
-    <bundle>mvn:org.jupnp/org.jupnp/${dep.jupnp.version}</bundle>
-    <capability>esh.tp;feature=jupnp</capability>
-  </feature>
-
-  <feature name="shk-paho" version="${dep.paho.version}">
-    <bundle>mvn:org.eclipse.paho/org.eclipse.paho.client.mqttv3/${dep.paho.version}</bundle>
-    <capability>esh.tp;feature=paho</capability>
-  </feature>
-
   <!-- All remaining (TODO: sort) Eclipse SmartHome bundles, create features for them -->
   <!--<bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.sample-handler/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.extension.sample/${esh.version}</bundle>-->
@@ -86,15 +69,18 @@
   </feature>
 
   <feature name="esh-tp-jupnp" version="${project.version}">
-    <feature>shk-jupnp</feature>
+    <feature>kat-jupnp</feature>
+    <capability>esh.tp;feature=jupnp</capability>
   </feature>
 
   <feature name="esh-tp-jmdns" version="${project.version}">
-    <feature>shk-jmdns</feature>
+    <feature>kat-jmdns</feature>
+    <capability>esh.tp;feature=jmdns</capability>
   </feature>
 
   <feature name="esh-tp-paho" version="${project.version}">
-    <feature>shk-paho</feature>
+    <feature>kat-paho-client-mqttv3</feature>
+    <capability>esh.tp;feature=paho</capability>
   </feature>
 
   <feature name="esh-tp-xtext" version="${project.version}">
