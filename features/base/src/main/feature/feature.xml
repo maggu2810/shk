@@ -5,8 +5,10 @@
 
   <feature name="shk-runtime" description="${project.name}" version="${project.version}">
     <details>${project.description}</details>
-    <!-- As long as the Equinox framework is used, we could force them (but needs a repo first, ...) -->
-    <!--<feature>shk-equinox-utils</feature>-->
+
+    <!-- As long as the Equinox framework is used, we could use this one. -->
+    <feature>kat-kce</feature>
+
     <feature>esh-base</feature>
     <feature>esh-io-console-karaf</feature>
     <feature>esh-io-rest-sitemap</feature>
@@ -19,15 +21,6 @@
     <feature>esh-storage-mapdb</feature>
     <feature>esh-ui-iconset-classic</feature>
     <feature>war</feature>
-  </feature>
-
-  <!--  <feature name="shk-equinox-utils" version="${project.version}">
-    <bundle>mvn:de.maggu2810.playground/karaf-console-equinox/1.0.0</bundle>
-  </feature>-->
-
-  <feature name="shk-apache-httpclient" version="${dep.apache.httpcomponents.version}">
-    <bundle>mvn:${dep.apache.httpcomponents.groupId}/${dep.apache.httpcomponents.httpcore.artifactId}/${dep.apache.httpcomponents.version}</bundle>
-    <bundle>mvn:${dep.apache.httpcomponents.groupId}/${dep.apache.httpcomponents.httpclient.artifactId}/${dep.apache.httpcomponents.version}</bundle>
   </feature>
 
   <feature name="shk-jax-rs-min" version="5.3">
@@ -55,7 +48,7 @@
 
   <feature name="shk-jupnp" version="${dep.jupnp.version}">
     <feature dependency="true">http</feature>
-    <feature>shk-apache-httpclient</feature>
+    <feature>kat-apache-httpcomponents-httpclient</feature>
     <bundle>mvn:org.jupnp/org.jupnp/${dep.jupnp.version}</bundle>
     <capability>esh.tp;feature=jupnp</capability>
   </feature>
@@ -71,72 +64,6 @@
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.eclipse/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.rfc147/${esh.version}</bundle>-->
 
-  <feature name="shk-deps" version="${project.version}" description="Used to resolve dependencies only (see details).">
-    <details>
-      This is only used to provide optional dependencies to resolve features.
-      There is no intention that this feature is installed manually or to provide some function on its own.
-      Use this in other features with the dependency attribute set to true only.
-      All bundles and features that are part of this one have to set the depencency attribute to true.
-    </details>
-
-    <feature dependency="true">shk-deps-commons</feature>
-  </feature>
-
-  <feature name="shk-deps-commons" version="${project.version}" description="Used to resolve dependencies only (see details).">
-    <details>
-      This is only used to provide optional dependencies to resolve features.
-      There is no intention that this feature is installed manually or to provide some function on its own.
-      Use this in other features with the dependency attribute set to true only.
-      All bundles and features that are part of this one have to set the depencency attribute to true.
-    </details>
-
-    <bundle dependency="true">mvn:${dep.apache.commons.codec.groupId}/${dep.apache.commons.codec.artifactId}/${dep.apache.commons.codec.version}</bundle>
-    <bundle dependency="true">mvn:${dep.apache.commons.collections.groupId}/${dep.apache.commons.collections.artifactId}/${dep.apache.commons.collections.version}</bundle>
-    <bundle dependency="true">mvn:${dep.apache.commons.exec.groupId}/${dep.apache.commons.exec.artifactId}/${dep.apache.commons.exec.version}</bundle>
-    <bundle dependency="true">mvn:${dep.apache.commons.httpclient.groupId}/${dep.apache.commons.httpclient.artifactId}/${dep.apache.commons.httpclient.version}</bundle>
-    <bundle dependency="true">mvn:${dep.apache.commons.io.groupId}/${dep.apache.commons.io.artifactId}/${dep.apache.commons.io.version}</bundle>
-    <bundle dependency="true">mvn:${dep.apache.commons.lang.groupId}/${dep.apache.commons.lang.artifactId}/${dep.apache.commons.lang.version}</bundle>
-    <bundle dependency="true">mvn:${dep.apache.commons.net.groupId}/${dep.apache.commons.net.artifactId}/${dep.apache.commons.net.version}</bundle>
-  </feature>
-
-  <feature name="shk-deps-xtext-common" version="${esh.version}" description="Used to resolve Xtext dependencies only (see details).">
-    <details>
-      This is only used to provide optional dependencies to resolve features that needs Xtext or related stuff.
-      There is no intention that this feature is installed manually or to provide some function on its own.
-      Use this in other features with the dependency attribute set to true only.
-      All bundles and features that are part of this one have to set the depencency attribute to true.
-    </details>
-
-    <!-- All bundles defined here are used by ALL our Xtext bundles -->
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.common/3.7.0.v20150402-1709</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.registry/3.6.0.v20150318-1503</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.supplement/1.6.0.v20141009-1504</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.guava/10.0.1.v201203051515</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.inject/3.0.0.v201312141243</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.antlr.runtime/3.2.0.v201101311130</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.objectweb.asm/5.0.1.v201404251740</bundle>
-  </feature>
-
-  <feature name="shk-deps-xtext-special" version="2.6.2" description="Used to resolve Xtext dependencies only (see details).">
-    <details>
-      This is only used to provide optional dependencies to resolve features that needs Xtext or related stuff.
-      There is no intention that this feature is installed manually or to provide some function on its own.
-      Use this in other features with the dependency attribute set to true only.
-      All bundles and features that are part of this one have to set the depencency attribute to true.
-    </details>
-    <feature dependency="true">shk-deps-xtext-common</feature>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.emf.common/2.10.1.v20150123-0348</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.emf.ecore/2.10.2.v20150123-0348</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.emf.ecore.xmi/2.10.2.v20150123-0348</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtend.lib/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.common.types/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.util/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.xbase/2.6.2.v201407030533</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.xbase.lib/2.6.2.v201407030533</bundle>
-    <capability>esh.tp;feature=xtext;version=2.6.2</capability>
-  </feature>
-
   <!-- ESH target platform stuff (product specific) -->
 
   <feature name="esh-tp-base" description="TargetPlatform Base" version="${project.version}">
@@ -149,7 +76,13 @@
   </feature>
 
   <feature name="esh-tp-commons" version="${project.version}">
-    <feature dependency="true">shk-deps-commons</feature>
+    <feature dependency="true">kat-apache-commons-codec</feature>
+    <feature dependency="true">kat-apache-commons-collections</feature>
+    <feature dependency="true">kat-apache-commons-exec</feature>
+    <feature dependency="true">kat-apache-commons-httpclient</feature>
+    <feature dependency="true">kat-apache-commons-io</feature>
+    <feature dependency="true">kat-apache-commons-lang</feature>
+    <feature dependency="true">kat-apache-commons-net</feature>
   </feature>
 
   <feature name="esh-tp-jupnp" version="${project.version}">
@@ -165,7 +98,8 @@
   </feature>
 
   <feature name="esh-tp-xtext" version="${project.version}">
-    <feature version="[2.6.2,2.6.3)" dependency="true">shk-deps-xtext-special</feature>
+    <feature version="[2.6.2,2.6.3)">kat-xtext</feature>
+    <capability>esh.tp;feature=xtext;version=2.6.2</capability>
   </feature>
 
 </features>
