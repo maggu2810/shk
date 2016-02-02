@@ -6,9 +6,6 @@
   <feature name="shk-runtime" description="${project.name}" version="${project.version}">
     <details>${project.description}</details>
 
-    <!-- As long as the Equinox framework is used, we could use this one. -->
-    <feature>kat-kce</feature>
-
     <feature>esh-base</feature>
     <feature>esh-io-console-karaf</feature>
     <feature>esh-io-rest-sitemap</feature>
