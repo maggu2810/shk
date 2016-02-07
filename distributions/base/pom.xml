@@ -178,6 +178,7 @@
           <bootFeatures>
             <feature>jaas</feature>
             <feature>shell</feature>
+            <feature>shell-compat</feature>
             <feature>ssh</feature>
             <feature>management</feature>
             <feature>bundle</feature>
