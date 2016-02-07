@@ -192,6 +192,7 @@
             <feature>service</feature>
             <feature>system</feature>
             <feature>feature</feature>
+            <feature>shk-runtime</feature>
           </bootFeatures>
         </configuration>
       </plugin>
