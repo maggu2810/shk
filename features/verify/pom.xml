@@ -38,8 +38,8 @@
                 <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
                 <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
                 <descriptor>mvn:${project.groupId}/shk-feature-base/${project.version}/xml/features</descriptor>
-                <descriptor>mvn:de.maggu2810.kat.features/aggregate/${kat.version}/xml/features</descriptor>
-                <descriptor>mvn:org.eclipse.smarthome/karaf/${esh.version}/xml/features</descriptor>
+                <!-- Uncomment the next line if you want to verify all the Eclipse SmartHome features, too. -->
+                <!--<descriptor>mvn:org.eclipse.smarthome/karaf/${esh.version}/xml/features</descriptor>-->
               </descriptors>
               <distribution>org.apache.karaf.features:framework</distribution>
               <javase>1.8</javase>
