@@ -24,7 +24,7 @@
     <karaf.version>4.0.4</karaf.version>
     <kat.version>1.3-SNAPSHOT</kat.version>
 
-    <esh.version>0.8.0-SNAPSHOT</esh.version>
+    <esh.version>0.8.0.b3</esh.version>
   </properties>
 
   <licenses>
