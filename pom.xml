@@ -22,9 +22,9 @@
     <maven.compiler.compilerVersion>1.7</maven.compiler.compilerVersion>
 
     <karaf.version>4.0.4</karaf.version>
-    <kat.version>1.3</kat.version>
+    <kat.version>1.4-SNAPSHOT</kat.version>
 
-    <esh.version>0.8.0.b3</esh.version>
+    <esh.version>0.8.0-SNAPSHOT</esh.version>
   </properties>
 
   <licenses>
