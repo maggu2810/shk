@@ -74,7 +74,7 @@
   </feature>
 
   <feature name="esh-tp-jmdns" version="${project.version}">
-    <feature>kat-jmdns</feature>
+    <feature version="[3.5.0,4)">kat-jmdns</feature>
     <capability>esh.tp;feature=jmdns</capability>
   </feature>
 
