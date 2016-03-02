@@ -167,7 +167,6 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    <!--
     <repository>
       <id>eclipse-snapshots</id>
       <name>Eclipse Snapshot Repository</name>
@@ -177,7 +176,6 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
-    -->
   </repositories>
 
   <modules>
