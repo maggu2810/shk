@@ -51,6 +51,10 @@
       <id>bintray</id>
       <url>https://api.bintray.com/maven/maggu2810/maven/shk</url>
     </repository>
+    <snapshotRepository>
+      <id>bintray</id>
+      <url>http://oss.jfrog.org/artifactory/simple/oss-snapshot-local/</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <build>
@@ -116,7 +120,7 @@
   <repositories>
     <repository>
       <id>bintray-maggu2810-maven</id>
-      <url>http://dl.bintray.com/maggu2810/maven</url>
+      <url>http://dl.bintray.com/maggu2810/maven/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -125,9 +129,34 @@
       </snapshots>
     </repository>
     <repository>
-      <id>jcenter</id>
-      <name>JCenter Repository</name>
+      <id>jCenter</id>
       <url>https://jcenter.bintray.com/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>ojo-libs-release</id>
+      <url>http://oss.jfrog.org/artifactory/simple/libs-release/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>ojo-libs-snapshot</id>
+      <url>http://oss.jfrog.org/artifactory/simple/libs-snapshot/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
     </repository>
     <repository>
       <id>eclipse-releases</id>
@@ -138,7 +167,8 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    <!--    <repository>
+    <!--
+    <repository>
       <id>eclipse-snapshots</id>
       <name>Eclipse Snapshot Repository</name>
       <layout>default</layout>
@@ -146,7 +176,8 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-    </repository>-->
+    </repository>
+    -->
   </repositories>
 
   <modules>
