@@ -3,13 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.shk</groupId>
-    <artifactId>shk-features</artifactId>
+    <groupId>de.maggu2810.shk.features</groupId>
+    <artifactId>pom</artifactId>
     <version>1.8-SNAPSHOT</version>
   </parent>
 
-  <artifactId>shk-feature-base</artifactId>
+  <artifactId>base</artifactId>
   <packaging>feature</packaging>
+
+  <name>shk :: Features :: Base</name>
 
   <build>
     <plugins>

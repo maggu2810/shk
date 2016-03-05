@@ -3,13 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.shk</groupId>
-    <artifactId>shk-distributions</artifactId>
+    <groupId>de.maggu2810.shk.distributions</groupId>
+    <artifactId>pom</artifactId>
     <version>1.8-SNAPSHOT</version>
   </parent>
 
-  <artifactId>shk-distribution-base</artifactId>
+  <artifactId>base</artifactId>
   <packaging>karaf-assembly</packaging>
+
+  <name>shk :: Distributions :: Base</name>
 
   <repositories>
     <!-- Apache ServiceMix repository (for region) -->
@@ -103,8 +105,8 @@
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>shk-feature-base</artifactId>
+      <groupId>de.maggu2810.shk.features</groupId>
+      <artifactId>base</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
       <type>xml</type>

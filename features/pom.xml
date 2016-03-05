@@ -8,8 +8,11 @@
     <version>1.8-SNAPSHOT</version>
   </parent>
 
-  <artifactId>shk-features</artifactId>
+  <groupId>de.maggu2810.shk.features</groupId>
+  <artifactId>pom</artifactId>
   <packaging>pom</packaging>
+
+  <name>shk :: Features</name>
 
   <modules>
     <module>base</module>

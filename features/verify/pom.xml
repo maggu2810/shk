@@ -3,13 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.shk</groupId>
-    <artifactId>shk-features</artifactId>
+    <groupId>de.maggu2810.shk.features</groupId>
+    <artifactId>pom</artifactId>
     <version>1.8-SNAPSHOT</version>
   </parent>
 
-  <artifactId>shk-feature-verify</artifactId>
+  <artifactId>verify</artifactId>
   <packaging>pom</packaging>
+
+  <name>shk :: Features :: Verify</name>
 
   <dependencies>
     <dependency>
@@ -37,7 +39,7 @@
               <descriptors>
                 <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
                 <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
-                <descriptor>mvn:${project.groupId}/shk-feature-base/${project.version}/xml/features</descriptor>
+                <descriptor>mvn:${project.groupId}/base/${project.version}/xml/features</descriptor>
                 <!-- Uncomment the next line if you want to verify all the Eclipse SmartHome features, too. -->
                 <!--<descriptor>mvn:org.eclipse.smarthome/karaf/${esh.version}/xml/features</descriptor>-->
               </descriptors>
