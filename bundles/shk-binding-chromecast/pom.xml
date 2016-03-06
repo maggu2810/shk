@@ -54,6 +54,18 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Import-Package>
+              *,
+              org.eclipse.smarthome.config.core.validation
+            </Import-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
@@ -97,7 +109,7 @@
           </execution>
         </executions>
       </plugin>-->
-      <plugin>
+      <!--<plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
           <execution>
@@ -107,20 +119,17 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${eclipse.project.dir}</outputDirectory>
+              <outputDirectory>${eclipse.project.dir}/src</outputDirectory>
               <resources>
                 <resource>
-                  <directory>${project.build.directory}</directory>
+                  <directory>${project.basedir}/src/main/java</directory>
                   <filtering>false</filtering>
-                  <includes>
-                    <include>${project.build.finalName}.jar</include>
-                  </includes>
                 </resource>
               </resources>
             </configuration>
           </execution>
         </executions>
-      </plugin>
+      </plugin>-->
     </plugins>
   </build>
 

@@ -23,4 +23,7 @@ public class BindingConstants {
     public static final String BINDING_ID = "chromecast";
 
     public static final ThingTypeUID THING_TYPE_CHROMECAST = new ThingTypeUID(BINDING_ID, "chromecast");
+
+    // config properties
+    public static final String HOST = "ipAddress";
 }

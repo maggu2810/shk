@@ -17,21 +17,20 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
 import org.eclipse.smarthome.core.thing.binding.BaseThingHandlerFactory;
 import org.eclipse.smarthome.core.thing.binding.ThingHandler;
 import org.osgi.service.component.annotations.Component;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Component
 public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    // private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(new HashSet<>(Arrays
-            .asList(new ThingTypeUID[] { BindingConstants.THING_TYPE_CHROMECAST })));
+    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(
+            new HashSet<>(Arrays.asList(new ThingTypeUID[] { BindingConstants.THING_TYPE_CHROMECAST })));
 
     @Override
     protected ThingHandler createHandler(final Thing thing) {
