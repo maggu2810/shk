@@ -85,7 +85,7 @@
                 </artifactItem>
               </artifactItems>
               <includes>OSGI-INF\/**,META-INF\/**</includes>
-              <outputDirectory>${project.basedir}</outputDirectory>
+              <outputDirectory>${eclipse.project.dir}</outputDirectory>
             </configuration>
           </execution>
         </executions>
