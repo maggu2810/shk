@@ -29,8 +29,8 @@ public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
 
     // private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(
-            new HashSet<>(Arrays.asList(new ThingTypeUID[] { BindingConstants.THING_TYPE_CHROMECAST })));
+    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(new HashSet<>(Arrays
+            .asList(new ThingTypeUID[] { BindingConstants.THING_TYPE_CHROMECAST })));
 
     @Override
     protected ThingHandler createHandler(final Thing thing) {
