@@ -22,9 +22,10 @@ import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
 import org.eclipse.smarthome.core.thing.binding.BaseThingHandlerFactory;
 import org.eclipse.smarthome.core.thing.binding.ThingHandler;
+import org.eclipse.smarthome.core.thing.binding.ThingHandlerFactory;
 import org.osgi.service.component.annotations.Component;
 
-@Component
+@Component(service = { ThingHandlerFactory.class })
 public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
 
     // private final Logger logger = LoggerFactory.getLogger(this.getClass());
