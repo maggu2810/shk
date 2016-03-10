@@ -22,6 +22,7 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <karaf.version>4.0.4</karaf.version>
+    <cxf.version>3.1.4</cxf.version>
     <maven.build.resources.version>1.1-SNAPSHOT</maven.build.resources.version>
     <kat.version>1.4-SNAPSHOT</kat.version>
     <esh.version>0.8.0-SNAPSHOT</esh.version>
