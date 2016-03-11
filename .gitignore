@@ -1,2 +1,3 @@
 **/target/
 /features/*/src/main/history/dependencies.xml
+nbactions.xml
