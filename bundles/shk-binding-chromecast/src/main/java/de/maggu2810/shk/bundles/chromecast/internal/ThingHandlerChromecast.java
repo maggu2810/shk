@@ -32,12 +32,16 @@ import org.slf4j.LoggerFactory;
 
 import su.litvak.chromecast.api.v2.Application;
 import su.litvak.chromecast.api.v2.ChromeCast;
-import su.litvak.chromecast.api.v2.ChromeCastSpontaneousEvent;
-import su.litvak.chromecast.api.v2.ChromeCastSpontaneousEventListener;
+import su.litvak.chromecast.api.v2.ChromeCastConnectionEvent;
+import su.litvak.chromecast.api.v2.ChromeCastConnectionEventListener;
+import su.litvak.chromecast.api.v2.ChromeCastMessageEvent;
+import su.litvak.chromecast.api.v2.ChromeCastMessageEventListener;
 import su.litvak.chromecast.api.v2.MediaStatus;
 import su.litvak.chromecast.api.v2.Status;
+import su.litvak.chromecast.api.v2.Volume;
 
-public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCastSpontaneousEventListener {
+public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCastConnectionEventListener,
+        ChromeCastMessageEventListener {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -57,11 +61,13 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
 
     private void createChromecast(final String address) {
         chromecast = new ChromeCast(address);
-        chromecast.registerListener(this);
+        chromecast.registerConnectionListener(this);
+        chromecast.registerMessageListener(this);
     }
 
     private void destroyChromecast() {
-        chromecast.unregisterListener(this);
+        chromecast.unregisterMessageListener(this);
+        chromecast.unregisterConnectionListener(this);
         try {
             chromecast.disconnect();
         } catch (final IOException ex) {
@@ -186,27 +192,58 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
         }
     }
 
-    @Override
-    public void spontaneousEventReceived(final ChromeCastSpontaneousEvent event) {
-        switch (event.getType()) {
-            case CONNECTION_STATUS:
-                final boolean connected = event.getData(Boolean.class);
-                if (connected) {
-                    updateStatus(ThingStatus.ONLINE);
-                } else {
-                    updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.OFFLINE.COMMUNICATION_ERROR,
-                            "Connection has been closed.");
-                    scheduleConnect(false);
-                }
-                logger.info("connected: {}", connected);
+    private void handleCcConnected() {
+        updateStatus(ThingStatus.ONLINE);
+        try {
+            handleCcStatus(chromecast.getStatus());
+        } catch (final IOException ex) {
+            logger.debug("Cannot fetch status.", ex);
+        }
+    }
+
+    private void handleCcDisconnected() {
+        updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.OFFLINE.COMMUNICATION_ERROR, "Connection has been closed.");
+        scheduleConnect(false);
+    }
+
+    private void handleCcStatus(final Status status) {
+        handleCcVolume(status.volume);
+    }
+
+    private void handleCcMediaStatus(final MediaStatus mediaStatus) {
+        switch (mediaStatus.playerState) {
+            case IDLE:
+            case PAUSED:
+                updateState(new ChannelUID(BindingConstants.THING_TYPE_CHROMECAST, getThing().getUID(),
+                        BindingConstants.CHANNEL_PLAY), OnOffType.OFF);
                 break;
+            case BUFFERING:
+            case PLAYING:
+                updateState(new ChannelUID(BindingConstants.THING_TYPE_CHROMECAST, getThing().getUID(),
+                        BindingConstants.CHANNEL_PLAY), OnOffType.ON);
+                break;
+            default:
+                break;
+        }
+        // Seems incorrect. I get a 1 (100%) if I start to play an URI.
+        // handleCcVolume(mediaStatus.volume);
+    }
+
+    private void handleCcVolume(final Volume volume) {
+        updateState(new ChannelUID(BindingConstants.THING_TYPE_CHROMECAST, getThing().getUID(),
+                BindingConstants.CHANNEL_VOLUME), new PercentType((int) (volume.level * 100)));
+    }
+
+    @Override
+    public void messageEventReceived(ChromeCastMessageEvent event) {
+        switch (event.getType()) {
             case MEDIA_STATUS:
                 final MediaStatus mediaStatus = event.getData(MediaStatus.class);
-                logger.info("media status: {}", mediaStatus);
+                handleCcMediaStatus(mediaStatus);
                 break;
             case STATUS:
                 final Status status = event.getData(Status.class);
-                logger.info("status: {}", status);
+                handleCcStatus(status);
                 break;
             case UNKNOWN:
                 final JsonNode jsonNode = event.getData(JsonNode.class);
@@ -216,6 +253,15 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
                 logger.info("unhandled event type: {}", event.getData());
                 break;
 
+        }
+    }
+
+    @Override
+    public void connectionEventReceived(ChromeCastConnectionEvent event) {
+        if (event.isConnected()) {
+            handleCcConnected();
+        } else {
+            handleCcDisconnected();
         }
     }
 
