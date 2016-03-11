@@ -3,7 +3,7 @@ package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.JsonNode;
 
-public class ChromeCastSpontaneousEvent {
+public class ChromeCastMessageEvent {
 
     public enum SpontaneousEventType {
 
@@ -36,7 +36,7 @@ public class ChromeCastSpontaneousEvent {
     private final SpontaneousEventType type;
     private final Object data;
 
-    public ChromeCastSpontaneousEvent(final SpontaneousEventType type, final Object data) {
+    public ChromeCastMessageEvent(final SpontaneousEventType type, final Object data) {
         if (!type.getDataClass().isAssignableFrom(data.getClass())) {
             throw new IllegalArgumentException("Data type " + data.getClass() + " does not match type for event "
                     + type.getDataClass());
