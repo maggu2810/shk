@@ -20,6 +20,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-library-chromecast-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>de.maggu2810.shk.tools</groupId>
       <artifactId>esh</artifactId>
       <version>${project.version}</version>
@@ -42,11 +47,6 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>su.litvak.chromecast</groupId>
-      <artifactId>api-v2</artifactId>
       <scope>provided</scope>
     </dependency>
   </dependencies>

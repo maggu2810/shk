@@ -45,6 +45,7 @@
 
   <modules>
     <module>shk-binding-chromecast</module>
+    <module>shk-library-chromecast-api</module>
   </modules>
 
 </project>
