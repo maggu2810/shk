@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -31,17 +32,14 @@ public class Application {
     public final String transportId;
     public final List<Namespace> namespaces;
 
-    public Application(@JsonProperty("appId") String id,
-                       @JsonProperty("displayName") String name,
-                       @JsonProperty("sessionId") String sessionId,
-                       @JsonProperty("statusText") String statusText,
-                       @JsonProperty("transportId") String transportId,
-                       @JsonProperty("namespaces") List<Namespace> namespaces) {
+    public Application(@JsonProperty("appId") String id, @JsonProperty("displayName") String name,
+            @JsonProperty("sessionId") String sessionId, @JsonProperty("statusText") String statusText,
+            @JsonProperty("transportId") String transportId, @JsonProperty("namespaces") List<Namespace> namespaces) {
         this.id = id;
         this.name = name;
         this.sessionId = sessionId;
         this.statusText = statusText;
         this.transportId = transportId;
-        this.namespaces = namespaces == null ? Collections.<Namespace>emptyList() : namespaces;
+        this.namespaces = namespaces == null ? Collections.<Namespace> emptyList() : namespaces;
     }
 }

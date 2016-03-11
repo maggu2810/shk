@@ -1,3 +1,4 @@
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.JsonNode;
@@ -23,11 +24,11 @@ public class ChromeCastSpontaneousEvent {
 
         private final Class<?> dataClass;
 
-        private SpontaneousEventType (Class<?> dataClass) {
+        private SpontaneousEventType(Class<?> dataClass) {
             this.dataClass = dataClass;
         }
 
-        public Class<?> getDataClass () {
+        public Class<?> getDataClass() {
             return this.dataClass;
         }
     }
@@ -35,25 +36,27 @@ public class ChromeCastSpontaneousEvent {
     private final SpontaneousEventType type;
     private final Object data;
 
-    public ChromeCastSpontaneousEvent (final SpontaneousEventType type, final Object data) {
+    public ChromeCastSpontaneousEvent(final SpontaneousEventType type, final Object data) {
         if (!type.getDataClass().isAssignableFrom(data.getClass())) {
-            throw new IllegalArgumentException("Data type " + data.getClass() + " does not match type for event " + this.type.getDataClass());
+            throw new IllegalArgumentException("Data type " + data.getClass() + " does not match type for event "
+                    + type.getDataClass());
         }
         this.type = type;
         this.data = data;
     }
 
-    public SpontaneousEventType getType () {
+    public SpontaneousEventType getType() {
         return this.type;
     }
 
-    public Object getData () {
+    public Object getData() {
         return this.data;
     }
 
-    public <T> T getData (Class<T> cls) {
+    public <T> T getData(Class<T> cls) {
         if (!cls.isAssignableFrom(this.type.getDataClass())) {
-            throw new IllegalArgumentException("Requested type " + cls + " does not match type for event " + this.type.getDataClass());
+            throw new IllegalArgumentException("Requested type " + cls + " does not match type for event "
+                    + this.type.getDataClass());
         }
         return cls.cast(this.data);
     }

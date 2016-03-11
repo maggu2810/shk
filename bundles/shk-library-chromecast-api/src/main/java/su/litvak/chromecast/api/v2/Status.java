@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
@@ -30,12 +31,10 @@ public class Status {
     public final boolean activeInput;
     public final boolean standBy;
 
-    Status(@JsonProperty("volume") Volume volume,
-           @JsonProperty("applications") List<Application> applications,
-           @JsonProperty("isActiveInput") boolean activeInput,
-           @JsonProperty("isStandBy") boolean standBy) {
+    Status(@JsonProperty("volume") Volume volume, @JsonProperty("applications") List<Application> applications,
+            @JsonProperty("isActiveInput") boolean activeInput, @JsonProperty("isStandBy") boolean standBy) {
         this.volume = volume;
-        this.applications = applications == null ? Collections.<Application>emptyList() : applications;
+        this.applications = applications == null ? Collections.<Application> emptyList() : applications;
         this.activeInput = activeInput;
         this.standBy = standBy;
     }

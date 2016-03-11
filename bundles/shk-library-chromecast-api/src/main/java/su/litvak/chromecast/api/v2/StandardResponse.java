@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -24,8 +25,8 @@ import java.util.Map;
 /**
  * Parent class for transport object representing messages received FROM ChromeCast device
  */
-@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property = "responseType")
-@JsonSubTypes({@JsonSubTypes.Type(name = "PING", value = StandardResponse.Ping.class),
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "responseType")
+@JsonSubTypes({ @JsonSubTypes.Type(name = "PING", value = StandardResponse.Ping.class),
                @JsonSubTypes.Type(name = "PONG", value = StandardResponse.Pong.class),
                @JsonSubTypes.Type(name = "RECEIVER_STATUS", value = StandardResponse.Status.class),
                @JsonSubTypes.Type(name = "GET_APP_AVAILABILITY", value = StandardResponse.AppAvailability.class),
@@ -33,7 +34,7 @@ import java.util.Map;
                @JsonSubTypes.Type(name = "MEDIA_STATUS", value = StandardResponse.MediaStatus.class),
                @JsonSubTypes.Type(name = "CLOSE", value = StandardResponse.Close.class),
                @JsonSubTypes.Type(name = "LOAD_FAILED", value = StandardResponse.LoadFailed.class),
-               @JsonSubTypes.Type(name = "LAUNCH_ERROR", value = StandardResponse.LaunchError.class)})
+               @JsonSubTypes.Type(name = "LAUNCH_ERROR", value = StandardResponse.LaunchError.class) })
 abstract class StandardResponse implements Response {
     Long requestId;
 
@@ -47,10 +48,17 @@ abstract class StandardResponse implements Response {
         this.requestId = requestId;
     }
 
-    static class Ping extends StandardResponse {}
-    static class Pong extends StandardResponse {}
-    static class Close extends StandardResponse {}
-    static class LoadFailed extends StandardResponse {}
+    static class Ping extends StandardResponse {
+    }
+
+    static class Pong extends StandardResponse {
+    }
+
+    static class Close extends StandardResponse {
+    }
+
+    static class LoadFailed extends StandardResponse {
+    }
 
     static class Invalid extends StandardResponse {
         final String reason;

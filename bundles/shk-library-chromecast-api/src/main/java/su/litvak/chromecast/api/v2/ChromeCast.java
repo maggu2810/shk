@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import javax.jmdns.JmDNS;
@@ -124,8 +125,8 @@ public class ChromeCast {
     }
 
     /**
-     * @param appId    application identifier
-     * @return  true if application is available to this chromecast device, false otherwise
+     * @param appId application identifier
+     * @return true if application is available to this chromecast device, false otherwise
      * @throws IOException
      */
     public boolean isAppAvailable(String appId) throws IOException {
@@ -143,7 +144,7 @@ public class ChromeCast {
     }
 
     /**
-     * @param appId    application identifier
+     * @param appId application identifier
      * @return application descriptor if app successfully launched, null otherwise
      * @throws IOException
      */
@@ -185,6 +186,7 @@ public class ChromeCast {
 
     /**
      * Resume paused media playback
+     *
      * @throws IOException
      */
     public void play() throws IOException {
@@ -198,6 +200,7 @@ public class ChromeCast {
 
     /**
      * Pause current playback
+     *
      * @throws IOException
      */
     public void pause() throws IOException {
@@ -211,6 +214,7 @@ public class ChromeCast {
 
     /**
      * Moves current playback time point to specified value
+     *
      * @param time time point between zero and media duration
      * @throws IOException
      */
@@ -220,13 +224,14 @@ public class ChromeCast {
         if (mediaStatus == null) {
             throw new ChromeCastException("ChromeCast has invalid state to seek media playback");
         }
-        channel.seek(status.getRunningApp().transportId, status.getRunningApp().sessionId, mediaStatus.mediaSessionId, time);
+        channel.seek(status.getRunningApp().transportId, status.getRunningApp().sessionId, mediaStatus.mediaSessionId,
+                time);
     }
 
     /**
      * Loads and starts playing media in specified URL
      *
-     * @param url    media url
+     * @param url media url
      * @return The new media status that resulted from loading the media.
      * @throws IOException
      */
@@ -239,8 +244,8 @@ public class ChromeCast {
      *
      * @param title name to be displayed
      * @param thumb url of video thumbnail to be displayed, relative to media url
-     * @param url   media url
-     * @param contentType    MIME content type
+     * @param url media url
+     * @param contentType MIME content type
      * @return The new media status that resulted from loading the media.
      * @throws IOException
      */
@@ -249,31 +254,38 @@ public class ChromeCast {
         Map<String, String> customData = new HashMap<String, String>(2);
         customData.put("title:", title);
         customData.put("thumb", thumb);
-        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId, new Media(url, contentType), true, 0d, customData);
+        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId, new Media(url,
+                contentType), true, 0d, customData);
     }
 
     /**
      * Loads and starts playing specified media
      *
-     * @param media The media to load and play.  See https://developers.google.com/cast/docs/reference/messages#Load for further details.
+     * @param media The media to load and play. See https://developers.google.com/cast/docs/reference/messages#Load for
+     *            further details.
      * @return The new media status that resulted from loading the media.
      * @throws IOException
      */
     public MediaStatus load(final Media media) throws IOException {
         Status status = getStatus();
-        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId, media, true, 0d, null);
+        return channel
+                .load(status.getRunningApp().transportId, status.getRunningApp().sessionId, media, true, 0d, null);
     }
 
     /**
-     * <p>Sends some generic request to the currently running application.</p>
+     * <p>
+     * Sends some generic request to the currently running application.
+     * </p>
      *
-     * <p>If no application is running at the moment then exception is thrown.</p>
+     * <p>
+     * If no application is running at the moment then exception is thrown.
+     * </p>
      *
-     * @param namespace         request namespace
-     * @param request           request object
-     * @param responseClass     class of the response for proper deserialization
-     * @param <T>               type of response
-     * @return                  deserialized response
+     * @param namespace request namespace
+     * @param request request object
+     * @param responseClass class of the response for proper deserialization
+     * @param <T> type of response
+     * @return deserialized response
      * @throws IOException
      */
     public <T extends Response> T send(String namespace, Request request, Class<T> responseClass) throws IOException {
@@ -286,12 +298,17 @@ public class ChromeCast {
     }
 
     /**
-     * <p>Sends some generic request to the currently running application. No response is expected as a result of this call.</p>
+     * <p>
+     * Sends some generic request to the currently running application. No response is expected as a result of this
+     * call.
+     * </p>
      *
-     * <p>If no application is running at the moment then exception is thrown.</p>
+     * <p>
+     * If no application is running at the moment then exception is thrown.
+     * </p>
      *
-     * @param namespace     request namespace
-     * @param request       request object
+     * @param namespace request namespace
+     * @param request request object
      * @throws IOException
      */
     public void send(String namespace, Request request) throws IOException {

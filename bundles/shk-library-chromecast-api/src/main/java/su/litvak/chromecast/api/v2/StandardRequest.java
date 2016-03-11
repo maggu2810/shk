@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -35,7 +36,8 @@ abstract class StandardRequest extends StandardMessage implements Request {
         return requestId;
     }
 
-    static class Status extends StandardRequest {}
+    static class Status extends StandardRequest {
+    }
 
     static class AppAvailability extends StandardRequest {
         @JsonProperty
