@@ -47,4 +47,11 @@ public class Status {
     public boolean isAppRunning(String appId) {
         return getRunningApp() != null && getRunningApp().id.equals(appId);
     }
+
+    @Override
+    public String toString() {
+        return "Status{" + "volume=" + volume + ", applications=" + applications + ", activeInput=" + activeInput
+                + ", standBy=" + standBy + '}';
+    }
+
 }

@@ -115,4 +115,15 @@ public class MediaStatus {
         this.repeatMode = repeatMode;
         this.idleReason = idleReason;
     }
+
+    @Override
+    public String toString() {
+        return "MediaStatus{" + "activeTrackIds=" + activeTrackIds + ", mediaSessionId=" + mediaSessionId
+                + ", playbackRate=" + playbackRate + ", playerState=" + playerState + ", currentItemId="
+                + currentItemId + ", currentTime=" + currentTime + ", customData=" + customData + ", loadingItemId="
+                + loadingItemId + ", items=" + items + ", preloadedItemId=" + preloadedItemId
+                + ", supportedMediaCommands=" + supportedMediaCommands + ", volume=" + volume + ", media=" + media
+                + ", repeatMode=" + repeatMode + ", idleReason=" + idleReason + '}';
+    }
+
 }

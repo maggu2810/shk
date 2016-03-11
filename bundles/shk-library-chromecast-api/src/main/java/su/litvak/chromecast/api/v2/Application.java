@@ -42,4 +42,11 @@ public class Application {
         this.transportId = transportId;
         this.namespaces = namespaces == null ? Collections.<Namespace> emptyList() : namespaces;
     }
+
+    @Override
+    public String toString() {
+        return "Application{" + "id=" + id + ", name=" + name + ", sessionId=" + sessionId + ", statusText="
+                + statusText + ", transportId=" + transportId + ", namespaces=" + namespaces + '}';
+    }
+
 }
