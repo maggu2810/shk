@@ -24,7 +24,6 @@
   </feature>
 
   <feature name="shk-binding-chromecast" description="Google Chromecast Binding" version="${project.version}">
-    <feature prerequisite="true">wrap</feature>
     <bundle>mvn:de.maggu2810.shk.bundles/shk-binding-chromecast/${project.version}</bundle>
     <feature>kat-jmdns</feature>
     <feature>esh-io-transport-upnp</feature>
