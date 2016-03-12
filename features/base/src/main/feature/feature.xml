@@ -51,6 +51,12 @@
     <bundle>mvn:com.eclipsesource.jaxrs/provider-swagger/1.1</bundle>
   </feature>
 
+  <feature name="shk-openhab-rest-docs" version="${project.version}">
+    <feature dependency="true">esh-base</feature>
+    <bundle dependency="true">mvn:org.openhab.core/org.openhab.ui.dashboard/${ohc.version}</bundle>
+    <bundle>mvn:org.openhab.core/org.openhab.io.rest.docs/${ohc.version}</bundle>
+  </feature>
+
   <!-- All remaining (TODO: sort) Eclipse SmartHome bundles, create features for them -->
   <!--<bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.sample-handler/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.extension.sample/${esh.version}</bundle>-->
