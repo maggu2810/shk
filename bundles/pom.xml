@@ -134,6 +134,7 @@
 
   <modules>
     <module>shk-binding-chromecast</module>
+    <module>shk-io-rest-docs</module>
     <module>shk-library-chromecast-api</module>
   </modules>
 
