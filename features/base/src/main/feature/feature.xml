@@ -33,6 +33,15 @@
     <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/${jackson.version}</bundle>
   </feature>
 
+  <feature name="shk-io-rest-docs" version="${project.version}">
+    <config name="com.eclipsesource.jaxrs.swagger.config">
+      swagger.basePath = /rest
+      swagger.info.title=Eclipse SmartHome REST API
+    </config>
+    <feature dependency="true">esh-base</feature>
+    <bundle>mvn:de.maggu2810.shk.bundles/shk-io-rest-docs/${project.version}</bundle>
+  </feature>
+
   <feature name="shk-jax-rs-min" version="5.3">
     <feature dependency="true">http</feature>
     <bundle dependency="true">mvn:com.eclipsesource.jaxrs/jersey-min/2.22.1</bundle>
@@ -49,12 +58,6 @@
     <feature dependency="true" version="[5.3,5.4)">shk-jax-rs-min</feature>
     <bundle>mvn:de.maggu2810.thirdparty.modified.com.eclipsesource.jaxrs/swagger-all/1.5.5.sp1</bundle>
     <bundle>mvn:com.eclipsesource.jaxrs/provider-swagger/1.1</bundle>
-  </feature>
-
-  <feature name="shk-openhab-rest-docs" version="${project.version}">
-    <feature dependency="true">esh-base</feature>
-    <bundle dependency="true">mvn:org.openhab.core/org.openhab.ui.dashboard/${ohc.version}</bundle>
-    <bundle>mvn:org.openhab.core/org.openhab.io.rest.docs/${ohc.version}</bundle>
   </feature>
 
   <!-- All remaining (TODO: sort) Eclipse SmartHome bundles, create features for them -->
