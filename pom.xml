@@ -151,7 +151,6 @@
                 </includes>
                 <excludes>
                   <exclude>**/feature.xml</exclude>
-                  <exclude>**/su/litvak/chromecast/api/**</exclude>
                 </excludes>
               </configuration>
             </execution>
