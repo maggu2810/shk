@@ -38,6 +38,8 @@ package de.maggu2810.shk.chromecast_api;
 import java.io.IOException;
 
 public class ChromeCastException extends IOException {
+    private static final long serialVersionUID = 1L;
+
     public ChromeCastException(String message) {
         super(message);
     }

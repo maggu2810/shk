@@ -35,17 +35,20 @@
 
 package de.maggu2810.shk.chromecast_api;
 
-import javax.jmdns.JmDNS;
-import javax.jmdns.ServiceEvent;
-import javax.jmdns.ServiceListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceEvent;
+import javax.jmdns.ServiceListener;
 
 /**
  * Utility class that discovers ChromeCast devices and holds references to all of them.
  */
 public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListener {
+    private static final long serialVersionUID = 1L;
+
     private final static ChromeCasts INSTANCE = new ChromeCasts();
 
     private JmDNS mDNS;
