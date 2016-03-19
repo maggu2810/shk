@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-import org.codehaus.jackson.JsonNode;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.PercentType;
 import org.eclipse.smarthome.core.library.types.StringType;
@@ -214,13 +213,11 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
         switch (mediaStatus.playerState) {
             case IDLE:
             case PAUSED:
-                updateState(new ChannelUID(BindingConstants.THING_TYPE_CHROMECAST, getThing().getUID(),
-                        BindingConstants.CHANNEL_PLAY), OnOffType.OFF);
+                updateState(new ChannelUID(getThing().getUID(), BindingConstants.CHANNEL_PLAY), OnOffType.OFF);
                 break;
             case BUFFERING:
             case PLAYING:
-                updateState(new ChannelUID(BindingConstants.THING_TYPE_CHROMECAST, getThing().getUID(),
-                        BindingConstants.CHANNEL_PLAY), OnOffType.ON);
+                updateState(new ChannelUID(getThing().getUID(), BindingConstants.CHANNEL_PLAY), OnOffType.ON);
                 break;
             default:
                 break;
@@ -230,8 +227,8 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
     }
 
     private void handleCcVolume(final Volume volume) {
-        updateState(new ChannelUID(BindingConstants.THING_TYPE_CHROMECAST, getThing().getUID(),
-                BindingConstants.CHANNEL_VOLUME), new PercentType((int) (volume.level * 100)));
+        updateState(new ChannelUID(getThing().getUID(), BindingConstants.CHANNEL_VOLUME), new PercentType(
+                (int) (volume.level * 100)));
     }
 
     @Override
@@ -246,8 +243,9 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
                 handleCcStatus(status);
                 break;
             case UNKNOWN:
-                final JsonNode jsonNode = event.getData(JsonNode.class);
-                logger.info("json node: {}", jsonNode);
+                // final JsonNode jsonNode = event.getData(JsonNode.class);
+                // logger.info("json node: {}", jsonNode);
+                logger.warn("Received an 'UNKNOWN' event (class={})", event.getType().getDataClass());
                 break;
             default:
                 logger.info("unhandled event type: {}", event.getData());
