@@ -44,15 +44,18 @@ import org.codehaus.jackson.annotate.JsonProperty;
 /**
  * Current media player status - which media is played, volume, time position, etc.
  *
- * @see <a
- *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus</a>
+ * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus">https://
+
+ *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus</a>
  */
 public class MediaStatus {
     /**
      * Playback status
      *
      * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState</a>
+     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState">https://
+
+     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState</a>
      */
     public enum PlayerState {
         IDLE,
@@ -63,7 +66,9 @@ public class MediaStatus {
 
     /**
      * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode</a>
+     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode">https://
+
+     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode</a>
      */
     public enum RepeatMode {
         REPEAT_OFF,
@@ -82,7 +87,9 @@ public class MediaStatus {
      * </p>
      *
      * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason</a>
+     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason">https://
+
+     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason</a>
      */
     public enum IdleReason {
         CANCELLED,

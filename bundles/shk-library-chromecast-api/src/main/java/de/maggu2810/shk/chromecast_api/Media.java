@@ -40,15 +40,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * Media streamed on ChromeCast device
  *
  * @see <a
- *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation</a>
+ *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation">https://
+
+ *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation</a>
  */
 public class Media {
 
@@ -63,7 +65,9 @@ public class Media {
      * </p>
      *
      * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType</a>
+     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType">https://
+
+     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType</a>
      */
     public enum StreamType {
         BUFFERED,
@@ -133,12 +137,15 @@ public class Media {
 
     @Override
     public boolean equals(final Object obj) {
-        if (obj == null)
+        if (obj == null) {
             return false;
-        if (obj == this)
+        }
+        if (obj == this) {
             return true;
-        if (!(obj instanceof Media))
+        }
+        if (!(obj instanceof Media)) {
             return false;
+        }
         final Media that = (Media) obj;
         return this.url == null ? that.url == null
                 : this.url.equals(that.url) && this.contentType == null ? that.contentType == null : this.contentType

@@ -35,8 +35,9 @@
 
 package de.maggu2810.shk.chromecast_api;
 
-import javax.net.ssl.X509TrustManager;
 import java.security.cert.X509Certificate;
+
+import javax.net.ssl.X509TrustManager;
 
 /**
  * Google Cast's certificate cannot be validated against standard keystore,

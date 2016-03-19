@@ -35,11 +35,11 @@
 
 package de.maggu2810.shk.chromecast_api;
 
+import java.util.Map;
+
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
-
-import java.util.Map;
 
 /**
  * Parent class for transport object representing messages received FROM ChromeCast device

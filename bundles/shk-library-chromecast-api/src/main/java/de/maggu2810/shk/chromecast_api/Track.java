@@ -41,14 +41,18 @@ import org.codehaus.jackson.annotate.JsonProperty;
  * Track meta data information
  *
  * @see <a
- *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track</a>
+ *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track">https://developers.
+
+ *      google.com/cast/docs/reference/receiver/cast.receiver.media.Track</a>
  */
 public class Track {
     /**
      * Media track type
      *
      * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType</a>
+     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType">https://
+
+     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType</a>
      */
     public enum TrackType {
         TEXT,

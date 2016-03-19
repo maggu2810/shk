@@ -48,12 +48,15 @@ public class Item {
 
     @Override
     public boolean equals(final Object obj) {
-        if (obj == null)
+        if (obj == null) {
             return false;
-        if (obj == this)
+        }
+        if (obj == this) {
             return true;
-        if (!(obj instanceof Item))
+        }
+        if (!(obj instanceof Item)) {
             return false;
+        }
         final Item that = (Item) obj;
         return this.autoplay == that.autoplay && this.customData == null ? that.customData == null : this.customData
                 .equals(that.customData) && this.id == that.id && this.media == null ? that.media == null : this.media

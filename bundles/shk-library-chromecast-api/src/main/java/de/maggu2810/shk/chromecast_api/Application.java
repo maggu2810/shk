@@ -35,10 +35,10 @@
 
 package de.maggu2810.shk.chromecast_api;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 import java.util.Collections;
 import java.util.List;
+
+import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * Application descriptor
