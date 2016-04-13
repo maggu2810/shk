@@ -7,7 +7,6 @@
   <repository>mvn:de.maggu2810.kat.features/jupnp/${kat.version}/xml/features</repository>
   <repository>mvn:de.maggu2810.kat.features/paho/${kat.version}/xml/features</repository>
   <repository>mvn:de.maggu2810.kat.features/xtext/${kat.version}/xml/features</repository>
-  <repository>mvn:org.eclipse.smarthome/karaf/${esh.version}/xml/features</repository>
 
   <feature name="shk-jax-rs-min" version="5.3">
     <feature dependency="true">http</feature>
