@@ -3,7 +3,7 @@
 
   <!-- <feature name="${project.artifactId}" description="${project.name}" version="${project.version}"> -->
 
-  <repository>mvn:de.maggu2810.kat.features/aggregate/${kat.version}/xml/features</repository>
+  <repository>mvn:de.maggu2810.kat.features/jmdns/${kat.version}/xml/features</repository>
   <repository>mvn:org.eclipse.smarthome/karaf/${esh.version}/xml/features</repository>
 
   <feature name="shk-runtime" description="${project.name}" version="${project.version}">
@@ -42,69 +42,10 @@
     <bundle>mvn:de.maggu2810.shk.bundles/shk-io-rest-docs/${project.version}</bundle>
   </feature>
 
-  <feature name="shk-jax-rs-min" version="5.3">
-    <feature dependency="true">http</feature>
-    <bundle dependency="true">mvn:com.eclipsesource.jaxrs/jersey-min/2.22.1</bundle>
-    <bundle>mvn:com.eclipsesource.jaxrs/publisher/5.3</bundle>
-  </feature>
-
-  <feature name="shk-jax-rs-provider-gson" version="2.3">
-    <feature dependency="true" version="[5.3,5.4)">shk-jax-rs-min</feature>
-    <feature dependency="true" version="[2.3,2.4)">kat-gson</feature>
-    <bundle>mvn:com.eclipsesource.jaxrs/provider-gson/2.3</bundle>
-  </feature>
-
-  <feature name="shk-jax-rs-provider-swagger" version="1.0.sp1">
-    <feature dependency="true" version="[5.3,5.4)">shk-jax-rs-min</feature>
-    <bundle>mvn:de.maggu2810.thirdparty.modified.com.eclipsesource.jaxrs/swagger-all/1.5.5.sp1</bundle>
-    <bundle>mvn:com.eclipsesource.jaxrs/provider-swagger/1.1</bundle>
-  </feature>
-
   <!-- All remaining (TODO: sort) Eclipse SmartHome bundles, create features for them -->
   <!--<bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.sample-handler/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.extension.sample/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.eclipse/${esh.version}</bundle>-->
   <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.rfc147/${esh.version}</bundle>-->
-
-  <!-- ESH target platform stuff (product specific) -->
-
-  <feature name="esh-tp-base" description="TargetPlatform Base" version="${project.version}">
-    <feature>eventadmin</feature>
-    <feature>scr</feature>
-    <feature>shk-jax-rs-min</feature>
-    <feature>shk-jax-rs-provider-gson</feature>
-    <feature>shk-jax-rs-provider-swagger</feature>
-    <bundle>mvn:io.swagger/swagger-annotations/1.5.5</bundle>
-  </feature>
-
-  <feature name="esh-tp-commons" version="${project.version}">
-    <feature dependency="true">kat-apache-commons-codec</feature>
-    <feature dependency="true">kat-apache-commons-collections</feature>
-    <feature dependency="true">kat-apache-commons-exec</feature>
-    <feature dependency="true">kat-apache-commons-httpclient</feature>
-    <feature dependency="true">kat-apache-commons-io</feature>
-    <feature dependency="true">kat-apache-commons-lang</feature>
-    <feature dependency="true">kat-apache-commons-net</feature>
-  </feature>
-
-  <feature name="esh-tp-jupnp" version="${project.version}">
-    <feature>kat-jupnp</feature>
-    <capability>esh.tp;feature=jupnp</capability>
-  </feature>
-
-  <feature name="esh-tp-jmdns" version="${project.version}">
-    <feature version="[3.5.0,4)">kat-jmdns</feature>
-    <capability>esh.tp;feature=jmdns</capability>
-  </feature>
-
-  <feature name="esh-tp-paho" version="${project.version}">
-    <feature>kat-paho-client-mqttv3</feature>
-    <capability>esh.tp;feature=paho</capability>
-  </feature>
-
-  <feature name="esh-tp-xtext" version="${project.version}">
-    <feature version="[2.6.2,2.6.3)">kat-xtext</feature>
-    <capability>esh.tp;feature=xtext;version=2.6.2</capability>
-  </feature>
 
 </features>
