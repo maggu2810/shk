@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
 
-  <!-- <feature name="${project.artifactId}" description="${project.name}" version="${project.version}"> -->
-
-  <repository>mvn:de.maggu2810.kat.features/jmdns/${kat.version}/xml/features</repository>
   <repository>mvn:org.eclipse.smarthome/karaf/${esh.version}/xml/features</repository>
+  <repository>mvn:org.eclipse.smarthome/karaf-tp/${esh.version}/xml/features</repository>
 
   <feature name="shk-runtime" description="${project.name}" version="${project.version}">
     <details>${project.description}</details>
@@ -25,12 +23,12 @@
 
   <feature name="shk-binding-chromecast" description="Google Chromecast Binding" version="${project.version}">
     <bundle>mvn:de.maggu2810.shk.bundles/shk-binding-chromecast/${project.version}</bundle>
-    <feature>kat-jmdns</feature>
+    <feature>esh-io-transport-mdns</feature>
     <feature>esh-io-transport-upnp</feature>
-    <bundle>mvn:de.maggu2810.shk.bundles/shk-library-chromecast-api/${project.version}</bundle>
-    <bundle>mvn:com.google.protobuf/protobuf-java/${protobuf.version}</bundle>
-    <bundle>mvn:org.codehaus.jackson/jackson-core-asl/${jackson.version}</bundle>
-    <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/${jackson.version}</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.shk.bundles/shk-library-chromecast-api/${project.version}</bundle>
+    <bundle dependency="true">mvn:com.google.protobuf/protobuf-java/${protobuf.version}</bundle>
+    <bundle dependency="true">mvn:org.codehaus.jackson/jackson-core-asl/${jackson.version}</bundle>
+    <bundle dependency="true">mvn:org.codehaus.jackson/jackson-mapper-asl/${jackson.version}</bundle>
   </feature>
 
   <feature name="shk-io-rest-docs" version="${project.version}">
@@ -41,11 +39,5 @@
     <feature dependency="true">esh-base</feature>
     <bundle>mvn:de.maggu2810.shk.bundles/shk-io-rest-docs/${project.version}</bundle>
   </feature>
-
-  <!-- All remaining (TODO: sort) Eclipse SmartHome bundles, create features for them -->
-  <!--<bundle>mvn:org.eclipse.smarthome.automation/org.eclipse.smarthome.automation.sample-handler/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.core/org.eclipse.smarthome.core.extension.sample/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.eclipse/${esh.version}</bundle>-->
-  <!--<bundle dependency="true">mvn:org.eclipse.smarthome.io/org.eclipse.smarthome.io.console.rfc147/${esh.version}</bundle>-->
 
 </features>

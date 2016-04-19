@@ -16,7 +16,6 @@
 
   <modules>
     <module>base</module>
-    <module>esh-tp</module>
     <module>verify</module>
   </modules>
 
