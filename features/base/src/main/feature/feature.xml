@@ -38,6 +38,7 @@
     </config>
     <feature dependency="true">esh-base</feature>
     <bundle>mvn:de.maggu2810.shk.bundles/shk-io-rest-docs/${project.version}</bundle>
+    <requirement>esh.tp;filter:="(feature=jax-rs-provider-swagger)"</requirement>
   </feature>
 
 </features>
