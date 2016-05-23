@@ -26,7 +26,7 @@
     <cxf.version>3.1.4</cxf.version>
     <esh.version>0.8.0-SNAPSHOT</esh.version>
     <karaf.version>4.0.5</karaf.version>
-    <kat.version>1.5-SNAPSHOT</kat.version>
+    <kat.version>1.5</kat.version>
     <maven.build.resources.version>1.2</maven.build.resources.version>
     <protobuf.version>2.6.0</protobuf.version>
     <jackson.version>1.9.13</jackson.version>
