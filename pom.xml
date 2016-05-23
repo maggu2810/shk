@@ -24,7 +24,7 @@
     <license.shortcut>epl_only_v1</license.shortcut>
 
     <cxf.version>3.1.4</cxf.version>
-    <esh.version>0.8.0-SNAPSHOT</esh.version>
+    <esh.version>0.8.0.b5</esh.version>
     <karaf.version>4.0.5</karaf.version>
     <kat.version>1.5</kat.version>
     <maven.build.resources.version>1.2</maven.build.resources.version>
