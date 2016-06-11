@@ -16,20 +16,23 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
     <java.version>1.8</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
-    <license.skipUpdateLicense>false</license.skipUpdateLicense>
-    <license.shortcut>epl_only_v1</license.shortcut>
 
+    <karaf.version>4.0.5</karaf.version>
     <cxf.version>3.1.4</cxf.version>
     <esh.version>0.8.0.b5</esh.version>
-    <karaf.version>4.0.5</karaf.version>
     <kat.version>1.5</kat.version>
-    <maven.build.resources.version>1.2</maven.build.resources.version>
     <protobuf.version>2.6.0</protobuf.version>
     <jackson.version>1.9.13</jackson.version>
+    <maven.build.resources.version>1.3</maven.build.resources.version>
+    <quality.skip>false</quality.skip>
+
+    <license.skipUpdateLicense>false</license.skipUpdateLicense>
+    <license.shortcut>epl_only_v1</license.shortcut>
   </properties>
 
   <licenses>
@@ -68,217 +71,6 @@
       <url>http://oss.jfrog.org/artifactory/simple/oss-snapshot-local/</url>
     </snapshotRepository>
   </distributionManagement>
-
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>findbugs-maven-plugin</artifactId>
-          <version>3.0.3</version>
-          <configuration>
-            <findbugsXmlOutput>true</findbugsXmlOutput>
-            <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
-            <xmlOutput>true</xmlOutput>
-            <effort>Max</effort>
-            <threshold>Low</threshold>
-            <maxRank>20</maxRank>
-            <excludeFilterFile>findbugs/findbugs_exclude.xml</excludeFilterFile>
-          </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
-          <groupId>net.revelc.code</groupId>
-          <artifactId>formatter-maven-plugin</artifactId>
-          <version>0.5.2</version>
-          <executions>
-            <execution>
-              <phase>process-sources</phase>
-              <goals>
-                <goal>format</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <directories>
-              <directory>${project.build.sourceDirectory}</directory>
-              <directory>${project.build.directory}/generated-sources</directory>
-            </directories>
-            <lineEnding>LF</lineEnding>
-            <configFile>eclipse/code-formatter.xml</configFile>
-          </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.karaf.tooling</groupId>
-          <artifactId>karaf-maven-plugin</artifactId>
-          <version>${karaf.version}</version>
-          <extensions>true</extensions>
-        </plugin>
-        <plugin>
-          <groupId>de.maggu2810.tmp.org.codehaus.mojo</groupId>
-          <artifactId>license-maven-plugin</artifactId>
-          <version>1.8.0.sp1</version>
-          <configuration>
-            <licenseName>${license.shortcut}</licenseName>
-            <!--<licenseResolver>classpath://licenses</licenseResolver>-->
-            <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
-            <!--<emptyLineAfterHeader>true</emptyLineAfterHeader>-->
-            <ignoreNoFileToScan>true</ignoreNoFileToScan>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <goal>update-file-header</goal>
-              </goals>
-              <phase>process-sources</phase>
-              <configuration>
-                <includes>
-                  <include>**/*.java</include>
-                </includes>
-                <excludes>
-                  <exclude>**/feature.xml</exclude>
-                </excludes>
-              </configuration>
-            </execution>
-          </executions>
-          <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.felix</groupId>
-          <artifactId>maven-bundle-plugin</artifactId>
-          <version>3.0.1</version>
-          <extensions>true</extensions>
-          <configuration>
-            <instructions>
-              <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-              <_dsannotations>*</_dsannotations>
-            </instructions>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.17</version>
-          <configuration>
-            <configLocation>checkstyle/checkstyle.xml</configLocation>
-            <violationSeverity>info</violationSeverity>
-          </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>com.puppycrawl.tools</groupId>
-              <artifactId>checkstyle</artifactId>
-              <version>6.17</version>
-            </dependency>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.5.1</version>
-          <configuration>
-            <source>${maven.compiler.source}</source>
-            <target>${maven.compiler.target}</target>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>2.10</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.10.3</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-pmd-plugin</artifactId>
-          <version>3.5</version>
-          <configuration>
-            <linkXRef>false</linkXRef>
-            <rulesets>
-              <ruleset>pmd/pmd_ruleset.xml</ruleset>
-            </rulesets>
-          </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.2</version>
-          <configuration>
-            <preparationGoals>clean install</preparationGoals>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>2.6</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>2.4.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>2.4</version>
-        </plugin>
-        <plugin>
-          <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
-          <artifactId>whitespace-maven-plugin</artifactId>
-          <version>1.0.4</version>
-          <executions>
-            <execution>
-              <phase>process-sources</phase>
-              <goals>
-                <goal>trim</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
-    <plugins>
-      <plugin>
-        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
-        <artifactId>whitespace-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 
   <dependencyManagement>
     <dependencies>
@@ -332,6 +124,269 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+
+        <!-- sorted by artifact id (group id not used for sorting) -->
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.9.1</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>3.0.3</version>
+          <configuration>
+            <skip>${quality.skip}</skip>
+            <findbugsXmlOutput>true</findbugsXmlOutput>
+            <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+            <xmlOutput>true</xmlOutput>
+            <effort>Max</effort>
+            <threshold>Low</threshold>
+            <maxRank>20</maxRank>
+            <excludeFilterFile>findbugs/findbugs_exclude.xml</excludeFilterFile>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.maven.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${maven.build.resources.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>net.revelc.code</groupId>
+          <artifactId>formatter-maven-plugin</artifactId>
+          <version>0.5.2</version>
+          <executions>
+            <execution>
+              <phase>process-sources</phase>
+              <goals>
+                <goal>format</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <directories>
+              <directory>${project.build.sourceDirectory}</directory>
+              <directory>${project.build.directory}/generated-sources</directory>
+            </directories>
+            <lineEnding>LF</lineEnding>
+            <configFile>eclipse/code-formatter.xml</configFile>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.maven.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${maven.build.resources.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.karaf.tooling</groupId>
+          <artifactId>karaf-maven-plugin</artifactId>
+          <version>${karaf.version}</version>
+          <extensions>true</extensions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>1.9</version>
+          <configuration>
+            <licenseName>${license.shortcut}</licenseName>
+            <!--<licenseResolver>classpath://licenses</licenseResolver>-->
+            <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+            <emptyLineAfterHeader>true</emptyLineAfterHeader>
+            <ignoreNoFileToScan>true</ignoreNoFileToScan>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>update-file-header</goal>
+              </goals>
+              <phase>process-sources</phase>
+              <configuration>
+                <includes>
+                  <include>**/*.java</include>
+                </includes>
+                <excludes>
+                  <exclude>**/feature.xml</exclude>
+                </excludes>
+              </configuration>
+            </execution>
+          </executions>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.maven.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${maven.build.resources.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.8</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>3.0.1</version>
+          <extensions>true</extensions>
+          <configuration>
+            <instructions>
+              <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+              <_dsannotations>*</_dsannotations>
+            </instructions>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>2.17</version>
+          <configuration>
+            <skip>${quality.skip}</skip>
+            <configLocation>checkstyle/checkstyle.xml</configLocation>
+            <violationSeverity>info</violationSeverity>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.puppycrawl.tools</groupId>
+              <artifactId>checkstyle</artifactId>
+              <version>6.19</version>
+            </dependency>
+            <dependency>
+              <groupId>de.maggu2810.maven.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${maven.build.resources.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.5.1</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.10</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.10.3</version>
+          <configuration>
+            <failOnError>!${quality.skip}</failOnError>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>3.5</version>
+          <configuration>
+            <skip>${quality.skip}</skip>
+            <linkXRef>false</linkXRef>
+            <rulesets>
+              <ruleset>pmd/pmd_ruleset.xml</ruleset>
+            </rulesets>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.maven.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${maven.build.resources.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5.2</version>
+          <configuration>
+            <preparationGoals>clean install</preparationGoals>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.6</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>2.4.2</version>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.jasig.maven</groupId>
+          <artifactId>sass-maven-plugin</artifactId>
+          <version>1.1.1</version>
+          <executions>
+            <execution>
+              <id>package</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>update-stylesheets</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+          <artifactId>whitespace-maven-plugin</artifactId>
+          <version>1.0.4</version>
+          <executions>
+            <execution>
+              <phase>process-sources</phase>
+              <goals>
+                <goal>trim</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+        <artifactId>whitespace-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
 
   <profiles>
     <profile>
