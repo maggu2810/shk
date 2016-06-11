@@ -10,7 +10,6 @@
   </parent>
 
   <artifactId>shk-io-rest-docs</artifactId>
-  <packaging>bundle</packaging>
 
   <name>shk :: Bundles :: IO :: REST Docs</name>
 

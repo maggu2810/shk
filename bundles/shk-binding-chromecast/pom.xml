@@ -10,7 +10,6 @@
   </parent>
 
   <artifactId>shk-binding-chromecast</artifactId>
-  <packaging>bundle</packaging>
 
   <name>shk :: Bundles :: Binding :: Chromecast</name>
 

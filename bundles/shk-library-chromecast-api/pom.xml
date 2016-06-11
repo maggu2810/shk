@@ -10,7 +10,6 @@
   </parent>
 
   <artifactId>shk-library-chromecast-api</artifactId>
-  <packaging>bundle</packaging>
 
   <name>shk :: Bundles :: Library :: Chromecast API</name>
 
