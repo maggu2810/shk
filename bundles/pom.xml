@@ -40,6 +40,14 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
       </plugin>
+
+      <!-- Execute this at last step of a phase -->
+      <!-- since Maven 3.0.3, for two plugins bound to the same phase, -->
+      <!-- the order of execution is the same as the order in which you define them. -->
+      <plugin>
+        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+        <artifactId>whitespace-maven-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
 
