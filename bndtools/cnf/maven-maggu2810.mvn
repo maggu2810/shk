@@ -1,0 +1,7 @@
+de.maggu2810.p2redist:com.google.inject:3.0.0.v201312141243
+de.maggu2810.p2redist:org.antlr.runtime:3.2.0.v201101311130
+de.maggu2810.p2redist:org.eclipse.equinox.common:3.7.0.v20150402-1709
+de.maggu2810.p2redist:org.eclipse.equinox.registry:3.6.0.v20150318-1503
+de.maggu2810.p2redist:org.eclipse.equinox.supplement:1.6.0.v20141009-1504
+de.maggu2810.requirebundle.fix:org.objectweb.asm:5.0.2
+de.maggu2810.thirdparty.modified.org.eclipse.xtext:org.eclipse.xtext.xbase:2.9.2.sp1
