@@ -552,7 +552,7 @@
   </repositories>
 
   <modules>
-    <module>bundles</module>
+    <module>bndtools</module>
     <module>distributions</module>
     <module>features</module>
     <module>tools</module>

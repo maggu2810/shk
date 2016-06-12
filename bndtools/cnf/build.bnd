@@ -38,9 +38,13 @@
     	snapshotUrl			=   http://localhost:8081/nexus/content/repositories/snapshots/ ; \
 		name				=	Release
 
--pom: \
-	groupid	=	de.maggu2810.shk.bundles,\
-	version =	${versionmask;===;${@version}}-SNAPSHOT
+#-pom: \
+#	groupid	=	de.maggu2810.shk.bundles,\
+#	version =	${versionmask;===;${@version}}-SNAPSHOT
+
+src = src/main/java,src/main/resources
+testsrc = src/test/java,src/test/resources
+bin = target
 
 # This is the version of JUnit that will be used at build time and run time
 junit: org.apache.servicemix.bundles.junit;version="[4.11,5)"
