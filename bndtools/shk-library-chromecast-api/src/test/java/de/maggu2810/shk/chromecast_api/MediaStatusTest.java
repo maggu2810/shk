@@ -118,6 +118,8 @@ public class MediaStatusTest {
         assertNull(media.tracks);
         assertEquals(1, media.customData.size());
         assertNotNull(media.customData.get("status"));
+
+        @SuppressWarnings("unchecked")
         final Map<String, Object> status = (Map<String, Object>) media.customData.get("status");
 
         assertEquals(8, status.size());
