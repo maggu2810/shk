@@ -8,4 +8,5 @@
 	javax.jmdns,\
 	jackson-mapper-asl,\
 	jackson-core-asl,\
-	osgi.annotation
+	osgi.annotation,\
+	org.apache.servicemix.bundles.junit
