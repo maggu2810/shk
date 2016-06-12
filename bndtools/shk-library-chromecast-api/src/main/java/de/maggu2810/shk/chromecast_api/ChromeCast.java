@@ -43,9 +43,9 @@ public class ChromeCast {
     private String application;
     private final Channel channel;
 
-    public ChromeCast(JmDNS mDNS, String name) {
+    public ChromeCast(final JmDNS mDNS, final String name) {
         this.name = name;
-        ServiceInfo serviceInfo = mDNS.getServiceInfo(SERVICE_TYPE, name);
+        final ServiceInfo serviceInfo = mDNS.getServiceInfo(SERVICE_TYPE, name);
         this.address = serviceInfo.getInet4Addresses()[0].getHostAddress();
         this.port = serviceInfo.getPort();
         this.appsURL = serviceInfo.getURLs().length == 0 ? null : serviceInfo.getURLs()[0];
@@ -53,11 +53,11 @@ public class ChromeCast {
         this.channel = new Channel(address, port, this.eventListenerHolder);
     }
 
-    public ChromeCast(String address) {
+    public ChromeCast(final String address) {
         this(address, 8009);
     }
 
-    public ChromeCast(String address, int port) {
+    public ChromeCast(final String address, final int port) {
         this.address = address;
         this.port = port;
         this.channel = new Channel(address, port, this.eventListenerHolder);
@@ -67,7 +67,7 @@ public class ChromeCast {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -83,7 +83,7 @@ public class ChromeCast {
         return appsURL;
     }
 
-    public void setAppsURL(String appsURL) {
+    public void setAppsURL(final String appsURL) {
         this.appsURL = appsURL;
     }
 
@@ -91,7 +91,7 @@ public class ChromeCast {
         return application;
     }
 
-    public void setApplication(String application) {
+    public void setApplication(final String application) {
         this.application = application;
     }
 
@@ -122,7 +122,7 @@ public class ChromeCast {
      * @throws IOException
      */
     public Application getRunningApp() throws IOException {
-        Status status = getStatus();
+        final Status status = getStatus();
         return status.getRunningApp();
     }
 
@@ -131,7 +131,7 @@ public class ChromeCast {
      * @return true if application is available to this chromecast device, false otherwise
      * @throws IOException
      */
-    public boolean isAppAvailable(String appId) throws IOException {
+    public boolean isAppAvailable(final String appId) throws IOException {
         return channel.isAppAvailable(appId);
     }
 
@@ -140,8 +140,8 @@ public class ChromeCast {
      * @return true if application with specified identifier is running now
      * @throws IOException
      */
-    public boolean isAppRunning(String appId) throws IOException {
-        Status status = getStatus();
+    public boolean isAppRunning(final String appId) throws IOException {
+        final Status status = getStatus();
         return status.getRunningApp() != null && appId.equals(status.getRunningApp().id);
     }
 
@@ -150,8 +150,8 @@ public class ChromeCast {
      * @return application descriptor if app successfully launched, null otherwise
      * @throws IOException
      */
-    public Application launchApp(String appId) throws IOException {
-        Status status = channel.launch(appId);
+    public Application launchApp(final String appId) throws IOException {
+        final Status status = channel.launch(appId);
         return status == null ? null : status.getRunningApp();
     }
 
@@ -167,15 +167,17 @@ public class ChromeCast {
     /**
      * @param level volume level from 0 to 1 to set
      */
-    public void setVolume(float level) throws IOException {
-        channel.setVolume(new Volume(level, false, Volume.default_increment));
+    public void setVolume(final float level) throws IOException {
+        channel.setVolume(new Volume(level, false, Volume.default_increment, Volume.default_increment.doubleValue(),
+                Volume.default_controlType));
     }
 
     /**
      * @param muted is to mute or not
      */
-    public void setMuted(boolean muted) throws IOException {
-        channel.setVolume(new Volume(null, muted, Volume.default_increment));
+    public void setMuted(final boolean muted) throws IOException {
+        channel.setVolume(new Volume(null, muted, Volume.default_increment, Volume.default_increment.doubleValue(),
+                Volume.default_controlType));
     }
 
     /**
@@ -192,8 +194,8 @@ public class ChromeCast {
      * @throws IOException
      */
     public void play() throws IOException {
-        Status status = getStatus();
-        MediaStatus mediaStatus = channel.getMediaStatus(status.getRunningApp().transportId);
+        final Status status = getStatus();
+        final MediaStatus mediaStatus = channel.getMediaStatus(status.getRunningApp().transportId);
         if (mediaStatus == null) {
             throw new ChromeCastException("ChromeCast has invalid state to resume media playback");
         }
@@ -206,8 +208,8 @@ public class ChromeCast {
      * @throws IOException
      */
     public void pause() throws IOException {
-        Status status = getStatus();
-        MediaStatus mediaStatus = channel.getMediaStatus(status.getRunningApp().transportId);
+        final Status status = getStatus();
+        final MediaStatus mediaStatus = channel.getMediaStatus(status.getRunningApp().transportId);
         if (mediaStatus == null) {
             throw new ChromeCastException("ChromeCast has invalid state to pause media playback");
         }
@@ -220,9 +222,9 @@ public class ChromeCast {
      * @param time time point between zero and media duration
      * @throws IOException
      */
-    public void seek(double time) throws IOException {
-        Status status = getStatus();
-        MediaStatus mediaStatus = channel.getMediaStatus(status.getRunningApp().transportId);
+    public void seek(final double time) throws IOException {
+        final Status status = getStatus();
+        final MediaStatus mediaStatus = channel.getMediaStatus(status.getRunningApp().transportId);
         if (mediaStatus == null) {
             throw new ChromeCastException("ChromeCast has invalid state to seek media playback");
         }
@@ -237,7 +239,7 @@ public class ChromeCast {
      * @return The new media status that resulted from loading the media.
      * @throws IOException
      */
-    public MediaStatus load(String url) throws IOException {
+    public MediaStatus load(final String url) throws IOException {
         return load(url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.')), null, url, null);
     }
 
@@ -251,13 +253,14 @@ public class ChromeCast {
      * @return The new media status that resulted from loading the media.
      * @throws IOException
      */
-    public MediaStatus load(String title, String thumb, String url, String contentType) throws IOException {
-        Status status = getStatus();
-        Map<String, String> customData = new HashMap<String, String>(2);
+    public MediaStatus load(final String title, final String thumb, final String url, final String contentType)
+            throws IOException {
+        final Status status = getStatus();
+        final Map<String, String> customData = new HashMap<>(2);
         customData.put("title:", title);
         customData.put("thumb", thumb);
-        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId, new Media(url,
-                contentType), true, 0d, customData);
+        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId,
+                new Media(url, contentType), true, 0d, customData);
     }
 
     /**
@@ -269,9 +272,9 @@ public class ChromeCast {
      * @throws IOException
      */
     public MediaStatus load(final Media media) throws IOException {
-        Status status = getStatus();
-        return channel
-                .load(status.getRunningApp().transportId, status.getRunningApp().sessionId, media, true, 0d, null);
+        final Status status = getStatus();
+        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId, media, true, 0d,
+                null);
     }
 
     /**
@@ -290,9 +293,10 @@ public class ChromeCast {
      * @return deserialized response
      * @throws IOException
      */
-    public <T extends Response> T send(String namespace, Request request, Class<T> responseClass) throws IOException {
-        Status status = getStatus();
-        Application runningApp = status.getRunningApp();
+    public <T extends Response> T send(final String namespace, final Request request, final Class<T> responseClass)
+            throws IOException {
+        final Status status = getStatus();
+        final Application runningApp = status.getRunningApp();
         if (runningApp == null) {
             throw new ChromeCastException("No application is running in ChromeCast");
         }
@@ -313,7 +317,7 @@ public class ChromeCast {
      * @param request request object
      * @throws IOException
      */
-    public void send(String namespace, Request request) throws IOException {
+    public void send(final String namespace, final Request request) throws IOException {
         send(namespace, request, null);
     }
 

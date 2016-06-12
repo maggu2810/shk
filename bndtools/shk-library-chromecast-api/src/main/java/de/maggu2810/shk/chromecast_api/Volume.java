@@ -21,6 +21,7 @@
 package de.maggu2810.shk.chromecast_api;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -29,7 +30,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * Volume settings
  */
 public class Volume {
-    final static Float default_increment = new Float(0.05);
+    final static Float default_increment = 0.05f;
+    final static String default_controlType = "attenuation";
     @JsonProperty
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
     public final Float level;
@@ -38,15 +40,22 @@ public class Volume {
 
     @JsonProperty
     public final Float increment;
+    @JsonProperty
+    public final Double stepInterval;
+    @JsonProperty
+    public final String controlType;
 
     public Volume() {
         level = new Float(-1);
         muted = false;
         increment = default_increment;
+        stepInterval = default_increment.doubleValue();
+        controlType = default_controlType;
     }
 
-    public Volume(@JsonProperty("level") Float level, @JsonProperty("muted") boolean muted,
-            @JsonProperty("increment") Float increment) {
+    public Volume(@JsonProperty("level") final Float level, @JsonProperty("muted") final boolean muted,
+            @JsonProperty("increment") final Float increment, @JsonProperty("stepInterval") final Double stepInterval,
+            @JsonProperty("controlType") final String controlType) {
         this.level = level;
         this.muted = muted;
         if (increment != null && increment > 0f) {
@@ -54,11 +63,18 @@ public class Volume {
         } else {
             this.increment = default_increment;
         }
+        if (stepInterval != null && stepInterval > 0) {
+            this.stepInterval = stepInterval;
+        } else {
+            this.stepInterval = default_increment.doubleValue();
+        }
+        this.controlType = controlType;
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[] { this.level, this.muted, this.increment });
+        return Arrays
+                .hashCode(new Object[] { this.level, this.muted, this.increment, this.stepInterval, this.controlType });
     }
 
     @Override
@@ -73,8 +89,23 @@ public class Volume {
             return false;
         }
         final Volume that = (Volume) obj;
-        return this.level == null ? that.level == null : this.level.equals(that.level) && this.muted == that.muted
-                && this.increment == null ? that.increment == null : this.increment.equals(that.increment);
+
+        if (!Objects.equals(this.level, that.level)) {
+            return false;
+        }
+        if (!Objects.equals(this.muted, that.muted)) {
+            return false;
+        }
+        if (!Objects.equals(this.increment, that.increment)) {
+            return false;
+        }
+        if (!Objects.equals(this.stepInterval, that.stepInterval)) {
+            return false;
+        }
+        if (!Objects.equals(this.controlType, that.controlType)) {
+            return false;
+        }
+        return true;
     }
 
     @Override

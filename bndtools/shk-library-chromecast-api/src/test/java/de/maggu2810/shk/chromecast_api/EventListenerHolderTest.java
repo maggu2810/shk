@@ -17,6 +17,7 @@
  * limitations under the License.
  * #L%
  */
+
 package de.maggu2810.shk.chromecast_api;
 
 import static org.junit.Assert.assertEquals;
@@ -28,13 +29,6 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.maggu2810.shk.chromecast_api.ChromeCastMessageEvent;
-import de.maggu2810.shk.chromecast_api.ChromeCastMessageEventListener;
-import de.maggu2810.shk.chromecast_api.EventListenerHolder;
-import de.maggu2810.shk.chromecast_api.MediaStatus;
-import de.maggu2810.shk.chromecast_api.StandardResponse;
-import de.maggu2810.shk.chromecast_api.Status;
-import de.maggu2810.shk.chromecast_api.Volume;
 import de.maggu2810.shk.chromecast_api.ChromeCastMessageEvent.SpontaneousEventType;
 
 public class EventListenerHolderTest {
@@ -44,14 +38,9 @@ public class EventListenerHolderTest {
 
     @Before
     public void before() throws Exception {
-        this.emittedEvents = new ArrayList<ChromeCastMessageEvent>();
+        this.emittedEvents = new ArrayList<>();
         this.underTest = new EventListenerHolder();
-        this.underTest.registerMessageListener(new ChromeCastMessageEventListener() {
-            @Override
-            public void messageEventReceived(ChromeCastMessageEvent event) {
-                emittedEvents.add(event);
-            }
-        });
+        this.underTest.registerMessageListener(event -> emittedEvents.add(event));
     }
 
     @Test
@@ -60,7 +49,7 @@ public class EventListenerHolderTest {
                 "\"responseType\"");
         this.underTest.deliverMessageEvent(true, jsonMapper.readTree(json));
 
-        ChromeCastMessageEvent event = emittedEvents.get(0);
+        final ChromeCastMessageEvent event = emittedEvents.get(0);
 
         assertEquals(SpontaneousEventType.MEDIA_STATUS, event.getType());
         // Is it roughly what we passed in? More throughly tested in MediaStatusTest.
@@ -71,11 +60,12 @@ public class EventListenerHolderTest {
 
     @Test
     public void itHandlesStatusEvent() throws Exception {
-        Volume volume = new Volume(123f, false, 2f);
-        StandardResponse.Status status = new StandardResponse.Status(new Status(volume, null, false, false));
+        final Volume volume = new Volume(123f, false, 2f, Volume.default_increment.doubleValue(),
+                Volume.default_controlType);
+        final StandardResponse.Status status = new StandardResponse.Status(new Status(volume, null, false, false));
         this.underTest.deliverMessageEvent(true, jsonMapper.valueToTree(status));
 
-        ChromeCastMessageEvent event = emittedEvents.get(0);
+        final ChromeCastMessageEvent event = emittedEvents.get(0);
 
         assertEquals(SpontaneousEventType.STATUS, event.getType());
         // Not trying to test everything, just that is basically what we passed in.

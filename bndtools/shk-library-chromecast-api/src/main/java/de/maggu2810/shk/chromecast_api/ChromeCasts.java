@@ -21,6 +21,7 @@
 package de.maggu2810.shk.chromecast_api;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,14 +39,18 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
 
     private JmDNS mDNS;
 
-    private List<ChromeCastsListener> listeners = new ArrayList<ChromeCastsListener>();
+    private final List<ChromeCastsListener> listeners = new ArrayList<>();
 
     private ChromeCasts() {
     }
 
-    private void _startDiscovery() throws IOException {
+    private void _startDiscovery(final InetAddress addr) throws IOException {
         if (mDNS == null) {
-            mDNS = JmDNS.create();
+            if (addr != null) {
+                mDNS = JmDNS.create(addr);
+            } else {
+                mDNS = JmDNS.create();
+            }
             mDNS.addServiceListener(ChromeCast.SERVICE_TYPE, this);
         }
     }
@@ -58,24 +63,24 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
     }
 
     @Override
-    public void serviceAdded(ServiceEvent event) {
+    public void serviceAdded(final ServiceEvent event) {
         if (event.getInfo() != null) {
-            ChromeCast device = new ChromeCast(mDNS, event.getInfo().getName());
+            final ChromeCast device = new ChromeCast(mDNS, event.getInfo().getName());
             add(device);
-            for (ChromeCastsListener listener : listeners) {
+            for (final ChromeCastsListener listener : listeners) {
                 listener.newChromeCastDiscovered(device);
             }
         }
     }
 
     @Override
-    public void serviceRemoved(ServiceEvent event) {
+    public void serviceRemoved(final ServiceEvent event) {
         if (ChromeCast.SERVICE_TYPE.equals(event.getType())) {
             // We have a ChromeCast device unregistering
-            List<ChromeCast> copy = new ArrayList<ChromeCast>(this);
+            final List<ChromeCast> copy = new ArrayList<>(this);
             ChromeCast deviceRemoved = null;
             // Probably better keep a map to better lookup devices
-            for (ChromeCast device : copy) {
+            for (final ChromeCast device : copy) {
                 if (device.getName().equals(event.getInfo().getName())) {
                     deviceRemoved = device;
                     this.remove(device);
@@ -83,7 +88,7 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
                 }
             }
             if (deviceRemoved != null) {
-                for (ChromeCastsListener listener : listeners) {
+                for (final ChromeCastsListener listener : listeners) {
                     listener.chromeCastRemoved(deviceRemoved);
                 }
             }
@@ -91,14 +96,23 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
     }
 
     @Override
-    public void serviceResolved(ServiceEvent event) {
+    public void serviceResolved(final ServiceEvent event) {
     }
 
     /**
      * Starts ChromeCast device discovery
      */
     public static void startDiscovery() throws IOException {
-        INSTANCE._startDiscovery();
+        INSTANCE._startDiscovery(null);
+    }
+
+    /**
+     * Starts ChromeCast device discovery
+     *
+     * @param addr the address / interface that should be used for discovery
+     */
+    public static void startDiscovery(final InetAddress addr) throws IOException {
+        INSTANCE._startDiscovery(addr);
     }
 
     /**
@@ -117,19 +131,29 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
     }
 
     /**
+     * Restarts discovery by sequentially calling 'stop' and 'start' methods
+     *
+     * @param addr the address / interface that should be used for discovery
+     */
+    public static void restartDiscovery(final InetAddress addr) throws IOException {
+        stopDiscovery();
+        startDiscovery(addr);
+    }
+
+    /**
      * @return singleton container holding all discovered devices
      */
     public static ChromeCasts get() {
         return INSTANCE;
     }
 
-    public static void registerListener(ChromeCastsListener listener) {
+    public static void registerListener(final ChromeCastsListener listener) {
         if (listener != null) {
             INSTANCE.listeners.add(listener);
         }
     }
 
-    public static void unregisterListener(ChromeCastsListener listener) {
+    public static void unregisterListener(final ChromeCastsListener listener) {
         if (listener != null) {
             INSTANCE.listeners.remove(listener);
         }

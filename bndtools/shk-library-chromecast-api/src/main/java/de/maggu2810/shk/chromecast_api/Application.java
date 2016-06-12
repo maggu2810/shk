@@ -33,24 +33,29 @@ public class Application {
     public final String name;
     public final String sessionId;
     public final String statusText;
+    public final boolean isIdleScreen;
     public final String transportId;
     public final List<Namespace> namespaces;
 
-    public Application(@JsonProperty("appId") String id, @JsonProperty("displayName") String name,
-            @JsonProperty("sessionId") String sessionId, @JsonProperty("statusText") String statusText,
-            @JsonProperty("transportId") String transportId, @JsonProperty("namespaces") List<Namespace> namespaces) {
+    public Application(@JsonProperty("appId") final String id, @JsonProperty("displayName") final String name,
+            @JsonProperty("sessionId") final String sessionId, @JsonProperty("statusText") final String statusText,
+            @JsonProperty("isIdleScreen") final boolean isIdleScreen,
+            @JsonProperty("transportId") final String transportId,
+            @JsonProperty("namespaces") final List<Namespace> namespaces) {
         this.id = id;
         this.name = name;
         this.sessionId = sessionId;
         this.statusText = statusText;
+        this.isIdleScreen = isIdleScreen;
         this.transportId = transportId;
         this.namespaces = namespaces == null ? Collections.<Namespace> emptyList() : namespaces;
     }
 
     @Override
     public String toString() {
-        return "Application{" + "id=" + id + ", name=" + name + ", sessionId=" + sessionId + ", statusText="
-                + statusText + ", transportId=" + transportId + ", namespaces=" + namespaces + '}';
+        return "Application [id=" + id + ", name=" + name + ", sessionId=" + sessionId + ", statusText=" + statusText
+                + ", isIdleScreen=" + isIdleScreen + ", transportId=" + transportId + ", namespaces=" + namespaces
+                + "]";
     }
 
 }
