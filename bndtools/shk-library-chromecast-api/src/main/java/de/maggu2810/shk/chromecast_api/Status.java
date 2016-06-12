@@ -35,8 +35,9 @@ public class Status {
     public final boolean activeInput;
     public final boolean standBy;
 
-    Status(@JsonProperty("volume") Volume volume, @JsonProperty("applications") List<Application> applications,
-            @JsonProperty("isActiveInput") boolean activeInput, @JsonProperty("isStandBy") boolean standBy) {
+    Status(@JsonProperty("volume") final Volume volume,
+            @JsonProperty("applications") final List<Application> applications,
+            @JsonProperty("isActiveInput") final boolean activeInput, @JsonProperty("isStandBy") final boolean standBy) {
         this.volume = volume;
         this.applications = applications == null ? Collections.<Application> emptyList() : applications;
         this.activeInput = activeInput;
@@ -48,7 +49,7 @@ public class Status {
         return applications.isEmpty() ? null : applications.get(0);
     }
 
-    public boolean isAppRunning(String appId) {
+    public boolean isAppRunning(final String appId) {
         return getRunningApp() != null && getRunningApp().id.equals(appId);
     }
 

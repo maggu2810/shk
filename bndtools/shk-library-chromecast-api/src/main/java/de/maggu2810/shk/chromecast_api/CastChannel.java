@@ -27,7 +27,7 @@ final class CastChannel {
     private CastChannel() {
     }
 
-    public static void registerAllExtensions(com.google.protobuf.ExtensionRegistryLite registry) {
+    public static void registerAllExtensions(final com.google.protobuf.ExtensionRegistryLite registry) {
     }
 
     /**
@@ -65,7 +65,7 @@ final class CastChannel {
             return value;
         }
 
-        public static SignatureAlgorithm valueOf(int value) {
+        public static SignatureAlgorithm valueOf(final int value) {
             switch (value) {
                 case 0:
                     return UNSPECIFIED;
@@ -82,16 +82,12 @@ final class CastChannel {
             return internalValueMap;
         }
 
-        private static com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm> internalValueMap = new com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm>() {
-            @Override
-            public SignatureAlgorithm findValueByNumber(int number) {
-                return SignatureAlgorithm.valueOf(number);
-            }
-        };
+        private static com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm> internalValueMap = number -> SignatureAlgorithm
+                .valueOf(number);
 
         private final int value;
 
-        private SignatureAlgorithm(int index, int value) {
+        private SignatureAlgorithm(final int index, final int value) {
             this.value = value;
         }
 
@@ -275,12 +271,12 @@ final class CastChannel {
     // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.CastMessage)
             CastMessageOrBuilder {
         // Use CastMessage.newBuilder() to construct.
-        private CastMessage(com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
+        private CastMessage(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
             super(builder);
             this.unknownFields = builder.getUnknownFields();
         }
 
-        private CastMessage(boolean noInit) {
+        private CastMessage(final boolean noInit) {
             this.unknownFields = com.google.protobuf.ByteString.EMPTY;
         }
 
@@ -297,18 +293,19 @@ final class CastChannel {
 
         private final com.google.protobuf.ByteString unknownFields;
 
-        private CastMessage(com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        private CastMessage(final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             initFields();
             // int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
+            final com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString
+                    .newOutput();
+            final com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
                     .newInstance(unknownFieldsOutput);
             try {
                 boolean done = false;
                 while (!done) {
-                    int tag = input.readTag();
+                    final int tag = input.readTag();
                     switch (tag) {
                         case 0:
                             done = true;
@@ -320,8 +317,8 @@ final class CastChannel {
                             break;
                         }
                         case 8: {
-                            int rawValue = input.readEnum();
-                            de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.ProtocolVersion value = de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.ProtocolVersion
+                            final int rawValue = input.readEnum();
+                            final de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.ProtocolVersion value = de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.ProtocolVersion
                                     .valueOf(rawValue);
                             if (value == null) {
                                 unknownFieldsCodedOutput.writeRawVarint32(tag);
@@ -333,26 +330,26 @@ final class CastChannel {
                             break;
                         }
                         case 18: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            final com.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000002;
                             sourceId_ = bs;
                             break;
                         }
                         case 26: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            final com.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000004;
                             destinationId_ = bs;
                             break;
                         }
                         case 34: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            final com.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000008;
                             namespace_ = bs;
                             break;
                         }
                         case 40: {
-                            int rawValue = input.readEnum();
-                            de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.PayloadType value = de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.PayloadType
+                            final int rawValue = input.readEnum();
+                            final de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.PayloadType value = de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.PayloadType
                                     .valueOf(rawValue);
                             if (value == null) {
                                 unknownFieldsCodedOutput.writeRawVarint32(tag);
@@ -364,7 +361,7 @@ final class CastChannel {
                             break;
                         }
                         case 50: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
+                            final com.google.protobuf.ByteString bs = input.readBytes();
                             bitField0_ |= 0x00000020;
                             payloadUtf8_ = bs;
                             break;
@@ -376,14 +373,14 @@ final class CastChannel {
                         }
                     }
                 }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                 throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
+            } catch (final java.io.IOException e) {
                 throw new com.google.protobuf.InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
             } finally {
                 try {
                     unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
+                } catch (final java.io.IOException e) {
                     // Should not happen
                 } finally {
                     unknownFields = unknownFieldsOutput.toByteString();
@@ -394,8 +391,8 @@ final class CastChannel {
 
         public static com.google.protobuf.Parser<CastMessage> PARSER = new com.google.protobuf.AbstractParser<CastMessage>() {
             @Override
-            public CastMessage parsePartialFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            public CastMessage parsePartialFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws com.google.protobuf.InvalidProtocolBufferException {
                 return new CastMessage(input, extensionRegistry);
             }
@@ -430,7 +427,7 @@ final class CastChannel {
                 return value;
             }
 
-            public static ProtocolVersion valueOf(int value) {
+            public static ProtocolVersion valueOf(final int value) {
                 switch (value) {
                     case 0:
                         return CASTV2_1_0;
@@ -443,16 +440,12 @@ final class CastChannel {
                 return internalValueMap;
             }
 
-            private static com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion> internalValueMap = new com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion>() {
-                @Override
-                public ProtocolVersion findValueByNumber(int number) {
-                    return ProtocolVersion.valueOf(number);
-                }
-            };
+            private static com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion> internalValueMap = number -> ProtocolVersion
+                    .valueOf(number);
 
             private final int value;
 
-            private ProtocolVersion(int index, int value) {
+            private ProtocolVersion(final int index, final int value) {
                 this.value = value;
             }
 
@@ -490,7 +483,7 @@ final class CastChannel {
                 return value;
             }
 
-            public static PayloadType valueOf(int value) {
+            public static PayloadType valueOf(final int value) {
                 switch (value) {
                     case 0:
                         return STRING;
@@ -505,16 +498,12 @@ final class CastChannel {
                 return internalValueMap;
             }
 
-            private static com.google.protobuf.Internal.EnumLiteMap<PayloadType> internalValueMap = new com.google.protobuf.Internal.EnumLiteMap<PayloadType>() {
-                @Override
-                public PayloadType findValueByNumber(int number) {
-                    return PayloadType.valueOf(number);
-                }
-            };
+            private static com.google.protobuf.Internal.EnumLiteMap<PayloadType> internalValueMap = number -> PayloadType
+                    .valueOf(number);
 
             private final int value;
 
-            private PayloadType(int index, int value) {
+            private PayloadType(final int index, final int value) {
                 this.value = value;
             }
 
@@ -530,7 +519,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasProtocolVersion() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
+            return (bitField0_ & 0x00000001) == 0x00000001;
         }
 
         /**
@@ -563,7 +552,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasSourceId() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
+            return (bitField0_ & 0x00000002) == 0x00000002;
         }
 
         /**
@@ -585,12 +574,12 @@ final class CastChannel {
          */
         @Override
         public java.lang.String getSourceId() {
-            java.lang.Object ref = sourceId_;
+            final java.lang.Object ref = sourceId_;
             if (ref instanceof java.lang.String) {
                 return (java.lang.String) ref;
             } else {
-                com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                final com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                final java.lang.String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     sourceId_ = s;
                 }
@@ -617,9 +606,10 @@ final class CastChannel {
          */
         @Override
         public com.google.protobuf.ByteString getSourceIdBytes() {
-            java.lang.Object ref = sourceId_;
+            final java.lang.Object ref = sourceId_;
             if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+                final com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                        .copyFromUtf8((java.lang.String) ref);
                 sourceId_ = b;
                 return b;
             } else {
@@ -635,7 +625,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasDestinationId() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
+            return (bitField0_ & 0x00000004) == 0x00000004;
         }
 
         /**
@@ -643,12 +633,12 @@ final class CastChannel {
          */
         @Override
         public java.lang.String getDestinationId() {
-            java.lang.Object ref = destinationId_;
+            final java.lang.Object ref = destinationId_;
             if (ref instanceof java.lang.String) {
                 return (java.lang.String) ref;
             } else {
-                com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                final com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                final java.lang.String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     destinationId_ = s;
                 }
@@ -661,9 +651,10 @@ final class CastChannel {
          */
         @Override
         public com.google.protobuf.ByteString getDestinationIdBytes() {
-            java.lang.Object ref = destinationId_;
+            final java.lang.Object ref = destinationId_;
             if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+                final com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                        .copyFromUtf8((java.lang.String) ref);
                 destinationId_ = b;
                 return b;
             } else {
@@ -685,7 +676,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasNamespace() {
-            return ((bitField0_ & 0x00000008) == 0x00000008);
+            return (bitField0_ & 0x00000008) == 0x00000008;
         }
 
         /**
@@ -699,12 +690,12 @@ final class CastChannel {
          */
         @Override
         public java.lang.String getNamespace() {
-            java.lang.Object ref = namespace_;
+            final java.lang.Object ref = namespace_;
             if (ref instanceof java.lang.String) {
                 return (java.lang.String) ref;
             } else {
-                com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                final com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                final java.lang.String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     namespace_ = s;
                 }
@@ -723,9 +714,10 @@ final class CastChannel {
          */
         @Override
         public com.google.protobuf.ByteString getNamespaceBytes() {
-            java.lang.Object ref = namespace_;
+            final java.lang.Object ref = namespace_;
             if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+                final com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                        .copyFromUtf8((java.lang.String) ref);
                 namespace_ = b;
                 return b;
             } else {
@@ -741,7 +733,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasPayloadType() {
-            return ((bitField0_ & 0x00000010) == 0x00000010);
+            return (bitField0_ & 0x00000010) == 0x00000010;
         }
 
         /**
@@ -765,7 +757,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasPayloadUtf8() {
-            return ((bitField0_ & 0x00000020) == 0x00000020);
+            return (bitField0_ & 0x00000020) == 0x00000020;
         }
 
         /**
@@ -778,12 +770,12 @@ final class CastChannel {
          */
         @Override
         public java.lang.String getPayloadUtf8() {
-            java.lang.Object ref = payloadUtf8_;
+            final java.lang.Object ref = payloadUtf8_;
             if (ref instanceof java.lang.String) {
                 return (java.lang.String) ref;
             } else {
-                com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                final com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                final java.lang.String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     payloadUtf8_ = s;
                 }
@@ -801,9 +793,10 @@ final class CastChannel {
          */
         @Override
         public com.google.protobuf.ByteString getPayloadUtf8Bytes() {
-            java.lang.Object ref = payloadUtf8_;
+            final java.lang.Object ref = payloadUtf8_;
             if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+                final com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                        .copyFromUtf8((java.lang.String) ref);
                 payloadUtf8_ = b;
                 return b;
             } else {
@@ -819,7 +812,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasPayloadBinary() {
-            return ((bitField0_ & 0x00000040) == 0x00000040);
+            return (bitField0_ & 0x00000040) == 0x00000040;
         }
 
         /**
@@ -844,7 +837,7 @@ final class CastChannel {
 
         @Override
         public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
+            final byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) {
                 return true;
             }
@@ -877,27 +870,27 @@ final class CastChannel {
         }
 
         @Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+        public void writeTo(final com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
             getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 output.writeEnum(1, protocolVersion_.getNumber());
             }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            if ((bitField0_ & 0x00000002) == 0x00000002) {
                 output.writeBytes(2, getSourceIdBytes());
             }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            if ((bitField0_ & 0x00000004) == 0x00000004) {
                 output.writeBytes(3, getDestinationIdBytes());
             }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            if ((bitField0_ & 0x00000008) == 0x00000008) {
                 output.writeBytes(4, getNamespaceBytes());
             }
-            if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            if ((bitField0_ & 0x00000010) == 0x00000010) {
                 output.writeEnum(5, payloadType_.getNumber());
             }
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            if ((bitField0_ & 0x00000020) == 0x00000020) {
                 output.writeBytes(6, getPayloadUtf8Bytes());
             }
-            if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            if ((bitField0_ & 0x00000040) == 0x00000040) {
                 output.writeBytes(7, payloadBinary_);
             }
             output.writeRawBytes(unknownFields);
@@ -913,25 +906,25 @@ final class CastChannel {
             }
 
             size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 size += com.google.protobuf.CodedOutputStream.computeEnumSize(1, protocolVersion_.getNumber());
             }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            if ((bitField0_ & 0x00000002) == 0x00000002) {
                 size += com.google.protobuf.CodedOutputStream.computeBytesSize(2, getSourceIdBytes());
             }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            if ((bitField0_ & 0x00000004) == 0x00000004) {
                 size += com.google.protobuf.CodedOutputStream.computeBytesSize(3, getDestinationIdBytes());
             }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            if ((bitField0_ & 0x00000008) == 0x00000008) {
                 size += com.google.protobuf.CodedOutputStream.computeBytesSize(4, getNamespaceBytes());
             }
-            if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            if ((bitField0_ & 0x00000010) == 0x00000010) {
                 size += com.google.protobuf.CodedOutputStream.computeEnumSize(5, payloadType_.getNumber());
             }
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            if ((bitField0_ & 0x00000020) == 0x00000020) {
                 size += com.google.protobuf.CodedOutputStream.computeBytesSize(6, getPayloadUtf8Bytes());
             }
-            if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            if ((bitField0_ & 0x00000040) == 0x00000040) {
                 size += com.google.protobuf.CodedOutputStream.computeBytesSize(7, payloadBinary_);
             }
             size += unknownFields.size();
@@ -947,56 +940,58 @@ final class CastChannel {
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(
-                com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
+                final com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(
-                com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final com.google.protobuf.ByteString data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(byte[] data)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(final byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(final byte[] data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(java.io.InputStream input)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(final java.io.InputStream input)
                 throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseDelimitedFrom(
-                java.io.InputStream input) throws java.io.IOException {
+                final java.io.InputStream input) throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseDelimitedFrom(
-                java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(
-                com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input) throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(
-                com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
@@ -1009,7 +1004,7 @@ final class CastChannel {
             return newBuilder();
         }
 
-        public static Builder newBuilder(de.maggu2810.shk.chromecast_api.CastChannel.CastMessage prototype) {
+        public static Builder newBuilder(final de.maggu2810.shk.chromecast_api.CastChannel.CastMessage prototype) {
             return newBuilder().mergeFrom(prototype);
         }
 
@@ -1043,19 +1038,19 @@ final class CastChannel {
             public Builder clear() {
                 super.clear();
                 protocolVersion_ = de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 sourceId_ = "";
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = bitField0_ & ~0x00000002;
                 destinationId_ = "";
-                bitField0_ = (bitField0_ & ~0x00000004);
+                bitField0_ = bitField0_ & ~0x00000004;
                 namespace_ = "";
-                bitField0_ = (bitField0_ & ~0x00000008);
+                bitField0_ = bitField0_ & ~0x00000008;
                 payloadType_ = de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.PayloadType.STRING;
-                bitField0_ = (bitField0_ & ~0x00000010);
+                bitField0_ = bitField0_ & ~0x00000010;
                 payloadUtf8_ = "";
-                bitField0_ = (bitField0_ & ~0x00000020);
+                bitField0_ = bitField0_ & ~0x00000020;
                 payloadBinary_ = com.google.protobuf.ByteString.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000040);
+                bitField0_ = bitField0_ & ~0x00000040;
                 return this;
             }
 
@@ -1071,7 +1066,7 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.CastMessage build() {
-                de.maggu2810.shk.chromecast_api.CastChannel.CastMessage result = buildPartial();
+                final de.maggu2810.shk.chromecast_api.CastChannel.CastMessage result = buildPartial();
                 if (!result.isInitialized()) {
                     throw newUninitializedMessageException(result);
                 }
@@ -1080,35 +1075,35 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.CastMessage buildPartial() {
-                de.maggu2810.shk.chromecast_api.CastChannel.CastMessage result = new de.maggu2810.shk.chromecast_api.CastChannel.CastMessage(
+                final de.maggu2810.shk.chromecast_api.CastChannel.CastMessage result = new de.maggu2810.shk.chromecast_api.CastChannel.CastMessage(
                         this);
-                int from_bitField0_ = bitField0_;
+                final int from_bitField0_ = bitField0_;
                 int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+                if ((from_bitField0_ & 0x00000001) == 0x00000001) {
                     to_bitField0_ |= 0x00000001;
                 }
                 result.protocolVersion_ = protocolVersion_;
-                if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+                if ((from_bitField0_ & 0x00000002) == 0x00000002) {
                     to_bitField0_ |= 0x00000002;
                 }
                 result.sourceId_ = sourceId_;
-                if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+                if ((from_bitField0_ & 0x00000004) == 0x00000004) {
                     to_bitField0_ |= 0x00000004;
                 }
                 result.destinationId_ = destinationId_;
-                if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+                if ((from_bitField0_ & 0x00000008) == 0x00000008) {
                     to_bitField0_ |= 0x00000008;
                 }
                 result.namespace_ = namespace_;
-                if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+                if ((from_bitField0_ & 0x00000010) == 0x00000010) {
                     to_bitField0_ |= 0x00000010;
                 }
                 result.payloadType_ = payloadType_;
-                if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+                if ((from_bitField0_ & 0x00000020) == 0x00000020) {
                     to_bitField0_ |= 0x00000020;
                 }
                 result.payloadUtf8_ = payloadUtf8_;
-                if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+                if ((from_bitField0_ & 0x00000040) == 0x00000040) {
                     to_bitField0_ |= 0x00000040;
                 }
                 result.payloadBinary_ = payloadBinary_;
@@ -1117,7 +1112,7 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(de.maggu2810.shk.chromecast_api.CastChannel.CastMessage other) {
+            public Builder mergeFrom(final de.maggu2810.shk.chromecast_api.CastChannel.CastMessage other) {
                 if (other == de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.getDefaultInstance()) {
                     return this;
                 }
@@ -1180,12 +1175,12 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+            public Builder mergeFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
                 de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                     parsedMessage = (de.maggu2810.shk.chromecast_api.CastChannel.CastMessage) e.getUnfinishedMessage();
                     throw e;
                 } finally {
@@ -1205,7 +1200,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasProtocolVersion() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
+                return (bitField0_ & 0x00000001) == 0x00000001;
             }
 
             /**
@@ -1220,7 +1215,7 @@ final class CastChannel {
              * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
              */
             public Builder setProtocolVersion(
-                    de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.ProtocolVersion value) {
+                    final de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.ProtocolVersion value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1234,7 +1229,7 @@ final class CastChannel {
              * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
              */
             public Builder clearProtocolVersion() {
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 protocolVersion_ = de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0;
 
                 return this;
@@ -1261,7 +1256,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasSourceId() {
-                return ((bitField0_ & 0x00000002) == 0x00000002);
+                return (bitField0_ & 0x00000002) == 0x00000002;
             }
 
             /**
@@ -1283,10 +1278,10 @@ final class CastChannel {
              */
             @Override
             public java.lang.String getSourceId() {
-                java.lang.Object ref = sourceId_;
+                final java.lang.Object ref = sourceId_;
                 if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
+                    final com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                    final java.lang.String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         sourceId_ = s;
                     }
@@ -1315,9 +1310,9 @@ final class CastChannel {
              */
             @Override
             public com.google.protobuf.ByteString getSourceIdBytes() {
-                java.lang.Object ref = sourceId_;
+                final java.lang.Object ref = sourceId_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                    final com.google.protobuf.ByteString b = com.google.protobuf.ByteString
                             .copyFromUtf8((java.lang.String) ref);
                     sourceId_ = b;
                     return b;
@@ -1343,7 +1338,7 @@ final class CastChannel {
              * wildcard destination_id '*' can be used.
              * </pre>
              */
-            public Builder setSourceId(java.lang.String value) {
+            public Builder setSourceId(final java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1371,7 +1366,7 @@ final class CastChannel {
              * </pre>
              */
             public Builder clearSourceId() {
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = bitField0_ & ~0x00000002;
                 sourceId_ = getDefaultInstance().getSourceId();
 
                 return this;
@@ -1394,7 +1389,7 @@ final class CastChannel {
              * wildcard destination_id '*' can be used.
              * </pre>
              */
-            public Builder setSourceIdBytes(com.google.protobuf.ByteString value) {
+            public Builder setSourceIdBytes(final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1411,7 +1406,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasDestinationId() {
-                return ((bitField0_ & 0x00000004) == 0x00000004);
+                return (bitField0_ & 0x00000004) == 0x00000004;
             }
 
             /**
@@ -1419,10 +1414,10 @@ final class CastChannel {
              */
             @Override
             public java.lang.String getDestinationId() {
-                java.lang.Object ref = destinationId_;
+                final java.lang.Object ref = destinationId_;
                 if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
+                    final com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                    final java.lang.String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         destinationId_ = s;
                     }
@@ -1437,9 +1432,9 @@ final class CastChannel {
              */
             @Override
             public com.google.protobuf.ByteString getDestinationIdBytes() {
-                java.lang.Object ref = destinationId_;
+                final java.lang.Object ref = destinationId_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                    final com.google.protobuf.ByteString b = com.google.protobuf.ByteString
                             .copyFromUtf8((java.lang.String) ref);
                     destinationId_ = b;
                     return b;
@@ -1451,7 +1446,7 @@ final class CastChannel {
             /**
              * <code>required string destination_id = 3;</code>
              */
-            public Builder setDestinationId(java.lang.String value) {
+            public Builder setDestinationId(final java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1465,7 +1460,7 @@ final class CastChannel {
              * <code>required string destination_id = 3;</code>
              */
             public Builder clearDestinationId() {
-                bitField0_ = (bitField0_ & ~0x00000004);
+                bitField0_ = bitField0_ & ~0x00000004;
                 destinationId_ = getDefaultInstance().getDestinationId();
 
                 return this;
@@ -1474,7 +1469,7 @@ final class CastChannel {
             /**
              * <code>required string destination_id = 3;</code>
              */
-            public Builder setDestinationIdBytes(com.google.protobuf.ByteString value) {
+            public Builder setDestinationIdBytes(final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1497,7 +1492,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasNamespace() {
-                return ((bitField0_ & 0x00000008) == 0x00000008);
+                return (bitField0_ & 0x00000008) == 0x00000008;
             }
 
             /**
@@ -1511,10 +1506,10 @@ final class CastChannel {
              */
             @Override
             public java.lang.String getNamespace() {
-                java.lang.Object ref = namespace_;
+                final java.lang.Object ref = namespace_;
                 if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
+                    final com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                    final java.lang.String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         namespace_ = s;
                     }
@@ -1535,9 +1530,9 @@ final class CastChannel {
              */
             @Override
             public com.google.protobuf.ByteString getNamespaceBytes() {
-                java.lang.Object ref = namespace_;
+                final java.lang.Object ref = namespace_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                    final com.google.protobuf.ByteString b = com.google.protobuf.ByteString
                             .copyFromUtf8((java.lang.String) ref);
                     namespace_ = b;
                     return b;
@@ -1555,7 +1550,7 @@ final class CastChannel {
              * namespace defines the protocol and semantics of the message.
              * </pre>
              */
-            public Builder setNamespace(java.lang.String value) {
+            public Builder setNamespace(final java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1575,7 +1570,7 @@ final class CastChannel {
              * </pre>
              */
             public Builder clearNamespace() {
-                bitField0_ = (bitField0_ & ~0x00000008);
+                bitField0_ = bitField0_ & ~0x00000008;
                 namespace_ = getDefaultInstance().getNamespace();
 
                 return this;
@@ -1590,7 +1585,7 @@ final class CastChannel {
              * namespace defines the protocol and semantics of the message.
              * </pre>
              */
-            public Builder setNamespaceBytes(com.google.protobuf.ByteString value) {
+            public Builder setNamespaceBytes(final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1607,7 +1602,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasPayloadType() {
-                return ((bitField0_ & 0x00000010) == 0x00000010);
+                return (bitField0_ & 0x00000010) == 0x00000010;
             }
 
             /**
@@ -1621,7 +1616,8 @@ final class CastChannel {
             /**
              * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
              */
-            public Builder setPayloadType(de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.PayloadType value) {
+            public Builder setPayloadType(
+                    final de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.PayloadType value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1635,7 +1631,7 @@ final class CastChannel {
              * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
              */
             public Builder clearPayloadType() {
-                bitField0_ = (bitField0_ & ~0x00000010);
+                bitField0_ = bitField0_ & ~0x00000010;
                 payloadType_ = de.maggu2810.shk.chromecast_api.CastChannel.CastMessage.PayloadType.STRING;
 
                 return this;
@@ -1653,7 +1649,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasPayloadUtf8() {
-                return ((bitField0_ & 0x00000020) == 0x00000020);
+                return (bitField0_ & 0x00000020) == 0x00000020;
             }
 
             /**
@@ -1666,10 +1662,10 @@ final class CastChannel {
              */
             @Override
             public java.lang.String getPayloadUtf8() {
-                java.lang.Object ref = payloadUtf8_;
+                final java.lang.Object ref = payloadUtf8_;
                 if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
+                    final com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                    final java.lang.String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         payloadUtf8_ = s;
                     }
@@ -1689,9 +1685,9 @@ final class CastChannel {
              */
             @Override
             public com.google.protobuf.ByteString getPayloadUtf8Bytes() {
-                java.lang.Object ref = payloadUtf8_;
+                final java.lang.Object ref = payloadUtf8_;
                 if (ref instanceof String) {
-                    com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+                    final com.google.protobuf.ByteString b = com.google.protobuf.ByteString
                             .copyFromUtf8((java.lang.String) ref);
                     payloadUtf8_ = b;
                     return b;
@@ -1708,7 +1704,7 @@ final class CastChannel {
              * will always be set.
              * </pre>
              */
-            public Builder setPayloadUtf8(java.lang.String value) {
+            public Builder setPayloadUtf8(final java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1727,7 +1723,7 @@ final class CastChannel {
              * </pre>
              */
             public Builder clearPayloadUtf8() {
-                bitField0_ = (bitField0_ & ~0x00000020);
+                bitField0_ = bitField0_ & ~0x00000020;
                 payloadUtf8_ = getDefaultInstance().getPayloadUtf8();
 
                 return this;
@@ -1741,7 +1737,7 @@ final class CastChannel {
              * will always be set.
              * </pre>
              */
-            public Builder setPayloadUtf8Bytes(com.google.protobuf.ByteString value) {
+            public Builder setPayloadUtf8Bytes(final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1758,7 +1754,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasPayloadBinary() {
-                return ((bitField0_ & 0x00000040) == 0x00000040);
+                return (bitField0_ & 0x00000040) == 0x00000040;
             }
 
             /**
@@ -1772,7 +1768,7 @@ final class CastChannel {
             /**
              * <code>optional bytes payload_binary = 7;</code>
              */
-            public Builder setPayloadBinary(com.google.protobuf.ByteString value) {
+            public Builder setPayloadBinary(final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1786,7 +1782,7 @@ final class CastChannel {
              * <code>optional bytes payload_binary = 7;</code>
              */
             public Builder clearPayloadBinary() {
-                bitField0_ = (bitField0_ & ~0x00000040);
+                bitField0_ = bitField0_ & ~0x00000040;
                 payloadBinary_ = getDefaultInstance().getPayloadBinary();
 
                 return this;
@@ -1829,12 +1825,12 @@ final class CastChannel {
     // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthChallenge)
             AuthChallengeOrBuilder {
         // Use AuthChallenge.newBuilder() to construct.
-        private AuthChallenge(com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
+        private AuthChallenge(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
             super(builder);
             this.unknownFields = builder.getUnknownFields();
         }
 
-        private AuthChallenge(boolean noInit) {
+        private AuthChallenge(final boolean noInit) {
             this.unknownFields = com.google.protobuf.ByteString.EMPTY;
         }
 
@@ -1851,18 +1847,19 @@ final class CastChannel {
 
         private final com.google.protobuf.ByteString unknownFields;
 
-        private AuthChallenge(com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        private AuthChallenge(final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             initFields();
             // int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
+            final com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString
+                    .newOutput();
+            final com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
                     .newInstance(unknownFieldsOutput);
             try {
                 boolean done = false;
                 while (!done) {
-                    int tag = input.readTag();
+                    final int tag = input.readTag();
                     switch (tag) {
                         case 0:
                             done = true;
@@ -1874,8 +1871,8 @@ final class CastChannel {
                             break;
                         }
                         case 8: {
-                            int rawValue = input.readEnum();
-                            de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm value = de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm
+                            final int rawValue = input.readEnum();
+                            final de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm value = de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm
                                     .valueOf(rawValue);
                             if (value == null) {
                                 unknownFieldsCodedOutput.writeRawVarint32(tag);
@@ -1888,14 +1885,14 @@ final class CastChannel {
                         }
                     }
                 }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                 throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
+            } catch (final java.io.IOException e) {
                 throw new com.google.protobuf.InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
             } finally {
                 try {
                     unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
+                } catch (final java.io.IOException e) {
                     // Should not happen
                 } finally {
                     unknownFields = unknownFieldsOutput.toByteString();
@@ -1906,8 +1903,8 @@ final class CastChannel {
 
         public static com.google.protobuf.Parser<AuthChallenge> PARSER = new com.google.protobuf.AbstractParser<AuthChallenge>() {
             @Override
-            public AuthChallenge parsePartialFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            public AuthChallenge parsePartialFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws com.google.protobuf.InvalidProtocolBufferException {
                 return new AuthChallenge(input, extensionRegistry);
             }
@@ -1927,7 +1924,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasSignatureAlgorithm() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
+            return (bitField0_ & 0x00000001) == 0x00000001;
         }
 
         /**
@@ -1946,7 +1943,7 @@ final class CastChannel {
 
         @Override
         public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
+            final byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) {
                 return true;
             }
@@ -1959,9 +1956,9 @@ final class CastChannel {
         }
 
         @Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+        public void writeTo(final com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
             getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 output.writeEnum(1, signatureAlgorithm_.getNumber());
             }
             output.writeRawBytes(unknownFields);
@@ -1977,7 +1974,7 @@ final class CastChannel {
             }
 
             size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 size += com.google.protobuf.CodedOutputStream.computeEnumSize(1, signatureAlgorithm_.getNumber());
             }
             size += unknownFields.size();
@@ -1993,56 +1990,58 @@ final class CastChannel {
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(
-                com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
+                final com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(
-                com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final com.google.protobuf.ByteString data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(byte[] data)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(final byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(final byte[] data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(
+                final java.io.InputStream input) throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseDelimitedFrom(
-                java.io.InputStream input) throws java.io.IOException {
+                final java.io.InputStream input) throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseDelimitedFrom(
-                java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(
-                com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input) throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parseFrom(
-                com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
@@ -2055,7 +2054,7 @@ final class CastChannel {
             return newBuilder();
         }
 
-        public static Builder newBuilder(de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge prototype) {
+        public static Builder newBuilder(final de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge prototype) {
             return newBuilder().mergeFrom(prototype);
         }
 
@@ -2093,7 +2092,7 @@ final class CastChannel {
             public Builder clear() {
                 super.clear();
                 signatureAlgorithm_ = de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 return this;
             }
 
@@ -2109,7 +2108,7 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge build() {
-                de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge result = buildPartial();
+                final de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge result = buildPartial();
                 if (!result.isInitialized()) {
                     throw newUninitializedMessageException(result);
                 }
@@ -2118,11 +2117,11 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge buildPartial() {
-                de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge result = new de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge(
+                final de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge result = new de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge(
                         this);
-                int from_bitField0_ = bitField0_;
+                final int from_bitField0_ = bitField0_;
                 int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+                if ((from_bitField0_ & 0x00000001) == 0x00000001) {
                     to_bitField0_ |= 0x00000001;
                 }
                 result.signatureAlgorithm_ = signatureAlgorithm_;
@@ -2131,7 +2130,7 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge other) {
+            public Builder mergeFrom(final de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge other) {
                 if (other == de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.getDefaultInstance()) {
                     return this;
                 }
@@ -2148,12 +2147,12 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+            public Builder mergeFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
                 de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                     parsedMessage = (de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge) e
                             .getUnfinishedMessage();
                     throw e;
@@ -2174,7 +2173,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasSignatureAlgorithm() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
+                return (bitField0_ & 0x00000001) == 0x00000001;
             }
 
             /**
@@ -2188,7 +2187,8 @@ final class CastChannel {
             /**
              * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
              */
-            public Builder setSignatureAlgorithm(de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm value) {
+            public Builder setSignatureAlgorithm(
+                    final de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -2202,7 +2202,7 @@ final class CastChannel {
              * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
              */
             public Builder clearSignatureAlgorithm() {
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 signatureAlgorithm_ = de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
 
                 return this;
@@ -2276,12 +2276,12 @@ final class CastChannel {
     // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthResponse)
             AuthResponseOrBuilder {
         // Use AuthResponse.newBuilder() to construct.
-        private AuthResponse(com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
+        private AuthResponse(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
             super(builder);
             this.unknownFields = builder.getUnknownFields();
         }
 
-        private AuthResponse(boolean noInit) {
+        private AuthResponse(final boolean noInit) {
             this.unknownFields = com.google.protobuf.ByteString.EMPTY;
         }
 
@@ -2298,18 +2298,19 @@ final class CastChannel {
 
         private final com.google.protobuf.ByteString unknownFields;
 
-        private AuthResponse(com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        private AuthResponse(final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             initFields();
             int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
+            final com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString
+                    .newOutput();
+            final com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
                     .newInstance(unknownFieldsOutput);
             try {
                 boolean done = false;
                 while (!done) {
-                    int tag = input.readTag();
+                    final int tag = input.readTag();
                     switch (tag) {
                         case 0:
                             done = true;
@@ -2332,15 +2333,15 @@ final class CastChannel {
                         }
                         case 26: {
                             if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                                intermediateCertificate_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
+                                intermediateCertificate_ = new java.util.ArrayList<>();
                                 mutable_bitField0_ |= 0x00000004;
                             }
                             intermediateCertificate_.add(input.readBytes());
                             break;
                         }
                         case 32: {
-                            int rawValue = input.readEnum();
-                            de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm value = de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm
+                            final int rawValue = input.readEnum();
+                            final de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm value = de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm
                                     .valueOf(rawValue);
                             if (value == null) {
                                 unknownFieldsCodedOutput.writeRawVarint32(tag);
@@ -2353,17 +2354,17 @@ final class CastChannel {
                         }
                     }
                 }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                 throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
+            } catch (final java.io.IOException e) {
                 throw new com.google.protobuf.InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
             } finally {
-                if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                if ((mutable_bitField0_ & 0x00000004) == 0x00000004) {
                     intermediateCertificate_ = java.util.Collections.unmodifiableList(intermediateCertificate_);
                 }
                 try {
                     unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
+                } catch (final java.io.IOException e) {
                     // Should not happen
                 } finally {
                     unknownFields = unknownFieldsOutput.toByteString();
@@ -2374,8 +2375,8 @@ final class CastChannel {
 
         public static com.google.protobuf.Parser<AuthResponse> PARSER = new com.google.protobuf.AbstractParser<AuthResponse>() {
             @Override
-            public AuthResponse parsePartialFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            public AuthResponse parsePartialFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws com.google.protobuf.InvalidProtocolBufferException {
                 return new AuthResponse(input, extensionRegistry);
             }
@@ -2395,7 +2396,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasSignature() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
+            return (bitField0_ & 0x00000001) == 0x00000001;
         }
 
         /**
@@ -2414,7 +2415,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasClientAuthCertificate() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
+            return (bitField0_ & 0x00000002) == 0x00000002;
         }
 
         /**
@@ -2448,7 +2449,7 @@ final class CastChannel {
          * <code>repeated bytes intermediate_certificate = 3;</code>
          */
         @Override
-        public com.google.protobuf.ByteString getIntermediateCertificate(int index) {
+        public com.google.protobuf.ByteString getIntermediateCertificate(final int index) {
             return intermediateCertificate_.get(index);
         }
 
@@ -2460,7 +2461,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasSignatureAlgorithm() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
+            return (bitField0_ & 0x00000004) == 0x00000004;
         }
 
         /**
@@ -2482,7 +2483,7 @@ final class CastChannel {
 
         @Override
         public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
+            final byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) {
                 return true;
             }
@@ -2503,18 +2504,18 @@ final class CastChannel {
         }
 
         @Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+        public void writeTo(final com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
             getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 output.writeBytes(1, signature_);
             }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            if ((bitField0_ & 0x00000002) == 0x00000002) {
                 output.writeBytes(2, clientAuthCertificate_);
             }
             for (int i = 0; i < intermediateCertificate_.size(); i++) {
                 output.writeBytes(3, intermediateCertificate_.get(i));
             }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            if ((bitField0_ & 0x00000004) == 0x00000004) {
                 output.writeEnum(4, signatureAlgorithm_.getNumber());
             }
             output.writeRawBytes(unknownFields);
@@ -2530,10 +2531,10 @@ final class CastChannel {
             }
 
             size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 size += com.google.protobuf.CodedOutputStream.computeBytesSize(1, signature_);
             }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            if ((bitField0_ & 0x00000002) == 0x00000002) {
                 size += com.google.protobuf.CodedOutputStream.computeBytesSize(2, clientAuthCertificate_);
             }
             {
@@ -2545,7 +2546,7 @@ final class CastChannel {
                 size += dataSize;
                 size += 1 * getIntermediateCertificateList().size();
             }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            if ((bitField0_ & 0x00000004) == 0x00000004) {
                 size += com.google.protobuf.CodedOutputStream.computeEnumSize(4, signatureAlgorithm_.getNumber());
             }
             size += unknownFields.size();
@@ -2561,56 +2562,58 @@ final class CastChannel {
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(
-                com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
+                final com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(
-                com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final com.google.protobuf.ByteString data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(byte[] data)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(final byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(final byte[] data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(java.io.InputStream input)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(final java.io.InputStream input)
                 throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseDelimitedFrom(
-                java.io.InputStream input) throws java.io.IOException {
+                final java.io.InputStream input) throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseDelimitedFrom(
-                java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(
-                com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input) throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(
-                com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
@@ -2623,7 +2626,7 @@ final class CastChannel {
             return newBuilder();
         }
 
-        public static Builder newBuilder(de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse prototype) {
+        public static Builder newBuilder(final de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse prototype) {
             return newBuilder().mergeFrom(prototype);
         }
 
@@ -2657,13 +2660,13 @@ final class CastChannel {
             public Builder clear() {
                 super.clear();
                 signature_ = com.google.protobuf.ByteString.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 clientAuthCertificate_ = com.google.protobuf.ByteString.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = bitField0_ & ~0x00000002;
                 intermediateCertificate_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000004);
+                bitField0_ = bitField0_ & ~0x00000004;
                 signatureAlgorithm_ = de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-                bitField0_ = (bitField0_ & ~0x00000008);
+                bitField0_ = bitField0_ & ~0x00000008;
                 return this;
             }
 
@@ -2679,7 +2682,7 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse build() {
-                de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse result = buildPartial();
+                final de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse result = buildPartial();
                 if (!result.isInitialized()) {
                     throw newUninitializedMessageException(result);
                 }
@@ -2688,24 +2691,24 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse buildPartial() {
-                de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse result = new de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse(
+                final de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse result = new de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse(
                         this);
-                int from_bitField0_ = bitField0_;
+                final int from_bitField0_ = bitField0_;
                 int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+                if ((from_bitField0_ & 0x00000001) == 0x00000001) {
                     to_bitField0_ |= 0x00000001;
                 }
                 result.signature_ = signature_;
-                if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+                if ((from_bitField0_ & 0x00000002) == 0x00000002) {
                     to_bitField0_ |= 0x00000002;
                 }
                 result.clientAuthCertificate_ = clientAuthCertificate_;
-                if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                if ((bitField0_ & 0x00000004) == 0x00000004) {
                     intermediateCertificate_ = java.util.Collections.unmodifiableList(intermediateCertificate_);
-                    bitField0_ = (bitField0_ & ~0x00000004);
+                    bitField0_ = bitField0_ & ~0x00000004;
                 }
                 result.intermediateCertificate_ = intermediateCertificate_;
-                if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+                if ((from_bitField0_ & 0x00000008) == 0x00000008) {
                     to_bitField0_ |= 0x00000004;
                 }
                 result.signatureAlgorithm_ = signatureAlgorithm_;
@@ -2714,7 +2717,7 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse other) {
+            public Builder mergeFrom(final de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse other) {
                 if (other == de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse.getDefaultInstance()) {
                     return this;
                 }
@@ -2727,7 +2730,7 @@ final class CastChannel {
                 if (!other.intermediateCertificate_.isEmpty()) {
                     if (intermediateCertificate_.isEmpty()) {
                         intermediateCertificate_ = other.intermediateCertificate_;
-                        bitField0_ = (bitField0_ & ~0x00000004);
+                        bitField0_ = bitField0_ & ~0x00000004;
                     } else {
                         ensureIntermediateCertificateIsMutable();
                         intermediateCertificate_.addAll(other.intermediateCertificate_);
@@ -2755,12 +2758,12 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+            public Builder mergeFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
                 de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                     parsedMessage = (de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse) e.getUnfinishedMessage();
                     throw e;
                 } finally {
@@ -2780,7 +2783,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasSignature() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
+                return (bitField0_ & 0x00000001) == 0x00000001;
             }
 
             /**
@@ -2794,7 +2797,7 @@ final class CastChannel {
             /**
              * <code>required bytes signature = 1;</code>
              */
-            public Builder setSignature(com.google.protobuf.ByteString value) {
+            public Builder setSignature(final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -2808,7 +2811,7 @@ final class CastChannel {
              * <code>required bytes signature = 1;</code>
              */
             public Builder clearSignature() {
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 signature_ = getDefaultInstance().getSignature();
 
                 return this;
@@ -2821,7 +2824,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasClientAuthCertificate() {
-                return ((bitField0_ & 0x00000002) == 0x00000002);
+                return (bitField0_ & 0x00000002) == 0x00000002;
             }
 
             /**
@@ -2835,7 +2838,7 @@ final class CastChannel {
             /**
              * <code>required bytes client_auth_certificate = 2;</code>
              */
-            public Builder setClientAuthCertificate(com.google.protobuf.ByteString value) {
+            public Builder setClientAuthCertificate(final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -2849,7 +2852,7 @@ final class CastChannel {
              * <code>required bytes client_auth_certificate = 2;</code>
              */
             public Builder clearClientAuthCertificate() {
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = bitField0_ & ~0x00000002;
                 clientAuthCertificate_ = getDefaultInstance().getClientAuthCertificate();
 
                 return this;
@@ -2860,8 +2863,7 @@ final class CastChannel {
 
             private void ensureIntermediateCertificateIsMutable() {
                 if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-                    intermediateCertificate_ = new java.util.ArrayList<com.google.protobuf.ByteString>(
-                            intermediateCertificate_);
+                    intermediateCertificate_ = new java.util.ArrayList<>(intermediateCertificate_);
                     bitField0_ |= 0x00000004;
                 }
             }
@@ -2886,14 +2888,14 @@ final class CastChannel {
              * <code>repeated bytes intermediate_certificate = 3;</code>
              */
             @Override
-            public com.google.protobuf.ByteString getIntermediateCertificate(int index) {
+            public com.google.protobuf.ByteString getIntermediateCertificate(final int index) {
                 return intermediateCertificate_.get(index);
             }
 
             /**
              * <code>repeated bytes intermediate_certificate = 3;</code>
              */
-            public Builder setIntermediateCertificate(int index, com.google.protobuf.ByteString value) {
+            public Builder setIntermediateCertificate(final int index, final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -2906,7 +2908,7 @@ final class CastChannel {
             /**
              * <code>repeated bytes intermediate_certificate = 3;</code>
              */
-            public Builder addIntermediateCertificate(com.google.protobuf.ByteString value) {
+            public Builder addIntermediateCertificate(final com.google.protobuf.ByteString value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -2920,7 +2922,7 @@ final class CastChannel {
              * <code>repeated bytes intermediate_certificate = 3;</code>
              */
             public Builder addAllIntermediateCertificate(
-                    java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+                    final java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
                 ensureIntermediateCertificateIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(values, intermediateCertificate_);
 
@@ -2932,7 +2934,7 @@ final class CastChannel {
              */
             public Builder clearIntermediateCertificate() {
                 intermediateCertificate_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000004);
+                bitField0_ = bitField0_ & ~0x00000004;
 
                 return this;
             }
@@ -2944,7 +2946,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasSignatureAlgorithm() {
-                return ((bitField0_ & 0x00000008) == 0x00000008);
+                return (bitField0_ & 0x00000008) == 0x00000008;
             }
 
             /**
@@ -2958,7 +2960,8 @@ final class CastChannel {
             /**
              * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
              */
-            public Builder setSignatureAlgorithm(de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm value) {
+            public Builder setSignatureAlgorithm(
+                    final de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -2972,7 +2975,7 @@ final class CastChannel {
              * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
              */
             public Builder clearSignatureAlgorithm() {
-                bitField0_ = (bitField0_ & ~0x00000008);
+                bitField0_ = bitField0_ & ~0x00000008;
                 signatureAlgorithm_ = de.maggu2810.shk.chromecast_api.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
 
                 return this;
@@ -3011,12 +3014,12 @@ final class CastChannel {
     // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthError)
             AuthErrorOrBuilder {
         // Use AuthError.newBuilder() to construct.
-        private AuthError(com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
+        private AuthError(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
             super(builder);
             this.unknownFields = builder.getUnknownFields();
         }
 
-        private AuthError(boolean noInit) {
+        private AuthError(final boolean noInit) {
             this.unknownFields = com.google.protobuf.ByteString.EMPTY;
         }
 
@@ -3033,18 +3036,19 @@ final class CastChannel {
 
         private final com.google.protobuf.ByteString unknownFields;
 
-        private AuthError(com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        private AuthError(final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             initFields();
             // int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
+            final com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString
+                    .newOutput();
+            final com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
                     .newInstance(unknownFieldsOutput);
             try {
                 boolean done = false;
                 while (!done) {
-                    int tag = input.readTag();
+                    final int tag = input.readTag();
                     switch (tag) {
                         case 0:
                             done = true;
@@ -3056,8 +3060,8 @@ final class CastChannel {
                             break;
                         }
                         case 8: {
-                            int rawValue = input.readEnum();
-                            de.maggu2810.shk.chromecast_api.CastChannel.AuthError.ErrorType value = de.maggu2810.shk.chromecast_api.CastChannel.AuthError.ErrorType
+                            final int rawValue = input.readEnum();
+                            final de.maggu2810.shk.chromecast_api.CastChannel.AuthError.ErrorType value = de.maggu2810.shk.chromecast_api.CastChannel.AuthError.ErrorType
                                     .valueOf(rawValue);
                             if (value == null) {
                                 unknownFieldsCodedOutput.writeRawVarint32(tag);
@@ -3070,14 +3074,14 @@ final class CastChannel {
                         }
                     }
                 }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                 throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
+            } catch (final java.io.IOException e) {
                 throw new com.google.protobuf.InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
             } finally {
                 try {
                     unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
+                } catch (final java.io.IOException e) {
                     // Should not happen
                 } finally {
                     unknownFields = unknownFieldsOutput.toByteString();
@@ -3088,8 +3092,8 @@ final class CastChannel {
 
         public static com.google.protobuf.Parser<AuthError> PARSER = new com.google.protobuf.AbstractParser<AuthError>() {
             @Override
-            public AuthError parsePartialFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            public AuthError parsePartialFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws com.google.protobuf.InvalidProtocolBufferException {
                 return new AuthError(input, extensionRegistry);
             }
@@ -3143,7 +3147,7 @@ final class CastChannel {
                 return value;
             }
 
-            public static ErrorType valueOf(int value) {
+            public static ErrorType valueOf(final int value) {
                 switch (value) {
                     case 0:
                         return INTERNAL_ERROR;
@@ -3160,16 +3164,12 @@ final class CastChannel {
                 return internalValueMap;
             }
 
-            private static com.google.protobuf.Internal.EnumLiteMap<ErrorType> internalValueMap = new com.google.protobuf.Internal.EnumLiteMap<ErrorType>() {
-                @Override
-                public ErrorType findValueByNumber(int number) {
-                    return ErrorType.valueOf(number);
-                }
-            };
+            private static com.google.protobuf.Internal.EnumLiteMap<ErrorType> internalValueMap = number -> ErrorType
+                    .valueOf(number);
 
             private final int value;
 
-            private ErrorType(int index, int value) {
+            private ErrorType(final int index, final int value) {
                 this.value = value;
             }
 
@@ -3185,7 +3185,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasErrorType() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
+            return (bitField0_ & 0x00000001) == 0x00000001;
         }
 
         /**
@@ -3204,7 +3204,7 @@ final class CastChannel {
 
         @Override
         public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
+            final byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) {
                 return true;
             }
@@ -3221,9 +3221,9 @@ final class CastChannel {
         }
 
         @Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+        public void writeTo(final com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
             getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 output.writeEnum(1, errorType_.getNumber());
             }
             output.writeRawBytes(unknownFields);
@@ -3239,7 +3239,7 @@ final class CastChannel {
             }
 
             size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 size += com.google.protobuf.CodedOutputStream.computeEnumSize(1, errorType_.getNumber());
             }
             size += unknownFields.size();
@@ -3255,56 +3255,57 @@ final class CastChannel {
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(
-                com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
+                final com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(
-                com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final com.google.protobuf.ByteString data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(byte[] data)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(final byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(final byte[] data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(java.io.InputStream input)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(final java.io.InputStream input)
                 throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(final java.io.InputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseDelimitedFrom(
+                final java.io.InputStream input) throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseDelimitedFrom(
-                java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(
-                com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input) throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.AuthError parseFrom(
-                com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
@@ -3317,7 +3318,7 @@ final class CastChannel {
             return newBuilder();
         }
 
-        public static Builder newBuilder(de.maggu2810.shk.chromecast_api.CastChannel.AuthError prototype) {
+        public static Builder newBuilder(final de.maggu2810.shk.chromecast_api.CastChannel.AuthError prototype) {
             return newBuilder().mergeFrom(prototype);
         }
 
@@ -3351,7 +3352,7 @@ final class CastChannel {
             public Builder clear() {
                 super.clear();
                 errorType_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthError.ErrorType.INTERNAL_ERROR;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 return this;
             }
 
@@ -3367,7 +3368,7 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.AuthError build() {
-                de.maggu2810.shk.chromecast_api.CastChannel.AuthError result = buildPartial();
+                final de.maggu2810.shk.chromecast_api.CastChannel.AuthError result = buildPartial();
                 if (!result.isInitialized()) {
                     throw newUninitializedMessageException(result);
                 }
@@ -3376,11 +3377,11 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.AuthError buildPartial() {
-                de.maggu2810.shk.chromecast_api.CastChannel.AuthError result = new de.maggu2810.shk.chromecast_api.CastChannel.AuthError(
+                final de.maggu2810.shk.chromecast_api.CastChannel.AuthError result = new de.maggu2810.shk.chromecast_api.CastChannel.AuthError(
                         this);
-                int from_bitField0_ = bitField0_;
+                final int from_bitField0_ = bitField0_;
                 int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+                if ((from_bitField0_ & 0x00000001) == 0x00000001) {
                     to_bitField0_ |= 0x00000001;
                 }
                 result.errorType_ = errorType_;
@@ -3389,7 +3390,7 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(de.maggu2810.shk.chromecast_api.CastChannel.AuthError other) {
+            public Builder mergeFrom(final de.maggu2810.shk.chromecast_api.CastChannel.AuthError other) {
                 if (other == de.maggu2810.shk.chromecast_api.CastChannel.AuthError.getDefaultInstance()) {
                     return this;
                 }
@@ -3410,12 +3411,12 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+            public Builder mergeFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
                 de.maggu2810.shk.chromecast_api.CastChannel.AuthError parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                     parsedMessage = (de.maggu2810.shk.chromecast_api.CastChannel.AuthError) e.getUnfinishedMessage();
                     throw e;
                 } finally {
@@ -3435,7 +3436,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasErrorType() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
+                return (bitField0_ & 0x00000001) == 0x00000001;
             }
 
             /**
@@ -3449,7 +3450,7 @@ final class CastChannel {
             /**
              * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
              */
-            public Builder setErrorType(de.maggu2810.shk.chromecast_api.CastChannel.AuthError.ErrorType value) {
+            public Builder setErrorType(final de.maggu2810.shk.chromecast_api.CastChannel.AuthError.ErrorType value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -3463,7 +3464,7 @@ final class CastChannel {
              * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
              */
             public Builder clearErrorType() {
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 errorType_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthError.ErrorType.INTERNAL_ERROR;
 
                 return this;
@@ -3538,12 +3539,12 @@ final class CastChannel {
     // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.DeviceAuthMessage)
             DeviceAuthMessageOrBuilder {
         // Use DeviceAuthMessage.newBuilder() to construct.
-        private DeviceAuthMessage(com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
+        private DeviceAuthMessage(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
             super(builder);
             this.unknownFields = builder.getUnknownFields();
         }
 
-        private DeviceAuthMessage(boolean noInit) {
+        private DeviceAuthMessage(final boolean noInit) {
             this.unknownFields = com.google.protobuf.ByteString.EMPTY;
         }
 
@@ -3560,18 +3561,19 @@ final class CastChannel {
 
         private final com.google.protobuf.ByteString unknownFields;
 
-        private DeviceAuthMessage(com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        private DeviceAuthMessage(final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             initFields();
             // int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
+            final com.google.protobuf.ByteString.Output unknownFieldsOutput = com.google.protobuf.ByteString
+                    .newOutput();
+            final com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput = com.google.protobuf.CodedOutputStream
                     .newInstance(unknownFieldsOutput);
             try {
                 boolean done = false;
                 while (!done) {
-                    int tag = input.readTag();
+                    final int tag = input.readTag();
                     switch (tag) {
                         case 0:
                             done = true;
@@ -3584,7 +3586,7 @@ final class CastChannel {
                         }
                         case 10: {
                             de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.Builder subBuilder = null;
-                            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                            if ((bitField0_ & 0x00000001) == 0x00000001) {
                                 subBuilder = challenge_.toBuilder();
                             }
                             challenge_ = input
@@ -3599,7 +3601,7 @@ final class CastChannel {
                         }
                         case 18: {
                             de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse.Builder subBuilder = null;
-                            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                            if ((bitField0_ & 0x00000002) == 0x00000002) {
                                 subBuilder = response_.toBuilder();
                             }
                             response_ = input.readMessage(
@@ -3613,7 +3615,7 @@ final class CastChannel {
                         }
                         case 26: {
                             de.maggu2810.shk.chromecast_api.CastChannel.AuthError.Builder subBuilder = null;
-                            if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                            if ((bitField0_ & 0x00000004) == 0x00000004) {
                                 subBuilder = error_.toBuilder();
                             }
                             error_ = input.readMessage(de.maggu2810.shk.chromecast_api.CastChannel.AuthError.PARSER,
@@ -3627,14 +3629,14 @@ final class CastChannel {
                         }
                     }
                 }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                 throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
+            } catch (final java.io.IOException e) {
                 throw new com.google.protobuf.InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
             } finally {
                 try {
                     unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
+                } catch (final java.io.IOException e) {
                     // Should not happen
                 } finally {
                     unknownFields = unknownFieldsOutput.toByteString();
@@ -3645,8 +3647,8 @@ final class CastChannel {
 
         public static com.google.protobuf.Parser<DeviceAuthMessage> PARSER = new com.google.protobuf.AbstractParser<DeviceAuthMessage>() {
             @Override
-            public DeviceAuthMessage parsePartialFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            public DeviceAuthMessage parsePartialFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                     throws com.google.protobuf.InvalidProtocolBufferException {
                 return new DeviceAuthMessage(input, extensionRegistry);
             }
@@ -3670,7 +3672,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasChallenge() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
+            return (bitField0_ & 0x00000001) == 0x00000001;
         }
 
         /**
@@ -3697,7 +3699,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasResponse() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
+            return (bitField0_ & 0x00000002) == 0x00000002;
         }
 
         /**
@@ -3720,7 +3722,7 @@ final class CastChannel {
          */
         @Override
         public boolean hasError() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
+            return (bitField0_ & 0x00000004) == 0x00000004;
         }
 
         /**
@@ -3741,7 +3743,7 @@ final class CastChannel {
 
         @Override
         public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
+            final byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) {
                 return true;
             }
@@ -3766,15 +3768,15 @@ final class CastChannel {
         }
 
         @Override
-        public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+        public void writeTo(final com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
             getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 output.writeMessage(1, challenge_);
             }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            if ((bitField0_ & 0x00000002) == 0x00000002) {
                 output.writeMessage(2, response_);
             }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            if ((bitField0_ & 0x00000004) == 0x00000004) {
                 output.writeMessage(3, error_);
             }
             output.writeRawBytes(unknownFields);
@@ -3790,13 +3792,13 @@ final class CastChannel {
             }
 
             size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            if ((bitField0_ & 0x00000001) == 0x00000001) {
                 size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, challenge_);
             }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            if ((bitField0_ & 0x00000002) == 0x00000002) {
                 size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, response_);
             }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            if ((bitField0_ & 0x00000004) == 0x00000004) {
                 size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, error_);
             }
             size += unknownFields.size();
@@ -3812,57 +3814,58 @@ final class CastChannel {
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(
-                com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
+                final com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(
-                com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final com.google.protobuf.ByteString data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(byte[] data)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(final byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(final byte[] data,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(
+                final java.io.InputStream input) throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(
-                java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseDelimitedFrom(
-                java.io.InputStream input) throws java.io.IOException {
+                final java.io.InputStream input) throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseDelimitedFrom(
-                java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws java.io.IOException {
             return PARSER.parseDelimitedFrom(input, extensionRegistry);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(
-                com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input) throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
         public static de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parseFrom(
-                com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
+                final com.google.protobuf.CodedInputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
@@ -3875,7 +3878,7 @@ final class CastChannel {
             return newBuilder();
         }
 
-        public static Builder newBuilder(de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage prototype) {
+        public static Builder newBuilder(final de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage prototype) {
             return newBuilder().mergeFrom(prototype);
         }
 
@@ -3909,11 +3912,11 @@ final class CastChannel {
             public Builder clear() {
                 super.clear();
                 challenge_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.getDefaultInstance();
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 response_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse.getDefaultInstance();
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = bitField0_ & ~0x00000002;
                 error_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthError.getDefaultInstance();
-                bitField0_ = (bitField0_ & ~0x00000004);
+                bitField0_ = bitField0_ & ~0x00000004;
                 return this;
             }
 
@@ -3929,7 +3932,7 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage build() {
-                de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage result = buildPartial();
+                final de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage result = buildPartial();
                 if (!result.isInitialized()) {
                     throw newUninitializedMessageException(result);
                 }
@@ -3938,19 +3941,19 @@ final class CastChannel {
 
             @Override
             public de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage buildPartial() {
-                de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage result = new de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage(
+                final de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage result = new de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage(
                         this);
-                int from_bitField0_ = bitField0_;
+                final int from_bitField0_ = bitField0_;
                 int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+                if ((from_bitField0_ & 0x00000001) == 0x00000001) {
                     to_bitField0_ |= 0x00000001;
                 }
                 result.challenge_ = challenge_;
-                if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+                if ((from_bitField0_ & 0x00000002) == 0x00000002) {
                     to_bitField0_ |= 0x00000002;
                 }
                 result.response_ = response_;
-                if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+                if ((from_bitField0_ & 0x00000004) == 0x00000004) {
                     to_bitField0_ |= 0x00000004;
                 }
                 result.error_ = error_;
@@ -3959,7 +3962,7 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage other) {
+            public Builder mergeFrom(final de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage other) {
                 if (other == de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage.getDefaultInstance()) {
                     return this;
                 }
@@ -3994,12 +3997,12 @@ final class CastChannel {
             }
 
             @Override
-            public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+            public Builder mergeFrom(final com.google.protobuf.CodedInputStream input,
+                    final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
                 de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage parsedMessage = null;
                 try {
                     parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                } catch (final com.google.protobuf.InvalidProtocolBufferException e) {
                     parsedMessage = (de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage) e
                             .getUnfinishedMessage();
                     throw e;
@@ -4025,7 +4028,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasChallenge() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
+                return (bitField0_ & 0x00000001) == 0x00000001;
             }
 
             /**
@@ -4047,7 +4050,7 @@ final class CastChannel {
              * Request fields
              * </pre>
              */
-            public Builder setChallenge(de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge value) {
+            public Builder setChallenge(final de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -4065,7 +4068,7 @@ final class CastChannel {
              * </pre>
              */
             public Builder setChallenge(
-                    de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.Builder builderForValue) {
+                    final de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.Builder builderForValue) {
                 challenge_ = builderForValue.build();
 
                 bitField0_ |= 0x00000001;
@@ -4079,8 +4082,8 @@ final class CastChannel {
              * Request fields
              * </pre>
              */
-            public Builder mergeChallenge(de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge value) {
-                if (((bitField0_ & 0x00000001) == 0x00000001)
+            public Builder mergeChallenge(final de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge value) {
+                if ((bitField0_ & 0x00000001) == 0x00000001
                         && challenge_ != de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.getDefaultInstance()) {
                     challenge_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.newBuilder(challenge_)
                             .mergeFrom(value).buildPartial();
@@ -4102,7 +4105,7 @@ final class CastChannel {
             public Builder clearChallenge() {
                 challenge_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.getDefaultInstance();
 
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = bitField0_ & ~0x00000001;
                 return this;
             }
 
@@ -4118,7 +4121,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasResponse() {
-                return ((bitField0_ & 0x00000002) == 0x00000002);
+                return (bitField0_ & 0x00000002) == 0x00000002;
             }
 
             /**
@@ -4140,7 +4143,7 @@ final class CastChannel {
              * Response fields
              * </pre>
              */
-            public Builder setResponse(de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse value) {
+            public Builder setResponse(final de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -4157,7 +4160,8 @@ final class CastChannel {
              * Response fields
              * </pre>
              */
-            public Builder setResponse(de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse.Builder builderForValue) {
+            public Builder setResponse(
+                    final de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse.Builder builderForValue) {
                 response_ = builderForValue.build();
 
                 bitField0_ |= 0x00000002;
@@ -4171,8 +4175,8 @@ final class CastChannel {
              * Response fields
              * </pre>
              */
-            public Builder mergeResponse(de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse value) {
-                if (((bitField0_ & 0x00000002) == 0x00000002)
+            public Builder mergeResponse(final de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse value) {
+                if ((bitField0_ & 0x00000002) == 0x00000002
                         && response_ != de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse.getDefaultInstance()) {
                     response_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse.newBuilder(response_)
                             .mergeFrom(value).buildPartial();
@@ -4194,7 +4198,7 @@ final class CastChannel {
             public Builder clearResponse() {
                 response_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse.getDefaultInstance();
 
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = bitField0_ & ~0x00000002;
                 return this;
             }
 
@@ -4206,7 +4210,7 @@ final class CastChannel {
              */
             @Override
             public boolean hasError() {
-                return ((bitField0_ & 0x00000004) == 0x00000004);
+                return (bitField0_ & 0x00000004) == 0x00000004;
             }
 
             /**
@@ -4220,7 +4224,7 @@ final class CastChannel {
             /**
              * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
              */
-            public Builder setError(de.maggu2810.shk.chromecast_api.CastChannel.AuthError value) {
+            public Builder setError(final de.maggu2810.shk.chromecast_api.CastChannel.AuthError value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -4233,7 +4237,7 @@ final class CastChannel {
             /**
              * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
              */
-            public Builder setError(de.maggu2810.shk.chromecast_api.CastChannel.AuthError.Builder builderForValue) {
+            public Builder setError(final de.maggu2810.shk.chromecast_api.CastChannel.AuthError.Builder builderForValue) {
                 error_ = builderForValue.build();
 
                 bitField0_ |= 0x00000004;
@@ -4243,8 +4247,8 @@ final class CastChannel {
             /**
              * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
              */
-            public Builder mergeError(de.maggu2810.shk.chromecast_api.CastChannel.AuthError value) {
-                if (((bitField0_ & 0x00000004) == 0x00000004)
+            public Builder mergeError(final de.maggu2810.shk.chromecast_api.CastChannel.AuthError value) {
+                if ((bitField0_ & 0x00000004) == 0x00000004
                         && error_ != de.maggu2810.shk.chromecast_api.CastChannel.AuthError.getDefaultInstance()) {
                     error_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthError.newBuilder(error_).mergeFrom(value)
                             .buildPartial();
@@ -4262,7 +4266,7 @@ final class CastChannel {
             public Builder clearError() {
                 error_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthError.getDefaultInstance();
 
-                bitField0_ = (bitField0_ & ~0x00000004);
+                bitField0_ = bitField0_ & ~0x00000004;
                 return this;
             }
 

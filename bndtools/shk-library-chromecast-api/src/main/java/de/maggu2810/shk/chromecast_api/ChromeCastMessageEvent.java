@@ -43,7 +43,7 @@ public class ChromeCastMessageEvent {
 
         private final Class<?> dataClass;
 
-        private SpontaneousEventType(Class<?> dataClass) {
+        private SpontaneousEventType(final Class<?> dataClass) {
             this.dataClass = dataClass;
         }
 
@@ -72,7 +72,7 @@ public class ChromeCastMessageEvent {
         return this.data;
     }
 
-    public <T> T getData(Class<T> cls) {
+    public <T> T getData(final Class<T> cls) {
         if (!cls.isAssignableFrom(this.type.getDataClass())) {
             throw new IllegalArgumentException("Requested type " + cls + " does not match type for event "
                     + this.type.getDataClass());

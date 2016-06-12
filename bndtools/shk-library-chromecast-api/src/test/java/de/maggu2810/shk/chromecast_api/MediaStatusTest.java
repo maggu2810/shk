@@ -2,7 +2,7 @@
  * #%L
  * shk :: Bundles :: Library :: Chromecast API
  * %%
- * Copyright 2014 Vitaly Litvak (vitavaque@gmail.com) and others
+ * Copyright (C) 2014 Vitaly Litvak (vitavaque@gmail.com) and others
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

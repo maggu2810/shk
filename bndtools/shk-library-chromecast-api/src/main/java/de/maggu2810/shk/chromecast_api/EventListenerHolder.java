@@ -32,8 +32,8 @@ import de.maggu2810.shk.chromecast_api.ChromeCastMessageEvent.SpontaneousEventTy
 class EventListenerHolder implements ChromeCastConnectionEventListener, ChromeCastMessageEventListener {
 
     private final ObjectMapper jsonMapper = new ObjectMapper();
-    private final Set<ChromeCastConnectionEventListener> eventListenersConnection = new CopyOnWriteArraySet<ChromeCastConnectionEventListener>();
-    private final Set<ChromeCastMessageEventListener> eventListenersMessage = new CopyOnWriteArraySet<ChromeCastMessageEventListener>();
+    private final Set<ChromeCastConnectionEventListener> eventListenersConnection = new CopyOnWriteArraySet<>();
+    private final Set<ChromeCastMessageEventListener> eventListenersMessage = new CopyOnWriteArraySet<>();
 
     public EventListenerHolder() {
     }
@@ -95,7 +95,7 @@ class EventListenerHolder implements ChromeCastConnectionEventListener, ChromeCa
     }
 
     @Override
-    public void connectionEventReceived(ChromeCastConnectionEvent event) {
+    public void connectionEventReceived(final ChromeCastConnectionEvent event) {
         for (final ChromeCastConnectionEventListener listener : this.eventListenersConnection) {
             listener.connectionEventReceived(event);
         }

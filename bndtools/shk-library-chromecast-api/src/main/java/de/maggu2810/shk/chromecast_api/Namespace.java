@@ -25,7 +25,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 public class Namespace {
     final String name;
 
-    public Namespace(@JsonProperty("name") String name) {
+    public Namespace(@JsonProperty("name") final String name) {
         this.name = name;
     }
 }

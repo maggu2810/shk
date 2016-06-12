@@ -259,8 +259,8 @@ public class ChromeCast {
         final Map<String, String> customData = new HashMap<>(2);
         customData.put("title:", title);
         customData.put("thumb", thumb);
-        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId,
-                new Media(url, contentType), true, 0d, customData);
+        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId, new Media(url,
+                contentType), true, 0d, customData);
     }
 
     /**
@@ -273,8 +273,8 @@ public class ChromeCast {
      */
     public MediaStatus load(final Media media) throws IOException {
         final Status status = getStatus();
-        return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId, media, true, 0d,
-                null);
+        return channel
+                .load(status.getRunningApp().transportId, status.getRunningApp().sessionId, media, true, 0d, null);
     }
 
     /**

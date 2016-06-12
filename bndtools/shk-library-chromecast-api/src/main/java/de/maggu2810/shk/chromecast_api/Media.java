@@ -91,20 +91,20 @@ public class Media {
     @JsonIgnore
     public final List<Track> tracks;
 
-    public Media(String url, String contentType) {
+    public Media(final String url, final String contentType) {
         this(url, contentType, null, null);
     }
 
-    public Media(String url, String contentType, Double duration, StreamType streamType) {
+    public Media(final String url, final String contentType, final Double duration, final StreamType streamType) {
         this(url, contentType, duration, streamType, null, null, null, null);
     }
 
-    public Media(@JsonProperty("contentId") String url, @JsonProperty("contentType") String contentType,
-            @JsonProperty("duration") Double duration, @JsonProperty("streamType") StreamType streamType,
-            @JsonProperty("customData") Map<String, Object> customData,
-            @JsonProperty("metadata") Map<String, Object> metadata,
-            @JsonProperty("textTrackStyle") Map<String, Object> textTrackStyle,
-            @JsonProperty("tracks") List<Track> tracks) {
+    public Media(@JsonProperty("contentId") final String url, @JsonProperty("contentType") final String contentType,
+            @JsonProperty("duration") final Double duration, @JsonProperty("streamType") final StreamType streamType,
+            @JsonProperty("customData") final Map<String, Object> customData,
+            @JsonProperty("metadata") final Map<String, Object> metadata,
+            @JsonProperty("textTrackStyle") final Map<String, Object> textTrackStyle,
+            @JsonProperty("tracks") final List<Track> tracks) {
         this.url = url;
         this.contentType = contentType;
         this.duration = duration;

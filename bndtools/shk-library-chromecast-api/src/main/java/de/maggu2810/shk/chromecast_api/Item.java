@@ -33,8 +33,9 @@ public class Item {
     public final Media media;
     public final long id;
 
-    public Item(@JsonProperty("autoplay") boolean autoplay, @JsonProperty("customData") Map<String, Object> customData,
-            @JsonProperty("itemId") long id, @JsonProperty("media") Media media) {
+    public Item(@JsonProperty("autoplay") final boolean autoplay,
+            @JsonProperty("customData") final Map<String, Object> customData, @JsonProperty("itemId") final long id,
+            @JsonProperty("media") final Media media) {
         this.autoplay = autoplay;
         this.customData = customData != null ? Collections.unmodifiableMap(customData) : null;
         this.id = id;

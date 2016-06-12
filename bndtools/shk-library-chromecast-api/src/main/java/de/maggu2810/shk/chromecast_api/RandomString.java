@@ -29,7 +29,7 @@ public class RandomString {
     private static char[] symbols;
 
     static {
-        StringBuilder tmp = new StringBuilder();
+        final StringBuilder tmp = new StringBuilder();
         for (char ch = '0'; ch <= '9'; ++ch) {
             tmp.append(ch);
         }
@@ -43,7 +43,7 @@ public class RandomString {
 
     private final char[] buf;
 
-    public RandomString(int length) {
+    public RandomString(final int length) {
         if (length < 1) {
             throw new IllegalArgumentException("length < 1: " + length);
         }

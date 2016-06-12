@@ -100,16 +100,19 @@ public class MediaStatus {
     public final RepeatMode repeatMode;
     public final IdleReason idleReason;
 
-    MediaStatus(@JsonProperty("activeTrackIds") List<Integer> activeTrackIds,
-            @JsonProperty("mediaSessionId") long mediaSessionId, @JsonProperty("playbackRate") int playbackRate,
-            @JsonProperty("playerState") PlayerState playerState, @JsonProperty("currentItemId") Integer currentItemId,
-            @JsonProperty("currentTime") double currentTime,
-            @JsonProperty("customData") Map<String, Object> customData,
-            @JsonProperty("loadingItemId") Integer loadingItemId, @JsonProperty("items") List<Item> items,
-            @JsonProperty("preloadedItemId") Integer preloadedItemId,
-            @JsonProperty("supportedMediaCommands") int supportedMediaCommands, @JsonProperty("volume") Volume volume,
-            @JsonProperty("media") Media media, @JsonProperty("repeatMode") RepeatMode repeatMode,
-            @JsonProperty("idleReason") IdleReason idleReason) {
+    MediaStatus(@JsonProperty("activeTrackIds") final List<Integer> activeTrackIds,
+            @JsonProperty("mediaSessionId") final long mediaSessionId,
+            @JsonProperty("playbackRate") final int playbackRate,
+            @JsonProperty("playerState") final PlayerState playerState,
+            @JsonProperty("currentItemId") final Integer currentItemId,
+            @JsonProperty("currentTime") final double currentTime,
+            @JsonProperty("customData") final Map<String, Object> customData,
+            @JsonProperty("loadingItemId") final Integer loadingItemId, @JsonProperty("items") final List<Item> items,
+            @JsonProperty("preloadedItemId") final Integer preloadedItemId,
+            @JsonProperty("supportedMediaCommands") final int supportedMediaCommands,
+            @JsonProperty("volume") final Volume volume, @JsonProperty("media") final Media media,
+            @JsonProperty("repeatMode") final RepeatMode repeatMode,
+            @JsonProperty("idleReason") final IdleReason idleReason) {
         this.activeTrackIds = activeTrackIds != null ? Collections.unmodifiableList(activeTrackIds) : null;
         this.mediaSessionId = mediaSessionId;
         this.playbackRate = playbackRate;

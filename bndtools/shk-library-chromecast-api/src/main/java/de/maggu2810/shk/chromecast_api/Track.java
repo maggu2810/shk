@@ -48,7 +48,7 @@ public class Track {
     public final long id;
     public final TrackType type;
 
-    public Track(@JsonProperty("trackId") long id, @JsonProperty("trackType") TrackType type) {
+    public Track(@JsonProperty("trackId") final long id, @JsonProperty("trackType") final TrackType type) {
         this.id = id;
         this.type = type;
     }

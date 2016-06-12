@@ -35,10 +35,10 @@ class X509TrustAllManager implements X509TrustManager {
     }
 
     @Override
-    public void checkClientTrusted(X509Certificate[] certs, String authType) {
+    public void checkClientTrusted(final X509Certificate[] certs, final String authType) {
     }
 
     @Override
-    public void checkServerTrusted(X509Certificate[] certs, String authType) {
+    public void checkServerTrusted(final X509Certificate[] certs, final String authType) {
     }
 }

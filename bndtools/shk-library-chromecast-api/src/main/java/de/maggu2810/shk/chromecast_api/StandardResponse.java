@@ -48,7 +48,7 @@ abstract class StandardResponse implements Response {
     }
 
     @Override
-    public final void setRequestId(Long requestId) {
+    public final void setRequestId(final Long requestId) {
         this.requestId = requestId;
     }
 
@@ -67,7 +67,7 @@ abstract class StandardResponse implements Response {
     static class Invalid extends StandardResponse {
         final String reason;
 
-        Invalid(@JsonProperty("reason") String reason) {
+        Invalid(@JsonProperty("reason") final String reason) {
             this.reason = reason;
         }
     }
@@ -75,7 +75,7 @@ abstract class StandardResponse implements Response {
     static class LaunchError extends StandardResponse {
         final String reason;
 
-        LaunchError(@JsonProperty("reason") String reason) {
+        LaunchError(@JsonProperty("reason") final String reason) {
             this.reason = reason;
         }
     }
@@ -84,7 +84,7 @@ abstract class StandardResponse implements Response {
         @JsonProperty
         final de.maggu2810.shk.chromecast_api.Status status;
 
-        Status(@JsonProperty("status") de.maggu2810.shk.chromecast_api.Status status) {
+        Status(@JsonProperty("status") final de.maggu2810.shk.chromecast_api.Status status) {
             this.status = status;
         }
     }
@@ -92,7 +92,7 @@ abstract class StandardResponse implements Response {
     static class MediaStatus extends StandardResponse {
         final de.maggu2810.shk.chromecast_api.MediaStatus statuses[];
 
-        MediaStatus(@JsonProperty("status") de.maggu2810.shk.chromecast_api.MediaStatus status[]) {
+        MediaStatus(@JsonProperty("status") final de.maggu2810.shk.chromecast_api.MediaStatus status[]) {
             this.statuses = status;
         }
     }

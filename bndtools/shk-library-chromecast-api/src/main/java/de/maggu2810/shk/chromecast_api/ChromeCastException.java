@@ -25,11 +25,11 @@ import java.io.IOException;
 public class ChromeCastException extends IOException {
     private static final long serialVersionUID = 1L;
 
-    public ChromeCastException(String message) {
+    public ChromeCastException(final String message) {
         super(message);
     }
 
-    public ChromeCastException(String message, Throwable cause) {
+    public ChromeCastException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }
