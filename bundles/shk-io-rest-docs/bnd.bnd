@@ -1,4 +1,4 @@
--exportcontents: \
-  !*.internal.*,\
-  !*.impl.*,\
-  de.maggu2810.shk.*
+-buildpath: \
+	osgi.cmpn,\
+	osgi.core,\
+	slf4j.api

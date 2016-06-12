@@ -2,3 +2,10 @@
   !*.internal.*,\
   !*.impl.*,\
   de.maggu2810.shk.*
+-buildpath: \
+	com.google.protobuf,\
+	slf4j.api,\
+	javax.jmdns,\
+	jackson-mapper-asl,\
+	jackson-core-asl,\
+	osgi.annotation
