@@ -44,7 +44,7 @@
 
 src = src/main/java,src/main/resources
 testsrc = src/test/java,src/test/resources
-bin = target
+bin = target/bin
 
 # This is the version of JUnit that will be used at build time and run time
 junit: org.apache.servicemix.bundles.junit;version="[4.11,5)"

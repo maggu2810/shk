@@ -1,7 +1,7 @@
--exportcontents: \
-  !*.internal.*,\
-  !*.impl.*,\
-  de.maggu2810.shk.*
+#-exportcontents: \
+#  !*.internal.*,\
+#  !*.impl.*,\
+#  de.maggu2810.shk.*
 -buildpath: \
 	shk-library-chromecast-api;version=latest,\
 	org.jupnp,\

@@ -295,7 +295,8 @@ class Channel implements Closeable {
         }
     }
 
-    private <T extends StandardResponse> T sendStandard(String namespace, StandardRequest message, String destinationId)
+    @SuppressWarnings("unchecked")
+	private <T extends StandardResponse> T sendStandard(String namespace, StandardRequest message, String destinationId)
             throws IOException {
         return send(namespace, message, destinationId, (Class<T>) StandardResponse.class);
     }
