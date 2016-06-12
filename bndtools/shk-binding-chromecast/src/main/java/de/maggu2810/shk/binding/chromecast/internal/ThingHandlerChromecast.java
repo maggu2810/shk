@@ -75,7 +75,7 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
         chromecast = null;
     }
 
-    private void scheduleConnect(boolean immediate) {
+    private void scheduleConnect(final boolean immediate) {
         final long delay = immediate ? 0 : 10;
         if (futureConnect != null) {
             futureConnect.cancel(true);
@@ -232,7 +232,7 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
     }
 
     @Override
-    public void messageEventReceived(ChromeCastMessageEvent event) {
+    public void messageEventReceived(final ChromeCastMessageEvent event) {
         switch (event.getType()) {
             case MEDIA_STATUS:
                 final MediaStatus mediaStatus = event.getData(MediaStatus.class);
@@ -255,7 +255,7 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
     }
 
     @Override
-    public void connectionEventReceived(ChromeCastConnectionEvent event) {
+    public void connectionEventReceived(final ChromeCastConnectionEvent event) {
         if (event.isConnected()) {
             handleCcConnected();
         } else {

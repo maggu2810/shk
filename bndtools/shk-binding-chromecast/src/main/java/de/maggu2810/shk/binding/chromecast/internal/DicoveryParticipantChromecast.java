@@ -49,11 +49,11 @@ public class DicoveryParticipantChromecast implements UpnpDiscoveryParticipant {
             return null;
         }
 
-        Map<String, Object> properties = new HashMap<>(2);
+        final Map<String, Object> properties = new HashMap<>(2);
         properties.put(BindingConstants.HOST, device.getDetails().getBaseURL().getHost());
         // properties.put(SERIAL_NUMBER, device.getDetails().getSerialNumber());
 
-        DiscoveryResult result = DiscoveryResultBuilder.create(uid).withProperties(properties)
+        final DiscoveryResult result = DiscoveryResultBuilder.create(uid).withProperties(properties)
                 .withLabel(device.getDetails().getFriendlyName()).build();
         // .withRepresentationProperty(SERIAL_NUMBER)
         return result;
