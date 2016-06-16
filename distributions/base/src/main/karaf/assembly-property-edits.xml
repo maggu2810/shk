@@ -13,5 +13,17 @@
       <key>smarthome.userdata</key>
       <value>${karaf.home}/esh/userdata</value>
     </edit>
+    <edit>
+      <file>org.ops4j.pax.url.mvn.cfg</file>
+      <operation>extend</operation>
+      <key>org.ops4j.pax.url.mvn.repositories</key>
+      <value>https://jcenter.bintray.com@id=jCenter</value>
+    </edit>
+    <edit>
+      <file>org.ops4j.pax.url.mvn.cfg</file>
+      <operation>extend</operation>
+      <key>org.ops4j.pax.url.mvn.repositories</key>
+      <value>http://oss.jfrog.org/artifactory/simple/libs-snapshot@id=ojo-libs-snapshot@snapshots@noreleases</value>
+    </edit>
   </edits>
 </property-edits>
