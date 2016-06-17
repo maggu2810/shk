@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.shk.bundles</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.8-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>shk-io-webutil</artifactId>
+
+  <name>shk :: Bundles :: IO :: Web Util</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.core</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.cmpn</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.mdns</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>

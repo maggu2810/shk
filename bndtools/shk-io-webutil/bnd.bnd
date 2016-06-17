@@ -1,0 +1,5 @@
+-buildpath: \
+	osgi.cmpn,\
+	osgi.core,\
+	slf4j.api,\
+	org.eclipse.smarthome.io.transport.mdns

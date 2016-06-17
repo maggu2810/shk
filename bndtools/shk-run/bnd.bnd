@@ -135,7 +135,8 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	shk-library-chromecast-api,\
 	com.google.protobuf,\
 	jackson-mapper-asl,\
-	jackson-core-asl
+	jackson-core-asl,\
+	shk-io-webutil;version=latest
 
 -runee: JavaSE-1.8
 #-runfw: org.apache.felix.framework;version='[5.4.0,5.4.0]'
