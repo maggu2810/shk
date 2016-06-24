@@ -43,8 +43,9 @@
 #	version =	${versionmask;===;${@version}}-SNAPSHOT
 
 src = src/main/java,src/main/resources
+bin = bin
 testsrc = src/test/java,src/test/resources
-bin = target/bin
+#testbin
 
 # This is the version of JUnit that will be used at build time and run time
 junit: org.apache.servicemix.bundles.junit;version="[4.11,5)"

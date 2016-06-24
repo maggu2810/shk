@@ -45,10 +45,12 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.antlr.runtime,\
 	org.apache.commons.codec,\
 	org.apache.commons.collections,\
+	org.apache.commons.configuration,\
 	org.apache.commons.exec,\
 	org.apache.servicemix.bundles.commons-httpclient,\
 	org.apache.commons.io,\
 	org.apache.commons.lang,\
+	org.apache.commons.lang3,\
 	org.apache.commons.net,\
 	org.apache.felix.gogo.command,\
 	org.apache.felix.gogo.runtime,\
@@ -88,8 +90,14 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.eclipse.xtext.xbase;version=2.9.2.v20160428-1452,\
 	org.eclipse.xtext.xbase.lib,\
 	org.jupnp,\
+	org.eclipse.paho.client.mqttv3,\
 	org.objectweb.asm;version=5.0.2,\
 	org.objectweb.asm.all;version=5.0.4,\
+	org.mapdb.mapdb,\
+	com.google.protobuf,\
+	com.neuronrobotics.nrjavaserial,\
+	jackson-mapper-asl,\
+	jackson-core-asl,\
 	org.eclipse.smarthome.model.item,\
 	org.eclipse.smarthome.model.item.runtime,\
 	org.eclipse.smarthome.model.persistence,\
@@ -122,21 +130,30 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.eclipse.smarthome.io.rest.core,\
 	org.eclipse.smarthome.io.rest.sitemap,\
 	org.eclipse.smarthome.io.rest.sse,\
+	org.eclipse.smarthome.io.transport.mqtt,\
+	org.eclipse.smarthome.io.transport.mdns,\
 	org.eclipse.smarthome.io.voice,\
 	org.eclipse.smarthome.storage.mapdb,\
 	org.eclipse.smarthome.ui,\
 	org.eclipse.smarthome.ui.icon,\
 	org.eclipse.smarthome.ui.iconset.classic,\
 	org.eclipse.smarthome.model.core,\
-	org.eclipse.smarthome.core.thing,\
 	org.eclipse.smarthome.ui.paper,\
+	org.eclipse.smarthome.automation.api,\
+	org.eclipse.smarthome.automation.commands,\
+	org.eclipse.smarthome.automation.core,\
+	org.eclipse.smarthome.automation.module.core,\
+	org.eclipse.smarthome.automation.module.script,\
+	org.eclipse.smarthome.automation.module.script.defaultscope,\
+	org.eclipse.smarthome.automation.module.timer,\
+	org.eclipse.smarthome.automation.parser.gson,\
+	org.eclipse.smarthome.automation.providers,\
+	org.eclipse.smarthome.automation.rest,\
 	shk-binding-chromecast,\
 	shk-io-rest-docs,\
 	shk-library-chromecast-api,\
-	com.google.protobuf,\
-	jackson-mapper-asl,\
-	jackson-core-asl,\
-	shk-io-webutil;version=latest
+	shk-io-webutil;version=latest,\
+	org.eclipse.smarthome.core.thing
 
 -runee: JavaSE-1.8
 #-runfw: org.apache.felix.framework;version='[5.4.0,5.4.0]'
@@ -152,7 +169,7 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	-Djetty.home=wdir\n\
 	-DmdnsName=shk.eclipse\n\
 	-Dopenhab.logdir=logs\n\
-	-Dsmarthome.servicepid=de.maggu2810.shk\n\
+	-Dsmarthome.servicepid=do.not.rely.on.that\n\
 	-Dsmarthome.configdir=wdir/conf\n\
 	-Dsmarthome.userdata=wdir/userdata\n\
 	-Dsmarthome.servicecfg=wdir/etc/services.cfg\n\
