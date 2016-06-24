@@ -4,12 +4,4 @@
 #  de.maggu2810.shk.*
 -buildpath: \
 	shk-library-chromecast-api;version=latest,\
-	org.jupnp,\
-	osgi.cmpn,\
-	osgi.core,\
-	slf4j.api,\
-	org.eclipse.smarthome.core.thing,\
-	org.eclipse.smarthome.core,\
-	org.eclipse.smarthome.config.core,\
-	osgi.annotation,\
-	org.eclipse.smarthome.config.discovery
+	org.jupnp

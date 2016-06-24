@@ -1,55 +1,104 @@
--plugin.5.MvnCentral = \
-	        aQute.bnd.repository.maven.provider.MavenBndRepository; \
-				releaseUrl			=	https://repo.maven.apache.org/maven2/; \
+#
+# Add some repositories we consume artifacs from.
+#
+
+# Maven Central
+-plugin.5.MvnCentral =\
+			aQute.bnd.repository.maven.provider.MavenBndRepository;\
+				releaseUrl			=	https://repo.maven.apache.org/maven2/;\
 				name				=	Maven-Central
 
--plugin.5.MvnJCenter = \
-	        aQute.bnd.repository.maven.provider.MavenBndRepository; \
-				releaseUrl			=	https://jcenter.bintray.com/; \
+# JCenter
+-plugin.5.MvnJCenter =\
+			aQute.bnd.repository.maven.provider.MavenBndRepository;\
+				releaseUrl			=	https://jcenter.bintray.com/;\
 				name				=	Maven-JCenter
 
--plugin.5.MvnMaggu2810 = \
-	        aQute.bnd.repository.maven.provider.MavenBndRepository; \
-				releaseUrl			=	http://dl.bintray.com/maggu2810/maven/; \
+# Mine, for some special stuff
+-plugin.5.MvnMaggu2810 =\
+			aQute.bnd.repository.maven.provider.MavenBndRepository;\
+				releaseUrl			=	http://dl.bintray.com/maggu2810/maven/;\
 				name				=	Maven-maggu2810
 
--plugin.5.MvnLocal: \
-    aQute.bnd.repository.maven.provider.MavenBndRepository; \
-		name				=	Maven-Local
+# A local maven repository, could be used as build repo
+-plugin.5.MvnLocal:\
+			aQute.bnd.repository.maven.provider.MavenBndRepository;\
+				name				=	Maven-Local
 
--plugin.6.tmprepo: \
-        aQute.bnd.deployer.repository.LocalIndexedRepo; \
-            name                =       TmpRepo ; \
-        	local				=		${build}/tmp-repo; \
-            pretty              =       true ; \
-        	readonly			=		true
+# A temporary local repository, could be used as build repo
+-plugin.6.tmprepo:\
+			aQute.bnd.deployer.repository.LocalIndexedRepo;\
+				name				=	TmpRepo;\
+				local				=	${build}/tmp-repo;\
+				pretty				=	true;\
+				readonly			=	true
 
+# This one is a temporary repo provided by Package-Drone
 #-plugin.7.r5: \
-#        aQute.bnd.deployer.repository.FixedIndexedRepo; \
-#            name                =       PackageDrone-R5 ; \
-#            locations           =       http://127.0.0.1:8080/r5/esh
+#			aQute.bnd.deployer.repository.FixedIndexedRepo; \
+#				name				=	PackageDrone-R5 ; \
+#				locations			=	http://127.0.0.1:8080/r5/esh
+
+# Maven Repository to deploy to
+-plugin.9.MvnRelease:\
+			aQute.bnd.repository.maven.provider.MavenBndRepository;\
+				releaseUrl			=	http://localhost:8081/nexus/content/repositories/releases/;\
+				snapshotUrl			=	http://localhost:8081/nexus/content/repositories/snapshots/;\
+				name				=	Release
+
+#
+# Set build repository
+#
 
 -buildrepo: Local
 
--plugin.9.Release: \
-\
-    aQute.bnd.repository.maven.provider.MavenBndRepository; \
-    	releaseUrl			=   http://localhost:8081/nexus/content/repositories/releases/ ; \
-    	snapshotUrl			=   http://localhost:8081/nexus/content/repositories/snapshots/ ; \
-		name				=	Release
+#
+# POM auto-generation
+#
 
 #-pom: \
 #	groupid	=	de.maggu2810.shk.bundles,\
 #	version =	${versionmask;===;${@version}}-SNAPSHOT
 
-src = src/main/java,src/main/resources
-bin = bin
-testsrc = src/test/java,src/test/resources
+#
+# Use Maven directory layout for sources
+#
+
+src = src/main/java
+#,src/main/resources
+testsrc = -src/test/java
+#,src/test/resources
+# Do not use something in the maven build directory (target)
+#bin = bin
 #testbin
+-includeresource.maven: -src/main/resources
+
+#
+# Stuff for testing
+#
 
 # This is the version of JUnit that will be used at build time and run time
 junit: org.apache.servicemix.bundles.junit;version="[4.11,5)"
-
 # This is the version of Mockito that will be used at build time and run time
 mockito: org.mockito.mockito-core;version="[1.9,2)",\
   org.objenesis;version="[2.1,3)"
+
+#
+# Setup stuff that could be used for every bundle
+#
+
+-buildpath.shk:\
+	osgi.core,\
+	osgi.cmpn,\
+	slf4j.api
+
+-buildpath.esh-all:\
+	org.eclipse.smarthome.config.core,\
+	org.eclipse.smarthome.config.discovery,\
+	org.eclipse.smarthome.core,\
+	org.eclipse.smarthome.core.thing,\
+	org.eclipse.smarthome.io.transport.mdns
+
+-testpath.shk:\
+	${mockito},\
+	${junit}
