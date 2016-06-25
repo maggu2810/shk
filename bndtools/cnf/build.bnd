@@ -87,17 +87,33 @@ mockito: org.mockito.mockito-core;version="[1.9,2)",\
 # Setup stuff that could be used for every bundle
 #
 
--buildpath.shk:\
+bundle-path.common:\
 	osgi.core,\
 	osgi.cmpn,\
 	slf4j.api
 
--buildpath.esh-all:\
+bundle-path.apache-commons:\
+	org.apache.commons.codec,\
+	org.apache.commons.collections,\
+	org.apache.commons.collections4,\
+	org.apache.commons.configuration,\
+	org.apache.commons.exec,\
+	org.apache.commons.io,\
+	org.apache.commons.lang,\
+	org.apache.commons.lang3,\
+	org.apache.commons.net
+
+bundle-path.esh-all:\
 	org.eclipse.smarthome.config.core,\
 	org.eclipse.smarthome.config.discovery,\
 	org.eclipse.smarthome.core,\
 	org.eclipse.smarthome.core.thing,\
 	org.eclipse.smarthome.io.transport.mdns
+
+-buildpath.shk:\
+	${bundle-path.common},\
+	${bundle-path.apache-commons},\
+	${bundle-path.esh-all}
 
 -testpath.shk:\
 	${mockito},\
