@@ -79,6 +79,7 @@ testsrc = -src/test/java
 
 # This is the version of JUnit that will be used at build time and run time
 junit: org.apache.servicemix.bundles.junit;version="[4.11,5)"
+
 # This is the version of Mockito that will be used at build time and run time
 mockito: org.mockito.mockito-core;version="[1.9,2)",\
   org.objenesis;version="[2.1,3)"
