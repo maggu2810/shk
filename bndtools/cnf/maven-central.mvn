@@ -126,6 +126,7 @@ org.codehaus.jackson:jackson-mapper-asl:1.9.13
 org.eclipse.emf:org.eclipse.emf.common:2.11.0-v20150805-0538
 org.eclipse.emf:org.eclipse.emf.ecore:2.11.1-v20150805-0538
 org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.11.1-v20150805-0538
+org.eclipse.jdt:org.eclipse.jdt.annotation:2.0.0
 org.eclipse.jdt.core.compiler:ecj:4.4
 org.eclipse.jetty:jetty-client:9.2.15.v20160210
 org.eclipse.jetty:jetty-continuation:9.2.15.v20160210
