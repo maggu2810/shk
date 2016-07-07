@@ -60,6 +60,7 @@
             <feature>esh-automation-rest</feature>
             <feature>shk-io-rest-docs</feature>
           </bootFeatures>
+          <archiveZip>false</archiveZip>
         </configuration>
       </plugin>
     </plugins>
