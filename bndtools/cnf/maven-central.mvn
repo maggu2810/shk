@@ -1,7 +1,9 @@
+# OSGi
 org.osgi:osgi.core:6.0.0
 org.osgi:osgi.cmpn:6.0.0
 org.osgi:osgi.annotation:jar:6.0.1
 
+# Apache Commons
 commons-codec:commons-codec:1.7
 commons-collections:commons-collections:3.2.1
 org.apache.commons:commons-collections4:4.1
@@ -17,15 +19,27 @@ org.apache.servicemix.bundles:org.apache.servicemix.bundles.not-yet-commons-ssl:
 org.apache.httpcomponents:httpclient-osgi:4.2.3
 org.apache.httpcomponents:httpcore-osgi:4.2.3
 
+# Logging
+
 ch.qos.logback:logback-core:jar:1.1.7
 ch.qos.logback:logback-classic:jar:1.1.7
-org.slf4j:slf4j-api:jar:1.7.21
-org.slf4j:jcl-over-slf4j:jar:1.7.21
-org.slf4j:log4j-over-slf4j:jar:1.7.21
+org.slf4j:slf4j-api:jar:1.7.7
+org.slf4j:jcl-over-slf4j:jar:1.7.7
+org.slf4j:log4j-over-slf4j:jar:1.7.7
+
+# Testing
 
 org.apache.servicemix.bundles:org.apache.servicemix.bundles.junit:jar:4.12_1
 org.mockito:mockito-core:jar:1.10.19
 org.objenesis:objenesis:jar:2.4
+
+# EMF, Xtext, Xtend
+
+org.eclipse.emf:org.eclipse.emf.common:2.11.0-v20150805-0538
+org.eclipse.emf:org.eclipse.emf.ecore:2.11.1-v20150805-0538
+org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.11.1-v20150805-0538
+
+# Others (TODO)
 
 com.eclipsesource.jaxrs:jersey-min:jar:2.22.1
 com.eclipsesource.jaxrs:provider-gson:2.3
@@ -123,9 +137,6 @@ org.apache.xbean:xbean-bundleutils:4.1
 org.apache.xbean:xbean-finder:4.1
 org.codehaus.jackson:jackson-core-asl:1.9.13
 org.codehaus.jackson:jackson-mapper-asl:1.9.13
-org.eclipse.emf:org.eclipse.emf.common:2.11.0-v20150805-0538
-org.eclipse.emf:org.eclipse.emf.ecore:2.11.1-v20150805-0538
-org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.11.1-v20150805-0538
 org.eclipse.jdt:org.eclipse.jdt.annotation:2.0.0
 org.eclipse.jdt.core.compiler:ecj:4.4
 org.eclipse.jetty:jetty-client:9.2.15.v20160210

@@ -8,6 +8,13 @@ org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.module.timer:0
 org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.parser.gson:0.9.0-SNAPSHOT
 org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.providers:0.9.0-SNAPSHOT
 org.eclipse.smarthome.automation:org.eclipse.smarthome.automation.rest:0.9.0-SNAPSHOT
+org.eclipse.smarthome.binding:org.eclipse.smarthome.binding.digitalstrom:0.9.0-SNAPSHOT
+org.eclipse.smarthome.binding:org.eclipse.smarthome.binding.fsinternetradio:0.9.0-SNAPSHOT
+org.eclipse.smarthome.binding:org.eclipse.smarthome.binding.hue:0.9.0-SNAPSHOT
+org.eclipse.smarthome.binding:org.eclipse.smarthome.binding.lifx:0.9.0-SNAPSHOT
+org.eclipse.smarthome.binding:org.eclipse.smarthome.binding.sonos:0.9.0-SNAPSHOT
+org.eclipse.smarthome.binding:org.eclipse.smarthome.binding.wemo:0.9.0-SNAPSHOT
+org.eclipse.smarthome.binding:org.eclipse.smarthome.binding.yahooweather:0.9.0-SNAPSHOT
 org.eclipse.smarthome.config:org.eclipse.smarthome.config.core:0.9.0-SNAPSHOT
 org.eclipse.smarthome.config:org.eclipse.smarthome.config.discovery:0.9.0-SNAPSHOT
 org.eclipse.smarthome.config:org.eclipse.smarthome.config.dispatch:0.9.0-SNAPSHOT
@@ -22,9 +29,12 @@ org.eclipse.smarthome.core:org.eclipse.smarthome.core.thing:0.9.0-SNAPSHOT
 org.eclipse.smarthome.core:org.eclipse.smarthome.core.thing.xml:0.9.0-SNAPSHOT
 org.eclipse.smarthome.core:org.eclipse.smarthome.core.transform:0.9.0-SNAPSHOT
 org.eclipse.smarthome.extension.ui.iconset:org.eclipse.smarthome.ui.iconset.classic:0.9.0-SNAPSHOT
+org.eclipse.smarthome.extension.ui:org.eclipse.smarthome.ui.basic:0.9.0-SNAPSHOT
+org.eclipse.smarthome.extension.ui:org.eclipse.smarthome.ui.classic:0.9.0-SNAPSHOT
 org.eclipse.smarthome.extension.ui:org.eclipse.smarthome.ui.paper:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.audio:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.console:0.9.0-SNAPSHOT
+org.eclipse.smarthome.io:org.eclipse.smarthome.io.console.karaf:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.monitor:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.net:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest:0.9.0-SNAPSHOT
@@ -33,6 +43,7 @@ org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest.sitemap:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.rest.sse:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.mdns:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.mqtt:0.9.0-SNAPSHOT
+org.eclipse.smarthome.io:org.eclipse.smarthome.io.transport.upnp:0.9.0-SNAPSHOT
 org.eclipse.smarthome.io:org.eclipse.smarthome.io.voice:0.9.0-SNAPSHOT
 org.eclipse.smarthome.model:org.eclipse.smarthome.model.core:0.9.0-SNAPSHOT
 org.eclipse.smarthome.model:org.eclipse.smarthome.model.item:0.9.0-SNAPSHOT
@@ -48,7 +59,16 @@ org.eclipse.smarthome.model:org.eclipse.smarthome.model.sitemap.runtime:0.9.0-SN
 org.eclipse.smarthome.model:org.eclipse.smarthome.model.thing:0.9.0-SNAPSHOT
 org.eclipse.smarthome.model:org.eclipse.smarthome.model.thing.runtime:0.9.0-SNAPSHOT
 org.eclipse.smarthome.storage:org.eclipse.smarthome.storage.mapdb:0.9.0-SNAPSHOT
+org.eclipse.smarthome.transform:org.eclipse.smarthome.transform.exec:0.9.0-SNAPSHOT
+org.eclipse.smarthome.transform:org.eclipse.smarthome.transform.javascript:0.9.0-SNAPSHOT
+org.eclipse.smarthome.transform:org.eclipse.smarthome.transform.jsonpath:0.9.0-SNAPSHOT
+org.eclipse.smarthome.transform:org.eclipse.smarthome.transform.map:0.9.0-SNAPSHOT
+org.eclipse.smarthome.transform:org.eclipse.smarthome.transform.regex:0.9.0-SNAPSHOT
+org.eclipse.smarthome.transform:org.eclipse.smarthome.transform.scale:0.9.0-SNAPSHOT
+org.eclipse.smarthome.transform:org.eclipse.smarthome.transform.xpath:0.9.0-SNAPSHOT
+org.eclipse.smarthome.transform:org.eclipse.smarthome.transform.xslt:0.9.0-SNAPSHOT
 org.eclipse.smarthome.ui:org.eclipse.smarthome.ui:0.9.0-SNAPSHOT
 org.eclipse.smarthome.ui:org.eclipse.smarthome.ui.icon:0.9.0-SNAPSHOT
+org.eclipse.smarthome.voice:org.eclipse.smarthome.voice.mactts:0.9.0-SNAPSHOT
 
 org.openhab.core:org.openhab.core.compat1x:2.0.0.b3

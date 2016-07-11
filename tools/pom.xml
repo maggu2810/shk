@@ -15,7 +15,8 @@
   <name>shk :: Tools</name>
 
   <modules>
-    <module>esh</module>
+    <module>shk-deps</module>
+    <module>shk-test-deps</module>
   </modules>
 
 </project>

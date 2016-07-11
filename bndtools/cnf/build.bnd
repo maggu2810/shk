@@ -109,7 +109,11 @@ bundle-path.esh-all:\
 	org.eclipse.smarthome.config.discovery,\
 	org.eclipse.smarthome.core,\
 	org.eclipse.smarthome.core.thing,\
-	org.eclipse.smarthome.io.transport.mdns
+	org.eclipse.smarthome.io.transport.mdns,\
+	org.eclipse.smarthome.model.sitemap
+
+bundle-path.xtext:\
+	org.eclipse.emf.common
 
 -buildpath.shk:\
 	${bundle-path.common},\

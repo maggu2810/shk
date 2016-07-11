@@ -8,12 +8,89 @@
     <version>1.8-SNAPSHOT</version>
   </parent>
 
-  <artifactId>esh</artifactId>
+  <artifactId>shk-deps</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Eclipse SmartHome</name>
+  <name>shk :: Tools :: Dependencies</name>
 
   <dependencies>
+    <!-- OSGi -->
+    <dependency>
+      <!--Apache License, Version 2.0-->
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.core</artifactId>
+      <version>6.0.0</version>
+      <!--<scope>provided</scope>-->
+    </dependency>
+    <dependency>
+      <!--Apache License, Version 2.0-->
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.cmpn</artifactId>
+      <version>6.0.0</version>
+      <!--<scope>provided</scope>-->
+    </dependency>
+
+    <!-- Apache Commons -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.4</version>
+    </dependency>
+
+    <!-- Logging -->
+    <dependency>
+      <!--MIT License-->
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.7</version>
+      <!--<scope>provided</scope>-->
+    </dependency>
+
+    <!-- Repo: JCenter -->
+
+    <dependency>
+      <!--Apache License, Version 2.0-->
+      <groupId>org.jmdns</groupId>
+      <artifactId>jmdns</artifactId>
+      <version>3.5.0</version>
+    </dependency>
+    <dependency>
+      <!--CDDL 1.0-->
+      <groupId>org.jupnp</groupId>
+      <artifactId>org.jupnp</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+
+    <!-- EMF, Xtext, Xtend -->
+
+    <dependency>
+      <groupId>org.eclipse.emf</groupId>
+      <artifactId>org.eclipse.emf.common</artifactId>
+      <version>2.11.0-v20150805-0538</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.emf</groupId>
+      <artifactId>org.eclipse.emf.ecore</artifactId>
+      <version>2.11.1-v20150805-0538</version>
+    </dependency>
+
+    <!-- Others (TODO) -->
+
+    <dependency>
+      <!--BSD 2-Clause License; https://opensource.org/licenses/bsd-license.php-->
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${protobuf.version}</version>
+    </dependency>
+    <dependency>
+      <!--Apache License, Version 2.0-->
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+
+    <!-- Eclipse SmartHome bundles -->
     <dependency>
       <groupId>org.eclipse.smarthome.config</groupId>
       <artifactId>org.eclipse.smarthome.config.core</artifactId>
@@ -91,11 +168,6 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
-      <artifactId>org.eclipse.smarthome.io.voice</artifactId>
-      <version>${esh.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
       <artifactId>org.eclipse.smarthome.io.net</artifactId>
       <version>${esh.version}</version>
     </dependency>
@@ -115,8 +187,23 @@
       <version>${esh.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.mdns</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.voice</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.eclipse.smarthome.model</groupId>
       <artifactId>org.eclipse.smarthome.model.core</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.sitemap</artifactId>
       <version>${esh.version}</version>
     </dependency>
   </dependencies>

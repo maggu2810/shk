@@ -15,52 +15,16 @@
 
   <dependencies>
     <dependency>
-      <groupId>de.maggu2810.shk.bundles</groupId>
-      <artifactId>shk-library-chromecast-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <dependency>
       <groupId>de.maggu2810.shk.tools</groupId>
-      <artifactId>esh</artifactId>
+      <artifactId>shk-deps</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
     <dependency>
-      <groupId>org.jupnp</groupId>
-      <artifactId>org.jupnp</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>osgi.core</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.osgi</groupId>
-      <artifactId>osgi.cmpn</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <scope>provided</scope>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-library-chromecast-api</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <configuration>
-          <instructions>
-            <Import-Package>
-              *,
-              org.eclipse.smarthome.config.core.validation
-            </Import-Package>
-          </instructions>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>
