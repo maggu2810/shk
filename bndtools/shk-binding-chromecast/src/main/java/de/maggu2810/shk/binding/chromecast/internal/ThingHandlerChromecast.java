@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.PercentType;
 import org.eclipse.smarthome.core.library.types.StringType;
@@ -39,15 +40,15 @@ import de.maggu2810.shk.chromecast_api.MediaStatus;
 import de.maggu2810.shk.chromecast_api.Status;
 import de.maggu2810.shk.chromecast_api.Volume;
 
-public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCastConnectionEventListener,
-        ChromeCastMessageEventListener {
+public class ThingHandlerChromecast extends BaseThingHandler
+        implements ChromeCastConnectionEventListener, ChromeCastMessageEventListener {
+
+    private static final String MEDIA_PLAYER = "CC1AD845";
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private ChromeCast chromecast;
     private ScheduledFuture<?> futureConnect;
-
-    private final String MEDIA_PLAYER = "CC1AD845";
 
     /**
      * Constructor.
@@ -81,17 +82,16 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
             futureConnect.cancel(true);
             futureConnect = null;
         }
-        futureConnect = scheduler.schedule(
-                () -> {
-                    try {
-                        chromecast.connect();
-                    } catch (final Exception ex) {
-                        logger.debug("Cannot connect chromecast.", ex);
-                        updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.OFFLINE.COMMUNICATION_ERROR,
-                                "Cannot connect to chromecast.");
-                        scheduleConnect(false);
-                    }
-                }, delay, TimeUnit.SECONDS);
+        futureConnect = scheduler.schedule(() -> {
+            try {
+                chromecast.connect();
+            } catch (final Exception ex) {
+                logger.debug("Cannot connect chromecast.", ex);
+                updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.OFFLINE.COMMUNICATION_ERROR,
+                        "Cannot connect to chromecast.");
+                scheduleConnect(false);
+            }
+        }, delay, TimeUnit.SECONDS);
     }
 
     @Override
@@ -104,14 +104,18 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
     @Override
     public void initialize() {
         final Object obj = getConfig().get(BindingConstants.HOST);
-        if (obj == null || !(obj instanceof String)) {
+        if (!(obj instanceof String)) {
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.OFFLINE.CONFIGURATION_ERROR,
-                    "Cannot connect to chromecats. " + obj == null ? "IP address not set."
-                            : "IP address configuration corrupt");
+                    "Cannot connect to chromecats. IP address configuration corrupt");
+            return;
+        }
+        final String host = (String) obj;
+        if (StringUtils.isBlank(host)) {
+            updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.OFFLINE.CONFIGURATION_ERROR,
+                    "Cannot connect to chromecats. IP address not set.");
             return;
         }
 
-        final String host = (String) obj;
         if (chromecast != null && !chromecast.getAddress().equals(host)) {
             destroyChromecast();
         }
@@ -227,8 +231,8 @@ public class ThingHandlerChromecast extends BaseThingHandler implements ChromeCa
     }
 
     private void handleCcVolume(final Volume volume) {
-        updateState(new ChannelUID(getThing().getUID(), BindingConstants.CHANNEL_VOLUME), new PercentType(
-                (int) (volume.level * 100)));
+        updateState(new ChannelUID(getThing().getUID(), BindingConstants.CHANNEL_VOLUME),
+                new PercentType((int) (volume.level * 100)));
     }
 
     @Override

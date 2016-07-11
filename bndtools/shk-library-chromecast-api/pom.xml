@@ -17,6 +17,7 @@
     <license.shortcut>apache_v2</license.shortcut>
     <!--TODO: Inspect why tests are failing-->
     <skipTests>true</skipTests>
+    <quality.skip>true</quality.skip>
   </properties>
 
   <licenses>

@@ -32,7 +32,11 @@ import org.jupnp.model.meta.RemoteDeviceIdentity;
 import org.jupnp.model.meta.RemoteService;
 import org.osgi.service.component.annotations.Component;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 @Component
+@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE",
+        justification = "RemoteDevice extends Device and specify return type of getIdentity.")
 public class DicoveryParticipantChromecast implements UpnpDiscoveryParticipant {
 
     // private final Logger logger = LoggerFactory.getLogger(this.getClass());

@@ -118,7 +118,8 @@ bundle-path.xtext:\
 -buildpath.shk:\
 	${bundle-path.common},\
 	${bundle-path.apache-commons},\
-	${bundle-path.esh-all}
+	${bundle-path.esh-all},\
+	findbugsAnnotations
 
 -testpath.shk:\
 	${mockito},\
