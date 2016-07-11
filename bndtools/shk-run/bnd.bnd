@@ -36,12 +36,9 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	com.eclipsesource.jaxrs.swagger-all,\
 	com.google.gson,\
 	com.google.guava;version=18.0.0,\
-	com.google.inject,\
-	javax.inject,\
+	com.google.inject;version=3.0.0,\
 	javax.jmdns,\
 	javax.servlet-api,\
-	javax.transaction,\
-	javax.xml,\
 	org.antlr.runtime,\
 	org.apache.commons.codec,\
 	org.apache.commons.collections,\
@@ -138,6 +135,8 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.eclipse.smarthome.ui.icon,\
 	org.eclipse.smarthome.ui.iconset.classic,\
 	org.eclipse.smarthome.model.core,\
+	org.eclipse.smarthome.ui.basic,\
+	org.eclipse.smarthome.ui.classic,\
 	org.eclipse.smarthome.ui.paper,\
 	org.eclipse.smarthome.automation.api,\
 	org.eclipse.smarthome.automation.commands,\
@@ -153,6 +152,7 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	shk-io-rest-docs,\
 	shk-library-chromecast-api,\
 	shk-io-webutil;version=latest,\
+	shk-addon-sitemap-generator;version=latest,\
 	org.eclipse.smarthome.core.thing
 
 -runee: JavaSE-1.8

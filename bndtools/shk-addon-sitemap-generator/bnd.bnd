@@ -1,0 +1,6 @@
+#-exportcontents: \
+#  !*.internal.*,\
+#  !*.impl.*,\
+#  de.maggu2810.shk.*
+-buildpath: \
+	${bundle-path.xtext}
