@@ -21,6 +21,11 @@
     <feature>war</feature>
   </feature>
 
+  <feature name="shk-addon-sitemap-generator" description="Sitemap generators" version="${project.version}">
+    <bundle>mvn:de.maggu2810.shk.bundles/shk-addon-sitemap-generator/${project.version}</bundle>
+    <feature dependency="true">esh-model-sitemap</feature>
+  </feature>
+
   <feature name="shk-binding-chromecast" description="Google Chromecast Binding" version="${project.version}">
     <bundle>mvn:de.maggu2810.shk.bundles/shk-binding-chromecast/${project.version}</bundle>
     <feature>esh-io-transport-mdns</feature>
@@ -39,6 +44,11 @@
     <feature dependency="true">esh-base</feature>
     <bundle>mvn:de.maggu2810.shk.bundles/shk-io-rest-docs/${project.version}</bundle>
     <requirement>esh.tp;filter:="(feature=jax-rs-provider-swagger)"</requirement>
+  </feature>
+
+  <feature name="shk-io-webutil" version="${project.version}">
+    <bundle>mvn:de.maggu2810.shk.bundles/shk-io-webutil/${project.version}</bundle>
+    <feature dependency="true">esh-io-transport-mdns</feature>
   </feature>
 
 </features>
