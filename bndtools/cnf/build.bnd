@@ -33,6 +33,12 @@
 				pretty				=	true;\
 				readonly			=	true
 
+
+-plugin.6.BndIndex: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Bnd-Index;\
+		locations			=	'file:${build}/../../tools/shk-deps/target/index.xml.gz'
+
 # This one is a temporary repo provided by Package-Drone
 #-plugin.7.r5: \
 #			aQute.bnd.deployer.repository.FixedIndexedRepo; \
