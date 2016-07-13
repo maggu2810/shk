@@ -23,13 +23,21 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <bnd.version>3.2.0</bnd.version>
-
     <karaf.version>4.0.5</karaf.version>
-    <cxf.version>3.1.4</cxf.version>
+
+    <!-- Tools :: External -->
     <esh.version>0.9.0-SNAPSHOT</esh.version>
+    <jersey.version>2.22.2</jersey.version>
+    <jetty.version>9.2.15.v20160210</jetty.version>
+    <pax.web.version>4.2.6</pax.web.version>
+    <spring.version>4.2.5.RELEASE_1</spring.version>
+
     <kat.version>1.6-SNAPSHOT</kat.version>
+    <cxf.version>3.1.4</cxf.version>
+    <ohc.version>2.0.0.b3</ohc.version>
     <protobuf.version>2.6.0</protobuf.version>
     <jackson.version>1.9.13</jackson.version>
+
     <maven.build.resources.version>1.4</maven.build.resources.version>
     <quality.skip>false</quality.skip>
 
@@ -85,6 +93,23 @@
       <plugins>
 
         <!-- sorted by artifact id (group id not used for sorting) -->
+
+        <plugin>
+          <groupId>biz.aQute.bnd</groupId>
+          <artifactId>bnd-indexer-maven-plugin</artifactId>
+          <version>${bnd.version}</version>
+          <configuration>
+            <localURLs>REQUIRED</localURLs>
+          </configuration>
+          <executions>
+            <execution>
+              <id>index</id>
+              <goals>
+                <goal>index</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
 
         <plugin>
           <groupId>biz.aQute.bnd</groupId>
@@ -344,13 +369,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
-
-    <plugins>
-      <plugin>
-        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
-        <artifactId>whitespace-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
   </build>
 
   <profiles>
@@ -361,6 +379,30 @@
       </properties>
       <build>
         <defaultGoal>clean install findbugs:findbugs pmd:pmd pmd:cpd checkstyle:checkstyle javadoc:aggregate</defaultGoal>
+      </build>
+    </profile>
+    <profile>
+      <id>fix</id>
+      <build>
+        <defaultGoal>clean install</defaultGoal>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <groupId>net.revelc.code</groupId>
+            <artifactId>formatter-maven-plugin</artifactId>
+          </plugin>
+          <!-- TODO: Need to evaluate how we can ensure that using a profile -->
+          <!-- Execute this at last step of a phase -->
+          <!-- since Maven 3.0.3, for two plugins bound to the same phase, -->
+          <!-- the order of execution is the same as the order in which you define them. -->
+          <plugin>
+            <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+            <artifactId>whitespace-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
       </build>
     </profile>
     <profile>

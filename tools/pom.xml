@@ -15,6 +15,20 @@
   <name>shk :: Tools</name>
 
   <modules>
+    <module>ext-aries</module>
+    <module>ext-commons</module>
+    <module>ext-esh</module>
+    <module>ext-felix</module>
+    <module>ext-hk2</module>
+    <module>ext-jaxrs</module>
+    <module>ext-jersey</module>
+    <module>ext-jetty</module>
+    <module>ext-karaf</module>
+    <module>ext-ohc</module>
+    <module>ext-others</module>
+    <module>ext-pax-web</module>
+    <module>ext-spring</module>
+    <module>ext-xtext</module>
     <module>shk-deps</module>
     <module>shk-test-deps</module>
   </modules>

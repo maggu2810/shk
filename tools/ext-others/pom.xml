@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.shk.tools</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.8-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>ext-others</artifactId>
+  <packaging>pom</packaging>
+
+  <name>shk :: Tools :: External :: Others</name>
+
+  <dependencies>
+    <!-- OSGi -->
+    <dependency>
+      <!--Apache License, Version 2.0-->
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.core</artifactId>
+      <version>6.0.0</version>
+      <!--<scope>provided</scope>-->
+    </dependency>
+    <dependency>
+      <!--Apache License, Version 2.0-->
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.cmpn</artifactId>
+      <version>6.0.0</version>
+      <!--<scope>provided</scope>-->
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.annotation</artifactId>
+      <version>6.0.1</version>
+      <!--<scope>provided</scope>-->
+    </dependency>
+
+    <!-- Logging -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.1.7</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.7</version>
+    </dependency>
+    <dependency>
+      <!--MIT License-->
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.21</version>
+      <!--<scope>provided</scope>-->
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <version>1.7.21</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>log4j-over-slf4j</artifactId>
+      <version>1.7.21</version>
+    </dependency>
+
+    <!-- Repo: maggu2810 -->
+
+    <dependency>
+      <groupId>de.maggu2810.p2redist</groupId>
+      <artifactId>com.google.inject</artifactId>
+      <version>3.0.0.v201312141243</version>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.p2redist</groupId>
+      <artifactId>org.antlr.runtime</artifactId>
+      <version>3.2.0.v201101311130</version>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.p2redist</groupId>
+      <artifactId>org.eclipse.equinox.common</artifactId>
+      <version>3.7.0.v20150402-1709</version>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.p2redist</groupId>
+      <artifactId>org.eclipse.equinox.registry</artifactId>
+      <version>3.6.0.v20150318-1503</version>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.p2redist</groupId>
+      <artifactId>org.eclipse.equinox.supplement</artifactId>
+      <version>1.6.0.v20141009-1504</version>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.requirebundle.fix</groupId>
+      <artifactId>org.objectweb.asm</artifactId>
+      <version>5.0.2</version>
+    </dependency>
+
+    <!-- Repo: JCenter -->
+
+    <dependency>
+      <!--Apache License, Version 2.0-->
+      <groupId>org.jmdns</groupId>
+      <artifactId>jmdns</artifactId>
+      <version>3.5.0</version>
+    </dependency>
+    <dependency>
+      <!--CDDL 1.0-->
+      <groupId>org.jupnp</groupId>
+      <artifactId>org.jupnp</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+
+    <!-- Others (TODO) -->
+
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>annotations</artifactId>
+      <version>3.0.1u2</version>
+    </dependency>
+    <dependency>
+      <!--BSD 2-Clause License; https://opensource.org/licenses/bsd-license.php-->
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${protobuf.version}</version>
+    </dependency>
+    <dependency>
+      <!--Apache License, Version 2.0-->
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.junit</artifactId>
+      <version>4.12_1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>1.10.19</version>
+    </dependency>
+    <dependency>
+      <groupId>org.objenesis</groupId>
+      <artifactId>objenesis</artifactId>
+      <version>2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>18.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>1.5.8</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>1.1.0.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.websocket</groupId>
+      <artifactId>javax.websocket-api</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>2.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.neuronrobotics</groupId>
+      <artifactId>nrjavaserial</artifactId>
+      <version>3.12.1</version>
+    </dependency>
+    <dependency>
+      <groupId>jline</groupId>
+      <artifactId>jline</artifactId>
+      <version>2.14.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>geronimo-jaspic_1.0_spec</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>geronimo-jta_1.1_spec</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient-osgi</artifactId>
+      <version>4.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore-osgi</artifactId>
+      <version>4.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.sshd</groupId>
+      <artifactId>sshd-core</artifactId>
+      <version>1.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xbean</groupId>
+      <artifactId>xbean-bundleutils</artifactId>
+      <version>4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xbean</groupId>
+      <artifactId>xbean-finder</artifactId>
+      <version>4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jdt</groupId>
+      <artifactId>org.eclipse.jdt.annotation</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jdt.core.compiler</groupId>
+      <artifactId>ecj</artifactId>
+      <version>4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.paho</groupId>
+      <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.javassist</groupId>
+      <artifactId>javassist</artifactId>
+      <version>3.19.0-GA</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jledit</groupId>
+      <artifactId>core</artifactId>
+      <version>0.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jvnet.mimepull</groupId>
+      <artifactId>mimepull</artifactId>
+      <version>1.9.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mapdb</groupId>
+      <artifactId>mapdb</artifactId>
+      <version>1.0.9</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.logging</groupId>
+      <artifactId>pax-logging-api</artifactId>
+      <version>1.8.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.logging</groupId>
+      <artifactId>pax-logging-service</artifactId>
+      <version>1.8.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.url</groupId>
+      <artifactId>pax-url-aether</artifactId>
+      <version>2.4.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-all</artifactId>
+      <version>5.0.4</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>biz.aQute.bnd</groupId>
+        <artifactId>bnd-indexer-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

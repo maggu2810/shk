@@ -2,29 +2,6 @@
 # Add some repositories we consume artifacs from.
 #
 
-# Maven Central
--plugin.5.MvnCentral =\
-			aQute.bnd.repository.maven.provider.MavenBndRepository;\
-				releaseUrl			=	https://repo.maven.apache.org/maven2/;\
-				name				=	Maven-Central
-
-# JCenter
--plugin.5.MvnJCenter =\
-			aQute.bnd.repository.maven.provider.MavenBndRepository;\
-				releaseUrl			=	https://jcenter.bintray.com/;\
-				name				=	Maven-JCenter
-
-# Mine, for some special stuff
--plugin.5.MvnMaggu2810 =\
-			aQute.bnd.repository.maven.provider.MavenBndRepository;\
-				releaseUrl			=	http://dl.bintray.com/maggu2810/maven/;\
-				name				=	Maven-maggu2810
-
-# A local maven repository, could be used as build repo
--plugin.5.MvnLocal:\
-			aQute.bnd.repository.maven.provider.MavenBndRepository;\
-				name				=	Maven-Local
-
 # A temporary local repository, could be used as build repo
 -plugin.6.tmprepo:\
 			aQute.bnd.deployer.repository.LocalIndexedRepo;\
@@ -33,24 +10,86 @@
 				pretty				=	true;\
 				readonly			=	true
 
-
--plugin.6.BndIndex: \
+-plugin.6.aries: \
 	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Bnd-Index;\
-		locations			=	'file:${build}/../../tools/shk-deps/target/index.xml.gz'
+		name				=	Aries;\
+		locations			=	'file:${build}/../../tools/ext-aries/target/index.xml.gz'
+
+-plugin.6.commons: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Commons;\
+		locations			=	'file:${build}/../../tools/ext-commons/target/index.xml.gz'
+
+-plugin.6.esh: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Eclipse SmartHome;\
+		locations			=	'file:${build}/../../tools/ext-esh/target/index.xml.gz'
+
+-plugin.6.felix: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Felix;\
+		locations			=	'file:${build}/../../tools/ext-felix/target/index.xml.gz'
+
+-plugin.6.hk2: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	HK2;\
+		locations			=	'file:${build}/../../tools/ext-hk2/target/index.xml.gz'
+
+-plugin.6.jaxrs: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	JAX-RS;\
+		locations			=	'file:${build}/../../tools/ext-jaxrs/target/index.xml.gz'
+
+-plugin.6.jersey: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Jersey;\
+		locations			=	'file:${build}/../../tools/ext-jersey/target/index.xml.gz'
+
+-plugin.6.jetty: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Jetty;\
+		locations			=	'file:${build}/../../tools/ext-jetty/target/index.xml.gz'
+
+-plugin.6.karaf: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Karaf;\
+		locations			=	'file:${build}/../../tools/ext-karaf/target/index.xml.gz'
+
+-plugin.6.ohc: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	openHAB Core;\
+		locations			=	'file:${build}/../../tools/ext-ohc/target/index.xml.gz'
+
+-plugin.6.others: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Others;\
+		locations			=	'file:${build}/../../tools/ext-others/target/index.xml.gz'
+
+-plugin.6.pax-web: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Pax-Web;\
+		locations			=	'file:${build}/../../tools/ext-pax-web/target/index.xml.gz'
+
+-plugin.6.spring: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Spring;\
+		locations			=	'file:${build}/../../tools/ext-spring/target/index.xml.gz'
+
+-plugin.6.xtext: \
+	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+		name				=	Xtext;\
+		locations			=	'file:${build}/../../tools/ext-xtext/target/index.xml.gz'
+
+#-plugin.6.BndIndex: \
+#	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+#		name				=	Bnd-Index;\
+#		locations			=	'file:${build}/../../tools/shk-deps/target/index.xml.gz'
 
 # This one is a temporary repo provided by Package-Drone
 #-plugin.7.r5: \
 #			aQute.bnd.deployer.repository.FixedIndexedRepo; \
 #				name				=	PackageDrone-R5 ; \
 #				locations			=	http://127.0.0.1:8080/r5/esh
-
-# Maven Repository to deploy to
--plugin.9.MvnRelease:\
-			aQute.bnd.repository.maven.provider.MavenBndRepository;\
-				releaseUrl			=	http://localhost:8081/nexus/content/repositories/releases/;\
-				snapshotUrl			=	http://localhost:8081/nexus/content/repositories/snapshots/;\
-				name				=	Release
 
 #
 # Set build repository
@@ -59,24 +98,11 @@
 -buildrepo: Local
 
 #
-# POM auto-generation
-#
-
-#-pom: \
-#	groupid	=	de.maggu2810.shk.bundles,\
-#	version =	${versionmask;===;${@version}}-SNAPSHOT
-
-#
 # Use Maven directory layout for sources
 #
 
 src = src/main/java
-#,src/main/resources
 testsrc = -src/test/java
-#,src/test/resources
-# Do not use something in the maven build directory (target)
-#bin = bin
-#testbin
 -includeresource.maven: -src/main/resources
 
 #
@@ -95,8 +121,8 @@ mockito: org.mockito.mockito-core;version="[1.9,2)",\
 #
 
 bundle-path.common:\
-	osgi.core,\
-	osgi.cmpn,\
+	osgi.core;version=latest,\
+	osgi.cmpn;version=latest,\
 	slf4j.api
 
 bundle-path.apache-commons:\
