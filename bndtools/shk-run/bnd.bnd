@@ -15,7 +15,7 @@ Provide-Capability: \
 icondata: data:image/gif;base64,${base64;icon.gif}
 
 -resourceonly: true
--includeresource: resources
+#-includeresource: resources
 
 -pom: \
 	version =	0.0.0
