@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.shk.tools</groupId>
+    <groupId>de.maggu2810.shk.tools.externals</groupId>
     <artifactId>pom</artifactId>
     <version>1.8-SNAPSHOT</version>
   </parent>
@@ -11,7 +11,7 @@
   <artifactId>ext-karaf</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: External :: Karaf</name>
+  <name>shk :: Tools :: Externals :: Karaf</name>
 
   <dependencies>
     <dependency>

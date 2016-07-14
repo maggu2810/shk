@@ -10,80 +10,10 @@
 				pretty				=	true;\
 				readonly			=	true
 
--plugin.6.aries: \
+-plugin.6.BndIndex: \
 	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Aries;\
-		locations			=	'file:${build}/../../tools/ext-aries/target/index.xml.gz'
-
--plugin.6.commons: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Commons;\
-		locations			=	'file:${build}/../../tools/ext-commons/target/index.xml.gz'
-
--plugin.6.esh: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Eclipse SmartHome;\
-		locations			=	'file:${build}/../../tools/ext-esh/target/index.xml.gz'
-
--plugin.6.felix: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Felix;\
-		locations			=	'file:${build}/../../tools/ext-felix/target/index.xml.gz'
-
--plugin.6.hk2: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	HK2;\
-		locations			=	'file:${build}/../../tools/ext-hk2/target/index.xml.gz'
-
--plugin.6.jaxrs: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	JAX-RS;\
-		locations			=	'file:${build}/../../tools/ext-jaxrs/target/index.xml.gz'
-
--plugin.6.jersey: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Jersey;\
-		locations			=	'file:${build}/../../tools/ext-jersey/target/index.xml.gz'
-
--plugin.6.jetty: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Jetty;\
-		locations			=	'file:${build}/../../tools/ext-jetty/target/index.xml.gz'
-
--plugin.6.karaf: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Karaf;\
-		locations			=	'file:${build}/../../tools/ext-karaf/target/index.xml.gz'
-
--plugin.6.ohc: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	openHAB Core;\
-		locations			=	'file:${build}/../../tools/ext-ohc/target/index.xml.gz'
-
--plugin.6.others: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Others;\
-		locations			=	'file:${build}/../../tools/ext-others/target/index.xml.gz'
-
--plugin.6.pax-web: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Pax-Web;\
-		locations			=	'file:${build}/../../tools/ext-pax-web/target/index.xml.gz'
-
--plugin.6.spring: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Spring;\
-		locations			=	'file:${build}/../../tools/ext-spring/target/index.xml.gz'
-
--plugin.6.xtext: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Xtext;\
-		locations			=	'file:${build}/../../tools/ext-xtext/target/index.xml.gz'
-
-#-plugin.6.BndIndex: \
-#	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-#		name				=	Bnd-Index;\
-#		locations			=	'file:${build}/../../tools/shk-deps/target/index.xml.gz'
+		name				=	Bnd-Index;\
+		locations			=	'file:${build}/../../tools/shk-deps/target/index.xml.gz'
 
 # This one is a temporary repo provided by Package-Drone
 #-plugin.7.r5: \

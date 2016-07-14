@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.shk.tools</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.8-SNAPSHOT</version>
+  </parent>
+
+  <groupId>de.maggu2810.shk.tools.externals</groupId>
+  <artifactId>pom</artifactId>
+  <packaging>pom</packaging>
+
+  <name>shk :: Tools</name>
+
+  <modules>
+    <module>aggregate</module>
+    <module>ext-aries</module>
+    <module>ext-commons</module>
+    <module>ext-esh</module>
+    <module>ext-felix</module>
+    <module>ext-hk2</module>
+    <module>ext-jaxrs</module>
+    <module>ext-jersey</module>
+    <module>ext-jetty</module>
+    <module>ext-karaf</module>
+    <module>ext-ohc</module>
+    <module>ext-others</module>
+    <module>ext-pax-web</module>
+    <module>ext-spring</module>
+    <module>ext-xtext</module>
+  </modules>
+
+</project>
