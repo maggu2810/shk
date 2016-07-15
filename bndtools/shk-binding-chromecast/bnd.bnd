@@ -2,6 +2,4 @@
 #  !*.internal.*,\
 #  !*.impl.*,\
 #  de.maggu2810.shk.*
--buildpath: \
-	shk-library-chromecast-api;version=latest,\
-	org.jupnp
+-buildpath: shk-library-chromecast-api;version=latest

@@ -26,11 +26,14 @@
 
   <dependencies>
     <dependency>
-      <groupId>de.maggu2810.shk.tools</groupId>
-      <artifactId>shk-deps</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.cmpn</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+
   </dependencies>
 
 </project>

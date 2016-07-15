@@ -10,9 +10,9 @@
 				pretty				=	true;\
 				readonly			=	true
 
--plugin.6.BndIndex: \
+-plugin.6.shk-deps: \
 	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	Bnd-Index;\
+		name				=	shk-deps;\
 		locations			=	'file:${build}/../../tools/shk-deps/target/index.xml.gz'
 
 # This one is a temporary repo provided by Package-Drone
@@ -81,7 +81,9 @@ bundle-path.xtext:\
 	${bundle-path.common},\
 	${bundle-path.apache-commons},\
 	${bundle-path.esh-all},\
-	findbugsAnnotations
+	${bundle-path.xtext},\
+	findbugsAnnotations,\
+	org.jupnp
 
 -testpath.shk:\
 	${mockito},\

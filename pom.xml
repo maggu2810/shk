@@ -84,7 +84,134 @@
 
   <dependencyManagement>
     <dependencies>
-      <!-- See tools, shk-deps -->
+      <!-- Apache Commons -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.4</version>
+      </dependency>
+
+      <!-- Eclipse SmartHome -->
+      <dependency>
+        <groupId>org.eclipse.smarthome.core</groupId>
+        <artifactId>org.eclipse.smarthome.core</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.smarthome.config</groupId>
+        <artifactId>org.eclipse.smarthome.config.core</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.smarthome.config</groupId>
+        <artifactId>org.eclipse.smarthome.config.discovery</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.smarthome.core</groupId>
+        <artifactId>org.eclipse.smarthome.core.thing</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.smarthome.io</groupId>
+        <artifactId>org.eclipse.smarthome.io.transport.mdns</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.smarthome.model</groupId>
+        <artifactId>org.eclipse.smarthome.model.sitemap</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+
+      <!-- EMF, Xtend, Xtext -->
+      <dependency>
+        <groupId>org.eclipse.emf</groupId>
+        <artifactId>org.eclipse.emf.common</artifactId>
+        <version>2.11.0-v20150805-0538</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.emf</groupId>
+        <artifactId>org.eclipse.emf.ecore</artifactId>
+        <version>2.11.1-v20150805-0538</version>
+      </dependency>
+
+      <!-- Findbugs -->
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>annotations</artifactId>
+        <version>3.0.1u2</version>
+      </dependency>
+
+      <!-- Jackson -->
+      <dependency>
+        <!--Apache License, Version 2.0-->
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-mapper-asl</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <!-- JmDNS -->
+      <dependency>
+        <!--Apache License, Version 2.0-->
+        <groupId>org.jmdns</groupId>
+        <artifactId>jmdns</artifactId>
+        <version>3.5.0</version>
+      </dependency>
+
+      <!-- JUnit -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+      </dependency>
+
+      <!-- jUPnP -->
+      <dependency>
+        <!--CDDL 1.0-->
+        <groupId>org.jupnp</groupId>
+        <artifactId>org.jupnp</artifactId>
+        <version>2.2.0</version>
+      </dependency>
+
+      <!-- OSGi -->
+      <dependency>
+        <!--Apache License, Version 2.0-->
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi.core</artifactId>
+        <version>6.0.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <!--Apache License, Version 2.0-->
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi.cmpn</artifactId>
+        <version>6.0.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi.annotation</artifactId>
+        <version>6.0.1</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <!-- Protocol Buffers - Google's data interchange format -->
+      <dependency>
+        <!--BSD 2-Clause License; https://opensource.org/licenses/bsd-license.php-->
+        <groupId>com.google.protobuf</groupId>
+        <artifactId>protobuf-java</artifactId>
+        <version>${protobuf.version}</version>
+      </dependency>
+
+      <!-- Simple Logging Facade for Java (SLF4J) -->
+      <dependency>
+        <!--MIT License-->
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.21</version>
+        <scope>provided</scope>
+      </dependency>
+
     </dependencies>
   </dependencyManagement>
 

@@ -29,16 +29,26 @@
 
   <dependencies>
     <dependency>
-      <groupId>de.maggu2810.shk.tools</groupId>
-      <artifactId>shk-deps</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
     </dependency>
     <dependency>
-      <groupId>de.maggu2810.shk.tools</groupId>
-      <artifactId>shk-test-deps</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jmdns</groupId>
+      <artifactId>jmdns</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+
+    <!-- Test Dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
