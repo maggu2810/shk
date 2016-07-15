@@ -225,6 +225,9 @@
           <groupId>biz.aQute.bnd</groupId>
           <artifactId>bnd-indexer-maven-plugin</artifactId>
           <version>${bnd.version}</version>
+          <configuration>
+            <localURLs>REQUIRED</localURLs>
+          </configuration>
           <executions>
             <execution>
               <id>index</id>
