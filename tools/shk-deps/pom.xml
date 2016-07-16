@@ -78,8 +78,8 @@
         <groupId>biz.aQute.bnd</groupId>
         <artifactId>bnd-indexer-maven-plugin</artifactId>
         <configuration>
-          <!--<localURLs>REQUIRED</localURLs>-->
-          <localURLs>FORBIDDEN</localURLs>
+          <localURLs>REQUIRED</localURLs>
+          <!--<localURLs>FORBIDDEN</localURLs>-->
         </configuration>
       </plugin>
     </plugins>
