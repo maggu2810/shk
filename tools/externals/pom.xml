@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools</name>
+  <name>shk :: Tools :: Externals</name>
 
   <modules>
     <module>aggregate</module>
@@ -29,6 +29,7 @@
     <module>ext-others</module>
     <module>ext-pax-web</module>
     <module>ext-spring</module>
+    <module>ext-xstream</module>
     <module>ext-xtext</module>
   </modules>
 

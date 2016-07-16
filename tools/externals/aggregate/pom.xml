@@ -118,6 +118,14 @@
       <type>pom</type>
     </dependency>
 
+    <!-- XStream-->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>ext-xstream</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
     <!-- Xtext -->
     <dependency>
       <groupId>${project.groupId}</groupId>

@@ -26,7 +26,7 @@
     <karaf.version>4.0.5</karaf.version>
 
     <!-- Tools :: External -->
-    <esh.version>0.9.0.a8</esh.version>
+    <esh.version>0.9.0-SNAPSHOT</esh.version>
     <jersey.version>2.22.2</jersey.version>
     <jetty.version>9.2.15.v20160210</jetty.version>
     <pax.web.version>4.2.6</pax.web.version>
