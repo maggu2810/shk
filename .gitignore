@@ -2,3 +2,6 @@
 **/generated/
 /features/*/src/main/history/dependencies.xml
 nbactions.xml
+bndtools/*/bin/
+bndtools/*/bin_test/
+bndtools/cnf/release/
