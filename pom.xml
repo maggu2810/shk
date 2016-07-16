@@ -26,7 +26,7 @@
     <karaf.version>4.0.5</karaf.version>
 
     <!-- Tools :: External -->
-    <esh.version>0.9.0-SNAPSHOT</esh.version>
+    <esh.version>0.9.0.a8</esh.version>
     <jersey.version>2.22.2</jersey.version>
     <jetty.version>9.2.15.v20160210</jetty.version>
     <pax.web.version>4.2.6</pax.web.version>
@@ -551,7 +551,21 @@
   </reporting>
 
   <pluginRepositories>
+    <!-- Maven Central -->
+    <!-- Use this first, so we prefer Central all the time -->
     <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Maven Plugin Repository</name>
+      <url>https://repo1.maven.org/maven2</url>
+    </pluginRepository>
+
+    <!--    <pluginRepository>
       <id>ojo-libs-release</id>
       <url>http://oss.jfrog.org/artifactory/simple/libs-release/</url>
       <releases>
@@ -560,8 +574,8 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-    </pluginRepository>
-    <pluginRepository>
+    </pluginRepository>-->
+    <!--    <pluginRepository>
       <id>ojo-libs-snapshot</id>
       <url>http://oss.jfrog.org/artifactory/simple/libs-snapshot/</url>
       <releases>
@@ -570,8 +584,8 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-    </pluginRepository>
-    <pluginRepository>
+    </pluginRepository>-->
+    <!--    <pluginRepository>
       <id>bintray-maggu2810-maven</id>
       <url>http://dl.bintray.com/maggu2810/maven/</url>
       <releases>
@@ -580,8 +594,8 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-    </pluginRepository>
-    <pluginRepository>
+    </pluginRepository>-->
+    <!--    <pluginRepository>
       <id>github-maggu2810-mvn-repo</id>
       <url>https://github.com/maggu2810/mvn-repo/raw/master</url>
       <releases>
@@ -590,10 +604,21 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-    </pluginRepository>
+    </pluginRepository>-->
   </pluginRepositories>
 
   <repositories>
+    <!-- Maven Central -->
+    <!-- Use this first, so we prefer Central all the time -->
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Maven Repository Switchboard</name>
+      <url>https://repo1.maven.org/maven2</url>
+    </repository>
+
     <repository>
       <id>jCenter</id>
       <url>https://jcenter.bintray.com/</url>
@@ -604,29 +629,11 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    <repository>
-      <id>ojo-libs-release</id>
-      <url>http://oss.jfrog.org/artifactory/simple/libs-release/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>ojo-libs-snapshot</id>
-      <url>http://oss.jfrog.org/artifactory/simple/libs-snapshot/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
+
+    <!-- maggu2810's private repository -->
     <repository>
       <id>bintray-maggu2810-maven</id>
-      <url>http://dl.bintray.com/maggu2810/maven/</url>
+      <url>https://dl.bintray.com/maggu2810/maven/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -634,6 +641,31 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
+
+    <!--    <repository>
+      <id>github-maggu2810-mvn-repo</id>
+      <url>https://github.com/maggu2810/mvn-repo/raw/master</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>-->
+
+    <!-- maggu2810's SmartHome repository -->
+    <repository>
+      <id>bintray-maggu2810-smarthome</id>
+      <url>https://dl.bintray.com/maggu2810/smarthome/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+
+    <!-- jUPnP -->
     <repository>
       <id>jupnp-bintray</id>
       <url>https://dl.bintray.com/jupnp/mvn/</url>
@@ -644,16 +676,8 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    <repository>
-      <id>github-maggu2810-mvn-repo</id>
-      <url>https://github.com/maggu2810/mvn-repo/raw/master</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
+
+    <!-- Eclipse Release Repository -->
     <repository>
       <id>eclipse-releases</id>
       <name>Eclipse Release Repository</name>
@@ -663,11 +687,34 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
+
+    <!-- Eclipse Snapshot Repository -->
     <repository>
       <id>eclipse-snapshots</id>
       <name>Eclipse Snapshot Repository</name>
       <layout>default</layout>
       <url>https://repo.eclipse.org/content/repositories/snapshots/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+
+    <repository>
+      <id>ojo-libs-release</id>
+      <url>https://oss.jfrog.org/artifactory/simple/libs-release/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>ojo-libs-snapshot</id>
+      <url>https://oss.jfrog.org/artifactory/simple/libs-snapshot/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
