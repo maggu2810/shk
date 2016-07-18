@@ -98,6 +98,9 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	com.neuronrobotics.nrjavaserial,\
 	jackson-mapper-asl,\
 	jackson-core-asl,\
+	org.eclipse.smarthome.core.binding.xml,\
+	org.eclipse.smarthome.core.thing.xml,\
+	org.eclipse.smarthome.config.xml,\
 	org.eclipse.smarthome.model.item,\
 	org.eclipse.smarthome.model.item.runtime,\
 	org.eclipse.smarthome.model.persistence,\
@@ -113,14 +116,11 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.eclipse.smarthome.config.core,\
 	org.eclipse.smarthome.config.discovery,\
 	org.eclipse.smarthome.config.dispatch,\
-	org.eclipse.smarthome.config.xml,\
 	org.eclipse.smarthome.core,\
 	org.eclipse.smarthome.core.autoupdate,\
-	org.eclipse.smarthome.core.binding.xml,\
 	org.eclipse.smarthome.core.id,\
 	org.eclipse.smarthome.core.persistence,\
 	org.eclipse.smarthome.core.scheduler,\
-	org.eclipse.smarthome.core.thing.xml,\
 	org.eclipse.smarthome.core.transform,\
 	org.eclipse.smarthome.io.audio,\
 	org.eclipse.smarthome.io.console,\
