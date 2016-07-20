@@ -32,7 +32,7 @@
     <pax.web.version>4.2.6</pax.web.version>
     <spring.version>4.2.5.RELEASE_1</spring.version>
 
-    <kat.version>1.6-SNAPSHOT</kat.version>
+    <kat.version>1.6</kat.version>
     <cxf.version>3.1.4</cxf.version>
     <ohc.version>2.0.0.b3</ohc.version>
     <protobuf.version>2.6.0</protobuf.version>
