@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.maggu2810.shk</groupId>
     <artifactId>shk</artifactId>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.8</version>
   </parent>
 
   <groupId>de.maggu2810.shk.bundles</groupId>
@@ -90,9 +90,9 @@
                 <configuration>
                   <target>
                     <echo>Copy pom.xml</echo>
-                    <copy file="${project.basedir}/pom.xml" tofile="${eclipse.project.dir}/pom.xml"/>
+                    <copy file="${project.basedir}/pom.xml" tofile="${eclipse.project.dir}/pom.xml" />
                     <echo>Copy JAR: ${project.build.finalName}</echo>
-                    <copy file="${project.build.directory}/${project.build.finalName}.jar" tofile="${eclipse.project.dir}/${project.build.finalName}.jar"/>
+                    <copy file="${project.build.directory}/${project.build.finalName}.jar" tofile="${eclipse.project.dir}/${project.build.finalName}.jar" />
                   </target>
                 </configuration>
               </execution>
