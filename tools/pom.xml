@@ -28,6 +28,7 @@
   
   <modules>
     <module>externals</module>
+    <module>shk-bundles</module>
     <module>shk-deps</module>
     <module>shk-test-deps</module>
   </modules>
