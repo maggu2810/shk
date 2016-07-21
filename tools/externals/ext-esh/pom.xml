@@ -197,6 +197,11 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.console.rfc147</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
       <artifactId>org.eclipse.smarthome.io.monitor</artifactId>
       <version>${esh.version}</version>
     </dependency>
