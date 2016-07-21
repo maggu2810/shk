@@ -1,0 +1,15 @@
+runbundles.shk.chromecast: \
+	com.google.protobuf,\
+	jackson-mapper-asl,\
+	jackson-core-asl,\
+	shk-library-chromecast-api;version=latest,\
+	shk-binding-chromecast;version=latest
+
+runbundles.shk.rest-docs: \
+	shk-io-rest-docs;version=latest
+
+runbundles.shk.sitemap-generator: \
+	shk-addon-sitemap-generator;version=latest
+
+runbundles.shk.webutil: \
+	shk-io-webutil;version=latest

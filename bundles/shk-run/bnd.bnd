@@ -1,13 +1,11 @@
-# Example Run Template
-# Make sure to edit the name, category and help document.
-
 src = 
+testsrc =
 
 Provide-Capability: \
 	org.bndtools.template;\
 		org.bndtools.template=bndrun; \
 		name=shk-run; \
-		category=Examples; \
+		category=SmartHome; \
 		dir=template; \
 		icon="${icondata}"; \
 		help=help.xml
@@ -16,74 +14,38 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 
 -resourceonly: true
 #-includeresource: resources
-src =
-testsrc =
 
 -pom: \
 	version =	0.0.0
+
+-include: esh.bnd, shk.bnd
 
 -runbundles.fixed: \
 	${runbundles.logging},\
 	${runbundles.apache.felix},\
 	${runbundles.apache.commons},\
 	${runbundles.jaxrs},\
+	javax.servlet-api,\
 	com.google.gson,\
 	com.google.guava;version=18.0.0,\
 	com.google.inject;version=3.0.0,\
-	javax.jmdns,\
-	javax.servlet-api,\
 	org.antlr.runtime,\
-	org.apache.servicemix.bundles.commons-httpclient,\
+	org.objectweb.asm;version=5.0.2,\
+	org.objectweb.asm.all;version=5.0.4,\
+	javax.jmdns,\
+	org.jupnp,\
+	org.mapdb.mapdb,\
+	org.apache.servicemix.bundles.commons-httpclient, \
 	org.apache.httpcomponents.httpclient,\
 	org.apache.httpcomponents.httpcore,\
 	${runbundles.xtext},\
 	${runbundles.pax-web},\
 	${runbundles.jetty},\
-	org.apache.xbean.bundleutils;version='[4.1.0,4.1.1)',\
-	org.apache.xbean.finder;version='[4.1.0,4.1.1)',\
-	org.jupnp,\
-	org.objectweb.asm;version=5.0.2,\
-	org.objectweb.asm.all;version=5.0.4,\
-	org.mapdb.mapdb,\
-	${runbundles.esh.normal},\
-	${runbundles.esh.transport.mqtt},\
-	${runbundles.shk},\
-	${runbundles.esh.last}
-
-runbundles.pax-web: \
-	org.ops4j.pax.web.pax-web-api;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-jetty;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-runtime;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-spi;version='[4.2.6,4.2.7)'
-
-runbundles.jetty: \
-	org.eclipse.jetty.client,\
-	org.eclipse.jetty.deploy,\
-	org.eclipse.jetty.http,\
-	org.eclipse.jetty.io,\
-	org.eclipse.jetty.rewrite,\
-	org.eclipse.jetty.security,\
-	org.eclipse.jetty.server,\
-	org.eclipse.jetty.servlet,\
-	org.eclipse.jetty.util,\
-	org.eclipse.jetty.webapp,\
-	org.eclipse.jetty.xml
-
-runbundles.xtext: \
-	org.eclipse.emf.common,\
-	org.eclipse.emf.ecore,\
-	org.eclipse.emf.ecore.xmi,\
-	org.eclipse.equinox.common,\
-	org.eclipse.equinox.registry,\
-	org.eclipse.equinox.supplement,\
-	org.eclipse.xtend.lib,\
-	org.eclipse.xtend.lib.macro,\
-	org.eclipse.xtext,\
-	org.eclipse.xtext.common.types,\
-	org.eclipse.xtext.smap,\
-	org.eclipse.xtext.util,\
-	org.eclipse.xtext.xbase;version=2.9.2.v20160428-1452,\
-	org.eclipse.xtext.xbase.lib
+	${runbundles.shk.chromecast},\
+	${runbundles.shk.rest-docs},\
+	${runbundles.shk.sitemap-generator},\
+	${runbundles.shk.webutil},\
+	${runbundles.esh}
 
 runbundles.apache.commons: \
 	org.apache.commons.codec,\
@@ -104,13 +66,6 @@ runbundles.apache.felix: \
 	org.apache.felix.gogo.runtime,\
 	org.apache.felix.gogo.shell
 
-runbundles.logging: \
-	slf4j.api;version=1.7.21,\
-	log4j.over.slf4j;version=1.7.21,\
-	jcl.over.slf4j;version=1.7.21,\
-	ch.qos.logback.classic;version=1.1.7,\
-	ch.qos.logback.core;version=1.1.7
-
 runbundles.jaxrs: \
 	com.eclipsesource.jaxrs.jersey-min,\
 	com.eclipsesource.jaxrs.provider.gson,\
@@ -118,77 +73,52 @@ runbundles.jaxrs: \
 	com.eclipsesource.jaxrs.publisher,\
 	com.eclipsesource.jaxrs.swagger-all
 
-runbundles.shk: \
-	com.google.protobuf,\
+runbundles.jetty: \
+	org.eclipse.jetty.client,\
+	org.eclipse.jetty.deploy,\
+	org.eclipse.jetty.http,\
+	org.eclipse.jetty.io,\
+	org.eclipse.jetty.rewrite,\
+	org.eclipse.jetty.security,\
+	org.eclipse.jetty.server,\
+	org.eclipse.jetty.servlet,\
+	org.eclipse.jetty.util,\
+	org.eclipse.jetty.webapp,\
+	org.eclipse.jetty.xml
+
+runbundles.logging: \
+	slf4j.api;version=1.7.21,\
+	log4j.over.slf4j;version=1.7.21,\
+	jcl.over.slf4j;version=1.7.21,\
+	ch.qos.logback.classic;version=1.1.7,\
+	ch.qos.logback.core;version=1.1.7
+
+runbundles.pax-web: \
+	org.apache.xbean.bundleutils;version='[4.1.0,4.1.1)',\
+	org.apache.xbean.finder;version='[4.1.0,4.1.1)',\
+	org.ops4j.pax.web.pax-web-api;version='[4.2.6,4.2.7)',\
+	org.ops4j.pax.web.pax-web-jetty;version='[4.2.6,4.2.7)',\
+	org.ops4j.pax.web.pax-web-runtime;version='[4.2.6,4.2.7)',\
+	org.ops4j.pax.web.pax-web-spi;version='[4.2.6,4.2.7)'
+
+runbundles.serial: \
 	com.neuronrobotics.nrjavaserial,\
-	jackson-mapper-asl,\
-	jackson-core-asl,\
-	shk-binding-chromecast;version=latest,\
-	shk-io-rest-docs;version=latest,\
-	shk-library-chromecast-api;version=latest,\
-	shk-io-webutil;version=latest,\
-	shk-addon-sitemap-generator;version=latest
 
-runbundles.esh.transport.mqtt: \
-	org.eclipse.paho.client.mqttv3,\
-	org.eclipse.smarthome.io.transport.mqtt
-
-runbundles.esh.normal: \
-	org.eclipse.smarthome.core.binding.xml,\
-	org.eclipse.smarthome.core.thing.xml,\
-	org.eclipse.smarthome.config.xml,\
-	org.eclipse.smarthome.model.item,\
-	org.eclipse.smarthome.model.item.runtime,\
-	org.eclipse.smarthome.model.persistence,\
-	org.eclipse.smarthome.model.persistence.runtime,\
-	org.eclipse.smarthome.model.rule,\
-	org.eclipse.smarthome.model.rule.runtime,\
-	org.eclipse.smarthome.model.script,\
-	org.eclipse.smarthome.model.script.runtime,\
-	org.eclipse.smarthome.model.sitemap,\
-	org.eclipse.smarthome.model.sitemap.runtime,\
-	org.eclipse.smarthome.model.thing,\
-	org.eclipse.smarthome.model.thing.runtime,\
-	org.eclipse.smarthome.config.core,\
-	org.eclipse.smarthome.config.discovery,\
-	org.eclipse.smarthome.config.dispatch,\
-	org.eclipse.smarthome.core,\
-	org.eclipse.smarthome.core.autoupdate,\
-	org.eclipse.smarthome.core.id,\
-	org.eclipse.smarthome.core.persistence,\
-	org.eclipse.smarthome.core.scheduler,\
-	org.eclipse.smarthome.core.transform,\
-	org.eclipse.smarthome.io.audio,\
-	org.eclipse.smarthome.io.console,\
-	org.eclipse.smarthome.io.monitor,\
-	org.eclipse.smarthome.io.net,\
-	org.eclipse.smarthome.io.rest,\
-	org.eclipse.smarthome.io.rest.core,\
-	org.eclipse.smarthome.io.rest.sitemap,\
-	org.eclipse.smarthome.io.rest.sse,\
-	org.eclipse.smarthome.io.transport.mdns,\
-	org.eclipse.smarthome.io.voice,\
-	org.eclipse.smarthome.storage.mapdb,\
-	org.eclipse.smarthome.ui,\
-	org.eclipse.smarthome.ui.icon,\
-	org.eclipse.smarthome.ui.iconset.classic,\
-	org.eclipse.smarthome.model.core,\
-	org.eclipse.smarthome.ui.basic,\
-	org.eclipse.smarthome.ui.classic,\
-	org.eclipse.smarthome.ui.paper,\
-	org.eclipse.smarthome.automation.api,\
-	org.eclipse.smarthome.automation.commands,\
-	org.eclipse.smarthome.automation.core,\
-	org.eclipse.smarthome.automation.module.core,\
-	org.eclipse.smarthome.automation.module.script,\
-	org.eclipse.smarthome.automation.module.script.defaultscope,\
-	org.eclipse.smarthome.automation.module.timer,\
-	org.eclipse.smarthome.automation.parser.gson,\
-	org.eclipse.smarthome.automation.providers,\
-	org.eclipse.smarthome.automation.rest,\
-
-runbundles.esh.last: \
-	org.eclipse.smarthome.core.thing
+runbundles.xtext: \
+	org.eclipse.emf.common,\
+	org.eclipse.emf.ecore,\
+	org.eclipse.emf.ecore.xmi,\
+	org.eclipse.equinox.common,\
+	org.eclipse.equinox.registry,\
+	org.eclipse.equinox.supplement,\
+	org.eclipse.xtend.lib,\
+	org.eclipse.xtend.lib.macro,\
+	org.eclipse.xtext,\
+	org.eclipse.xtext.common.types,\
+	org.eclipse.xtext.smap,\
+	org.eclipse.xtext.util,\
+	org.eclipse.xtext.xbase;version=2.9.2.v20160428-1452,\
+	org.eclipse.xtext.xbase.lib
 
 -runee: JavaSE-1.8
 #-runfw: org.apache.felix.framework;version='[5.4.0,5.4.0]'
