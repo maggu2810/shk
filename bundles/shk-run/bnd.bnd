@@ -16,50 +16,47 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 
 -resourceonly: true
 #-includeresource: resources
+src =
+testsrc =
 
 -pom: \
 	version =	0.0.0
 
 -runbundles.fixed: \
-	org.apache.felix.configadmin,\
-	org.apache.felix.eventadmin,\
-	org.apache.felix.scr,\
-	slf4j.api;version=1.7.21,\
-	log4j.over.slf4j;version=1.7.21,\
-	jcl.over.slf4j;version=1.7.21,\
-	ch.qos.logback.classic;version=1.1.7,\
-	ch.qos.logback.core;version=1.1.7,\
-	com.eclipsesource.jaxrs.jersey-min,\
-	com.eclipsesource.jaxrs.provider.gson,\
-	com.eclipsesource.jaxrs.provider.swagger,\
-	com.eclipsesource.jaxrs.publisher,\
-	com.eclipsesource.jaxrs.swagger-all,\
+	${runbundles.logging},\
+	${runbundles.apache.felix},\
+	${runbundles.apache.commons},\
+	${runbundles.jaxrs},\
 	com.google.gson,\
 	com.google.guava;version=18.0.0,\
 	com.google.inject;version=3.0.0,\
 	javax.jmdns,\
 	javax.servlet-api,\
 	org.antlr.runtime,\
-	org.apache.commons.codec,\
-	org.apache.commons.collections,\
-	org.apache.commons.configuration,\
-	org.apache.commons.exec,\
 	org.apache.servicemix.bundles.commons-httpclient,\
-	org.apache.commons.io,\
-	org.apache.commons.lang,\
-	org.apache.commons.lang3,\
-	org.apache.commons.net,\
-	org.apache.felix.gogo.command,\
-	org.apache.felix.gogo.runtime,\
-	org.apache.felix.gogo.shell,\
 	org.apache.httpcomponents.httpclient,\
 	org.apache.httpcomponents.httpcore,\
-	org.eclipse.emf.common,\
-	org.eclipse.emf.ecore,\
-	org.eclipse.emf.ecore.xmi,\
-	org.eclipse.equinox.common,\
-	org.eclipse.equinox.registry,\
-	org.eclipse.equinox.supplement,\
+	${runbundles.xtext},\
+	${runbundles.pax-web},\
+	${runbundles.jetty},\
+	org.apache.xbean.bundleutils;version='[4.1.0,4.1.1)',\
+	org.apache.xbean.finder;version='[4.1.0,4.1.1)',\
+	org.jupnp,\
+	org.objectweb.asm;version=5.0.2,\
+	org.objectweb.asm.all;version=5.0.4,\
+	org.mapdb.mapdb,\
+	${runbundles.esh.normal},\
+	${runbundles.esh.transport.mqtt},\
+	${runbundles.shk},\
+	${runbundles.esh.last}
+
+runbundles.pax-web: \
+	org.ops4j.pax.web.pax-web-api;version='[4.2.6,4.2.7)',\
+	org.ops4j.pax.web.pax-web-jetty;version='[4.2.6,4.2.7)',\
+	org.ops4j.pax.web.pax-web-runtime;version='[4.2.6,4.2.7)',\
+	org.ops4j.pax.web.pax-web-spi;version='[4.2.6,4.2.7)'
+
+runbundles.jetty: \
 	org.eclipse.jetty.client,\
 	org.eclipse.jetty.deploy,\
 	org.eclipse.jetty.http,\
@@ -70,11 +67,15 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.eclipse.jetty.servlet,\
 	org.eclipse.jetty.util,\
 	org.eclipse.jetty.webapp,\
-	org.eclipse.jetty.xml,\
-	org.eclipse.jetty.osgi.alpn.fragment,\
-	org.eclipse.jetty.osgi.boot,\
-	org.eclipse.jetty.osgi.httpservice,\
-	org.eclipse.equinox.http.servlet,\
+	org.eclipse.jetty.xml
+
+runbundles.xtext: \
+	org.eclipse.emf.common,\
+	org.eclipse.emf.ecore,\
+	org.eclipse.emf.ecore.xmi,\
+	org.eclipse.equinox.common,\
+	org.eclipse.equinox.registry,\
+	org.eclipse.equinox.supplement,\
 	org.eclipse.xtend.lib,\
 	org.eclipse.xtend.lib.macro,\
 	org.eclipse.xtext,\
@@ -82,22 +83,57 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.eclipse.xtext.smap,\
 	org.eclipse.xtext.util,\
 	org.eclipse.xtext.xbase;version=2.9.2.v20160428-1452,\
-	org.eclipse.xtext.xbase.lib,\
-	org.apache.xbean.bundleutils;version='[4.1.0,4.1.1)',\
-	org.apache.xbean.finder;version='[4.1.0,4.1.1)',\
-	org.ops4j.pax.web.pax-web-api;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-jetty;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-runtime;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-spi;version='[4.2.6,4.2.7)',\
-	org.jupnp,\
-	org.eclipse.paho.client.mqttv3,\
-	org.objectweb.asm;version=5.0.2,\
-	org.objectweb.asm.all;version=5.0.4,\
-	org.mapdb.mapdb,\
+	org.eclipse.xtext.xbase.lib
+
+runbundles.apache.commons: \
+	org.apache.commons.codec,\
+	org.apache.commons.collections,\
+	org.apache.commons.configuration,\
+	org.apache.commons.exec,\
+	org.apache.commons.io,\
+	org.apache.commons.lang,\
+	org.apache.commons.lang3,\
+	org.apache.commons.net
+
+runbundles.apache.felix: \
+	org.apache.felix.configadmin,\
+	org.apache.felix.eventadmin,\
+	org.apache.felix.metatype, \
+	org.apache.felix.scr,\
+	org.apache.felix.gogo.command,\
+	org.apache.felix.gogo.runtime,\
+	org.apache.felix.gogo.shell
+
+runbundles.logging: \
+	slf4j.api;version=1.7.21,\
+	log4j.over.slf4j;version=1.7.21,\
+	jcl.over.slf4j;version=1.7.21,\
+	ch.qos.logback.classic;version=1.1.7,\
+	ch.qos.logback.core;version=1.1.7
+
+runbundles.jaxrs: \
+	com.eclipsesource.jaxrs.jersey-min,\
+	com.eclipsesource.jaxrs.provider.gson,\
+	com.eclipsesource.jaxrs.provider.swagger,\
+	com.eclipsesource.jaxrs.publisher,\
+	com.eclipsesource.jaxrs.swagger-all
+
+runbundles.shk: \
 	com.google.protobuf,\
 	com.neuronrobotics.nrjavaserial,\
 	jackson-mapper-asl,\
 	jackson-core-asl,\
+	shk-binding-chromecast;version=latest,\
+	shk-io-rest-docs;version=latest,\
+	shk-library-chromecast-api;version=latest,\
+	shk-io-webutil;version=latest,\
+	shk-addon-sitemap-generator;version=latest
+
+runbundles.esh.transport.mqtt: \
+	org.eclipse.paho.client.mqttv3,\
+	org.eclipse.smarthome.io.transport.mqtt
+
+runbundles.esh.normal: \
 	org.eclipse.smarthome.core.binding.xml,\
 	org.eclipse.smarthome.core.thing.xml,\
 	org.eclipse.smarthome.config.xml,\
@@ -130,7 +166,6 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.eclipse.smarthome.io.rest.core,\
 	org.eclipse.smarthome.io.rest.sitemap,\
 	org.eclipse.smarthome.io.rest.sse,\
-	org.eclipse.smarthome.io.transport.mqtt,\
 	org.eclipse.smarthome.io.transport.mdns,\
 	org.eclipse.smarthome.io.voice,\
 	org.eclipse.smarthome.storage.mapdb,\
@@ -151,11 +186,8 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	org.eclipse.smarthome.automation.parser.gson,\
 	org.eclipse.smarthome.automation.providers,\
 	org.eclipse.smarthome.automation.rest,\
-	shk-binding-chromecast,\
-	shk-io-rest-docs,\
-	shk-library-chromecast-api,\
-	shk-io-webutil;version=latest,\
-	shk-addon-sitemap-generator;version=latest,\
+
+runbundles.esh.last: \
 	org.eclipse.smarthome.core.thing
 
 -runee: JavaSE-1.8
