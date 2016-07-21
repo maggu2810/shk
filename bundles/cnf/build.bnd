@@ -32,7 +32,7 @@
 #
 
 src = src/main/java
-testsrc = -src/test/java
+testsrc = src/test/java
 -includeresource.maven: -src/main/resources
 
 #
@@ -88,3 +88,10 @@ bundle-path.xtext:\
 -testpath.shk:\
 	${mockito},\
 	${junit}
+
+#
+# Augment stuff to satisfy the resolver
+#
+-augment.pax-web-runtime: \
+	org.ops4j.pax.web.pax-web-runtime; \
+	capability:="osgi.service;objectClass=org.ops4j.pax.web.service.WebContainer;active=true"
