@@ -722,7 +722,7 @@
   </repositories>
 
   <modules>
-    <module>bndtools</module>
+    <module>bundles</module>
     <module>distributions</module>
     <module>features</module>
     <module>tools</module>
