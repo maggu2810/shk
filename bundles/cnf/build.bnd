@@ -26,12 +26,6 @@
 		name				=	shk-deps;\
 		locations			=	'file:${build}/../../tools/shk-deps/target/index.xml.gz'
 
-# This one is a temporary repo provided by Package-Drone
-#-plugin.7.r5: \
-#			aQute.bnd.deployer.repository.FixedIndexedRepo; \
-#				name				=	PackageDrone-R5 ; \
-#				locations			=	http://127.0.0.1:8080/r5/esh
-
 #
 # Set build repository
 #
