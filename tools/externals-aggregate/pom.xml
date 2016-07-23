@@ -78,10 +78,18 @@
       <type>pom</type>
     </dependency>
 
-    <!-- Guava -->
+    <!-- Google Guava -->
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>guava</artifactId>
+      <artifactId>google-guava</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Google Protocol Buffers -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>google-protobuf</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
@@ -90,6 +98,30 @@
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>
       <artifactId>hk2</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Jackson -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>jackson</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- JmDNS -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>jmdns</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- jUPnP -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>jupnp</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>

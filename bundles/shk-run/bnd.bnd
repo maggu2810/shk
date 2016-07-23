@@ -41,6 +41,7 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	${runbundles.xtext},\
 	${runbundles.pax-web},\
 	${runbundles.jetty},\
+	${runbundles.shk},\
 	${runbundles.esh}
 
 runbundles.shk: \

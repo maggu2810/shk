@@ -25,9 +25,13 @@
     <module>eclipse-smarthome</module>
     <module>ext-others</module>
     <module>ext-test</module>
-    <module>guava</module>
+    <module>google-guava</module>
+    <module>google-protobuf</module>
     <module>hk2</module>
+    <module>jackson</module>
     <module>jersey</module>
+    <module>jmdns</module>
+    <module>jupnp</module>
     <module>logback</module>
     <module>mapdb</module>
     <module>openhab-core</module>

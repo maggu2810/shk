@@ -16,29 +16,11 @@
   <dependencies>
 
     <!-- Repo: JCenter -->
-
-    <dependency>
-      <groupId>org.jmdns</groupId>
-      <artifactId>jmdns</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.jupnp</groupId>
-      <artifactId>org.jupnp</artifactId>
-    </dependency>
-
     <!-- Others (TODO) -->
 
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>annotations</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.google.protobuf</groupId>
-      <artifactId>protobuf-java</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
     </dependency>
 
 

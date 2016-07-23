@@ -8,17 +8,16 @@
     <version>1.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>guava</artifactId>
+  <artifactId>jackson</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Apache Xbean</name>
-  <description>Guava: Google Core Libraries for Java</description>
+  <name>shk :: Tools :: Externals :: Jackson</name>
+  <description>Jackson JSON Processor</description>
 
   <dependencies>
     <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>18.0</version>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
     </dependency>
   </dependencies>
 

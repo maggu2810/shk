@@ -1,0 +1,3 @@
+-buildpath: \
+	slf4j.api,\
+	osgi.cmpn
