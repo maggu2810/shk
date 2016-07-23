@@ -23,18 +23,19 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <bnd.version>3.2.0</bnd.version>
+    <esh.version>0.9.0.a9</esh.version>
     <karaf.version>4.0.5</karaf.version>
+    <kat.version>1.6</kat.version>
 
-    <!-- Tools :: External -->
-    <esh.version>0.9.0-SNAPSHOT</esh.version>
-    <jersey.version>2.22.2</jersey.version>
+    <!-- Check to fit to Karaf version bundled one -->
+    <cxf.version>3.1.4</cxf.version>
     <jetty.version>9.2.15.v20160210</jetty.version>
     <pax.web.version>4.2.6</pax.web.version>
-    <slf4j.version>1.7.21</slf4j.version>
     <spring.version>4.2.5.RELEASE_1</spring.version>
 
-    <kat.version>1.6</kat.version>
-    <cxf.version>3.1.4</cxf.version>
+    <!-- TODO -->
+    <jersey.version>2.22.2</jersey.version>
+    <slf4j.version>1.7.21</slf4j.version>
     <ohc.version>2.0.0.b3</ohc.version>
     <protobuf.version>2.6.0</protobuf.version>
     <jackson.version>1.9.13</jackson.version>
