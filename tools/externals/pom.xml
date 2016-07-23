@@ -15,10 +15,8 @@
   <name>shk :: Tools :: Externals</name>
 
   <modules>
-    <module>apache-aries</module>
     <module>apache-commons</module>
     <module>apache-felix</module>
-    <module>apache-karaf</module>
     <module>apache-xbean</module>
     <module>eclipse-jetty</module>
     <module>eclipse-paho</module>
@@ -27,9 +25,7 @@
     <module>ext-test</module>
     <module>google-guava</module>
     <module>google-protobuf</module>
-    <module>hk2</module>
     <module>jackson</module>
-    <module>jersey</module>
     <module>jmdns</module>
     <module>jupnp</module>
     <module>logback</module>

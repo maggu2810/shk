@@ -14,14 +14,6 @@
   <name>shk :: Tools :: Externals Aggregate</name>
 
   <dependencies>
-    <!-- Apache Aries -->
-    <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>apache-aries</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-    </dependency>
-
     <!-- Apache Commons -->
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>
@@ -34,14 +26,6 @@
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>
       <artifactId>apache-felix</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-    </dependency>
-
-    <!-- Apache Karaf -->
-    <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>apache-karaf</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
@@ -94,14 +78,6 @@
       <type>pom</type>
     </dependency>
 
-    <!-- HK2 -->
-    <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>hk2</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-    </dependency>
-
     <!-- Jackson -->
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>
@@ -122,14 +98,6 @@
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>
       <artifactId>jupnp</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-    </dependency>
-
-    <!-- Jersey -->
-    <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>jersey</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
