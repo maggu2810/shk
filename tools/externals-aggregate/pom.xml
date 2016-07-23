@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.shk.tools</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.9-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>externals-aggregate</artifactId>
+  <packaging>pom</packaging>
+
+  <name>shk :: Tools :: Externals Aggregate</name>
+
+  <dependencies>
+    <!-- Apache Aries -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>apache-aries</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Apache Commons -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>apache-commons</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Apache Felix -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>apache-felix</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Apache Karaf -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>apache-karaf</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Apache Xbean -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>apache-xbean</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Eclipse Jetty -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>eclipse-jetty</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Eclipse Paho -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>eclipse-paho</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Eclipse SmartHome -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>eclipse-smarthome</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Guava -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>guava</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- HK2 -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>hk2</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Jersey -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>jersey</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Logback -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>logback</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- MapDB -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>mapdb</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- openHAB Core -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>openhab-core</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- JAX-RS -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>osgi-jax-rs-connector</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Pax Web -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>pax-web</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Simple Logging Facade for Java (SLF4J) -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>slf4j</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Spring -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>spring</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- XStream-->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>xstream</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
+    <!-- Xtext -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>xtext</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+      <exclusions>
+        <exclusion>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- ext -->
+
+    <!-- TMP -->
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient-osgi</artifactId>
+      <version>4.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore-osgi</artifactId>
+      <version>4.2.3</version>
+    </dependency>
+
+    <!-- Test -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>ext-test</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+
+</project>

@@ -41,11 +41,13 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	${runbundles.xtext},\
 	${runbundles.pax-web},\
 	${runbundles.jetty},\
+	${runbundles.esh}
+
+runbundles.shk: \
 	${runbundles.shk.chromecast},\
 	${runbundles.shk.rest-docs},\
 	${runbundles.shk.sitemap-generator},\
-	${runbundles.shk.webutil},\
-	${runbundles.esh}
+	${runbundles.shk.webutil}
 
 runbundles.apache.commons: \
 	org.apache.commons.codec,\

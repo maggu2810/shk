@@ -14,64 +14,6 @@
   <name>shk :: Tools :: Externals :: Others</name>
 
   <dependencies>
-    <!-- Logging -->
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-core</artifactId>
-      <version>1.1.7</version>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.1.7</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
-      <version>1.7.21</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>log4j-over-slf4j</artifactId>
-      <version>1.7.21</version>
-    </dependency>
-
-    <!-- Repo: maggu2810 -->
-
-    <dependency>
-      <groupId>de.maggu2810.p2redist</groupId>
-      <artifactId>com.google.inject</artifactId>
-      <version>3.0.0.v201312141243</version>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.p2redist</groupId>
-      <artifactId>org.antlr.runtime</artifactId>
-      <version>3.2.0.v201101311130</version>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.p2redist</groupId>
-      <artifactId>org.eclipse.equinox.common</artifactId>
-      <version>3.7.0.v20150402-1709</version>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.p2redist</groupId>
-      <artifactId>org.eclipse.equinox.registry</artifactId>
-      <version>3.6.0.v20150318-1503</version>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.p2redist</groupId>
-      <artifactId>org.eclipse.equinox.supplement</artifactId>
-      <version>1.6.0.v20141009-1504</version>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.requirebundle.fix</groupId>
-      <artifactId>org.objectweb.asm</artifactId>
-      <version>5.0.2</version>
-    </dependency>
 
     <!-- Repo: JCenter -->
 
@@ -99,21 +41,7 @@
       <artifactId>jackson-mapper-asl</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.apache.servicemix.bundles</groupId>
-      <artifactId>org.apache.servicemix.bundles.junit</artifactId>
-      <version>4.12_1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>1.10.19</version>
-    </dependency>
-    <dependency>
-      <groupId>org.objenesis</groupId>
-      <artifactId>objenesis</artifactId>
-      <version>2.4</version>
-    </dependency>
+
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
@@ -190,16 +118,6 @@
       <version>1.2.0</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.xbean</groupId>
-      <artifactId>xbean-bundleutils</artifactId>
-      <version>4.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.xbean</groupId>
-      <artifactId>xbean-finder</artifactId>
-      <version>4.1</version>
-    </dependency>
-    <dependency>
       <groupId>org.eclipse.jdt</groupId>
       <artifactId>org.eclipse.jdt.annotation</artifactId>
       <version>2.0.0</version>
@@ -208,11 +126,6 @@
       <groupId>org.eclipse.jdt.core.compiler</groupId>
       <artifactId>ecj</artifactId>
       <version>4.4</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.paho</groupId>
-      <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.javassist</groupId>
@@ -244,11 +157,7 @@
       <artifactId>pax-url-aether</artifactId>
       <version>2.4.7</version>
     </dependency>
-    <dependency>
-      <groupId>org.ow2.asm</groupId>
-      <artifactId>asm-all</artifactId>
-      <version>5.0.4</version>
-    </dependency>
+
 
     <!-- ESH third party repo -->
     <dependency>
@@ -267,11 +176,6 @@
       <version>2.1.1</version>
     </dependency>
     <dependency>
-      <groupId>org.mapdb</groupId>
-      <artifactId>mapdb</artifactId>
-      <version>1.0.9</version>
-    </dependency>
-    <dependency>
       <groupId>javax.measure</groupId>
       <artifactId>unit-api</artifactId>
       <version>0.8</version>
@@ -282,14 +186,5 @@
       <version>0.8</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>biz.aQute.bnd</groupId>
-        <artifactId>bnd-indexer-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>

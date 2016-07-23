@@ -25,12 +25,12 @@
       </plugin>
     </plugins>
   </build>
-  
+
   <modules>
     <module>externals</module>
+    <module>externals-aggregate</module>
     <module>shk-bundles</module>
-    <module>shk-deps</module>
-    <module>shk-test-deps</module>
+    <module>shk-repo</module>
   </modules>
 
 </project>

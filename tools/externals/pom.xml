@@ -15,22 +15,28 @@
   <name>shk :: Tools :: Externals</name>
 
   <modules>
-    <module>aggregate</module>
-    <module>ext-aries</module>
-    <module>ext-commons</module>
-    <module>ext-esh</module>
-    <module>ext-felix</module>
-    <module>ext-hk2</module>
-    <module>ext-jaxrs</module>
-    <module>ext-jersey</module>
-    <module>ext-jetty</module>
-    <module>ext-karaf</module>
-    <module>ext-ohc</module>
+    <module>apache-aries</module>
+    <module>apache-commons</module>
+    <module>apache-felix</module>
+    <module>apache-karaf</module>
+    <module>apache-xbean</module>
+    <module>eclipse-jetty</module>
+    <module>eclipse-paho</module>
+    <module>eclipse-smarthome</module>
     <module>ext-others</module>
-    <module>ext-pax-web</module>
-    <module>ext-spring</module>
-    <module>ext-xstream</module>
-    <module>ext-xtext</module>
+    <module>ext-test</module>
+    <module>guava</module>
+    <module>hk2</module>
+    <module>jersey</module>
+    <module>logback</module>
+    <module>mapdb</module>
+    <module>openhab-core</module>
+    <module>osgi-jax-rs-connector</module>
+    <module>pax-web</module>
+    <module>slf4j</module>
+    <module>spring</module>
+    <module>xstream</module>
+    <module>xtext</module>
   </modules>
 
 </project>

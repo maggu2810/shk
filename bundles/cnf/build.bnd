@@ -9,22 +9,22 @@
             local               =       ${build}/local
 
 # A temporary local repository, could be used as build repo
--plugin.6.tmprepo:\
-			aQute.bnd.deployer.repository.LocalIndexedRepo;\
-				name				=	TmpRepo;\
-				local				=	${build}/tmp-repo;\
-				pretty				=	true;\
-				readonly			=	true
+#-plugin.6.tmprepo:\
+#			aQute.bnd.deployer.repository.LocalIndexedRepo;\
+#				name				=	TmpRepo;\
+#				local				=	${build}/tmp-repo;\
+#				pretty				=	true;\
+#				readonly			=	true
 
--plugin.6.shk-bundles: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	shk-bundles;\
-		locations			=	'file:${build}/../../tools/shk-bundles/target/index.xml.gz'
+#-plugin.6.shk-bundles: \
+#	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+#		name				=	shk-bundles;\
+#		locations			=	'file:${build}/../../tools/shk-bundles/target/index.xml.gz'
 
--plugin.6.shk-deps: \
+-plugin.6.shk-repo: \
 	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-		name				=	shk-deps;\
-		locations			=	'file:${build}/../../tools/shk-deps/target/index.xml.gz'
+		name				=	shk-repo;\
+		locations			=	'file:${build}/../../tools/shk-repo/target/index.xml.gz'
 
 #
 # Set build repository
@@ -82,7 +82,7 @@ bundle-path.esh-all:\
 bundle-path.xtext:\
 	org.eclipse.emf.common
 
--buildpath.shk:\
+buildpath.shk:\
 	${bundle-path.common},\
 	${bundle-path.apache-commons},\
 	${bundle-path.esh-all},\
