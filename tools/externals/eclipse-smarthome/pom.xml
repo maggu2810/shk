@@ -186,11 +186,6 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
-      <artifactId>org.eclipse.smarthome.io.audio</artifactId>
-      <version>${esh.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
       <artifactId>org.eclipse.smarthome.io.console</artifactId>
       <version>${esh.version}</version>
     </dependency>
@@ -202,6 +197,11 @@
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
       <artifactId>org.eclipse.smarthome.io.console.rfc147</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.javasound</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -247,11 +247,6 @@
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
       <artifactId>org.eclipse.smarthome.io.transport.upnp</artifactId>
-      <version>${esh.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
-      <artifactId>org.eclipse.smarthome.io.voice</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
