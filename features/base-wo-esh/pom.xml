@@ -8,20 +8,10 @@
     <version>1.9-SNAPSHOT</version>
   </parent>
 
-  <artifactId>base</artifactId>
+  <artifactId>base-wo-esh</artifactId>
   <packaging>feature</packaging>
 
-  <name>shk :: Features :: Base</name>
-
-  <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>base-wo-esh</artifactId>
-      <version>${project.version}</version>
-      <type>xml</type>
-      <classifier>features</classifier>
-    </dependency>
-  </dependencies>
+  <name>shk :: Features :: Base (without ESH)</name>
 
   <build>
     <plugins>
