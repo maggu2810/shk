@@ -1,2 +1,11 @@
 language: java
 jdk: oraclejdk8
+
+env:
+- MVN_PROFILE=default
+- MVN_PROFILE=karaf-snapshot
+
+before_install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -P${MVN_PROFILE}
+script:
+  - mvn test -B -P${MVN_PROFILE}

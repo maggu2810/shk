@@ -540,6 +540,37 @@
         <defaultGoal>clean install findbugs:check pmd:check checkstyle:check javadoc:javadoc</defaultGoal>
       </build>
     </profile>
+
+    <profile>
+      <id>karaf-snapshot</id>
+      <properties>
+        <karaf.version>4.0.6-SNAPSHOT</karaf.version>
+      </properties>
+      <repositories>
+        <repository>
+          <id>apache-snapshots</id>
+          <url>https://repository.apache.org/snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>apache-snapshots</id>
+          <url>https://repository.apache.org/snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
   </profiles>
 
   <reporting>
