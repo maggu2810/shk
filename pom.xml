@@ -30,7 +30,7 @@
     <!-- Check to fit to Karaf version bundled one -->
     <cxf.version>3.1.4</cxf.version>
     <jetty.version>9.2.15.v20160210</jetty.version>
-    <pax.web.version>4.2.6</pax.web.version>
+    <pax.web.version>4.2.8</pax.web.version>
     <spring.version>4.2.5.RELEASE_1</spring.version>
 
     <!-- TODO -->
