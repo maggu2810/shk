@@ -23,7 +23,7 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <bnd.version>3.2.0</bnd.version>
-    <esh.version>0.9.0.a11</esh.version>
+    <esh.version>0.9.0.a13</esh.version>
     <karaf.version>4.0.6</karaf.version>
     <kat.version>1.6</kat.version>
 
