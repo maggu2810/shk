@@ -23,7 +23,7 @@
       <file>org.ops4j.pax.url.mvn.cfg</file>
       <operation>extend</operation>
       <key>org.ops4j.pax.url.mvn.repositories</key>
-      <value>http://oss.jfrog.org/artifactory/simple/libs-snapshot@id=ojo-libs-snapshot@snapshots@noreleases</value>
+      <value>https://oss.jfrog.org/artifactory/simple/libs-snapshot@id=ojo-libs-snapshot@snapshots@noreleases</value>
     </edit>
   </edits>
 </property-edits>
