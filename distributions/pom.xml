@@ -70,7 +70,7 @@
     </dependency>
     <dependency>
       <groupId>de.maggu2810.shk.features</groupId>
-      <artifactId>base</artifactId>
+      <artifactId>shk-base</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
       <type>xml</type>

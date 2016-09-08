@@ -8,7 +8,7 @@
     <version>1.10-SNAPSHOT</version>
   </parent>
 
-  <artifactId>base</artifactId>
+  <artifactId>shk-base</artifactId>
   <packaging>feature</packaging>
 
   <name>shk :: Features :: Base</name>
@@ -16,10 +16,11 @@
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>base-wo-esh</artifactId>
+      <artifactId>shk-base-wo-esh</artifactId>
       <version>${project.version}</version>
       <type>xml</type>
       <classifier>features</classifier>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -30,11 +31,6 @@
         <artifactId>karaf-maven-plugin</artifactId>
         <configuration>
           <startLevel>60</startLevel>
-          <aggregateFeatures>true</aggregateFeatures>
-          <checkDependencyChange>true</checkDependencyChange>
-          <failOnDependencyChange>false</failOnDependencyChange>
-          <logDependencyChanges>true</logDependencyChanges>
-          <overwriteChangedDependencies>true</overwriteChangedDependencies>
         </configuration>
       </plugin>
     </plugins>

@@ -15,8 +15,8 @@
   <name>shk :: Features</name>
 
   <modules>
-    <module>base</module>
-    <module>base-wo-esh</module>
+    <module>shk-base</module>
+    <module>shk-base-wo-esh</module>
     <module>verify</module>
   </modules>
 
