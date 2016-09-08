@@ -23,7 +23,7 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <bnd.version>3.2.0</bnd.version>
-    <esh.version>0.9.0.a13</esh.version>
+    <esh.version>0.9.0.a14</esh.version>
     <karaf.version>4.0.6</karaf.version>
     <kat.version>1.6</kat.version>
 
@@ -542,10 +542,12 @@
     </profile>
 
     <profile>
-      <id>karaf-snapshot</id>
-      <properties>
-        <karaf.version>4.0.7-SNAPSHOT</karaf.version>
-      </properties>
+      <id>repos-apache-snapshots</id>
+      <activation>
+        <property>
+          <name>karaf-snapshot</name>
+        </property>
+      </activation>
       <repositories>
         <repository>
           <id>apache-snapshots</id>
@@ -570,6 +572,30 @@
           </snapshots>
         </pluginRepository>
       </pluginRepositories>
+    </profile>
+    <profile>
+      <id>K40x-SNAPSHOT</id>
+      <activation>
+        <property>
+          <name>karaf-snapshot</name>
+          <value>4.0</value>
+        </property>
+      </activation>
+      <properties>
+        <karaf.version>4.0.7-SNAPSHOT</karaf.version>
+      </properties>
+    </profile>
+    <profile>
+      <id>K41x-SNAPSHOT</id>
+      <activation>
+        <property>
+          <name>karaf-snapshot</name>
+          <value>4.1</value>
+        </property>
+      </activation>
+      <properties>
+        <karaf.version>4.1.0-SNAPSHOT</karaf.version>
+      </properties>
     </profile>
   </profiles>
 
