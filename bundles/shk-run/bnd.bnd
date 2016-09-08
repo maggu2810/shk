@@ -97,12 +97,12 @@ runbundles.logging: \
 	ch.qos.logback.core;version=1.1.7
 
 runbundles.pax-web: \
-	org.apache.xbean.bundleutils;version='[4.1.0,4.1.1)',\
-	org.apache.xbean.finder;version='[4.1.0,4.1.1)',\
-	org.ops4j.pax.web.pax-web-api;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-jetty;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-runtime;version='[4.2.6,4.2.7)',\
-	org.ops4j.pax.web.pax-web-spi;version='[4.2.6,4.2.7)'
+	org.apache.xbean.bundleutils;version='[4.1,4.2)',\
+	org.apache.xbean.finder;version='[4.1,4.2)',\
+	org.ops4j.pax.web.pax-web-api;version='[4.2,4.3)',\
+	org.ops4j.pax.web.pax-web-jetty;version='[4.2,4.3)',\
+	org.ops4j.pax.web.pax-web-runtime;version='[4.2,4.3)',\
+	org.ops4j.pax.web.pax-web-spi;version='[4.2,4.3)'
 
 runbundles.serial: \
 	com.neuronrobotics.nrjavaserial,\

@@ -23,8 +23,8 @@ runbundles.esh.normal: \
 	org.eclipse.smarthome.core.persistence,\
 	org.eclipse.smarthome.core.scheduler,\
 	org.eclipse.smarthome.core.transform,\
-	org.eclipse.smarthome.io.audio,\
 	org.eclipse.smarthome.io.console,\
+	org.eclipse.smarthome.io.javasound,\
 	org.eclipse.smarthome.io.monitor,\
 	org.eclipse.smarthome.io.net,\
 	org.eclipse.smarthome.io.rest,\
@@ -32,7 +32,6 @@ runbundles.esh.normal: \
 	org.eclipse.smarthome.io.rest.sitemap,\
 	org.eclipse.smarthome.io.rest.sse,\
 	org.eclipse.smarthome.io.transport.mdns,\
-	org.eclipse.smarthome.io.voice,\
 	org.eclipse.smarthome.storage.mapdb,\
 	org.eclipse.smarthome.ui,\
 	org.eclipse.smarthome.ui.icon,\
