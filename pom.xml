@@ -22,7 +22,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
-    <bnd.version>3.2.0</bnd.version>
+    <bnd.version>3.3.0</bnd.version>
     <esh.version>0.9.0.a16</esh.version>
     <karaf.version>4.0.6</karaf.version>
     <kat.version>1.6</kat.version>
@@ -222,6 +222,12 @@
       <plugins>
 
         <!-- sorted by artifact id (group id not used for sorting) -->
+
+        <plugin>
+          <groupId>biz.aQute.bnd</groupId>
+          <artifactId>bnd-export-maven-plugin</artifactId>
+          <version>${bnd.version}</version>
+        </plugin>
 
         <plugin>
           <groupId>biz.aQute.bnd</groupId>

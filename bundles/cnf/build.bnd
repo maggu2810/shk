@@ -2,6 +2,31 @@
 # Add some repositories we consume artifacs from.
 #
 
+#-plugin.5.repo.shk-addon-sitemap.generator: \
+#	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+#		name="POM shk-addon-sitemap-generator"; \
+#		pom=${build}/../shk-addon-sitemap-generator/pom.xml
+
+#-plugin.5.repo.shk-binding-chromecast: \
+#	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+#		name="POM shk-binding-chromecast"; \
+#		pom=${build}/../shk-binding-chromecast/pom.xml
+
+#-plugin.5.repo.shk-io-rest-docs: \
+#	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+#		name="POM shk-io-rest-docs"; \
+#		pom=${build}/../shk-io-rest-docs/pom.xml
+
+#-plugin.5.repo.shk-io-webutil: \
+#	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+#		name="POM shk-io-webutil"; \
+#		pom=${build}/../shk-io-webutil/pom.xml
+
+#-plugin.5.repo.shk-library-chromecast-api: \
+#	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+#		name="POM shk-library-chromecast-api"; \
+#		pom=${build}/../shk-library-chromecast-api/pom.xml
+
 -plugin.6.Local: \
         aQute.bnd.deployer.repository.LocalIndexedRepo; \
             name                =       Local ; \
@@ -22,7 +47,7 @@
 #		locations			=	'file:${build}/../../tools/shk-bundles/target/index.xml.gz'
 
 -plugin.6.shk-repo: \
-	aQute.bnd.deployer.repository.FixedIndexedRepo; \
+	aQute.bnd.repository.osgi.OSGiRepository; \
 		name				=	shk-repo;\
 		locations			=	'file:${build}/../../tools/shk-repo/target/index.xml.gz'
 
