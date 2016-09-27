@@ -24,7 +24,7 @@
 
     <bnd.version>3.3.0</bnd.version>
     <esh.version>0.9.0.a16</esh.version>
-    <karaf.version>4.0.6</karaf.version>
+    <karaf.version>4.0.7</karaf.version>
     <kat.version>1.6</kat.version>
 
     <!-- Check to fit to Karaf version bundled one -->
@@ -588,7 +588,7 @@
         </property>
       </activation>
       <properties>
-        <karaf.version>4.0.7-SNAPSHOT</karaf.version>
+        <karaf.version>4.0.8-SNAPSHOT</karaf.version>
       </properties>
     </profile>
     <profile>
