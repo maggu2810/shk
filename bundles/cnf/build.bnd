@@ -50,8 +50,11 @@
 	aQute.bnd.repository.osgi.OSGiRepository; \
 		name				=	shk-repo;\
 		locations			=	'file:${build}/../../tools/shk-repo/target/index.xml.gz'
+#-plugin.6.pom.shk-repo: \
+#	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+#		name="POM shk-repo"; \
+#		pom=${build}/../../tools/shk-repo/pom.xml
 
-#
 # Set build repository
 #
 
