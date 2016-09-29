@@ -156,6 +156,7 @@
       launcher="all - clean install"/>
   <setupTask
       xsi:type="projects:ProjectsBuildTask"
+      refresh="true"
       clean="true"/>
   <stream name="master"
       label="Master"/>
