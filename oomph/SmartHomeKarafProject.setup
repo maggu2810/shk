@@ -722,11 +722,8 @@
     <workingSet
         name="${scope.project.name}">
       <predicate
-          xsi:type="predicates:AndPredicate">
-        <operand
-            xsi:type="predicates:RepositoryPredicate"
-            project="shk.project"/>
-      </predicate>
+          xsi:type="predicates:RepositoryPredicate"
+          project="shk-run"/>
     </workingSet>
     <description>The dynamic working sets for ${scope.project.label}</description>
   </setupTask>
