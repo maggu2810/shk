@@ -2,6 +2,16 @@
 # Add some repositories we consume artifacs from.
 #
 
+-plugin.4.shk-repo: \
+	aQute.bnd.repository.osgi.OSGiRepository; \
+		name				=	shk-repo;\
+		locations			=	'file:${build}/../../tools/shk-repo/target/index.xml.gz'
+
+#-plugin.4.pom.shk-repo: \
+#	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
+#		name="POM shk-repo"; \
+#		pom=${build}/../../tools/shk-repo/pom.xml
+
 #-plugin.5.repo.shk-addon-sitemap.generator: \
 #	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
 #		name="POM shk-addon-sitemap-generator"; \
@@ -41,20 +51,7 @@
 #				pretty				=	true;\
 #				readonly			=	true
 
-#-plugin.6.shk-bundles: \
-#	aQute.bnd.deployer.repository.FixedIndexedRepo; \
-#		name				=	shk-bundles;\
-#		locations			=	'file:${build}/../../tools/shk-bundles/target/index.xml.gz'
-
--plugin.6.shk-repo: \
-	aQute.bnd.repository.osgi.OSGiRepository; \
-		name				=	shk-repo;\
-		locations			=	'file:${build}/../../tools/shk-repo/target/index.xml.gz'
-#-plugin.6.pom.shk-repo: \
-#	aQute.bnd.repository.maven.pom.provider.BndPomRepository; \
-#		name="POM shk-repo"; \
-#		pom=${build}/../../tools/shk-repo/pom.xml
-
+#
 # Set build repository
 #
 
@@ -107,14 +104,12 @@ bundle-path.esh-all:\
 	org.eclipse.smarthome.io.transport.mdns,\
 	org.eclipse.smarthome.model.sitemap
 
-bundle-path.xtext:\
-	org.eclipse.emf.common
-
+# All -buildpath.* are added to the default build path.
+# If we want to inject some common ones, you can add a dash in fron of 'buildpath'.
 buildpath.shk:\
 	${bundle-path.common},\
 	${bundle-path.apache-commons},\
 	${bundle-path.esh-all},\
-	${bundle-path.xtext},\
 	findbugsAnnotations,\
 	org.jupnp
 
