@@ -133,8 +133,8 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.shk"
-      remoteURI="https://github.com/maggu2810/shk.tmp.git"
-      pushURI="https://github.com/${github.user.id}/shk.tmp.git">
+      remoteURI="https://github.com/maggu2810/shk.git"
+      pushURI="https://github.com/${github.user.id}/shk.git">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
