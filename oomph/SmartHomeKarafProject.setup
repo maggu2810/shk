@@ -733,7 +733,8 @@
   <setupTask
       xsi:type="projects:ProjectsImportTask">
     <sourceLocator
-        rootFolder="${git.clone.shk.location}"/>
+        rootFolder="${git.clone.shk.location}"
+        locateNestedProjects="true"/>
   </setupTask>
   <setupTask
       xsi:type="launching:LaunchTask"
