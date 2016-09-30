@@ -13,7 +13,7 @@ TODO: Add detailed information
 
 ### Projects
 
-Add the project setup `SmartHome Karaf` to "Github Projects", "<Uesr>" (if not already present):
+Add the project setup `SmartHome Karaf` to "Github Projects", "&lt;User&gt;" (if not already present):
 
 * +
 * Catalog: Github Projects
@@ -21,7 +21,7 @@ Add the project setup `SmartHome Karaf` to "Github Projects", "<Uesr>" (if not a
 * OK
 
 Now add the project:
-Guthub Projects, <User>, SmartHome Karaf
+Guthub Projects, "&lt;User&gt;", SmartHome Karaf
 
 ## Post installation steps
 
