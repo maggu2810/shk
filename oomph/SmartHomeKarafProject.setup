@@ -738,10 +738,6 @@
   <setupTask
       xsi:type="launching:LaunchTask"
       launcher="all - clean install"/>
-  <setupTask
-      xsi:type="projects:ProjectsBuildTask"
-      refresh="true"
-      clean="true"/>
   <stream name="master"
       label="Master"/>
   <logicalProjectContainer
