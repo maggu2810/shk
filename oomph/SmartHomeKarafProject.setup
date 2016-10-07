@@ -335,6 +335,10 @@
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.add_missing_annotations">
         <value>record</value>
       </detail>
+      <detail
+          key="/instance/org.eclipse.wst.xml.core/lineWidth">
+        <value>record</value>
+      </detail>
     </annotation>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -663,6 +667,14 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.editors/showWhitespaceCharacters"
           value="true"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.wst.xml.core">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.wst.xml.core/lineWidth"
+          value="160"/>
     </setupTask>
   </setupTask>
   <setupTask
