@@ -735,7 +735,7 @@
   </setupTask>
   <setupTask
       xsi:type="launching:LaunchTask"
-      launcher="all - clean install"/>
+      launcher="shk-repo (rebuild with deps)"/>
   <stream name="master"
       label="Master"/>
   <logicalProjectContainer
