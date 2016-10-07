@@ -15,14 +15,14 @@
 
   <dependencies>
     <dependency>
-      <groupId>de.maggu2810.shk.tools</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>shk-bundles</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
 
     <dependency>
-      <groupId>de.maggu2810.shk.tools</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>externals-aggregate</artifactId>
       <version>${project.version}</version>
       <type>pom</type>

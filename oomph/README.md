@@ -27,14 +27,16 @@ Github Projects, "&lt;User&gt;", SmartHome Karaf
 
 ### (Re)Create Repository
 
-* Open Project: shk-repo
+* Open Working Set: shk
+* Open Project: shk
 * Open Folder: launch
 * Right click on 'shk-repo (rebuild with deps).launch'
 * 'Run As', 'shk-repo (rebuild with deps)'
 
 ### Launch shk-run
 
-* Open Project: shk-run
+* Open Working Set: shk
+* Open Project: shk
 * Open Folder: launch
 * Right click on 'shk-run.launch'
 * 'Run As' / 'Debug As', 'shk-run'
