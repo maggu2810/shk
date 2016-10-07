@@ -2,9 +2,4 @@
   !*.internal.*,\
   !*.impl.*,\
   de.maggu2810.shk.*
--buildpath: \
-	com.google.protobuf,\
-	javax.jmdns,\
-	jackson-mapper-asl,\
-	jackson-core-asl,\
-	slf4j.api
+
