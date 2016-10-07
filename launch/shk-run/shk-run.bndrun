@@ -1,5 +1,4 @@
-src = 
-testsrc =
+-standalone: ../../tools/shk-repo/target/index.xml
 
 Provide-Capability: \
 	org.bndtools.template;\
@@ -12,13 +11,9 @@ Provide-Capability: \
 
 icondata: data:image/gif;base64,${base64;icon.gif}
 
--resourceonly: true
-#-includeresource: resources
-
--pom: \
-	version =	0.0.0
-
--include: esh.bnd, shk.bnd
+-include: \
+	esh.bndinc,\
+	shk.bndinc
 
 -runbundles.fixed: \
 	${runbundles.logging},\

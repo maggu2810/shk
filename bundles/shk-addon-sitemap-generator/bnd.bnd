@@ -2,12 +2,4 @@
 #  !*.internal.*,\
 #  !*.impl.*,\
 #  de.maggu2810.shk.*
--buildpath: \
-	org.eclipse.emf.ecore,\
-	org.eclipse.emf.common,\
-	org.eclipse.smarthome.core.thing,\
-	org.eclipse.smarthome.core,\
-	org.apache.commons.lang3,\
-	org.eclipse.smarthome.model.sitemap,\
-	slf4j.api,\
-	osgi.cmpn
+

@@ -21,9 +21,20 @@ Add the project setup `SmartHome Karaf` to "Github Projects", "&lt;User&gt;" (if
 * OK
 
 Now add the project:
-Guthub Projects, "&lt;User&gt;", SmartHome Karaf
+Github Projects, "&lt;User&gt;", SmartHome Karaf
 
 ## Post installation steps
 
-* Menu: Window, Perspective, Open Perspective, Bndtools
-* Menu: Bndtools, Refresh Repositories
+### (Re)Create Repository
+
+* Open Project: shk-repo
+* Open Folder: launch
+* Right click on 'shk-repo (rebuild with deps).launch'
+* 'Run As', 'shk-repo (rebuild with deps)'
+
+### Launch shk-run
+
+* Open Project: shk-run
+* Open Folder: launch
+* Right click on 'shk-run.launch'
+* 'Run As' / 'Debug As', 'shk-run'
