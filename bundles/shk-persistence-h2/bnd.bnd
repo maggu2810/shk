@@ -1,0 +1,6 @@
+-dsannotations-options: inherit
+#-exportcontents: \
+#  !*.internal.*,\
+#  !*.impl.*,\
+#  de.maggu2810.shk.*
+

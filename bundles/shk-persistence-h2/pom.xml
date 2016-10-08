@@ -8,9 +8,9 @@
     <version>1.11-SNAPSHOT</version>
   </parent>
 
-  <artifactId>shk-binding-chromecast</artifactId>
+  <artifactId>shk-persistence-h2</artifactId>
 
-  <name>shk :: Bundles :: Binding :: Chromecast</name>
+  <name>shk :: Bundles :: Persistence :: h2</name>
 
   <dependencies>
     <dependency>
@@ -19,28 +19,21 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
+      <version>${esh.version}</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.config</groupId>
       <artifactId>org.eclipse.smarthome.config.core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.config</groupId>
-      <artifactId>org.eclipse.smarthome.config.discovery</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
-      <artifactId>org.eclipse.smarthome.core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
-      <artifactId>org.eclipse.smarthome.core.thing</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.jupnp</groupId>
-      <artifactId>org.jupnp</artifactId>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.core</artifactId>
     </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
@@ -49,11 +42,6 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.shk.bundles</groupId>
-      <artifactId>shk-library-chromecast-api</artifactId>
-      <version>${project.version}</version>
     </dependency>
   </dependencies>
 

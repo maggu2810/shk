@@ -39,6 +39,11 @@
       <artifactId>shk-library-chromecast-api</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-persistence-h2</artifactId>
+      <version>${project.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -48,7 +53,7 @@
         <artifactId>bnd-indexer-maven-plugin</artifactId>
         <configuration>
           <localURLs>REQUIRED</localURLs>
-          <!--<localURLs>FORBIDDEN</localURLs>-->
+          <!--<localURLs>FORBIDDEN</localURLs> -->
         </configuration>
       </plugin>
     </plugins>

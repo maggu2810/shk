@@ -130,6 +130,7 @@
     <module>shk-io-rest-docs</module>
     <module>shk-io-webutil</module>
     <module>shk-library-chromecast-api</module>
+    <module>shk-persistence-h2</module>
   </modules>
 
 </project>

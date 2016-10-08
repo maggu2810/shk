@@ -40,10 +40,11 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 	${runbundles.esh}
 
 runbundles.shk: \
-	${runbundles.shk.chromecast},\
-	${runbundles.shk.rest-docs},\
-	${runbundles.shk.sitemap-generator},\
-	${runbundles.shk.webutil}
+	${runbundles.shk.addon.sitemap-generator},\
+	${runbundles.shk.binding.chromecast},\
+	${runbundles.shk.io.rest-docs},\
+	${runbundles.shk.io.webutil}, \
+	${runbundles.shk.persistence.h2}
 
 runbundles.apache.commons: \
 	org.apache.commons.codec,\
@@ -141,4 +142,5 @@ runbundles.xtext: \
 	-Dopenhab.conf=wdir/conf\n\
 	-Djetty.keystore.path=wdir/etc/keystore\n\
 	-Djetty.truststore.path=wdir/etc/keystore\n\
-	-Dgnu.io.rxtx.SerialPorts=/dev/ttyEnOcean0:/dev/ttyZWave0:/dev/ttyUSB0:/dev/ttyUSB1\n\
+	-Dgnu.io.rxtx.SerialPorts=/dev/ttyEnOcean0:/dev/ttyZWave0:/dev/ttyUSB0:/dev/ttyUSB1
+

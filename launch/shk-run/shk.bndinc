@@ -1,15 +1,20 @@
-runbundles.shk.chromecast: \
+runbundles.shk.addon.sitemap-generator: \
+	shk-addon-sitemap-generator
+
+runbundles.shk.binding.chromecast: \
 	com.google.protobuf,\
 	jackson-mapper-asl,\
 	jackson-core-asl,\
 	shk-library-chromecast-api,\
 	shk-binding-chromecast
 
-runbundles.shk.rest-docs: \
+runbundles.shk.io.rest-docs: \
 	shk-io-rest-docs
 
-runbundles.shk.sitemap-generator: \
-	shk-addon-sitemap-generator
-
-runbundles.shk.webutil: \
+runbundles.shk.io.webutil: \
 	shk-io-webutil
+
+runbundles.shk.persistence.h2: \
+	org.osgi.service.jdbc,\
+	org.h2,\
+	shk-persistence-h2
