@@ -106,6 +106,10 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
         return "h2";
     }
 
+    private void setStateValue(final PreparedStatement stmt, final int pos, final State state) throws SQLException {
+        stmt.setString(pos, state.toFullString());
+    }
+
     @Override
     protected State getStateForItem(final Item item) {
         return item.getState();
@@ -133,7 +137,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
             int i = 0;
             stmt.setTimestamp(++i, new Timestamp(date.getTime()));
             stmt.setString(++i, getStateClassKey(state.getClass()));
-            stmt.setString(++i, state.toString());
+            setStateValue(stmt, ++i, state);
             stmt.executeUpdate();
             return true;
         } catch (final SQLException ex) {
@@ -149,7 +153,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
         try (final PreparedStatement stmt = connection.prepareStatement(sql)) {
             int i = 0;
             stmt.setString(++i, getStateClassKey(state.getClass()));
-            stmt.setString(++i, state.toString());
+            setStateValue(stmt, ++i, state);
             stmt.setTimestamp(++i, new Timestamp(date.getTime()));
             stmt.executeUpdate();
             return true;

@@ -84,7 +84,7 @@ public class H2SqlPersistenceService extends H2AbstractPersistenceService {
         } else if (state instanceof DecimalType) {
             stmt.setBigDecimal(pos, ((DecimalType) state).toBigDecimal());
         } else {
-            stmt.setString(pos, state.toString());
+            stmt.setString(pos, state.toFullString());
         }
     }
 
