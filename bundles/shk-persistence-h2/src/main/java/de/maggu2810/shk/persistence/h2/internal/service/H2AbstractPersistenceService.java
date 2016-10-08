@@ -126,8 +126,9 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
     @Override
     public String getLabel(final Locale locale) {
-        return i18nProvider.getText(bundleContext.getBundle(), String.format("%s.label", getId()),
-                "H2 Embedded Database", locale);
+        final String key = String.format("%s.label", getId());
+        final String dfl = String.format("%s: H2 Embedded Database", getId());
+        return i18nProvider.getText(bundleContext.getBundle(), key, dfl, locale);
     }
 
     @Override
