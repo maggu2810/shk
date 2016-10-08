@@ -36,12 +36,12 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.automation</groupId>
-      <artifactId>org.eclipse.smarthome.automation.module.script</artifactId>
+      <artifactId>org.eclipse.smarthome.automation.module.script.defaultscope</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.automation</groupId>
-      <artifactId>org.eclipse.smarthome.automation.module.script.defaultscope</artifactId>
+      <artifactId>org.eclipse.smarthome.automation.module.script</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -65,6 +65,21 @@
       <version>${esh.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.sample.extension.java</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.sample.extension.json</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.automation</groupId>
+      <artifactId>org.eclipse.smarthome.automation.sample.rest.api</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.eclipse.smarthome.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.digitalstrom</artifactId>
       <version>${esh.version}</version>
@@ -82,6 +97,11 @@
     <dependency>
       <groupId>org.eclipse.smarthome.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.lifx</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.binding</groupId>
+      <artifactId>org.eclipse.smarthome.binding.ntp</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -121,7 +141,7 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.core</groupId>
-      <artifactId>org.eclipse.smarthome.core</artifactId>
+      <artifactId>org.eclipse.smarthome.core.audio</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -132,6 +152,11 @@
     <dependency>
       <groupId>org.eclipse.smarthome.core</groupId>
       <artifactId>org.eclipse.smarthome.core.binding.xml</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.extension.sample</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -151,17 +176,42 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.core</groupId>
-      <artifactId>org.eclipse.smarthome.core.thing</artifactId>
-      <version>${esh.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
       <artifactId>org.eclipse.smarthome.core.thing.xml</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.thing</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
       <artifactId>org.eclipse.smarthome.core.transform</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.voice</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.core</groupId>
+      <artifactId>org.eclipse.smarthome.core</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.designer.plugins</groupId>
+      <artifactId>org.eclipse.smarthome.designer.core</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.designer.plugins</groupId>
+      <artifactId>org.eclipse.smarthome.designer.ui</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.designer.plugins</groupId>
+      <artifactId>org.eclipse.smarthome.model.sitemap.ui</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -186,7 +236,7 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
-      <artifactId>org.eclipse.smarthome.io.console</artifactId>
+      <artifactId>org.eclipse.smarthome.io.console.eclipse</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -197,6 +247,11 @@
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
       <artifactId>org.eclipse.smarthome.io.console.rfc147</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.console</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -216,12 +271,12 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
-      <artifactId>org.eclipse.smarthome.io.rest</artifactId>
+      <artifactId>org.eclipse.smarthome.io.rest.core</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
-      <artifactId>org.eclipse.smarthome.io.rest.core</artifactId>
+      <artifactId>org.eclipse.smarthome.io.rest.mdns</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -234,6 +289,21 @@
       <artifactId>org.eclipse.smarthome.io.rest.sse</artifactId>
       <version>${esh.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.rest.voice</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.rest</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>org.eclipse.smarthome.io</groupId> -->
+<!--       <artifactId>org.eclipse.smarthome.io.transport.dbus</artifactId> -->
+<!--       <version>0.8.0-SNAPSHOT</version> -->
+<!--     </dependency> -->
     <dependency>
       <groupId>org.eclipse.smarthome.io</groupId>
       <artifactId>org.eclipse.smarthome.io.transport.mdns</artifactId>
@@ -256,17 +326,22 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.model</groupId>
-      <artifactId>org.eclipse.smarthome.model.item</artifactId>
-      <version>${esh.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
       <artifactId>org.eclipse.smarthome.model.item.runtime</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.model</groupId>
-      <artifactId>org.eclipse.smarthome.model.persistence</artifactId>
+      <artifactId>org.eclipse.smarthome.model.item.ui</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.item</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.lazygen</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -276,7 +351,12 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.model</groupId>
-      <artifactId>org.eclipse.smarthome.model.rule</artifactId>
+      <artifactId>org.eclipse.smarthome.model.persistence.ui</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.persistence</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -286,7 +366,12 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.model</groupId>
-      <artifactId>org.eclipse.smarthome.model.script</artifactId>
+      <artifactId>org.eclipse.smarthome.model.rule.ui</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.rule</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -296,7 +381,12 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.model</groupId>
-      <artifactId>org.eclipse.smarthome.model.sitemap</artifactId>
+      <artifactId>org.eclipse.smarthome.model.script.ui</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.script</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -306,7 +396,7 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.model</groupId>
-      <artifactId>org.eclipse.smarthome.model.thing</artifactId>
+      <artifactId>org.eclipse.smarthome.model.sitemap</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -315,8 +405,23 @@
       <version>${esh.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.thing.ui</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.model</groupId>
+      <artifactId>org.eclipse.smarthome.model.thing</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.eclipse.smarthome.storage</groupId>
       <artifactId>org.eclipse.smarthome.storage.mapdb</artifactId>
+      <version>${esh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.test</groupId>
+      <artifactId>org.eclipse.smarthome.test</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
@@ -361,12 +466,12 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.ui</groupId>
-      <artifactId>org.eclipse.smarthome.ui</artifactId>
+      <artifactId>org.eclipse.smarthome.ui.icon</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.smarthome.ui</groupId>
-      <artifactId>org.eclipse.smarthome.ui.icon</artifactId>
+      <artifactId>org.eclipse.smarthome.ui</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>

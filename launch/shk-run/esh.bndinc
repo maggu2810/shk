@@ -18,11 +18,13 @@ runbundles.esh.normal: \
 	org.eclipse.smarthome.config.discovery,\
 	org.eclipse.smarthome.config.dispatch,\
 	org.eclipse.smarthome.core,\
+	org.eclipse.smarthome.core.audio,\
 	org.eclipse.smarthome.core.autoupdate,\
 	org.eclipse.smarthome.core.id,\
 	org.eclipse.smarthome.core.persistence,\
 	org.eclipse.smarthome.core.scheduler,\
 	org.eclipse.smarthome.core.transform,\
+	org.eclipse.smarthome.core.voice,\
 	org.eclipse.smarthome.io.console,\
 	org.eclipse.smarthome.io.javasound,\
 	org.eclipse.smarthome.io.monitor,\
