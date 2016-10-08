@@ -28,7 +28,7 @@
         <artifactId>maven-jar-plugin</artifactId>
         <inherited>false</inherited>
         <configuration>
-          <archive combine.self="override"/>
+          <archive combine.self="override" />
         </configuration>
       </plugin>
     </plugins>

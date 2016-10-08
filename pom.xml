@@ -100,6 +100,11 @@
         <version>${esh.version}</version>
       </dependency>
       <dependency>
+        <groupId>org.eclipse.smarthome.core</groupId>
+        <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.eclipse.smarthome.config</groupId>
         <artifactId>org.eclipse.smarthome.config.core</artifactId>
         <version>${esh.version}</version>

@@ -8,10 +8,10 @@
     <version>1.11-SNAPSHOT</version>
   </parent>
 
-  <artifactId>slf4j</artifactId>
+  <artifactId>logging</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: SLF4J</name>
+  <name>shk :: Tools :: Externals :: Logging</name>
 
   <dependencies>
     <dependency>

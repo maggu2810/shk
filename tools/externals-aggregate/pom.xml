@@ -64,18 +64,15 @@
 
     <!-- Google Guava -->
     <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>google-guava</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>18.0</version>
     </dependency>
 
     <!-- Google Protocol Buffers -->
     <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>google-protobuf</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
     </dependency>
 
     <!-- H2 database -->
@@ -87,42 +84,35 @@
 
     <!-- Jackson -->
     <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>jackson</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
     </dependency>
 
     <!-- JmDNS -->
     <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <groupId>org.jmdns</groupId>
       <artifactId>jmdns</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
     </dependency>
 
     <!-- jUPnP -->
     <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>jupnp</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>org.jupnp</groupId>
+      <artifactId>org.jupnp</artifactId>
     </dependency>
 
-    <!-- Logback -->
+    <!-- Logging -->
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>logback</artifactId>
+      <artifactId>logging</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
 
     <!-- MapDB -->
     <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <groupId>org.mapdb</groupId>
       <artifactId>mapdb</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <version>1.0.9</version>
     </dependency>
 
     <!-- openHAB Core -->
@@ -156,14 +146,6 @@
       <type>pom</type>
     </dependency>
 
-    <!-- Simple Logging Facade for Java (SLF4J) -->
-    <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>slf4j</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
-    </dependency>
-
     <!-- Spring -->
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>
@@ -174,10 +156,9 @@
 
     <!-- XStream -->
     <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>xstream</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.xstream</artifactId>
+      <version>1.4.7_1</version>
     </dependency>
 
     <!-- Xtext -->
