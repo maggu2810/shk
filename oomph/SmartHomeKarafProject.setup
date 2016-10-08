@@ -744,6 +744,8 @@
         name="bndtools.main.feature.feature.group"/>
     <requirement
         name="org.eclipse.m2e.feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.github.feature.feature.group"/>
     <repository
         url="https://dl.bintray.com/bndtools/bndtools/latest/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
