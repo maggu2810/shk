@@ -131,7 +131,7 @@ runbundles.xtext: \
 	-Dorg.quartz.properties=wdir/quartz.properties\n\
 	-Djetty.home=wdir\n\
 	-DmdnsName=shk.eclipse\n\
-	-Dopenhab.logdir=logs\n\
+	-Dshk.logdir=logs\n\
 	-Dsmarthome.servicepid=do.not.rely.on.that\n\
 	-Dsmarthome.configdir=wdir/conf\n\
 	-Dsmarthome.userdata=wdir/userdata\n\
