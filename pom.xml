@@ -11,7 +11,8 @@
   <version>1.12-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>shk :: SmartHome for Karaf</name>
+  <name>shk</name>
+  <description>SmartHome for Karaf</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
