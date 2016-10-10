@@ -48,4 +48,12 @@
     <feature dependency="true">esh-io-transport-mdns</feature>
   </feature>
 
+  <feature name="shk-persistence-h2" version="${project.version}">
+    <bundle>mvn:de.maggu2810.shk.bundles/shk-persistence-h2/${project.version}</bundle>
+    <feature dependency="true">esh-base</feature>
+    <feature dependency="true">pax-jdbc</feature>
+    <feature dependency="true">pax-jdbc-h2</feature>
+    <requirement>osgi.wiring.package;filter:="(osgi.wiring.package=org.h2)"</requirement>
+  </feature>
+
 </features>
