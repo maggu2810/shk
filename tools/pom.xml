@@ -31,7 +31,6 @@
     <module>externals-aggregate</module>
     <module>shk-bundles</module>
     <module>shk-repo</module>
-    <module>shk-repo-jar</module>
   </modules>
 
 </project>
