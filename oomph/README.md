@@ -25,6 +25,15 @@ Github Projects, "&lt;User&gt;", SmartHome Karaf
 
 ## Post installation steps
 
+### Fix Working Sets
+
+Sometimes the dynamic working sets are not applied correctly.
+
+* Menu: Windows, Preferences
+* Oomph, Dynamic Working Sets: Press "Apply"
+
+## Notes
+
 ### (Re)Create Repository
 
 * Open Working Set: shk
