@@ -355,6 +355,10 @@
           key="/instance/org.eclipse.egit.ui/commit_dialog_signed_off_by">
         <value>record</value>
       </detail>
+      <detail
+          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unhandledWarningToken">
+        <value>record</value>
+      </detail>
     </annotation>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -407,6 +411,10 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.staticFinalFieldSuffixes"
           value=""/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.problem.unhandledWarningToken"
+          value="ignore"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
