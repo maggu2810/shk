@@ -41,7 +41,7 @@
     <protobuf.version>2.6.0</protobuf.version>
     <jackson.version>1.9.13</jackson.version>
 
-    <maven.build.resources.version>1.5</maven.build.resources.version>
+    <maven.build.resources.version>1.6</maven.build.resources.version>
     <quality.skip>false</quality.skip>
 
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
