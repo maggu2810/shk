@@ -450,7 +450,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.exception.name"
-          value="e"/>
+          value="ex"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.formatterprofiles"
