@@ -166,9 +166,8 @@ public class H2SqlPersistenceService extends H2AbstractPersistenceService {
             if (itemRegistry != null) {
                 item = itemRegistry.getItem(itemName);
             }
-        } catch (final ItemNotFoundException e) {
-            logger.error("H2SQL: Unable to get item type for {}", itemName);
-            logger.error("     : " + e.getMessage());
+        } catch (final ItemNotFoundException ex) {
+            logger.error("H2SQL: Unable to get item type for {}.", itemName, ex);
 
             // Set type to null - data will be returned as StringType
             item = null;
