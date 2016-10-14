@@ -691,16 +691,6 @@
     <!-- <enabled>true</enabled> -->
     <!-- </snapshots> -->
     <!-- </pluginRepository> -->
-    <!-- <pluginRepository> -->
-    <!-- <id>github-maggu2810-mvn-repo</id> -->
-    <!-- <url>https://github.com/maggu2810/mvn-repo/raw/master</url> -->
-    <!-- <releases> -->
-    <!-- <enabled>false</enabled> -->
-    <!-- </releases> -->
-    <!-- <snapshots> -->
-    <!-- <enabled>true</enabled> -->
-    <!-- </snapshots> -->
-    <!-- </pluginRepository> -->
   </pluginRepositories>
 
   <repositories>
@@ -738,17 +728,6 @@
       </snapshots>
     </repository>
 
-    <!-- <repository> -->
-    <!-- <id>github-maggu2810-mvn-repo</id> -->
-    <!-- <url>https://github.com/maggu2810/mvn-repo/raw/master</url> -->
-    <!-- <releases> -->
-    <!-- <enabled>false</enabled> -->
-    <!-- </releases> -->
-    <!-- <snapshots> -->
-    <!-- <enabled>true</enabled> -->
-    <!-- </snapshots> -->
-    <!-- </repository> -->
-
     <!-- maggu2810's SmartHome repository -->
     <repository>
       <id>bintray-maggu2810-smarthome</id>
@@ -758,6 +737,18 @@
       </releases>
       <snapshots>
         <enabled>false</enabled>
+      </snapshots>
+    </repository>
+
+    <!-- maggu2810's ESH snapshot repository -->
+    <repository>
+      <id>github-maggu2810-esh-snapshots</id>
+      <url>https://github.com/maggu2810/mvn-repo/raw/esh-snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
       </snapshots>
     </repository>
 
