@@ -23,16 +23,12 @@ package de.maggu2810.shk.chromecast_api;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
- * A custom event sent by a receiver app.
+ * An event triggered when remote connection was closed.
  */
-public class AppEvent {
-    @JsonProperty
-    public final String namespace;
-    @JsonProperty
-    public final String message;
+public class Close {
+    public final boolean requestedBySender;
 
-    AppEvent(final String namespace, final String message) {
-        this.namespace = namespace;
-        this.message = message;
+    Close(@JsonProperty("requestedBySender") final boolean requestedBySender) {
+        this.requestedBySender = requestedBySender;
     }
 }

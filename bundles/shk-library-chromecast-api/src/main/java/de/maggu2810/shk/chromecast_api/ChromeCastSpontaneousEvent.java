@@ -22,6 +22,8 @@ package de.maggu2810.shk.chromecast_api;
 
 import org.codehaus.jackson.JsonNode;
 
+import de.maggu2810.shk.chromecast_api.StandardResponse.Close;
+
 public class ChromeCastSpontaneousEvent {
 
     public enum SpontaneousEventType {
@@ -35,6 +37,11 @@ public class ChromeCastSpontaneousEvent {
          * Data type will be {@link Status}.
          */
         STATUS(Status.class),
+
+        /**
+         * Data type will be {@link Close}.
+         */
+        CLOSE(Close.class),
 
         /**
          * Data type will be {@link AppEvent}.

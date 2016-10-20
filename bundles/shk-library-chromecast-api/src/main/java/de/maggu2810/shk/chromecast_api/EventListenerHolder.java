@@ -72,6 +72,10 @@ class EventListenerHolder implements ChromeCastSpontaneousEventListener, ChromeC
         } else if (resp instanceof StandardResponse.Status) {
             spontaneousEventReceived(new ChromeCastSpontaneousEvent(SpontaneousEventType.STATUS,
                     ((StandardResponse.Status) resp).status));
+        } else if (resp instanceof StandardResponse.Close) {
+            final StandardResponse.Close ev = (StandardResponse.Close) resp;
+            spontaneousEventReceived(
+                    new ChromeCastSpontaneousEvent(SpontaneousEventType.CLOSE, new Close(ev.requestedBySender)));
         } else {
             spontaneousEventReceived(new ChromeCastSpontaneousEvent(SpontaneousEventType.UNKNOWN, json));
         }
