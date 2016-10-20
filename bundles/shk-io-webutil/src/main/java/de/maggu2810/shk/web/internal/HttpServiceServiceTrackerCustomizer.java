@@ -82,7 +82,7 @@ public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustom
         int port;
 
         port = parsePort(reference.getProperty(prop));
-        if (port != 1) {
+        if (port != -1) {
             return port;
         }
 
