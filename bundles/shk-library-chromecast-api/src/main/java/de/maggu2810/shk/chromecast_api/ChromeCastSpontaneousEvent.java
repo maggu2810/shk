@@ -22,7 +22,7 @@ package de.maggu2810.shk.chromecast_api;
 
 import org.codehaus.jackson.JsonNode;
 
-public class ChromeCastMessageEvent {
+public class ChromeCastSpontaneousEvent {
 
     public enum SpontaneousEventType {
 
@@ -35,6 +35,11 @@ public class ChromeCastMessageEvent {
          * Data type will be {@link Status}.
          */
         STATUS(Status.class),
+
+        /**
+         * Data type will be {@link AppEvent}.
+         */
+        APPEVENT(AppEvent.class),
 
         /**
          * Data type will be {@link org.codehaus.jackson.JsonNode}.
@@ -55,10 +60,10 @@ public class ChromeCastMessageEvent {
     private final SpontaneousEventType type;
     private final Object data;
 
-    public ChromeCastMessageEvent(final SpontaneousEventType type, final Object data) {
+    public ChromeCastSpontaneousEvent(final SpontaneousEventType type, final Object data) {
         if (!type.getDataClass().isAssignableFrom(data.getClass())) {
-            throw new IllegalArgumentException("Data type " + data.getClass() + " does not match type for event "
-                    + type.getDataClass());
+            throw new IllegalArgumentException(
+                    "Data type " + data.getClass() + " does not match type for event " + type.getDataClass());
         }
         this.type = type;
         this.data = data;
@@ -74,8 +79,8 @@ public class ChromeCastMessageEvent {
 
     public <T> T getData(final Class<T> cls) {
         if (!cls.isAssignableFrom(this.type.getDataClass())) {
-            throw new IllegalArgumentException("Requested type " + cls + " does not match type for event "
-                    + this.type.getDataClass());
+            throw new IllegalArgumentException(
+                    "Requested type " + cls + " does not match type for event " + this.type.getDataClass());
         }
         return cls.cast(this.data);
     }

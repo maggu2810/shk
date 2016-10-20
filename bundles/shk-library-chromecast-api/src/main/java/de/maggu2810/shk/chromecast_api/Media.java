@@ -34,7 +34,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  *
  * @see <a
  *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation">https://
-
+ *
  *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation</a>
  */
 public class Media {
@@ -51,7 +51,7 @@ public class Media {
      *
      * @see <a
      *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType">https://
-
+     *
      *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType</a>
      */
     public enum StreamType {
@@ -133,10 +133,10 @@ public class Media {
         }
         final Media that = (Media) obj;
         return this.url == null ? that.url == null
-                : this.url.equals(that.url) && this.contentType == null ? that.contentType == null : this.contentType
-                        .equals(that.contentType) && this.streamType == null ? that.streamType == null
-                        : this.streamType.equals(that.streamType) && this.duration == null ? that.duration == null
-                                : this.duration.equals(that.duration);
+                : this.url.equals(that.url) && this.contentType == null ? that.contentType == null
+                        : this.contentType.equals(that.contentType) && this.streamType == null ? that.streamType == null
+                                : this.streamType.equals(that.streamType) && this.duration == null
+                                        ? that.duration == null : this.duration.equals(that.duration);
     }
 
     @Override

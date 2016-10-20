@@ -45,7 +45,7 @@ final class CastChannel {
         /**
          * <code>RSASSA_PSS = 2;</code>
          */
-        RSASSA_PSS(2, 2), ;
+        RSASSA_PSS(2, 2),;
 
         /**
          * <code>UNSPECIFIED = 0;</code>
@@ -95,7 +95,7 @@ final class CastChannel {
     }
 
     public interface CastMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.CastMessage)
+            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.CastMessage)
             com.google.protobuf.MessageLiteOrBuilder {
 
         /**
@@ -268,7 +268,7 @@ final class CastChannel {
      * Protobuf type {@code su.litvak.chromecast.api.v2.CastMessage}
      */
     public static final class CastMessage extends com.google.protobuf.GeneratedMessageLite implements
-    // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.CastMessage)
+            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.CastMessage)
             CastMessageOrBuilder {
         // Use CastMessage.newBuilder() to construct.
         private CastMessage(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
@@ -415,7 +415,7 @@ final class CastChannel {
             /**
              * <code>CASTV2_1_0 = 0;</code>
              */
-            CASTV2_1_0(0, 0), ;
+            CASTV2_1_0(0, 0),;
 
             /**
              * <code>CASTV2_1_0 = 0;</code>
@@ -467,7 +467,7 @@ final class CastChannel {
             /**
              * <code>BINARY = 1;</code>
              */
-            BINARY(1, 1), ;
+            BINARY(1, 1),;
 
             /**
              * <code>STRING = 0;</code>
@@ -967,9 +967,8 @@ final class CastChannel {
             return PARSER.parseFrom(input);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(
-                final java.io.InputStream input, final com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.CastMessage parseFrom(final java.io.InputStream input,
+                final com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
             return PARSER.parseFrom(input, extensionRegistry);
         }
 
@@ -1016,8 +1015,7 @@ final class CastChannel {
         /**
          * Protobuf type {@code su.litvak.chromecast.api.v2.CastMessage}
          */
-        public static final class Builder
-                extends
+        public static final class Builder extends
                 com.google.protobuf.GeneratedMessageLite.Builder<de.maggu2810.shk.chromecast_api.CastChannel.CastMessage, Builder>
                 implements
                 // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.CastMessage)
@@ -1800,7 +1798,7 @@ final class CastChannel {
     }
 
     public interface AuthChallengeOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthChallenge)
+            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthChallenge)
             com.google.protobuf.MessageLiteOrBuilder {
 
         /**
@@ -1822,7 +1820,7 @@ final class CastChannel {
      * </pre>
      */
     public static final class AuthChallenge extends com.google.protobuf.GeneratedMessageLite implements
-    // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthChallenge)
+            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthChallenge)
             AuthChallengeOrBuilder {
         // Use AuthChallenge.newBuilder() to construct.
         private AuthChallenge(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
@@ -2070,8 +2068,7 @@ final class CastChannel {
          * Messages for authentication protocol between a sender and a receiver.
          * </pre>
          */
-        public static final class Builder
-                extends
+        public static final class Builder extends
                 com.google.protobuf.GeneratedMessageLite.Builder<de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge, Builder>
                 implements
                 // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthChallenge)
@@ -2220,7 +2217,7 @@ final class CastChannel {
     }
 
     public interface AuthResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthResponse)
+            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthResponse)
             com.google.protobuf.MessageLiteOrBuilder {
 
         /**
@@ -2273,7 +2270,7 @@ final class CastChannel {
      * Protobuf type {@code su.litvak.chromecast.api.v2.AuthResponse}
      */
     public static final class AuthResponse extends com.google.protobuf.GeneratedMessageLite implements
-    // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthResponse)
+            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthResponse)
             AuthResponseOrBuilder {
         // Use AuthResponse.newBuilder() to construct.
         private AuthResponse(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
@@ -2540,8 +2537,8 @@ final class CastChannel {
             {
                 int dataSize = 0;
                 for (int i = 0; i < intermediateCertificate_.size(); i++) {
-                    dataSize += com.google.protobuf.CodedOutputStream.computeBytesSizeNoTag(intermediateCertificate_
-                            .get(i));
+                    dataSize += com.google.protobuf.CodedOutputStream
+                            .computeBytesSizeNoTag(intermediateCertificate_.get(i));
                 }
                 size += dataSize;
                 size += 1 * getIntermediateCertificateList().size();
@@ -2584,8 +2581,8 @@ final class CastChannel {
             return PARSER.parseFrom(data, extensionRegistry);
         }
 
-        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(final java.io.InputStream input)
-                throws java.io.IOException {
+        public static de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse parseFrom(
+                final java.io.InputStream input) throws java.io.IOException {
             return PARSER.parseFrom(input);
         }
 
@@ -2638,8 +2635,7 @@ final class CastChannel {
         /**
          * Protobuf type {@code su.litvak.chromecast.api.v2.AuthResponse}
          */
-        public static final class Builder
-                extends
+        public static final class Builder extends
                 com.google.protobuf.GeneratedMessageLite.Builder<de.maggu2810.shk.chromecast_api.CastChannel.AuthResponse, Builder>
                 implements
                 // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthResponse)
@@ -2993,7 +2989,7 @@ final class CastChannel {
     }
 
     public interface AuthErrorOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthError)
+            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthError)
             com.google.protobuf.MessageLiteOrBuilder {
 
         /**
@@ -3011,7 +3007,7 @@ final class CastChannel {
      * Protobuf type {@code su.litvak.chromecast.api.v2.AuthError}
      */
     public static final class AuthError extends com.google.protobuf.GeneratedMessageLite implements
-    // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthError)
+            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthError)
             AuthErrorOrBuilder {
         // Use AuthError.newBuilder() to construct.
         private AuthError(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
@@ -3123,7 +3119,7 @@ final class CastChannel {
             /**
              * <code>SIGNATURE_ALGORITHM_UNAVAILABLE = 2;</code>
              */
-            SIGNATURE_ALGORITHM_UNAVAILABLE(2, 2), ;
+            SIGNATURE_ALGORITHM_UNAVAILABLE(2, 2),;
 
             /**
              * <code>INTERNAL_ERROR = 0;</code>
@@ -3330,8 +3326,7 @@ final class CastChannel {
         /**
          * Protobuf type {@code su.litvak.chromecast.api.v2.AuthError}
          */
-        public static final class Builder
-                extends
+        public static final class Builder extends
                 com.google.protobuf.GeneratedMessageLite.Builder<de.maggu2810.shk.chromecast_api.CastChannel.AuthError, Builder>
                 implements
                 // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthError)
@@ -3482,7 +3477,7 @@ final class CastChannel {
     }
 
     public interface DeviceAuthMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.DeviceAuthMessage)
+            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.DeviceAuthMessage)
             com.google.protobuf.MessageLiteOrBuilder {
 
         /**
@@ -3536,7 +3531,7 @@ final class CastChannel {
      * Protobuf type {@code su.litvak.chromecast.api.v2.DeviceAuthMessage}
      */
     public static final class DeviceAuthMessage extends com.google.protobuf.GeneratedMessageLite implements
-    // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.DeviceAuthMessage)
+            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.DeviceAuthMessage)
             DeviceAuthMessageOrBuilder {
         // Use DeviceAuthMessage.newBuilder() to construct.
         private DeviceAuthMessage(final com.google.protobuf.GeneratedMessageLite.Builder<?, ?> builder) {
@@ -3589,9 +3584,9 @@ final class CastChannel {
                             if ((bitField0_ & 0x00000001) == 0x00000001) {
                                 subBuilder = challenge_.toBuilder();
                             }
-                            challenge_ = input
-                                    .readMessage(de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.PARSER,
-                                            extensionRegistry);
+                            challenge_ = input.readMessage(
+                                    de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.PARSER,
+                                    extensionRegistry);
                             if (subBuilder != null) {
                                 subBuilder.mergeFrom(challenge_);
                                 challenge_ = subBuilder.buildPartial();
@@ -3878,7 +3873,8 @@ final class CastChannel {
             return newBuilder();
         }
 
-        public static Builder newBuilder(final de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage prototype) {
+        public static Builder newBuilder(
+                final de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage prototype) {
             return newBuilder().mergeFrom(prototype);
         }
 
@@ -3890,8 +3886,7 @@ final class CastChannel {
         /**
          * Protobuf type {@code su.litvak.chromecast.api.v2.DeviceAuthMessage}
          */
-        public static final class Builder
-                extends
+        public static final class Builder extends
                 com.google.protobuf.GeneratedMessageLite.Builder<de.maggu2810.shk.chromecast_api.CastChannel.DeviceAuthMessage, Builder>
                 implements
                 // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.DeviceAuthMessage)
@@ -4084,7 +4079,8 @@ final class CastChannel {
              */
             public Builder mergeChallenge(final de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge value) {
                 if ((bitField0_ & 0x00000001) == 0x00000001
-                        && challenge_ != de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.getDefaultInstance()) {
+                        && challenge_ != de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge
+                                .getDefaultInstance()) {
                     challenge_ = de.maggu2810.shk.chromecast_api.CastChannel.AuthChallenge.newBuilder(challenge_)
                             .mergeFrom(value).buildPartial();
                 } else {
@@ -4237,7 +4233,8 @@ final class CastChannel {
             /**
              * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
              */
-            public Builder setError(final de.maggu2810.shk.chromecast_api.CastChannel.AuthError.Builder builderForValue) {
+            public Builder setError(
+                    final de.maggu2810.shk.chromecast_api.CastChannel.AuthError.Builder builderForValue) {
                 error_ = builderForValue.build();
 
                 bitField0_ |= 0x00000004;

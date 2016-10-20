@@ -27,7 +27,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
  *
  * @see <a
  *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track">https://developers.
-
+ *
  *      google.com/cast/docs/reference/receiver/cast.receiver.media.Track</a>
  */
 public class Track {
@@ -36,7 +36,7 @@ public class Track {
      *
      * @see <a
      *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType">https://
-
+     *
      *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType</a>
      */
     public enum TrackType {

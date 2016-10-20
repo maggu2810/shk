@@ -31,14 +31,14 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "responseType")
 @JsonSubTypes({ @JsonSubTypes.Type(name = "PING", value = StandardResponse.Ping.class),
-               @JsonSubTypes.Type(name = "PONG", value = StandardResponse.Pong.class),
-               @JsonSubTypes.Type(name = "RECEIVER_STATUS", value = StandardResponse.Status.class),
-               @JsonSubTypes.Type(name = "GET_APP_AVAILABILITY", value = StandardResponse.AppAvailability.class),
-               @JsonSubTypes.Type(name = "INVALID_REQUEST", value = StandardResponse.Invalid.class),
-               @JsonSubTypes.Type(name = "MEDIA_STATUS", value = StandardResponse.MediaStatus.class),
-               @JsonSubTypes.Type(name = "CLOSE", value = StandardResponse.Close.class),
-               @JsonSubTypes.Type(name = "LOAD_FAILED", value = StandardResponse.LoadFailed.class),
-               @JsonSubTypes.Type(name = "LAUNCH_ERROR", value = StandardResponse.LaunchError.class) })
+        @JsonSubTypes.Type(name = "PONG", value = StandardResponse.Pong.class),
+        @JsonSubTypes.Type(name = "RECEIVER_STATUS", value = StandardResponse.Status.class),
+        @JsonSubTypes.Type(name = "GET_APP_AVAILABILITY", value = StandardResponse.AppAvailability.class),
+        @JsonSubTypes.Type(name = "INVALID_REQUEST", value = StandardResponse.Invalid.class),
+        @JsonSubTypes.Type(name = "MEDIA_STATUS", value = StandardResponse.MediaStatus.class),
+        @JsonSubTypes.Type(name = "CLOSE", value = StandardResponse.Close.class),
+        @JsonSubTypes.Type(name = "LOAD_FAILED", value = StandardResponse.LoadFailed.class),
+        @JsonSubTypes.Type(name = "LAUNCH_ERROR", value = StandardResponse.LaunchError.class) })
 abstract class StandardResponse implements Response {
     Long requestId;
 

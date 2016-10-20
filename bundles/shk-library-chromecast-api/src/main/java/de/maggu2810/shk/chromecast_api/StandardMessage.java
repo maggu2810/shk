@@ -30,17 +30,17 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({ @JsonSubTypes.Type(name = "PING", value = StandardMessage.Ping.class),
-               @JsonSubTypes.Type(name = "PONG", value = StandardMessage.Pong.class),
-               @JsonSubTypes.Type(name = "CONNECT", value = StandardMessage.Connect.class),
-               @JsonSubTypes.Type(name = "GET_STATUS", value = StandardRequest.Status.class),
-               @JsonSubTypes.Type(name = "GET_APP_AVAILABILITY", value = StandardRequest.AppAvailability.class),
-               @JsonSubTypes.Type(name = "LAUNCH", value = StandardRequest.Launch.class),
-               @JsonSubTypes.Type(name = "STOP", value = StandardRequest.Stop.class),
-               @JsonSubTypes.Type(name = "LOAD", value = StandardRequest.Load.class),
-               @JsonSubTypes.Type(name = "PLAY", value = StandardRequest.Play.class),
-               @JsonSubTypes.Type(name = "PAUSE", value = StandardRequest.Pause.class),
-               @JsonSubTypes.Type(name = "SET_VOLUME", value = StandardRequest.SetVolume.class),
-               @JsonSubTypes.Type(name = "SEEK", value = StandardRequest.Seek.class) })
+        @JsonSubTypes.Type(name = "PONG", value = StandardMessage.Pong.class),
+        @JsonSubTypes.Type(name = "CONNECT", value = StandardMessage.Connect.class),
+        @JsonSubTypes.Type(name = "GET_STATUS", value = StandardRequest.Status.class),
+        @JsonSubTypes.Type(name = "GET_APP_AVAILABILITY", value = StandardRequest.AppAvailability.class),
+        @JsonSubTypes.Type(name = "LAUNCH", value = StandardRequest.Launch.class),
+        @JsonSubTypes.Type(name = "STOP", value = StandardRequest.Stop.class),
+        @JsonSubTypes.Type(name = "LOAD", value = StandardRequest.Load.class),
+        @JsonSubTypes.Type(name = "PLAY", value = StandardRequest.Play.class),
+        @JsonSubTypes.Type(name = "PAUSE", value = StandardRequest.Pause.class),
+        @JsonSubTypes.Type(name = "SET_VOLUME", value = StandardRequest.SetVolume.class),
+        @JsonSubTypes.Type(name = "SEEK", value = StandardRequest.Seek.class) })
 abstract class StandardMessage implements Message {
     static class Ping extends StandardMessage {
     }

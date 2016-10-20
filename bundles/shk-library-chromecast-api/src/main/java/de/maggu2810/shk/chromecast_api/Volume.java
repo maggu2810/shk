@@ -73,8 +73,8 @@ public class Volume {
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[] { this.level, this.muted, this.increment, this.stepInterval,
-                                             this.controlType });
+        return Arrays
+                .hashCode(new Object[] { this.level, this.muted, this.increment, this.stepInterval, this.controlType });
     }
 
     @Override

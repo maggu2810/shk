@@ -30,7 +30,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
  * Current media player status - which media is played, volume, time position, etc.
  *
  * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus">https://
-
+ *
  *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus</a>
  */
 public class MediaStatus {
@@ -39,7 +39,7 @@ public class MediaStatus {
      *
      * @see <a
      *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState">https://
-
+     *
      *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState</a>
      */
     public enum PlayerState {
@@ -52,7 +52,7 @@ public class MediaStatus {
     /**
      * @see <a
      *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode">https://
-
+     *
      *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode</a>
      */
     public enum RepeatMode {
@@ -73,7 +73,7 @@ public class MediaStatus {
      *
      * @see <a
      *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason">https://
-
+     *
      *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason</a>
      */
     public enum IdleReason {
@@ -133,11 +133,11 @@ public class MediaStatus {
     @Override
     public String toString() {
         return "MediaStatus{" + "activeTrackIds=" + activeTrackIds + ", mediaSessionId=" + mediaSessionId
-                + ", playbackRate=" + playbackRate + ", playerState=" + playerState + ", currentItemId="
-                + currentItemId + ", currentTime=" + currentTime + ", customData=" + customData + ", loadingItemId="
-                + loadingItemId + ", items=" + items + ", preloadedItemId=" + preloadedItemId
-                + ", supportedMediaCommands=" + supportedMediaCommands + ", volume=" + volume + ", media=" + media
-                + ", repeatMode=" + repeatMode + ", idleReason=" + idleReason + '}';
+                + ", playbackRate=" + playbackRate + ", playerState=" + playerState + ", currentItemId=" + currentItemId
+                + ", currentTime=" + currentTime + ", customData=" + customData + ", loadingItemId=" + loadingItemId
+                + ", items=" + items + ", preloadedItemId=" + preloadedItemId + ", supportedMediaCommands="
+                + supportedMediaCommands + ", volume=" + volume + ", media=" + media + ", repeatMode=" + repeatMode
+                + ", idleReason=" + idleReason + '}';
     }
 
 }

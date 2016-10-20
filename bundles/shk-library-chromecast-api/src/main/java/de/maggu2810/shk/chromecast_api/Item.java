@@ -59,9 +59,9 @@ public class Item {
             return false;
         }
         final Item that = (Item) obj;
-        return this.autoplay == that.autoplay && this.customData == null ? that.customData == null : this.customData
-                .equals(that.customData) && this.id == that.id && this.media == null ? that.media == null : this.media
-                .equals(that.media);
+        return this.autoplay == that.autoplay && this.customData == null ? that.customData == null
+                : this.customData.equals(that.customData) && this.id == that.id && this.media == null
+                        ? that.media == null : this.media.equals(that.media);
     }
 
     @Override

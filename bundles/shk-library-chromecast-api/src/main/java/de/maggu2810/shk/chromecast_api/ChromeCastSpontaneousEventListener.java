@@ -20,8 +20,8 @@
 
 package de.maggu2810.shk.chromecast_api;
 
-public interface ChromeCastMessageEventListener {
+public interface ChromeCastSpontaneousEventListener {
 
-    void messageEventReceived(ChromeCastMessageEvent event);
+    void spontaneousEventReceived(ChromeCastSpontaneousEvent event);
 
 }
