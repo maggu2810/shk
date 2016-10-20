@@ -11,3 +11,6 @@ integrate ref: 0135b3d46b7d1b28e2cb963a40724a5f4babbd08
 
 2016-10-20 23:02
 integrate ref: ef47a1a22f46a5e91337d328a7919f9de40ebd55
+
+2016-10-20 23:46
+integrate ref: https://github.com/vitalidze/chromecast-java-api-v2/pull/40/
