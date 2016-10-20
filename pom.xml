@@ -168,7 +168,7 @@
         <!--Apache License, Version 2.0 -->
         <groupId>org.jmdns</groupId>
         <artifactId>jmdns</artifactId>
-        <version>3.5.0</version>
+        <version>3.5.1</version>
       </dependency>
 
       <!-- JUnit -->
