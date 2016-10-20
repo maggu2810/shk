@@ -31,6 +31,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.maggu2810.shk.chromecast_api.ChromeCastSpontaneousEvent.SpontaneousEventType;
+import de.maggu2810.shk.chromecast_api.StandardResponse.Close;
 
 public class EventListenerHolderTest {
     private final ObjectMapper jsonMapper = new ObjectMapper();
