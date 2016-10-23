@@ -34,14 +34,14 @@ import de.maggu2810.shk.chromecast_api.Application;
 import de.maggu2810.shk.chromecast_api.ChromeCast;
 import de.maggu2810.shk.chromecast_api.ChromeCastConnectionEvent;
 import de.maggu2810.shk.chromecast_api.ChromeCastConnectionEventListener;
-import de.maggu2810.shk.chromecast_api.ChromeCastMessageEvent;
-import de.maggu2810.shk.chromecast_api.ChromeCastMessageEventListener;
+import de.maggu2810.shk.chromecast_api.ChromeCastSpontaneousEvent;
+import de.maggu2810.shk.chromecast_api.ChromeCastSpontaneousEventListener;
 import de.maggu2810.shk.chromecast_api.MediaStatus;
 import de.maggu2810.shk.chromecast_api.Status;
 import de.maggu2810.shk.chromecast_api.Volume;
 
 public class ThingHandlerChromecast extends BaseThingHandler
-        implements ChromeCastConnectionEventListener, ChromeCastMessageEventListener {
+        implements ChromeCastConnectionEventListener, ChromeCastSpontaneousEventListener {
 
     private static final String MEDIA_PLAYER = "CC1AD845";
 
@@ -137,10 +137,14 @@ public class ThingHandlerChromecast extends BaseThingHandler
                 handleCommandPlay(command);
                 break;
             case BindingConstants.CHANNEL_PLAYURI:
-                handleCommandPlayUri(command);
+                if (command instanceof StringType) {
+                    playUri(((StringType) command).toString());
+                }
                 break;
             case BindingConstants.CHANNEL_VOLUME:
-                handleCommandVolume(command);
+                if (command instanceof PercentType) {
+                    setVolume(((PercentType) command).intValue());
+                }
                 break;
             default:
                 logger.debug("unhandled channel: {}", channelUID);
@@ -163,35 +167,31 @@ public class ThingHandlerChromecast extends BaseThingHandler
         }
     }
 
-    private void handleCommandPlayUri(final Command command) {
-        if (command instanceof StringType) {
-            // Test URI: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
-            final StringType uri = (StringType) command;
-            try {
-                final Status status = chromecast.getStatus();
-                if (chromecast.isAppAvailable(MEDIA_PLAYER)) {
-                    if (!status.isAppRunning(MEDIA_PLAYER)) {
-                        final Application app = chromecast.launchApp(MEDIA_PLAYER);
-                        logger.debug("Application launched: {}", app);
-                    }
-                    chromecast.load(uri.toString());
-                } else {
-                    logger.error("Missing media player app");
+    void playUri(final String uri) {
+        // Test URI: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+        try {
+            final Status status = chromecast.getStatus();
+            if (chromecast.isAppAvailable(MEDIA_PLAYER)) {
+                if (!status.isAppRunning(MEDIA_PLAYER)) {
+                    final Application app = chromecast.launchApp(MEDIA_PLAYER);
+                    logger.debug("Application launched: {}", app);
                 }
-            } catch (final IOException ex) {
-                logger.debug("Play URI failed.", ex);
+                chromecast.load(uri);
+                updateState(BindingConstants.CHANNEL_PLAYURI, new StringType(uri));
+            } else {
+                logger.error("Missing media player app");
             }
+        } catch (final IOException ex) {
+            logger.debug("Play URI failed.", ex);
         }
     }
 
-    private void handleCommandVolume(final Command command) {
-        if (command instanceof PercentType) {
-            final PercentType num = (PercentType) command;
-            try {
-                chromecast.setVolume(num.floatValue() / 100);
-            } catch (final IOException ex) {
-                logger.debug("Set volume failed.", ex);
-            }
+    void setVolume(final int percent) {
+        try {
+            chromecast.setVolume(percent / 100);
+            updateState(BindingConstants.CHANNEL_VOLUME, new PercentType(percent));
+        } catch (final IOException ex) {
+            logger.debug("Set volume failed.", ex);
         }
     }
 
@@ -217,11 +217,11 @@ public class ThingHandlerChromecast extends BaseThingHandler
         switch (mediaStatus.playerState) {
             case IDLE:
             case PAUSED:
-                updateState(new ChannelUID(getThing().getUID(), BindingConstants.CHANNEL_PLAY), OnOffType.OFF);
+                updateState(BindingConstants.CHANNEL_PLAY, OnOffType.OFF);
                 break;
             case BUFFERING:
             case PLAYING:
-                updateState(new ChannelUID(getThing().getUID(), BindingConstants.CHANNEL_PLAY), OnOffType.ON);
+                updateState(BindingConstants.CHANNEL_PLAY, OnOffType.ON);
                 break;
             default:
                 break;
@@ -231,12 +231,11 @@ public class ThingHandlerChromecast extends BaseThingHandler
     }
 
     private void handleCcVolume(final Volume volume) {
-        updateState(new ChannelUID(getThing().getUID(), BindingConstants.CHANNEL_VOLUME),
-                new PercentType((int) (volume.level * 100)));
+        updateState(BindingConstants.CHANNEL_VOLUME, new PercentType((int) (volume.level * 100)));
     }
 
     @Override
-    public void messageEventReceived(final ChromeCastMessageEvent event) {
+    public void spontaneousEventReceived(final ChromeCastSpontaneousEvent event) {
         switch (event.getType()) {
             case MEDIA_STATUS:
                 final MediaStatus mediaStatus = event.getData(MediaStatus.class);
