@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import su.litvak.chromecast.api.v2.ChromeCastSpontaneousEvent.SpontaneousEventType;
+import su.litvak.chromecast.api.v2.StandardResponse.Close;
 
 public class EventListenerHolderTest {
     private final ObjectMapper jsonMapper = new ObjectMapper();
