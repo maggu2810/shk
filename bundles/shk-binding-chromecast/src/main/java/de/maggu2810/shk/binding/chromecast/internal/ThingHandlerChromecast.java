@@ -30,15 +30,15 @@ import org.eclipse.smarthome.core.types.Command;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.maggu2810.shk.chromecast_api.Application;
-import de.maggu2810.shk.chromecast_api.ChromeCast;
-import de.maggu2810.shk.chromecast_api.ChromeCastConnectionEvent;
-import de.maggu2810.shk.chromecast_api.ChromeCastConnectionEventListener;
-import de.maggu2810.shk.chromecast_api.ChromeCastSpontaneousEvent;
-import de.maggu2810.shk.chromecast_api.ChromeCastSpontaneousEventListener;
-import de.maggu2810.shk.chromecast_api.MediaStatus;
-import de.maggu2810.shk.chromecast_api.Status;
-import de.maggu2810.shk.chromecast_api.Volume;
+import su.litvak.chromecast.api.v2.Application;
+import su.litvak.chromecast.api.v2.ChromeCast;
+import su.litvak.chromecast.api.v2.ChromeCastConnectionEvent;
+import su.litvak.chromecast.api.v2.ChromeCastConnectionEventListener;
+import su.litvak.chromecast.api.v2.ChromeCastSpontaneousEvent;
+import su.litvak.chromecast.api.v2.ChromeCastSpontaneousEventListener;
+import su.litvak.chromecast.api.v2.MediaStatus;
+import su.litvak.chromecast.api.v2.Status;
+import su.litvak.chromecast.api.v2.Volume;
 
 public class ThingHandlerChromecast extends BaseThingHandler
         implements ChromeCastConnectionEventListener, ChromeCastSpontaneousEventListener {
