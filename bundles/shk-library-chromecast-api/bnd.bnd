@@ -1,6 +1,5 @@
 -exportcontents: \
   !*.internal.*,\
   !*.impl.*,\
-  de.maggu2810.shk.*,\
   su.litvak.chromecast.api.v2.*
 
