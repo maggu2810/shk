@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package su.litvak.chromecast.api.v2;
 
 import java.util.Arrays;
@@ -26,53 +25,29 @@ import org.codehaus.jackson.annotate.JsonProperty;
 /**
  * Current media player status - which media is played, volume, time position, etc.
  *
- * @see <a href=
- *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus</a>
+ * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus</a>
  */
 public class MediaStatus {
     /**
      * Playback status
      *
-     * @see <a href=
-     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState</a>
+     * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState</a>
      */
-    public enum PlayerState {
-        IDLE,
-        BUFFERING,
-        PLAYING,
-        PAUSED
-    }
+    public enum PlayerState { IDLE, BUFFERING, PLAYING, PAUSED }
 
     /**
-     * @see <a href=
-     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode</a>
+     * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode</a>
      */
-    public enum RepeatMode {
-        REPEAT_OFF,
-        REPEAT_ALL,
-        REPEAT_SINGLE,
-        REPEAT_ALL_AND_SHUFFLE
-    }
+    public enum RepeatMode { REPEAT_OFF, REPEAT_ALL, REPEAT_SINGLE, REPEAT_ALL_AND_SHUFFLE }
 
     /**
-     * <p>
-     * The reason for the player to be in IDLE state.
-     * </p>
+     * <p>The reason for the player to be in IDLE state.</p>
      *
-     * <p>
-     * Pandora is known to use 'COMPLETED' when the app timesout
-     * </p>
+     * <p>Pandora is known to use 'COMPLETED' when the app timesout</p>
      *
-     * @see <a href=
-     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason</a>
+     * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason</a>
      */
-    public enum IdleReason {
-        CANCELLED,
-        INTERRUPTED,
-        FINISHED,
-        ERROR,
-        COMPLETED
-    }
+    public enum IdleReason { CANCELLED, INTERRUPTED, FINISHED, ERROR, COMPLETED}
 
     public final List<Integer> activeTrackIds;
     public final long mediaSessionId;
@@ -90,19 +65,21 @@ public class MediaStatus {
     public final RepeatMode repeatMode;
     public final IdleReason idleReason;
 
-    MediaStatus(@JsonProperty("activeTrackIds") final List<Integer> activeTrackIds,
-            @JsonProperty("mediaSessionId") final long mediaSessionId,
-            @JsonProperty("playbackRate") final int playbackRate,
-            @JsonProperty("playerState") final PlayerState playerState,
-            @JsonProperty("currentItemId") final Integer currentItemId,
-            @JsonProperty("currentTime") final double currentTime,
-            @JsonProperty("customData") final Map<String, Object> customData,
-            @JsonProperty("loadingItemId") final Integer loadingItemId, @JsonProperty("items") final List<Item> items,
-            @JsonProperty("preloadedItemId") final Integer preloadedItemId,
-            @JsonProperty("supportedMediaCommands") final int supportedMediaCommands,
-            @JsonProperty("volume") final Volume volume, @JsonProperty("media") final Media media,
-            @JsonProperty("repeatMode") final RepeatMode repeatMode,
-            @JsonProperty("idleReason") final IdleReason idleReason) {
+    MediaStatus(@JsonProperty("activeTrackIds") List<Integer> activeTrackIds,
+                @JsonProperty("mediaSessionId") long mediaSessionId,
+                @JsonProperty("playbackRate") int playbackRate,
+                @JsonProperty("playerState") PlayerState playerState,
+                @JsonProperty("currentItemId") Integer currentItemId,
+                @JsonProperty("currentTime") double currentTime,
+                @JsonProperty("customData") Map<String, Object> customData,
+                @JsonProperty("loadingItemId") Integer loadingItemId,
+                @JsonProperty("items") List<Item> items,
+                @JsonProperty("preloadedItemId") Integer preloadedItemId,
+                @JsonProperty("supportedMediaCommands") int supportedMediaCommands,
+                @JsonProperty("volume") Volume volume,
+                @JsonProperty("media") Media media,
+                @JsonProperty("repeatMode") RepeatMode repeatMode,
+                @JsonProperty("idleReason") IdleReason idleReason) {
         this.activeTrackIds = activeTrackIds != null ? Collections.unmodifiableList(activeTrackIds) : null;
         this.mediaSessionId = mediaSessionId;
         this.playbackRate = playbackRate;
@@ -122,16 +99,13 @@ public class MediaStatus {
 
     @Override
     public String toString() {
-        final String activeTrackIds = this.activeTrackIds == null ? "<null>"
-                : Arrays.toString(this.activeTrackIds.toArray());
+        final String activeTrackIds = this.activeTrackIds == null ? "<null>" : Arrays.toString(this.activeTrackIds.toArray());
         final String items = this.items == null ? "<null>" : Arrays.toString(this.items.toArray());
-        final String customData = this.customData == null ? "<null>"
-                : Arrays.toString(this.customData.keySet().toArray());
+        final String customData = this.customData == null ? "<null>" : Arrays.toString(this.customData.keySet().toArray());
 
-        return String.format(
-                "Application{activeTrackIds: %s, mediaSessionId: %d, playbackRate: %d, playerState: %s, currentItemId: %s, "
-                        + "currentTime: %f, customData: %s, loadingItemId: %s, items: %s, preloadedItemId: %s, supportedMediaCommands: %d, "
-                        + "volume: %s, media: %s, repeatMode: %s, idleReason: %s}",
+        return String.format("Application{activeTrackIds: %s, mediaSessionId: %d, playbackRate: %d, playerState: %s, currentItemId: %s, "
+                + "currentTime: %f, customData: %s, loadingItemId: %s, items: %s, preloadedItemId: %s, supportedMediaCommands: %d, "
+                + "volume: %s, media: %s, repeatMode: %s, idleReason: %s}",
                 activeTrackIds, this.mediaSessionId, this.playbackRate, this.playerState, this.currentItemId,
                 this.currentTime, customData, this.loadingItemId, items, this.preloadedItemId,
                 this.supportedMediaCommands, this.volume, this.media, this.repeatMode, this.idleReason);

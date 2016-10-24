@@ -13,37 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package su.litvak.chromecast.api.v2;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class StatusTest {
     final ObjectMapper jsonMapper = new ObjectMapper();
 
     @Test
     public void testDeserializationBackdrop1_18() throws Exception {
-        final String jsonMSG = FixtureHelper.fixtureAsString("/status-backdrop-1.18.json").replaceFirst("\"type\"",
-                "\"responseType\"");
+        final String jsonMSG = FixtureHelper.fixtureAsString("/status-backdrop-1.18.json").replaceFirst("\"type\"", "\"responseType\"");
         final StandardResponse.Status response = jsonMapper.readValue(jsonMSG, StandardResponse.Status.class);
 
-        final Status status = response.status;
+        Status status = response.status;
         assertNotNull(status);
         assertTrue(status.activeInput);
         assertFalse(status.standBy);
 
         assertEquals(1, status.applications.size());
-        final Application app = status.getRunningApp();
+        Application app = status.getRunningApp();
         assertFalse(app.isIdleScreen);
 
-        final Volume volume = status.volume;
+        Volume volume = status.volume;
         assertNotNull(volume);
         assertEquals(1.0, volume.level, 0.1);
         assertFalse(volume.muted);
@@ -54,20 +48,19 @@ public class StatusTest {
 
     @Test
     public void testDeserializationBackdrop1_19() throws Exception {
-        final String jsonMSG = FixtureHelper.fixtureAsString("/status-backdrop-1.19.json").replaceFirst("\"type\"",
-                "\"responseType\"");
+        final String jsonMSG = FixtureHelper.fixtureAsString("/status-backdrop-1.19.json").replaceFirst("\"type\"", "\"responseType\"");
         final StandardResponse.Status response = jsonMapper.readValue(jsonMSG, StandardResponse.Status.class);
 
-        final Status status = response.status;
+        Status status = response.status;
         assertNotNull(status);
         assertFalse(status.activeInput);
         assertFalse(status.standBy);
 
         assertEquals(1, status.applications.size());
-        final Application app = status.getRunningApp();
+        Application app = status.getRunningApp();
         assertTrue(app.isIdleScreen);
 
-        final Volume volume = status.volume;
+        Volume volume = status.volume;
         assertNotNull(volume);
         assertEquals(1.0, volume.level, 0.1);
         assertFalse(volume.muted);
@@ -78,20 +71,19 @@ public class StatusTest {
 
     @Test
     public void testDeserializationChromeMirroring() throws Exception {
-        final String jsonMSG = FixtureHelper.fixtureAsString("/status-chrome-mirroring-1.19.json")
-                .replaceFirst("\"type\"", "\"responseType\"");
+        final String jsonMSG = FixtureHelper.fixtureAsString("/status-chrome-mirroring-1.19.json").replaceFirst("\"type\"", "\"responseType\"");
         final StandardResponse.Status response = jsonMapper.readValue(jsonMSG, StandardResponse.Status.class);
 
-        final Status status = response.status;
+        Status status = response.status;
         assertNotNull(status);
         assertFalse(status.activeInput);
         assertFalse(status.standBy);
 
         assertEquals(1, status.applications.size());
-        final Application app = status.getRunningApp();
+        Application app = status.getRunningApp();
         assertFalse(app.isIdleScreen);
 
-        final Volume volume = status.volume;
+        Volume volume = status.volume;
         assertNotNull(volume);
         assertEquals(1.0, volume.level, 0.1);
         assertFalse(volume.muted);

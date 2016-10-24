@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package su.litvak.chromecast.api.v2;
 
 import java.util.Arrays;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import java.util.Collections;
 import java.util.List;
-
-import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * Application descriptor
@@ -34,17 +33,19 @@ public class Application {
     public final boolean isIdleScreen;
     public final List<Namespace> namespaces;
 
-    public Application(@JsonProperty("appId") final String id, @JsonProperty("displayName") final String name,
-            @JsonProperty("sessionId") final String sessionId, @JsonProperty("statusText") final String statusText,
-            @JsonProperty("isIdleScreen") final boolean isIdleScreen,
-            @JsonProperty("transportId") final String transportId,
-            @JsonProperty("namespaces") final List<Namespace> namespaces) {
+    public Application(@JsonProperty("appId") String id,
+                       @JsonProperty("displayName") String name,
+                       @JsonProperty("sessionId") String sessionId,
+                       @JsonProperty("statusText") String statusText,
+                       @JsonProperty("isIdleScreen") boolean isIdleScreen,
+                       @JsonProperty("transportId") String transportId,
+                       @JsonProperty("namespaces") List<Namespace> namespaces) {
         this.id = id;
         this.name = name;
         this.sessionId = sessionId;
         this.statusText = statusText;
         this.transportId = transportId;
-        this.namespaces = namespaces == null ? Collections.<Namespace> emptyList() : namespaces;
+        this.namespaces = namespaces == null ? Collections.<Namespace>emptyList() : namespaces;
         this.isIdleScreen = isIdleScreen;
     }
 
@@ -52,8 +53,7 @@ public class Application {
     public String toString() {
         final String namespaces = this.namespaces == null ? "<null>" : Arrays.toString(this.namespaces.toArray());
 
-        return String.format(
-                "Application{id: %s, name: %s, sessionId: %s, statusText: %s, transportId: %s, isIdleScreen: %b, namespaces: %s}",
+        return String.format("Application{id: %s, name: %s, sessionId: %s, statusText: %s, transportId: %s, isIdleScreen: %b, namespaces: %s}",
                 this.id, this.name, this.sessionId, this.statusText, this.transportId, this.isIdleScreen, namespaces);
     }
 

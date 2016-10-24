@@ -37,7 +37,7 @@
                 "level": 1,
                 "muted": false,
                 "stepInterval": 0.05000000074505806,
-                "controlType":"attenuation"   
+                "controlType":"attenuation"                
             }
         }
     ],

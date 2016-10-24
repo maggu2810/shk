@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package su.litvak.chromecast.api.v2;
 
-import java.util.Map;
-
 import org.codehaus.jackson.annotate.JsonProperty;
+
+import java.util.Map;
 
 /**
  * Parent class for transport object representing messages sent TO ChromeCast device
@@ -27,7 +26,7 @@ abstract class StandardRequest extends StandardMessage implements Request {
     Long requestId;
 
     @Override
-    public final void setRequestId(final Long requestId) {
+    public final void setRequestId(Long requestId) {
         this.requestId = requestId;
     }
 
@@ -36,14 +35,13 @@ abstract class StandardRequest extends StandardMessage implements Request {
         return requestId;
     }
 
-    static class Status extends StandardRequest {
-    }
+    static class Status extends StandardRequest {}
 
     static class AppAvailability extends StandardRequest {
         @JsonProperty
         final String[] appId;
 
-        AppAvailability(final String... appId) {
+        AppAvailability(String... appId) {
             this.appId = appId;
         }
     }
@@ -52,7 +50,7 @@ abstract class StandardRequest extends StandardMessage implements Request {
         @JsonProperty
         final String appId;
 
-        Launch(final String appId) {
+        Launch(String appId) {
             this.appId = appId;
         }
     }
@@ -61,7 +59,7 @@ abstract class StandardRequest extends StandardMessage implements Request {
         @JsonProperty
         final String sessionId;
 
-        Stop(final String sessionId) {
+        Stop(String sessionId) {
             this.sessionId = sessionId;
         }
     }
@@ -78,8 +76,7 @@ abstract class StandardRequest extends StandardMessage implements Request {
         @JsonProperty
         final Object customData;
 
-        Load(final String sessionId, final Media media, final boolean autoplay, final double currentTime,
-                final Map<String, String> customData) {
+        Load(String sessionId, Media media, boolean autoplay, double currentTime, final Map<String, String> customData) {
             this.sessionId = sessionId;
             this.media = media;
             this.autoplay = autoplay;
@@ -98,20 +95,20 @@ abstract class StandardRequest extends StandardMessage implements Request {
         @JsonProperty
         final String sessionId;
 
-        MediaRequest(final long mediaSessionId, final String sessionId) {
+        MediaRequest(long mediaSessionId, String sessionId) {
             this.mediaSessionId = mediaSessionId;
             this.sessionId = sessionId;
         }
     }
 
     static class Play extends MediaRequest {
-        Play(final long mediaSessionId, final String sessionId) {
+        Play(long mediaSessionId, String sessionId) {
             super(mediaSessionId, sessionId);
         }
     }
 
     static class Pause extends MediaRequest {
-        Pause(final long mediaSessionId, final String sessionId) {
+        Pause(long mediaSessionId, String sessionId) {
             super(mediaSessionId, sessionId);
         }
     }
@@ -120,7 +117,7 @@ abstract class StandardRequest extends StandardMessage implements Request {
         @JsonProperty
         final double currentTime;
 
-        Seek(final long mediaSessionId, final String sessionId, final double currentTime) {
+        Seek(long mediaSessionId, String sessionId, double currentTime) {
             super(mediaSessionId, sessionId);
             this.currentTime = currentTime;
         }
@@ -130,7 +127,7 @@ abstract class StandardRequest extends StandardMessage implements Request {
         @JsonProperty
         final Volume volume;
 
-        SetVolume(final Volume volume) {
+        SetVolume(Volume volume) {
             this.volume = volume;
         }
     }
@@ -139,36 +136,35 @@ abstract class StandardRequest extends StandardMessage implements Request {
         return new Status();
     }
 
-    static AppAvailability appAvailability(final String... appId) {
+    static AppAvailability appAvailability(String... appId) {
         return new AppAvailability(appId);
     }
 
-    static Launch launch(final String appId) {
+    static Launch launch(String appId) {
         return new Launch(appId);
     }
 
-    static Stop stop(final String sessionId) {
+    static Stop stop(String sessionId) {
         return new Stop(sessionId);
     }
 
-    static Load load(final String sessionId, final Media media, final boolean autoplay, final double currentTime,
-            final Map<String, String> customData) {
+    static Load load(String sessionId, Media media, boolean autoplay, double currentTime, Map<String, String> customData) {
         return new Load(sessionId, media, autoplay, currentTime, customData);
     }
 
-    static Play play(final String sessionId, final long mediaSessionId) {
+    static Play play(String sessionId, long mediaSessionId) {
         return new Play(mediaSessionId, sessionId);
     }
 
-    static Pause pause(final String sessionId, final long mediaSessionId) {
+    static Pause pause(String sessionId, long mediaSessionId) {
         return new Pause(mediaSessionId, sessionId);
     }
 
-    static Seek seek(final String sessionId, final long mediaSessionId, final double currentTime) {
+    static Seek seek(String sessionId, long mediaSessionId, double currentTime) {
         return new Seek(mediaSessionId, sessionId, currentTime);
     }
 
-    static SetVolume setVolume(final Volume volume) {
+    static SetVolume setVolume(Volume volume) {
         return new SetVolume(volume);
     }
 }
