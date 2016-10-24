@@ -14,9 +14,10 @@
 
   <properties>
     <license.shortcut>apache_v2</license.shortcut>
-    <!--TODO: Inspect why tests are failing-->
+    <!--TODO: Inspect why tests are failing -->
     <skipTests>true</skipTests>
     <quality.skip>true</quality.skip>
+    <license.skipUpdateLicense>true</license.skipUpdateLicense>
   </properties>
 
   <licenses>
@@ -51,5 +52,27 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+        <artifactId>whitespace-maven-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+          <!-- It seem "skip=true" does not work. Let's use a dummy project base directory. -->
+          <projectBasedir>dummy</projectBasedir>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>trim</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
