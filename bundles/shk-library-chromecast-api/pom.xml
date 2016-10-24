@@ -18,6 +18,7 @@
     <skipTests>true</skipTests>
     <quality.skip>true</quality.skip>
     <license.skipUpdateLicense>true</license.skipUpdateLicense>
+    <java.version>1.6</java.version>
   </properties>
 
   <licenses>

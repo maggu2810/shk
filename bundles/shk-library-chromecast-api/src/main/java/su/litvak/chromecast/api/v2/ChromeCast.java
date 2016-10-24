@@ -252,7 +252,7 @@ public class ChromeCast {
     public MediaStatus load(final String title, final String thumb, final String url, final String contentType)
             throws IOException {
         final Status status = getStatus();
-        final Map<String, String> customData = new HashMap<>(2);
+        final Map<String, String> customData = new HashMap<String, String>(2);
         customData.put("title", title);
         customData.put("thumb", thumb);
         return channel.load(status.getRunningApp().transportId, status.getRunningApp().sessionId,

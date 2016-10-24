@@ -68,10 +68,10 @@ public class MediaStatusTest {
         final Media media = new Media("http://192.168.1.6:8192/audio-123-mp3", "audio/mpeg", 389.355102d,
                 Media.StreamType.BUFFERED);
 
-        final Map<String, String> payload = new HashMap<>();
+        final Map<String, String> payload = new HashMap<String, String>();
         payload.put("thumb", null);
         payload.put("title", "Example Track Title");
-        final Map<String, Object> customData = new HashMap<>();
+        final Map<String, Object> customData = new HashMap<String, Object>();
         customData.put("payload", payload);
         assertEquals(Collections.singletonList(new Item(true, customData, 1, media)), mediaStatus.items);
 
@@ -114,8 +114,6 @@ public class MediaStatusTest {
         assertNull(media.tracks);
         assertEquals(1, media.customData.size());
         assertNotNull(media.customData.get("status"));
-
-        @SuppressWarnings("unchecked")
         final Map<String, Object> status = (Map<String, Object>) media.customData.get("status");
 
         assertEquals(8, status.size());

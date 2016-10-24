@@ -28,7 +28,7 @@ import su.litvak.chromecast.api.v2.ChromeCastSpontaneousEvent.SpontaneousEventTy
 class EventListenerHolder implements ChromeCastSpontaneousEventListener, ChromeCastConnectionEventListener {
 
     private final ObjectMapper jsonMapper = new ObjectMapper();
-    private final Set<ChromeCastSpontaneousEventListener> eventListeners = new CopyOnWriteArraySet<>();
+    private final Set<ChromeCastSpontaneousEventListener> eventListeners = new CopyOnWriteArraySet<ChromeCastSpontaneousEventListener>();
 
     public EventListenerHolder() {
     }
@@ -92,7 +92,7 @@ class EventListenerHolder implements ChromeCastSpontaneousEventListener, ChromeC
      * Add connection event handling
      */
 
-    private final Set<ChromeCastConnectionEventListener> eventListenersConnection = new CopyOnWriteArraySet<>();
+    private final Set<ChromeCastConnectionEventListener> eventListenersConnection = new CopyOnWriteArraySet<ChromeCastConnectionEventListener>();
 
     public void registerConnectionListener(final ChromeCastConnectionEventListener listener) {
         if (listener != null) {

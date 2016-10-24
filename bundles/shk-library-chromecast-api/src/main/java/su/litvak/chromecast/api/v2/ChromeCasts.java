@@ -33,7 +33,7 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
 
     private JmDNS mDNS;
 
-    private final List<ChromeCastsListener> listeners = new ArrayList<>();
+    private final List<ChromeCastsListener> listeners = new ArrayList<ChromeCastsListener>();
 
     private ChromeCasts() {
     }
@@ -71,7 +71,7 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
     public void serviceRemoved(final ServiceEvent event) {
         if (ChromeCast.SERVICE_TYPE.equals(event.getType())) {
             // We have a ChromeCast device unregistering
-            final List<ChromeCast> copy = new ArrayList<>(this);
+            final List<ChromeCast> copy = new ArrayList<ChromeCast>(this);
             ChromeCast deviceRemoved = null;
             // Probably better keep a map to better lookup devices
             for (final ChromeCast device : copy) {

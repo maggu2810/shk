@@ -62,8 +62,12 @@ final class CastChannel {
             return internalValueMap;
         }
 
-        private static com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm> internalValueMap = number -> SignatureAlgorithm
-                .valueOf(number);
+        private static com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm> internalValueMap = new com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm>() {
+            @Override
+            public SignatureAlgorithm findValueByNumber(final int number) {
+                return SignatureAlgorithm.valueOf(number);
+            }
+        };
 
         private final int value;
 
@@ -420,8 +424,12 @@ final class CastChannel {
                 return internalValueMap;
             }
 
-            private static com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion> internalValueMap = number -> ProtocolVersion
-                    .valueOf(number);
+            private static com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion> internalValueMap = new com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion>() {
+                @Override
+                public ProtocolVersion findValueByNumber(final int number) {
+                    return ProtocolVersion.valueOf(number);
+                }
+            };
 
             private final int value;
 
@@ -478,8 +486,12 @@ final class CastChannel {
                 return internalValueMap;
             }
 
-            private static com.google.protobuf.Internal.EnumLiteMap<PayloadType> internalValueMap = number -> PayloadType
-                    .valueOf(number);
+            private static com.google.protobuf.Internal.EnumLiteMap<PayloadType> internalValueMap = new com.google.protobuf.Internal.EnumLiteMap<PayloadType>() {
+                @Override
+                public PayloadType findValueByNumber(final int number) {
+                    return PayloadType.valueOf(number);
+                }
+            };
 
             private final int value;
 
@@ -2307,7 +2319,7 @@ final class CastChannel {
                         }
                         case 26: {
                             if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                                intermediateCertificate_ = new java.util.ArrayList<>();
+                                intermediateCertificate_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
                                 mutable_bitField0_ |= 0x00000004;
                             }
                             intermediateCertificate_.add(input.readBytes());
@@ -2835,7 +2847,7 @@ final class CastChannel {
 
             private void ensureIntermediateCertificateIsMutable() {
                 if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-                    intermediateCertificate_ = new java.util.ArrayList<>(
+                    intermediateCertificate_ = new java.util.ArrayList<com.google.protobuf.ByteString>(
                             intermediateCertificate_);
                     bitField0_ |= 0x00000004;
                 }
@@ -3137,8 +3149,12 @@ final class CastChannel {
                 return internalValueMap;
             }
 
-            private static com.google.protobuf.Internal.EnumLiteMap<ErrorType> internalValueMap = number -> ErrorType
-                    .valueOf(number);
+            private static com.google.protobuf.Internal.EnumLiteMap<ErrorType> internalValueMap = new com.google.protobuf.Internal.EnumLiteMap<ErrorType>() {
+                @Override
+                public ErrorType findValueByNumber(final int number) {
+                    return ErrorType.valueOf(number);
+                }
+            };
 
             private final int value;
 

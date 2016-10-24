@@ -33,9 +33,9 @@ public class MediaTest {
 
     @Test
     public void itIncludesOptionalFieldsWhenSet() throws Exception {
-        final Map<String, Object> customData = new HashMap<>();
+        final Map<String, Object> customData = new HashMap<String, Object>();
         customData.put("a", "b");
-        final Map<String, Object> metadata = new HashMap<>();
+        final Map<String, Object> metadata = new HashMap<String, Object>();
         metadata.put("1", "2");
         final Media m = new Media(null, null, 123.456d, StreamType.BUFFERED, customData, metadata, null, null);
 

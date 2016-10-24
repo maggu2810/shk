@@ -96,7 +96,7 @@ class Channel implements Closeable {
     /**
      * Processors of requests by their identifiers
      */
-    private final Map<Long, ResultProcessor<? extends Response>> requests = new ConcurrentHashMap<>();
+    private final Map<Long, ResultProcessor<? extends Response>> requests = new ConcurrentHashMap<Long, ResultProcessor<? extends Response>>();
     /**
      * Single mapper object for marshalling JSON
      */
@@ -104,7 +104,7 @@ class Channel implements Closeable {
     /**
      * Destination ids of sessions opened within this channel
      */
-    private final Set<String> sessions = new HashSet<>();
+    private final Set<String> sessions = new HashSet<String>();
     /**
      * Indicates that this channel was closed (explicitly, by remote host or for some connectivity issue)
      */
@@ -374,7 +374,7 @@ class Channel implements Closeable {
             return null;
         }
 
-        final ResultProcessor<T> rp = new ResultProcessor<>(responseClass);
+        final ResultProcessor<T> rp = new ResultProcessor<T>(responseClass);
         requests.put(requestId, rp);
 
         write(namespace, message, destinationId);

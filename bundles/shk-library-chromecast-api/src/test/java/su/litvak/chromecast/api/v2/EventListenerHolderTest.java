@@ -96,9 +96,14 @@ public class EventListenerHolderTest {
 
     @Before
     public void before() throws Exception {
-        this.emittedEvents = new ArrayList<>();
+        this.emittedEvents = new ArrayList<ChromeCastSpontaneousEvent>();
         this.underTest = new EventListenerHolder();
-        this.underTest.registerListener(event -> emittedEvents.add(event));
+        this.underTest.registerListener(new ChromeCastSpontaneousEventListener() {
+            @Override
+            public void spontaneousEventReceived(final ChromeCastSpontaneousEvent event) {
+                emittedEvents.add(event);
+            }
+        });
     }
 
     @Test
