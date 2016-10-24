@@ -153,7 +153,7 @@ class Channel implements Closeable {
                         } else {
                             if (parsed.has("requestId")) {
                                 Long requestId = parsed.get("requestId").asLong();
-                                final ResultProcessor<?> rp = requests.remove(requestId);
+                                final ResultProcessor<? extends Response> rp = requests.remove(requestId);
                                 if (rp != null) {
                                     rp.put(jsonMSG);
                                 } else {
