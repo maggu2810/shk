@@ -28,10 +28,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 /**
  * Media streamed on ChromeCast device
  *
- * @see <a
- *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation">https://
- *
- *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation</a>
+ * @see <a href=
+ *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaInformation</a>
  */
 public class Media {
 
@@ -41,14 +39,12 @@ public class Media {
      * </p>
      *
      * <p>
-     * Some receivers use upper-case (like Pandora), some use lower-case (like Google Audio), duplicate elements to
-     * support both
+     * Some receivers use upper-case (like Pandora), some use lower-case (like Google Audio),
+     * duplicate elements to support both
      * </p>
      *
-     * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType">https://
-     *
-     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType</a>
+     * @see <a href=
+     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.StreamType</a>
      */
     public enum StreamType {
         BUFFERED,
@@ -137,7 +133,8 @@ public class Media {
 
     @Override
     public String toString() {
-        return String.format("Media{%s, %s, %s}", this.url, this.contentType, this.duration);
+        return String.format("Media{url: %s, contentType: %s, duration: %s}", this.url, this.contentType,
+                this.duration);
     }
 
 }

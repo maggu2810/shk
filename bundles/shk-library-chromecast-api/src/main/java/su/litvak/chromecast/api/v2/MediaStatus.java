@@ -16,6 +16,7 @@
 
 package su.litvak.chromecast.api.v2;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -25,18 +26,15 @@ import org.codehaus.jackson.annotate.JsonProperty;
 /**
  * Current media player status - which media is played, volume, time position, etc.
  *
- * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus">https://
- *
- *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus</a>
+ * @see <a href=
+ *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.MediaStatus</a>
  */
 public class MediaStatus {
     /**
      * Playback status
      *
-     * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState">https://
-     *
-     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState</a>
+     * @see <a href=
+     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.PlayerState</a>
      */
     public enum PlayerState {
         IDLE,
@@ -46,10 +44,8 @@ public class MediaStatus {
     }
 
     /**
-     * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode">https://
-     *
-     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode</a>
+     * @see <a href=
+     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.repeatMode</a>
      */
     public enum RepeatMode {
         REPEAT_OFF,
@@ -67,10 +63,8 @@ public class MediaStatus {
      * Pandora is known to use 'COMPLETED' when the app timesout
      * </p>
      *
-     * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason">https://
-     *
-     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason</a>
+     * @see <a href=
+     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.IdleReason</a>
      */
     public enum IdleReason {
         CANCELLED,
@@ -128,12 +122,19 @@ public class MediaStatus {
 
     @Override
     public String toString() {
-        return "MediaStatus{" + "activeTrackIds=" + activeTrackIds + ", mediaSessionId=" + mediaSessionId
-                + ", playbackRate=" + playbackRate + ", playerState=" + playerState + ", currentItemId=" + currentItemId
-                + ", currentTime=" + currentTime + ", customData=" + customData + ", loadingItemId=" + loadingItemId
-                + ", items=" + items + ", preloadedItemId=" + preloadedItemId + ", supportedMediaCommands="
-                + supportedMediaCommands + ", volume=" + volume + ", media=" + media + ", repeatMode=" + repeatMode
-                + ", idleReason=" + idleReason + '}';
+        final String activeTrackIds = this.activeTrackIds == null ? "<null>"
+                : Arrays.toString(this.activeTrackIds.toArray());
+        final String items = this.items == null ? "<null>" : Arrays.toString(this.items.toArray());
+        final String customData = this.customData == null ? "<null>"
+                : Arrays.toString(this.customData.keySet().toArray());
+
+        return String.format(
+                "Application{activeTrackIds: %s, mediaSessionId: %d, playbackRate: %d, playerState: %s, currentItemId: %s, "
+                        + "currentTime: %f, customData: %s, loadingItemId: %s, items: %s, preloadedItemId: %s, supportedMediaCommands: %d, "
+                        + "volume: %s, media: %s, repeatMode: %s, idleReason: %s}",
+                activeTrackIds, this.mediaSessionId, this.playbackRate, this.playerState, this.currentItemId,
+                this.currentTime, customData, this.loadingItemId, items, this.preloadedItemId,
+                this.supportedMediaCommands, this.volume, this.media, this.repeatMode, this.idleReason);
     }
 
 }

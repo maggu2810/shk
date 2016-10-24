@@ -17,7 +17,6 @@
 package su.litvak.chromecast.api.v2;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -59,7 +58,7 @@ public class Volume {
         } else {
             this.increment = default_increment;
         }
-        if (stepInterval != null && stepInterval > 0) {
+        if (stepInterval != null && stepInterval > 0d) {
             this.stepInterval = stepInterval;
         } else {
             this.stepInterval = default_increment.doubleValue();
@@ -85,28 +84,18 @@ public class Volume {
             return false;
         }
         final Volume that = (Volume) obj;
-
-        if (!Objects.equals(this.level, that.level)) {
-            return false;
-        }
-        if (!Objects.equals(this.muted, that.muted)) {
-            return false;
-        }
-        if (!Objects.equals(this.increment, that.increment)) {
-            return false;
-        }
-        if (!Objects.equals(this.stepInterval, that.stepInterval)) {
-            return false;
-        }
-        if (!Objects.equals(this.controlType, that.controlType)) {
-            return false;
-        }
-        return true;
+        return this.level == null ? that.level == null
+                : this.level.equals(that.level) && this.muted == that.muted && this.increment == null
+                        ? that.increment == null
+                        : this.increment.equals(that.increment) && this.stepInterval == null ? that.stepInterval == null
+                                : this.stepInterval.equals(that.stepInterval) && this.controlType == null
+                                        ? that.controlType == null : this.controlType.equals(that.controlType);
     }
 
     @Override
     public String toString() {
-        return String.format("Volume{%s, %s, %s}", this.level, this.muted, this.increment);
+        return String.format("Volume{level: %s, muted: %b, increment: %s, stepInterval: %s, controlType: %s}",
+                this.level, this.muted, this.increment, this.stepInterval, this.controlType);
     }
 
 }

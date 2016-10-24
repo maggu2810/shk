@@ -19,8 +19,6 @@ package su.litvak.chromecast.api.v2;
 import java.io.IOException;
 
 public class ChromeCastException extends IOException {
-    private static final long serialVersionUID = 1L;
-
     public ChromeCastException(final String message) {
         super(message);
     }

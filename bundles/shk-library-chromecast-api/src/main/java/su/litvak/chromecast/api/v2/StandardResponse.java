@@ -54,6 +54,9 @@ abstract class StandardResponse implements Response {
     static class Pong extends StandardResponse {
     }
 
+    static class LoadFailed extends StandardResponse {
+    }
+
     static class Close extends StandardResponse {
         @JsonProperty
         final boolean requestedBySender;
@@ -65,9 +68,6 @@ abstract class StandardResponse implements Response {
         Close(@JsonProperty("requestedBySender") final boolean requestedBySender) {
             this.requestedBySender = requestedBySender;
         }
-    }
-
-    static class LoadFailed extends StandardResponse {
     }
 
     static class Invalid extends StandardResponse {

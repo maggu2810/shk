@@ -16,6 +16,7 @@
 
 package su.litvak.chromecast.api.v2;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -52,8 +53,9 @@ public class Status {
 
     @Override
     public String toString() {
-        return "Status{" + "volume=" + volume + ", applications=" + applications + ", activeInput=" + activeInput
-                + ", standBy=" + standBy + '}';
-    }
+        final String applications = this.applications == null ? "<null>" : Arrays.toString(this.applications.toArray());
 
+        return String.format("Media{volume: %s, applications: %s, activeInput: %b, standBy; %b}", this.volume,
+                applications, this.activeInput, this.standBy);
+    }
 }

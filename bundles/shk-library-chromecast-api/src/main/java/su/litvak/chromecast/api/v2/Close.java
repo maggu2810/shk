@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,16 +18,13 @@ package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class Namespace {
-    final String name;
+/**
+ * An event triggered when remote connection was closed.
+ */
+public class Close {
+    public final boolean requestedBySender;
 
-    public Namespace(@JsonProperty("name") final String name) {
-        this.name = name;
+    Close(@JsonProperty("requestedBySender") final boolean requestedBySender) {
+        this.requestedBySender = requestedBySender;
     }
-
-    @Override
-    public String toString() {
-        return String.format("Namespace{%s}", this.name);
-    }
-
 }

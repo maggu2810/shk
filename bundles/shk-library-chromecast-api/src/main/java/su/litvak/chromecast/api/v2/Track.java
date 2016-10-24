@@ -21,19 +21,15 @@ import org.codehaus.jackson.annotate.JsonProperty;
 /**
  * Track meta data information
  *
- * @see <a
- *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track">https://developers.
- *
- *      google.com/cast/docs/reference/receiver/cast.receiver.media.Track</a>
+ * @see <a href=
+ *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track</a>
  */
 public class Track {
     /**
      * Media track type
      *
-     * @see <a
-     *      href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType">https://
-     *
-     *      developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType</a>
+     * @see <a href=
+     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType</a>
      */
     public enum TrackType {
         TEXT,
@@ -49,4 +45,8 @@ public class Track {
         this.type = type;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Track{id: %d, type: %s}", this.id, this.type);
+    }
 }

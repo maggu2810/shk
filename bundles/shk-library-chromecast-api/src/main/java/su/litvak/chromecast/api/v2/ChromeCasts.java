@@ -29,8 +29,6 @@ import javax.jmdns.ServiceListener;
  * Utility class that discovers ChromeCast devices and holds references to all of them.
  */
 public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListener {
-    private static final long serialVersionUID = 1L;
-
     private final static ChromeCasts INSTANCE = new ChromeCasts();
 
     private JmDNS mDNS;
