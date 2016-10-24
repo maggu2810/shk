@@ -24,7 +24,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import su.litvak.chromecast.api.v2.ChromeCastSpontaneousEvent.SpontaneousEventType;
 
-class EventListenerHolder implements ChromeCastSpontaneousEventListener {
+class EventListenerHolder implements ChromeCastSpontaneousEventListener, ChromeCastConnectionEventListener {
 
 	private final ObjectMapper jsonMapper = new ObjectMapper();
 	private final Set<ChromeCastSpontaneousEventListener> eventListeners = new CopyOnWriteArraySet<ChromeCastSpontaneousEventListener>();
@@ -82,5 +82,34 @@ class EventListenerHolder implements ChromeCastSpontaneousEventListener {
 			listener.spontaneousEventReceived(event);
 		}
 	}
+
+    /*
+     * Add connection event handling
+     */
+
+    private final Set<ChromeCastConnectionEventListener> eventListenersConnection = new CopyOnWriteArraySet<ChromeCastConnectionEventListener>();
+
+    public void registerConnectionListener(final ChromeCastConnectionEventListener listener) {
+        if (listener != null) {
+            this.eventListenersConnection.add(listener);
+        }
+    }
+
+    public void unregisterConnectionListener(final ChromeCastConnectionEventListener listener) {
+        if (listener != null) {
+            this.eventListenersConnection.remove(listener);
+        }
+    }
+
+    public void deliverConnectionEvent(final boolean connected) {
+        connectionEventReceived(new ChromeCastConnectionEvent(connected));
+    }
+
+    @Override
+    public void connectionEventReceived(final ChromeCastConnectionEvent event) {
+        for (final ChromeCastConnectionEventListener listener : this.eventListenersConnection) {
+            listener.connectionEventReceived(event);
+        }
+    }
 
 }

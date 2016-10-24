@@ -89,7 +89,7 @@ class Channel implements Closeable {
     /**
      * Processors of requests by their identifiers
      */
-    private Map<Long, ResultProcessor> requests = new ConcurrentHashMap<Long, ResultProcessor>();
+    private final Map<Long, ResultProcessor<? extends Response>> requests = new ConcurrentHashMap<Long, ResultProcessor<? extends Response>>();
     /**
      * Single mapper object for marshalling JSON
      */
@@ -101,7 +101,9 @@ class Channel implements Closeable {
     /**
      * Indicates that this channel was closed (explicitly, by remote host or for some connectivity issue)
      */
-    private volatile boolean closed;
+    private volatile boolean closed = true;
+    private final Object closedSync = new Object();
+
     /**
      * Indicates whether an app stop was requested
      */
@@ -151,7 +153,7 @@ class Channel implements Closeable {
                         } else {
                             if (parsed.has("requestId")) {
                                 Long requestId = parsed.get("requestId").asLong();
-                                ResultProcessor rp = requests.remove(requestId);
+                                final ResultProcessor<?> rp = requests.remove(requestId);
                                 if (rp != null) {
                                     rp.put(jsonMSG);
                                 } else {
@@ -249,73 +251,94 @@ class Channel implements Closeable {
         }
     }
 
-    Channel(String host, EventListenerHolder eventListener) throws IOException, GeneralSecurityException {
+    Channel(String host, EventListenerHolder eventListener) {
         this(host, 8009, eventListener);
     }
 
-    Channel(String host, int port, EventListenerHolder eventListener) throws IOException, GeneralSecurityException {
+    Channel(String host, int port, EventListenerHolder eventListener) {
         this.address = new InetSocketAddress(host, port);
         this.name = "sender-" + new RandomString(10).nextString();
         this.eventListener = eventListener;
-        connect();
     }
+
+    /**
+     * Open the channel.
+     *
+     * <p>
+     * This function must be called before any other usage.
+     *
+     * @throws IOException
+     * @throws GeneralSecurityException
+     */
+    public void open() throws IOException, GeneralSecurityException {
+        if (!closed) {
+            throw new IOException("Try to open non channel for a non-closed closed.");
+        }
+         connect();
+     }
 
     /**
      * Establish connection to the ChromeCast device
      */
     private void connect() throws IOException, GeneralSecurityException {
-        if (socket == null || socket.isClosed()) {
-            SSLContext sc = SSLContext.getInstance("SSL");
-            sc.init(null, new TrustManager[] { new X509TrustAllManager() }, new SecureRandom());
-            socket = sc.getSocketFactory().createSocket();
-            socket.connect(address);
+        synchronized (closedSync) {
+            if (socket == null || socket.isClosed()) {
+                SSLContext sc = SSLContext.getInstance("SSL");
+                sc.init(null, new TrustManager[] { new X509TrustAllManager() }, new SecureRandom());
+                socket = sc.getSocketFactory().createSocket();
+                socket.connect(address);
+            }
+            /**
+             * Authenticate
+             */
+            CastChannel.DeviceAuthMessage authMessage = CastChannel.DeviceAuthMessage.newBuilder()
+                    .setChallenge(CastChannel.AuthChallenge.newBuilder().build())
+                    .build();
+
+            CastChannel.CastMessage msg = CastChannel.CastMessage.newBuilder()
+                    .setDestinationId(DEFAULT_RECEIVER_ID)
+                    .setNamespace("urn:x-cast:com.google.cast.tp.deviceauth")
+                    .setPayloadType(CastChannel.CastMessage.PayloadType.BINARY)
+                    .setProtocolVersion(CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0)
+                    .setSourceId(name)
+                    .setPayloadBinary(authMessage.toByteString())
+                    .build();
+
+            write(msg);
+            CastChannel.CastMessage response = read();
+            CastChannel.DeviceAuthMessage authResponse = CastChannel.DeviceAuthMessage.parseFrom(response.getPayloadBinary());
+            if (authResponse.hasError()) {
+                throw new ChromeCastException("Authentication failed: " + authResponse.getError().getErrorType().toString());
+            }
+
+            /**
+             * Send 'PING' message
+             */
+            PingThread pingThread = new PingThread();
+            pingThread.run();
+
+            /**
+             * Send 'CONNECT' message to start session
+             */
+            write("urn:x-cast:com.google.cast.tp.connection", StandardMessage.connect(), DEFAULT_RECEIVER_ID);
+
+            /**
+             * Start ping/pong and reader thread
+             */
+            pingTimer = new Timer(name + " PING");
+            pingTimer.schedule(pingThread, 1000, PING_PERIOD);
+
+            reader = new ReadThread();
+            reader.start();
+
+            if (closed) {
+                closed = false;
+                notifyListenerOfConnectionEvent(true);
+            }
         }
-        /**
-         * Authenticate
-         */
-        CastChannel.DeviceAuthMessage authMessage = CastChannel.DeviceAuthMessage.newBuilder()
-                .setChallenge(CastChannel.AuthChallenge.newBuilder().build())
-                .build();
-
-        CastChannel.CastMessage msg = CastChannel.CastMessage.newBuilder()
-                .setDestinationId(DEFAULT_RECEIVER_ID)
-                .setNamespace("urn:x-cast:com.google.cast.tp.deviceauth")
-                .setPayloadType(CastChannel.CastMessage.PayloadType.BINARY)
-                .setProtocolVersion(CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0)
-                .setSourceId(name)
-                .setPayloadBinary(authMessage.toByteString())
-                .build();
-
-        write(msg);
-        CastChannel.CastMessage response = read();
-        CastChannel.DeviceAuthMessage authResponse = CastChannel.DeviceAuthMessage.parseFrom(response.getPayloadBinary());
-        if (authResponse.hasError()) {
-            throw new ChromeCastException("Authentication failed: " + authResponse.getError().getErrorType().toString());
-        }
-
-        /**
-         * Send 'PING' message
-         */
-        PingThread pingThread = new PingThread();
-        pingThread.run();
-
-        /**
-         * Send 'CONNECT' message to start session
-         */
-        write("urn:x-cast:com.google.cast.tp.connection", StandardMessage.connect(), DEFAULT_RECEIVER_ID);
-
-        /**
-         * Start ping/pong and reader thread
-         */
-        pingTimer = new Timer(name + " PING");
-        pingTimer.schedule(pingThread, 1000, PING_PERIOD);
-
-        reader = new ReadThread();
-        reader.start();
-
-        closed = false;
     }
 
+    @SuppressWarnings("unchecked")
     private <T extends StandardResponse> T sendStandard(String namespace, StandardRequest message, String destinationId) throws IOException {
         return send(namespace, message, destinationId, (Class<T>) StandardResponse.class);
     }
@@ -413,6 +436,12 @@ class Channel implements Closeable {
         return CastChannel.CastMessage.parseFrom(buf);
     }
 
+    private void notifyListenerOfConnectionEvent(final boolean connected) {
+        if (this.eventListener != null) {
+            this.eventListener.deliverConnectionEvent(connected);
+        }
+    }
+
     private void notifyListenersOfSpontaneousEvent(JsonNode json) throws IOException {
         if (this.eventListener != null) {
             this.eventListener.deliverEvent(json);
@@ -499,15 +528,20 @@ class Channel implements Closeable {
 
     @Override
     public void close() throws IOException {
-        closed = true;
-        if (pingTimer != null) {
-            pingTimer.cancel();
-        }
-        if (reader != null) {
-            reader.stop = true;
-        }
-        if (socket != null) {
-            socket.close();
+        synchronized (closedSync) {
+            if (!closed) {
+                closed = true;
+                notifyListenerOfConnectionEvent(false);
+                if (pingTimer != null) {
+                    pingTimer.cancel();
+                }
+                if (reader != null) {
+                    reader.stop = true;
+                }
+                if (socket != null) {
+                    socket.close();
+                }
+            }
         }
     }
 

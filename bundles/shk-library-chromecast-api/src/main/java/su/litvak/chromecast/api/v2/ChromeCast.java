@@ -35,7 +35,7 @@ public class ChromeCast {
     private final int port;
     private String appsURL;
     private String application;
-    private Channel channel;
+    private final Channel channel;
 
     public ChromeCast(JmDNS mDNS, String name) {
         this.name = name;
@@ -44,6 +44,7 @@ public class ChromeCast {
         this.port = serviceInfo.getPort();
         this.appsURL = serviceInfo.getURLs().length == 0 ? null : serviceInfo.getURLs()[0];
         this.application = serviceInfo.getApplication();
+        this.channel = new Channel(address, port, this.eventListenerHolder);
     }
 
     public ChromeCast(String address) {
@@ -53,6 +54,7 @@ public class ChromeCast {
     public ChromeCast(String address, int port) {
         this.address = address;
         this.port = port;
+        this.channel = new Channel(address, port, this.eventListenerHolder);
     }
 
     public String getName() {
@@ -88,22 +90,17 @@ public class ChromeCast {
     }
 
     public synchronized void connect() throws IOException, GeneralSecurityException {
-        if (channel == null) {
-            channel = new Channel(getAddress(), getPort(), this.eventListenerHolder);
+        if (channel.isClosed()) {
+            channel.open();
         }
     }
 
     public synchronized void disconnect() throws IOException {
-        if (channel == null) {
-            return;
-        }
-
         channel.close();
-        channel = null;
     }
 
     public boolean isConnected() {
-        return (channel != null && !channel.isClosed());
+        return !channel.isClosed();
     }
 
     /**
@@ -300,12 +297,20 @@ public class ChromeCast {
         send(namespace, request, null);
     }
 
-    public void registerListener(final ChromeCastSpontaneousEventListener listener) {
-        this.eventListenerHolder.registerListener(listener);
+    public void registerConnectionListener(final ChromeCastConnectionEventListener listener) {
+        this.eventListenerHolder.registerConnectionListener(listener);
     }
 
-    public void unregisterListener(final ChromeCastSpontaneousEventListener listener) {
-        this.eventListenerHolder.unregisterListener(listener);
+    public void unregisterConnectionListener(final ChromeCastConnectionEventListener listener) {
+        this.eventListenerHolder.unregisterConnectionListener(listener);
     }
+
+    public void registerMessageListener(final ChromeCastSpontaneousEventListener listener) {
+         this.eventListenerHolder.registerListener(listener);
+     }
+
+    public void unregisterMessageListener(final ChromeCastSpontaneousEventListener listener) {
+         this.eventListenerHolder.unregisterListener(listener);
+     }
 
 }
