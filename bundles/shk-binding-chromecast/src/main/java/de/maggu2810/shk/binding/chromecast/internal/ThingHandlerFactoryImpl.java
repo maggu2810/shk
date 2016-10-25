@@ -35,7 +35,7 @@ import org.osgi.service.component.annotations.Reference;
 public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
 
     @Reference
-    private AudioHTTPServer audioHTTPServer;
+    private AudioHTTPServer audioHttpServer;
 
     private final Map<String, ServiceRegistration<AudioSink>> audioSinkRegistrations = new ConcurrentHashMap<>();
 
@@ -57,7 +57,7 @@ public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
             final ThingHandlerChromecast handler = new ThingHandlerChromecast(thing);
 
             // register the speaker as an audio sink
-            final ChromecastAudioSink audioSink = new ChromecastAudioSink(handler, audioHTTPServer);
+            final ChromecastAudioSink audioSink = new ChromecastAudioSink(handler, audioHttpServer);
             final ServiceRegistration<AudioSink> reg = bundleContext.registerService(AudioSink.class, audioSink, null);
             audioSinkRegistrations.put(thing.getUID().toString(), reg);
             return handler;

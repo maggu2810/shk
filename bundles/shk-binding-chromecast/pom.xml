@@ -18,10 +18,18 @@
       <artifactId>annotations</artifactId>
       <scope>provided</scope>
     </dependency>
+
+    <!-- Apache Commons -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
     </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+    </dependency>
+
+    <!-- Eclipse SmartHome -->
     <dependency>
       <groupId>org.eclipse.smarthome.config</groupId>
       <artifactId>org.eclipse.smarthome.config.core</artifactId>
@@ -42,10 +50,14 @@
       <groupId>org.eclipse.smarthome.core</groupId>
       <artifactId>org.eclipse.smarthome.core.thing</artifactId>
     </dependency>
+
+    <!-- jUPnP -->
     <dependency>
       <groupId>org.jupnp</groupId>
       <artifactId>org.jupnp</artifactId>
     </dependency>
+
+    <!-- OSGi -->
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>osgi.core</artifactId>
@@ -54,10 +66,14 @@
       <groupId>org.osgi</groupId>
       <artifactId>osgi.cmpn</artifactId>
     </dependency>
+
+    <!-- Logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
     </dependency>
+
+    <!-- shk -->
     <dependency>
       <groupId>de.maggu2810.shk.bundles</groupId>
       <artifactId>shk-library-chromecast-api</artifactId>

@@ -13,11 +13,12 @@
 
 package de.maggu2810.shk.binding.chromecast.internal;
 
-import java.io.IOException;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
+import org.apache.commons.io.IOUtils;
 import org.eclipse.smarthome.core.audio.AudioFormat;
 import org.eclipse.smarthome.core.audio.AudioHTTPServer;
 import org.eclipse.smarthome.core.audio.AudioSink;
@@ -28,19 +29,30 @@ import org.eclipse.smarthome.core.audio.UnsupportedAudioFormatException;
 import org.eclipse.smarthome.core.library.types.PercentType;
 
 public class ChromecastAudioSink implements AudioSink {
-    private static HashSet<AudioFormat> supportedFormats = new HashSet<>();
 
-    static {
-        supportedFormats.add(AudioFormat.WAV);
-        supportedFormats.add(AudioFormat.MP3);
+    private static class SupportedAudioFormats extends HashSet<AudioFormat> {
+        private static final long serialVersionUID = 1L;
+
+        public SupportedAudioFormats() {
+            add(AudioFormat.WAV);
+            add(AudioFormat.MP3);
+        }
     }
 
-    private final AudioHTTPServer audioHTTPServer;
+    private static final Set<AudioFormat> SUPPORTED_FORMATS = Collections.unmodifiableSet(new SupportedAudioFormats());
+
+    private final AudioHTTPServer audioHttpServer;
     private final ThingHandlerChromecast handler;
 
-    public ChromecastAudioSink(final ThingHandlerChromecast handler, final AudioHTTPServer audioHTTPServer) {
+    /**
+     * Create a new ChromeCast audio sink.
+     *
+     * @param handler chromecast thing handler
+     * @param audioHttpServer audio server
+     */
+    public ChromecastAudioSink(final ThingHandlerChromecast handler, final AudioHTTPServer audioHttpServer) {
         this.handler = handler;
-        this.audioHTTPServer = audioHTTPServer;
+        this.audioHttpServer = audioHttpServer;
     }
 
     @Override
@@ -59,10 +71,7 @@ public class ChromecastAudioSink implements AudioSink {
             // it is an external URL, the speaker can access it itself and play it.
             final URLAudioStream urlAudioStream = (URLAudioStream) audioStream;
             handler.playUri(urlAudioStream.getURL());
-            try {
-                audioStream.close();
-            } catch (final IOException e) {
-            }
+            IOUtils.closeQuietly(audioStream);
         } else {
             // we serve it on our own HTTP server and treat it as a notification
             if (!(audioStream instanceof FixedLengthAudioStream)) {
@@ -73,7 +82,7 @@ public class ChromecastAudioSink implements AudioSink {
                 // FixedLengthAudioStream, but this might be dangerous as we have no clue, how much data to expect from
                 // the stream.
             } else {
-                final String url = audioHTTPServer.serve((FixedLengthAudioStream) audioStream, 10).toString();
+                final String url = audioHttpServer.serve((FixedLengthAudioStream) audioStream, 10).toString();
                 final AudioFormat format = audioStream.getFormat();
                 if (AudioFormat.WAV.isCompatible(format)) {
                     handler.playUri(url + ".wav");
@@ -88,7 +97,7 @@ public class ChromecastAudioSink implements AudioSink {
 
     @Override
     public Set<AudioFormat> getSupportedFormats() {
-        return supportedFormats;
+        return SUPPORTED_FORMATS;
     }
 
     @Override
@@ -99,7 +108,7 @@ public class ChromecastAudioSink implements AudioSink {
 
     @Override
     public void setVolume(final PercentType volume) {
-        // TODO;
+        handler.setVolume(volume.intValue());
     }
 
 }

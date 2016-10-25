@@ -188,7 +188,7 @@ public class ThingHandlerChromecast extends BaseThingHandler
 
     void setVolume(final int percent) {
         try {
-            chromecast.setVolume(percent / 100);
+            chromecast.setVolume(percent / 100f);
             updateState(BindingConstants.CHANNEL_VOLUME, new PercentType(percent));
         } catch (final IOException ex) {
             logger.debug("Set volume failed.", ex);
