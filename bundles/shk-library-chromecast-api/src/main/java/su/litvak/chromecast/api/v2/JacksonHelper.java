@@ -15,27 +15,13 @@
  */
 package su.litvak.chromecast.api.v2;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.DeserializationConfig;
+import org.codehaus.jackson.map.ObjectMapper;
 
-/**
- * Extended Status
- */
-public class ExtendedStatus {
-
-    public enum PlayerState { LOADING }
-
-    public final PlayerState playerState;
-    public final Media media;
-
-    ExtendedStatus(@JsonProperty("playerState") PlayerState playerState,
-            @JsonProperty("media") Media media) {
-        this.playerState = playerState;
-        this.media = media;
+class JacksonHelper {
+    static ObjectMapper createJSONMapper() {
+        ObjectMapper jsonMapper = new ObjectMapper();
+        jsonMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        return jsonMapper;
     }
-
-    @Override
-    public String toString() {
-        return String.format("ExtendedStatus{playerState: %s, media: %s}", this.playerState, this.media);
-    }
-
 }

@@ -64,7 +64,6 @@ public class MediaStatus {
     public final Media media;
     public final RepeatMode repeatMode;
     public final IdleReason idleReason;
-    public final ExtendedStatus extendedStatus;
 
     MediaStatus(@JsonProperty("activeTrackIds") List<Integer> activeTrackIds,
                 @JsonProperty("mediaSessionId") long mediaSessionId,
@@ -80,8 +79,7 @@ public class MediaStatus {
                 @JsonProperty("volume") Volume volume,
                 @JsonProperty("media") Media media,
                 @JsonProperty("repeatMode") RepeatMode repeatMode,
-                @JsonProperty("idleReason") IdleReason idleReason,
-                @JsonProperty("extendedStatus") ExtendedStatus extendedStatus) {
+                @JsonProperty("idleReason") IdleReason idleReason) {
         this.activeTrackIds = activeTrackIds != null ? Collections.unmodifiableList(activeTrackIds) : null;
         this.mediaSessionId = mediaSessionId;
         this.playbackRate = playbackRate;
@@ -97,7 +95,6 @@ public class MediaStatus {
         this.media = media;
         this.repeatMode = repeatMode;
         this.idleReason = idleReason;
-        this.extendedStatus = extendedStatus;
     }
 
     @Override
@@ -108,10 +105,10 @@ public class MediaStatus {
 
         return String.format("MediaStatus{activeTrackIds: %s, mediaSessionId: %d, playbackRate: %d, playerState: %s, currentItemId: %s, "
                 + "currentTime: %f, customData: %s, loadingItemId: %s, items: %s, preloadedItemId: %s, supportedMediaCommands: %d, "
-                + "volume: %s, media: %s, repeatMode: %s, idleReason: %s, extendedStatus: %s}",
+                + "volume: %s, media: %s, repeatMode: %s, idleReason: %s}",
                 activeTrackIds, this.mediaSessionId, this.playbackRate, this.playerState, this.currentItemId,
                 this.currentTime, customData, this.loadingItemId, items, this.preloadedItemId,
-                this.supportedMediaCommands, this.volume, this.media, this.repeatMode, this.idleReason, this.extendedStatus);
+                this.supportedMediaCommands, this.volume, this.media, this.repeatMode, this.idleReason);
     }
 
 }
