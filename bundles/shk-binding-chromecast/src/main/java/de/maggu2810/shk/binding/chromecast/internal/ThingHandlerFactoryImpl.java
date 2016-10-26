@@ -42,7 +42,7 @@ public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
     // private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(
-            new HashSet<>(Arrays.asList(new ThingTypeUID[] { BindingConstants.THING_TYPE_CHROMECAST })));
+            new HashSet<>(Arrays.asList(new ThingTypeUID[] { BindingConstants.ThingType.CHROMECAST })));
 
     @Override
     public boolean supportsThingType(final ThingTypeUID thingTypeUID) {
@@ -53,7 +53,7 @@ public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
     protected ThingHandler createHandler(final Thing thing) {
         final ThingTypeUID thingTypeUID = thing.getThingTypeUID();
 
-        if (thingTypeUID.equals(BindingConstants.THING_TYPE_CHROMECAST)) {
+        if (thingTypeUID.equals(BindingConstants.ThingType.CHROMECAST)) {
             final ThingHandlerChromecast handler = new ThingHandlerChromecast(thing);
 
             // register the speaker as an audio sink

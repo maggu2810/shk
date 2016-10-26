@@ -103,7 +103,7 @@ public class ThingHandlerChromecast extends BaseThingHandler
 
     @Override
     public void initialize() {
-        final Object obj = getConfig().get(BindingConstants.HOST);
+        final Object obj = getConfig().get(BindingConstants.Config.HOST);
         if (!(obj instanceof String)) {
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.OFFLINE.CONFIGURATION_ERROR,
                     "Cannot connect to chromecats. IP address configuration corrupt");
@@ -133,15 +133,15 @@ public class ThingHandlerChromecast extends BaseThingHandler
         }
 
         switch (channelUID.getId()) {
-            case BindingConstants.CHANNEL_PLAY:
+            case BindingConstants.Channel.PLAY:
                 handleCommandPlay(command);
                 break;
-            case BindingConstants.CHANNEL_PLAYURI:
+            case BindingConstants.Channel.PLAYURI:
                 if (command instanceof StringType) {
                     playUri(((StringType) command).toString());
                 }
                 break;
-            case BindingConstants.CHANNEL_VOLUME:
+            case BindingConstants.Channel.VOLUME:
                 if (command instanceof PercentType) {
                     setVolume(((PercentType) command).intValue());
                 }
@@ -177,7 +177,7 @@ public class ThingHandlerChromecast extends BaseThingHandler
                     logger.debug("Application launched: {}", app);
                 }
                 chromecast.load(uri);
-                updateState(BindingConstants.CHANNEL_PLAYURI, new StringType(uri));
+                updateState(BindingConstants.Channel.PLAYURI, new StringType(uri));
             } else {
                 logger.error("Missing media player app");
             }
@@ -189,7 +189,7 @@ public class ThingHandlerChromecast extends BaseThingHandler
     void setVolume(final int percent) {
         try {
             chromecast.setVolume(percent / 100f);
-            updateState(BindingConstants.CHANNEL_VOLUME, new PercentType(percent));
+            updateState(BindingConstants.Channel.VOLUME, new PercentType(percent));
         } catch (final IOException ex) {
             logger.debug("Set volume failed.", ex);
         }
@@ -217,11 +217,11 @@ public class ThingHandlerChromecast extends BaseThingHandler
         switch (mediaStatus.playerState) {
             case IDLE:
             case PAUSED:
-                updateState(BindingConstants.CHANNEL_PLAY, OnOffType.OFF);
+                updateState(BindingConstants.Channel.PLAY, OnOffType.OFF);
                 break;
             case BUFFERING:
             case PLAYING:
-                updateState(BindingConstants.CHANNEL_PLAY, OnOffType.ON);
+                updateState(BindingConstants.Channel.PLAY, OnOffType.ON);
                 break;
             default:
                 break;
@@ -231,7 +231,7 @@ public class ThingHandlerChromecast extends BaseThingHandler
     }
 
     private void handleCcVolume(final Volume volume) {
-        updateState(BindingConstants.CHANNEL_VOLUME, new PercentType((int) (volume.level * 100)));
+        updateState(BindingConstants.Channel.VOLUME, new PercentType((int) (volume.level * 100)));
     }
 
     @Override

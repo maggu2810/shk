@@ -35,15 +35,14 @@ import org.osgi.service.component.annotations.Component;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 @Component
-@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE",
-        justification = "RemoteDevice extends Device and specify return type of getIdentity.")
+@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE", justification = "RemoteDevice extends Device and specify return type of getIdentity.")
 public class DicoveryParticipantChromecast implements UpnpDiscoveryParticipant {
 
     // private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public Set<ThingTypeUID> getSupportedThingTypeUIDs() {
-        return Collections.singleton(BindingConstants.THING_TYPE_CHROMECAST);
+        return Collections.singleton(BindingConstants.ThingType.CHROMECAST);
     }
 
     @Override
@@ -54,7 +53,7 @@ public class DicoveryParticipantChromecast implements UpnpDiscoveryParticipant {
         }
 
         final Map<String, Object> properties = new HashMap<>(2);
-        properties.put(BindingConstants.HOST, device.getDetails().getBaseURL().getHost());
+        properties.put(BindingConstants.Config.HOST, device.getDetails().getBaseURL().getHost());
         // properties.put(SERIAL_NUMBER, device.getDetails().getSerialNumber());
 
         final DiscoveryResult result = DiscoveryResultBuilder.create(uid).withProperties(properties)
@@ -89,7 +88,7 @@ public class DicoveryParticipantChromecast implements UpnpDiscoveryParticipant {
             return null;
         }
 
-        return new ThingUID(BindingConstants.THING_TYPE_CHROMECAST, identity.getUdn().getIdentifierString());
+        return new ThingUID(BindingConstants.ThingType.CHROMECAST, identity.getUdn().getIdentifierString());
     }
 
 }

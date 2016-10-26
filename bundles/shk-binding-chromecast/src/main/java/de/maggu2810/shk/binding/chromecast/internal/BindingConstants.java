@@ -22,13 +22,28 @@ public class BindingConstants {
 
     public static final String BINDING_ID = "chromecast";
 
-    public static final ThingTypeUID THING_TYPE_CHROMECAST = new ThingTypeUID(BINDING_ID, "chromecast");
+    public static class ThingType {
+        private ThingType() {
+        }
+
+        public static final ThingTypeUID CHROMECAST = new ThingTypeUID(BINDING_ID, "chromecast");
+    }
 
     // channel IDs
-    public static final String CHANNEL_PLAY = "play";
-    public static final String CHANNEL_PLAYURI = "playuri";
-    public static final String CHANNEL_VOLUME = "volume";
+    public static class Channel {
+        private Channel() {
+        }
+
+        public static final String PLAY = "play";
+        public static final String PLAYURI = "playuri";
+        public static final String VOLUME = "volume";
+    }
 
     // config properties
-    public static final String HOST = "ipAddress";
+    public static class Config {
+        private Config() {
+        }
+
+        public static final String HOST = "ipAddress";
+    }
 }
