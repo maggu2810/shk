@@ -34,16 +34,25 @@ public class BindingConstants {
         private Channel() {
         }
 
+        public static final String CONTROL = "control";
         public static final String PLAY = "play";
         public static final String PLAYURI = "playuri";
         public static final String VOLUME = "volume";
     }
 
-    // config properties
+    // config parameters
     public static class Config {
         private Config() {
         }
 
         public static final String HOST = "ipAddress";
+    }
+
+    // properties
+    public static class Properties {
+        private Properties() {
+        }
+
+        public static final String SERIAL_NUMBER = "serialNumber";
     }
 }

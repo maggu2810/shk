@@ -67,31 +67,31 @@ public class ChromecastAudioSink implements AudioSink {
 
     @Override
     public void process(final AudioStream audioStream) throws UnsupportedAudioFormatException {
+        final String title = "AudioSink";
+
+        final String mimeType;
+        if (AudioFormat.MP3.isCompatible(audioStream.getFormat())) {
+            mimeType = "audio/mpeg";
+        } else if (AudioFormat.WAV.isCompatible(audioStream.getFormat())) {
+            mimeType = "audio/wav";
+        } else {
+            mimeType = null;
+        }
+
         if (audioStream instanceof URLAudioStream) {
             // it is an external URL, the speaker can access it itself and play it.
             final URLAudioStream urlAudioStream = (URLAudioStream) audioStream;
-            handler.playUri(urlAudioStream.getURL());
+            handler.playUri(urlAudioStream.getURL(), title, mimeType);
             IOUtils.closeQuietly(audioStream);
+        } else if (audioStream instanceof FixedLengthAudioStream) {
+            final String url = audioHttpServer.serve((FixedLengthAudioStream) audioStream, 10).toString();
+            handler.playUri(url, title, mimeType);
         } else {
-            // we serve it on our own HTTP server and treat it as a notification
-            if (!(audioStream instanceof FixedLengthAudioStream)) {
-                // Note that we have to pass a FixedLengthAudioStream, since Sonos does multiple concurrent requests to
-                // the AudioServlet, so a one time serving won't work.
-                throw new UnsupportedAudioFormatException("Sonos can only handle FixedLengthAudioStreams.", null);
-                // TODO: Instead of throwing an exception, we could ourselves try to wrap it into a
-                // FixedLengthAudioStream, but this might be dangerous as we have no clue, how much data to expect from
-                // the stream.
-            } else {
-                final String url = audioHttpServer.serve((FixedLengthAudioStream) audioStream, 10).toString();
-                final AudioFormat format = audioStream.getFormat();
-                if (AudioFormat.WAV.isCompatible(format)) {
-                    handler.playUri(url + ".wav");
-                } else if (AudioFormat.MP3.isCompatible(format)) {
-                    handler.playUri(url + ".mp3");
-                } else {
-                    throw new UnsupportedAudioFormatException("Sonos only supports MP3 or WAV.", format);
-                }
-            }
+            IOUtils.closeQuietly(audioStream);
+            throw new UnsupportedAudioFormatException(
+                    String.format("Don't know how to handle given audio stream of class %s",
+                            audioStream.getClass().getSimpleName()),
+                    null);
         }
     }
 
@@ -102,8 +102,12 @@ public class ChromecastAudioSink implements AudioSink {
 
     @Override
     public PercentType getVolume() {
-        // TODO
-        return PercentType.HUNDRED;
+        final PercentType volume = handler.getVolume();
+        if (volume != null) {
+            return volume;
+        } else {
+            return PercentType.HUNDRED;
+        }
     }
 
     @Override

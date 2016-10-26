@@ -20,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.smarthome.core.library.types.OnOffType;
 import org.eclipse.smarthome.core.library.types.PercentType;
+import org.eclipse.smarthome.core.library.types.PlayPauseType;
+import org.eclipse.smarthome.core.library.types.RewindFastforwardType;
 import org.eclipse.smarthome.core.library.types.StringType;
 import org.eclipse.smarthome.core.thing.ChannelUID;
 import org.eclipse.smarthome.core.thing.Thing;
@@ -49,6 +51,7 @@ public class ThingHandlerChromecast extends BaseThingHandler
 
     private ChromeCast chromecast;
     private ScheduledFuture<?> futureConnect;
+    private PercentType volume;
 
     /**
      * Constructor.
@@ -95,13 +98,6 @@ public class ThingHandlerChromecast extends BaseThingHandler
     }
 
     @Override
-    public void dispose() {
-        if (chromecast != null) {
-            destroyChromecast();
-        }
-    }
-
-    @Override
     public void initialize() {
         final Object obj = getConfig().get(BindingConstants.Config.HOST);
         if (!(obj instanceof String)) {
@@ -127,18 +123,28 @@ public class ThingHandlerChromecast extends BaseThingHandler
     }
 
     @Override
+    public void dispose() {
+        if (chromecast != null) {
+            destroyChromecast();
+        }
+    }
+
+    @Override
     public void handleCommand(final ChannelUID channelUID, final Command command) {
         if (chromecast == null) {
             return;
         }
 
         switch (channelUID.getId()) {
+            case BindingConstants.Channel.CONTROL:
+                handleCommandControl(command);
+                break;
             case BindingConstants.Channel.PLAY:
                 handleCommandPlay(command);
                 break;
             case BindingConstants.Channel.PLAYURI:
                 if (command instanceof StringType) {
-                    playUri(((StringType) command).toString());
+                    playUri(((StringType) command).toString(), null, null);
                 }
                 break;
             case BindingConstants.Channel.VOLUME:
@@ -149,6 +155,36 @@ public class ThingHandlerChromecast extends BaseThingHandler
             default:
                 logger.debug("unhandled channel: {}", channelUID);
                 break;
+        }
+    }
+
+    private void handleCommandControl(final Command command) {
+        if (command instanceof PlayPauseType) {
+            final PlayPauseType playPause = (PlayPauseType) command;
+            try {
+                if (playPause == PlayPauseType.PLAY) {
+                    chromecast.play();
+                } else {
+                    chromecast.pause();
+                }
+            } catch (final IOException ex) {
+                logger.debug("Cannot handle play / pause control command.", ex);
+            }
+        }
+        if (command instanceof RewindFastforwardType) {
+            logger.info("Seek takes one argument that consists (at least if my tests are correct) of the number of "
+                    + "seconds in the stream that should be jumped to. So we have to use the current time and add"
+                    + "or subtract the seek time.");
+            // final RewindFastforwardType rewFwd = (RewindFastforwardType) command;
+            // try {
+            // if (rewFwd == RewindFastforwardType.FASTFORWARD) {
+            // chromecast.seek(SEEK_TIME);
+            // } else {
+            // chromecast.seek(-SEEK_TIME);
+            // }
+            // } catch (final IOException ex) {
+            // logger.debug("Cannot handle rewind / fast forward control command.", ex);
+            // }
         }
     }
 
@@ -167,8 +203,16 @@ public class ThingHandlerChromecast extends BaseThingHandler
         }
     }
 
-    void playUri(final String uri) {
+    void playUri(final String url, final String title, final String mimeType) {
         // Test URI: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+
+        final String customTitle;
+        if (title == null) {
+            customTitle = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.'));
+        } else {
+            customTitle = title;
+        }
+
         try {
             final Status status = chromecast.getStatus();
             if (chromecast.isAppAvailable(MEDIA_PLAYER)) {
@@ -176,8 +220,9 @@ public class ThingHandlerChromecast extends BaseThingHandler
                     final Application app = chromecast.launchApp(MEDIA_PLAYER);
                     logger.debug("Application launched: {}", app);
                 }
-                chromecast.load(uri);
-                updateState(BindingConstants.Channel.PLAYURI, new StringType(uri));
+
+                chromecast.load(customTitle, null, url, mimeType);
+                updateState(BindingConstants.Channel.PLAYURI, new StringType(url));
             } else {
                 logger.error("Missing media player app");
             }
@@ -193,6 +238,10 @@ public class ThingHandlerChromecast extends BaseThingHandler
         } catch (final IOException ex) {
             logger.debug("Set volume failed.", ex);
         }
+    }
+
+    PercentType getVolume() {
+        return volume;
     }
 
     private void handleCcConnected() {
@@ -231,7 +280,8 @@ public class ThingHandlerChromecast extends BaseThingHandler
     }
 
     private void handleCcVolume(final Volume volume) {
-        updateState(BindingConstants.Channel.VOLUME, new PercentType((int) (volume.level * 100)));
+        this.volume = new PercentType((int) (volume.level * 100));
+        updateState(BindingConstants.Channel.VOLUME, this.volume);
     }
 
     @Override
