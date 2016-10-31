@@ -34,15 +34,15 @@ import org.osgi.service.component.annotations.Reference;
 @Component(service = { ThingHandlerFactory.class })
 public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
 
-    @Reference
-    private AudioHTTPServer audioHttpServer;
+    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(
+            new HashSet<>(Arrays.asList(new ThingTypeUID[] { BindingConstants.ThingType.CHROMECAST })));
 
     private final Map<String, ServiceRegistration<AudioSink>> audioSinkRegistrations = new ConcurrentHashMap<>();
 
-    // private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Reference
+    private AudioHTTPServer audioHttpServer;
 
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(
-            new HashSet<>(Arrays.asList(new ThingTypeUID[] { BindingConstants.ThingType.CHROMECAST })));
+    // private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public boolean supportsThingType(final ThingTypeUID thingTypeUID) {
@@ -57,7 +57,7 @@ public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
             final ThingHandlerChromecast handler = new ThingHandlerChromecast(thing);
 
             // register the speaker as an audio sink
-            final ChromecastAudioSink audioSink = new ChromecastAudioSink(handler, audioHttpServer);
+            final ChromecastAudioSink audioSink = new ChromecastAudioSink(bundleContext, handler, audioHttpServer);
             final ServiceRegistration<AudioSink> reg = bundleContext.registerService(AudioSink.class, audioSink, null);
             audioSinkRegistrations.put(thing.getUID().toString(), reg);
             return handler;

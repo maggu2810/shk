@@ -27,6 +27,11 @@ import org.eclipse.smarthome.core.audio.FixedLengthAudioStream;
 import org.eclipse.smarthome.core.audio.URLAudioStream;
 import org.eclipse.smarthome.core.audio.UnsupportedAudioFormatException;
 import org.eclipse.smarthome.core.library.types.PercentType;
+import org.eclipse.smarthome.core.net.HttpServiceUtil;
+import org.eclipse.smarthome.core.net.NetUtil;
+import org.osgi.framework.BundleContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ChromecastAudioSink implements AudioSink {
 
@@ -41,16 +46,21 @@ public class ChromecastAudioSink implements AudioSink {
 
     private static final Set<AudioFormat> SUPPORTED_FORMATS = Collections.unmodifiableSet(new SupportedAudioFormats());
 
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final BundleContext bc;
     private final AudioHTTPServer audioHttpServer;
     private final ThingHandlerChromecast handler;
 
     /**
      * Create a new ChromeCast audio sink.
      *
+     * @param bc the bundle context
      * @param handler chromecast thing handler
      * @param audioHttpServer audio server
      */
-    public ChromecastAudioSink(final ThingHandlerChromecast handler, final AudioHTTPServer audioHttpServer) {
+    public ChromecastAudioSink(final BundleContext bc, final ThingHandlerChromecast handler,
+            final AudioHTTPServer audioHttpServer) {
+        this.bc = bc;
         this.handler = handler;
         this.audioHttpServer = audioHttpServer;
     }
@@ -84,8 +94,11 @@ public class ChromecastAudioSink implements AudioSink {
             handler.playUri(urlAudioStream.getURL(), title, mimeType);
             IOUtils.closeQuietly(audioStream);
         } else if (audioStream instanceof FixedLengthAudioStream) {
-            final String url = audioHttpServer.serve((FixedLengthAudioStream) audioStream, 10).toString();
-            handler.playUri(url, title, mimeType);
+            final String relativeUrl = audioHttpServer.serve((FixedLengthAudioStream) audioStream, 10);
+            final String absoluteUrl = getAbsoluteUrl(relativeUrl);
+            if (absoluteUrl != null) {
+                handler.playUri(absoluteUrl, title, mimeType);
+            }
         } else {
             IOUtils.closeQuietly(audioStream);
             throw new UnsupportedAudioFormatException(
@@ -113,6 +126,29 @@ public class ChromecastAudioSink implements AudioSink {
     @Override
     public void setVolume(final PercentType volume) {
         handler.setVolume(volume.intValue());
+    }
+
+    /**
+     * Get an aboslute URL for a relative one.
+     *
+     * @param relativeUrl the relative URL
+     * @return an absolute URL on success, null if no absolute URL could be built.
+     */
+    private String getAbsoluteUrl(final String relativeUrl) {
+        final String ipAddress = NetUtil.getLocalIpv4HostAddress();
+        if (ipAddress == null) {
+            logger.warn("Don't find a candidate for a local IPv4 address.");
+            return null;
+        }
+
+        // Let's use the unsecure port to prevent certificate issues.
+        final int port = HttpServiceUtil.getHttpServicePort(bc);
+        if (port == -1) {
+            logger.warn("Cannot identify the port of the HTTP service.");
+            return null;
+        }
+
+        return String.format("http://%s:%d%s", ipAddress, port, relativeUrl);
     }
 
 }
