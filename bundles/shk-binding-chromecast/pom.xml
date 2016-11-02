@@ -50,6 +50,10 @@
       <groupId>org.eclipse.smarthome.core</groupId>
       <artifactId>org.eclipse.smarthome.core.thing</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome.io</groupId>
+      <artifactId>org.eclipse.smarthome.io.transport.mdns</artifactId>
+    </dependency>
 
     <!-- jUPnP -->
     <dependency>

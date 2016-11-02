@@ -11,19 +11,11 @@
  * #L%
  */
 
-package de.maggu2810.shk.binding.chromecast.internal;
+package de.maggu2810.shk.binding.chromecast.internal.discovery;
 
 import java.net.URI;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
-import org.eclipse.smarthome.config.discovery.DiscoveryResult;
-import org.eclipse.smarthome.config.discovery.DiscoveryResultBuilder;
 import org.eclipse.smarthome.config.discovery.UpnpDiscoveryParticipant;
-import org.eclipse.smarthome.core.thing.ThingTypeUID;
-import org.eclipse.smarthome.core.thing.ThingUID;
 import org.jupnp.model.meta.DeviceDetails;
 import org.jupnp.model.meta.ManufacturerDetails;
 import org.jupnp.model.meta.ModelDetails;
@@ -36,45 +28,22 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 @Component
 @SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE", justification = "RemoteDevice extends Device and specify return type of getIdentity.")
-public class DicoveryParticipantChromecast implements UpnpDiscoveryParticipant {
+public class ChromeCastDiscoveryUpnp extends AbstractDiscovery<RemoteDevice> implements UpnpDiscoveryParticipant {
 
     // private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public Set<ThingTypeUID> getSupportedThingTypeUIDs() {
-        return Collections.singleton(BindingConstants.ThingType.CHROMECAST);
-    }
-
-    @Override
-    public DiscoveryResult createResult(final RemoteDevice device) {
-        final ThingUID uid = getThingUID(device);
-        if (uid == null) {
-            return null;
-        }
-
-        final Map<String, Object> properties = new HashMap<>(2);
-        properties.put(BindingConstants.Config.HOST, device.getDetails().getBaseURL().getHost());
-        properties.put(BindingConstants.Properties.SERIAL_NUMBER, device.getDetails().getSerialNumber());
-
-        final DiscoveryResult result = DiscoveryResultBuilder.create(uid).withProperties(properties)
-                .withLabel(device.getDetails().getFriendlyName())
-                .withRepresentationProperty(BindingConstants.Properties.SERIAL_NUMBER).build();
-        return result;
-    }
-
-    @Override
-    public ThingUID getThingUID(final RemoteDevice device) {
-        final RemoteDeviceIdentity identity = device.getIdentity();
+    protected boolean use(final RemoteDevice device) {
         final DeviceDetails deviceDetails = device.getDetails();
         final ManufacturerDetails manufacturerDetails = deviceDetails.getManufacturerDetails();
         final ModelDetails modelDetails = deviceDetails.getModelDetails();
 
         if (!manufacturerDetails.getManufacturer().equals("Google Inc.")) {
-            return null;
+            return false;
         }
 
         if (!modelDetails.getModelName().equals("Eureka Dongle")) {
-            return null;
+            return false;
         }
 
         boolean serviceAvailable = false;
@@ -85,10 +54,32 @@ public class DicoveryParticipantChromecast implements UpnpDiscoveryParticipant {
             }
         }
         if (!serviceAvailable) {
-            return null;
+            return false;
         }
 
-        return new ThingUID(BindingConstants.ThingType.CHROMECAST, identity.getUdn().getIdentifierString());
+        return true;
+    }
+
+    @Override
+    protected String getUuidNoHyphens(final RemoteDevice device) {
+        final RemoteDeviceIdentity identity = device.getIdentity();
+        final String id = identity.getUdn().getIdentifierString();
+        return id.replaceAll("-", "");
+    }
+
+    @Override
+    protected String getFriendlyName(final RemoteDevice device) {
+        return device.getDetails().getFriendlyName();
+    }
+
+    @Override
+    protected String getHost(final RemoteDevice device) {
+        return device.getDetails().getBaseURL().getHost();
+    }
+
+    @Override
+    protected String getSerialNumber(final RemoteDevice device) {
+        return device.getDetails().getSerialNumber();
     }
 
 }
