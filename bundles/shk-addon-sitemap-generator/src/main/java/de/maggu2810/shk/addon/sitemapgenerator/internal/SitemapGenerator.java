@@ -20,7 +20,6 @@ import java.util.Set;
 import java.util.function.Function;
 
 import org.apache.commons.lang3.StringUtils;
-import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.items.ItemRegistry;
 import org.eclipse.smarthome.core.thing.ThingRegistry;
 import org.eclipse.smarthome.core.thing.link.ItemChannelLinkRegistry;
@@ -92,47 +91,42 @@ public class SitemapGenerator implements SitemapProvider {
 
         thingRegistry.getAll().forEach(thing -> {
             // Create a widget for the thing
-                final Frame thingWidget = sitemapFactory.createFrame();
-                thingWidget.setLabel(thing.getLabel());
-                thingWidget.setIcon("player");
+            final Frame thingWidget = sitemapFactory.createFrame();
+            thingWidget.setLabel(thing.getLabel());
+            thingWidget.setIcon("player");
 
-                // Create or use already existing location widget
-                final String thingLocation = thing.getLocation();
-                final String location = StringUtils.isEmpty(thingLocation) ? LOCATION_DFL : thingLocation;
-                final Group locationWidget;
-                if (locations.containsKey(location)) {
-                    // Location widget already exists
-                    locationWidget = locations.get(location);
-                } else {
-                    // Create a new location widget
-                    locationWidget = sitemapFactory.createGroup();
-                    locationWidget.setLabel(location);
-                    locations.put(location, locationWidget);
-                }
+            // Create or use already existing location widget
+            final String thingLocation = thing.getLocation();
+            final String location = StringUtils.isEmpty(thingLocation) ? LOCATION_DFL : thingLocation;
+            final Group locationWidget;
+            if (locations.containsKey(location)) {
+                // Location widget already exists
+                locationWidget = locations.get(location);
+            } else {
+                // Create a new location widget
+                locationWidget = sitemapFactory.createGroup();
+                locationWidget.setLabel(location);
+                locations.put(location, locationWidget);
+            }
 
-                // For every channel of the thing ...
-                thing.getChannels().forEach(channel -> {
-                    // ... inspect every linked item, ...
-                        linkRegistry.getLinkedItems(channel.getUID()).forEach(itemName -> {
-                            final Item item = itemRegistry.get(itemName);
-                            if (item == null) {
-                                logger.warn("Linked item does not exist: {}", itemName);
-                            }
+            // For every channel of the thing ...
+            thing.getChannels().forEach(channel -> {
+                // ... inspect every linked item, ...
+                linkRegistry.getLinkedItems(channel.getUID()).forEach(item -> {
+                    // create a widget for the item
+                    final Default widget = sitemapFactory.createDefault();
+                    widget.setItem(item.getName());
 
-                            // create a widget for the item
-                                final Default widget = sitemapFactory.createDefault();
-                                widget.setItem(itemName);
-
-                                // and add it to the thing widget
-                                thingWidget.getChildren().add(widget);
-                            });
-                    });
-
-                // Add thing widget (if not empty) to the location widget
-                if (!thingWidget.getChildren().isEmpty()) {
-                    locationWidget.getChildren().add(thingWidget);
-                }
+                    // and add it to the thing widget
+                    thingWidget.getChildren().add(widget);
+                });
             });
+
+            // Add thing widget (if not empty) to the location widget
+            if (!thingWidget.getChildren().isEmpty()) {
+                locationWidget.getChildren().add(thingWidget);
+            }
+        });
 
         // Add all non-empty location widgets to the main widget
         locations.forEach((name, widget) -> {
@@ -154,10 +148,10 @@ public class SitemapGenerator implements SitemapProvider {
 
         itemRegistry.getAll().forEach(item -> {
             // create a widget for the item
-                final Default widget = sitemapFactory.createDefault();
-                widget.setItem(item.getName());
-                mainFrame.getChildren().add(widget);
-            });
+            final Default widget = sitemapFactory.createDefault();
+            widget.setItem(item.getName());
+            mainFrame.getChildren().add(widget);
+        });
 
         // Add main widget (if not empty) to the sitemap
         if (!mainFrame.getChildren().isEmpty()) {
