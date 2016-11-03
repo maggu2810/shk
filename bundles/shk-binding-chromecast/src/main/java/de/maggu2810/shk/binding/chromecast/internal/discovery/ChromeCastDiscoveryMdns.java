@@ -65,10 +65,11 @@ public class ChromeCastDiscoveryMdns extends AbstractDiscovery<ServiceInfo> impl
         final Enumeration<String> e = service.getPropertyNames();
         while (e.hasMoreElements()) {
             final String propName = e.nextElement();
-            try {
-                logger.info("property: name: {}, value: {}", propName, service.getPropertyString(propName));
-            } catch (final RuntimeException ex) {
-                logger.info("property: name: {}, value: --, error raised", propName, ex);
+            final String value = service.getPropertyString(propName);
+            if (value != null) {
+                logger.info("property: name: {}, value: {}", propName, value);
+            } else {
+                logger.info("property: name: {}: value: {}", propName, service.getPropertyBytes(propName));
             }
         }
 

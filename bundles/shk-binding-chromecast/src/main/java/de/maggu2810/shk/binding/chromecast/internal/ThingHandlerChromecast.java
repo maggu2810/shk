@@ -14,6 +14,7 @@
 package de.maggu2810.shk.binding.chromecast.internal;
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -88,7 +89,7 @@ public class ThingHandlerChromecast extends BaseThingHandler
         futureConnect = scheduler.schedule(() -> {
             try {
                 chromecast.connect();
-            } catch (final Exception ex) {
+            } catch (final IOException | GeneralSecurityException ex) {
                 logger.debug("Cannot connect chromecast.", ex);
                 updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.OFFLINE.COMMUNICATION_ERROR,
                         "Cannot connect to chromecast.");

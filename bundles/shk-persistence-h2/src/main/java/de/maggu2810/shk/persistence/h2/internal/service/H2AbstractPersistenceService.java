@@ -334,7 +334,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
                 }
                 // statement.executeUpdate(String.format("SET SCHEMA %s;", Schema.ITEM));
             }
-        } catch (final RuntimeException | SQLException ex) {
+        } catch (final SQLException ex) {
             logger.error("{}: Failed connecting to the database", getId(), ex);
         }
 

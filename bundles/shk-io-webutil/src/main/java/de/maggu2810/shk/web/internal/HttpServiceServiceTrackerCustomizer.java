@@ -94,7 +94,7 @@ public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustom
         if (obj != null) {
             try {
                 return Integer.parseInt(obj.toString());
-            } catch (final RuntimeException ex) {
+            } catch (final NumberFormatException ex) {
                 return -1;
             }
         } else {
