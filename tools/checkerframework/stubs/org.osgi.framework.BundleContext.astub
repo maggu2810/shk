@@ -1,0 +1,11 @@
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+package org.osgi.framework;
+
+interface BundleContext extends BundleReference {
+    ServiceRegistration<?> registerService(String[] arg0, Object arg1, @Nullable Dictionary<String,?> arg2);
+    ServiceRegistration<?> registerService(String arg0, Object arg1, @Nullable Dictionary<String,?> arg2);
+    <S> ServiceRegistration<S> registerService(Class<S> arg0, S arg1, @Nullable Dictionary<String,?> arg2);
+    <S> ServiceRegistration<S> registerService(Class<S> arg0, ServiceFactory<S> arg1, @Nullable Dictionary<String,?> arg2);
+}

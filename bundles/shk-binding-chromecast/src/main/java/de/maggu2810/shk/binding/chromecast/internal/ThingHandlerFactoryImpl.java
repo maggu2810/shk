@@ -20,6 +20,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.core.audio.AudioHTTPServer;
 import org.eclipse.smarthome.core.audio.AudioSink;
 import org.eclipse.smarthome.core.thing.Thing;
@@ -34,32 +36,33 @@ import org.osgi.service.component.annotations.Reference;
 @Component(service = { ThingHandlerFactory.class })
 public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
 
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(
+    private static final @NonNull Set<@NonNull ThingTypeUID> SUPPORTED_THING_TYPES = Collections.unmodifiableSet(
             new HashSet<>(Arrays.asList(new ThingTypeUID[] { BindingConstants.ThingType.CHROMECAST })));
 
-    private final Map<String, ServiceRegistration<AudioSink>> audioSinkRegistrations = new ConcurrentHashMap<>();
+    private final Map<@NonNull String, @NonNull ServiceRegistration<AudioSink>> audioSinkRegistrations = new ConcurrentHashMap<>();
 
     @Reference
-    private AudioHTTPServer audioHttpServer;
+    @SuppressWarnings("initialization.fields.uninitialized")
+    private @NonNull AudioHTTPServer audioHttpServer;
 
     // private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public boolean supportsThingType(final ThingTypeUID thingTypeUID) {
+    public boolean supportsThingType(final @NonNull ThingTypeUID thingTypeUID) {
         return SUPPORTED_THING_TYPES.contains(thingTypeUID);
     }
 
     @Override
-    protected ThingHandler createHandler(final Thing thing) {
+    protected @Nullable ThingHandler createHandler(final @NonNull Thing thing) {
         final ThingTypeUID thingTypeUID = thing.getThingTypeUID();
 
         if (thingTypeUID.equals(BindingConstants.ThingType.CHROMECAST)) {
             final ThingHandlerChromecast handler = new ThingHandlerChromecast(thing);
 
             // register the speaker as an audio sink
-            final ChromecastAudioSink audioSink = new ChromecastAudioSink(bundleContext, handler, audioHttpServer);
-            final ServiceRegistration<AudioSink> reg = bundleContext.registerService(AudioSink.class, audioSink, null);
-            audioSinkRegistrations.put(thing.getUID().toString(), reg);
+            addAudioSinkRegistration(thing, handler);
+
+            // Return the handler
             return handler;
         } else {
             return null;
@@ -69,7 +72,20 @@ public class ThingHandlerFactoryImpl extends BaseThingHandlerFactory {
     @Override
     public void unregisterHandler(final Thing thing) {
         super.unregisterHandler(thing);
-        final ServiceRegistration<AudioSink> reg = audioSinkRegistrations.get(thing.getUID().toString());
+        removeAudioSinkRegistration(thing);
+    }
+
+    private void addAudioSinkRegistration(final @NonNull Thing thing, final @NonNull ThingHandlerChromecast handler) {
+        final @NonNull AudioHTTPServer audioHttpServer = this.audioHttpServer;
+        final ChromecastAudioSink audioSink = new ChromecastAudioSink(bundleContext, handler, audioHttpServer);
+        final ServiceRegistration<AudioSink> reg = bundleContext.registerService(AudioSink.class, audioSink, null);
+        final String thingUid = thing.getUID().toString();
+        audioSinkRegistrations.put(thingUid, reg);
+    }
+
+    private void removeAudioSinkRegistration(final @NonNull Thing thing) {
+        final @NonNull String thingUid = thing.getUID().toString();
+        final ServiceRegistration<AudioSink> reg = audioSinkRegistrations.remove(thingUid);
         if (reg != null) {
             reg.unregister();
         }

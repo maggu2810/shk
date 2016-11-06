@@ -1,0 +1,8 @@
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+package org.eclipse.smarthome.core.audio;
+
+interface AudioSink {
+    void setVolume(@NonNull Percent arg0) throws IOException;
+}

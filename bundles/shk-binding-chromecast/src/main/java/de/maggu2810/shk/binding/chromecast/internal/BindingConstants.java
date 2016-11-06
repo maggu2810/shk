@@ -13,6 +13,7 @@
 
 package de.maggu2810.shk.binding.chromecast.internal;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
 
 public class BindingConstants {
@@ -20,13 +21,13 @@ public class BindingConstants {
     private BindingConstants() {
     }
 
-    public static final String BINDING_ID = "chromecast";
+    public static final @NonNull String BINDING_ID = "chromecast";
 
     public static class ThingType {
         private ThingType() {
         }
 
-        public static final ThingTypeUID CHROMECAST = new ThingTypeUID(BINDING_ID, "chromecast");
+        public static final @NonNull ThingTypeUID CHROMECAST = new ThingTypeUID(BINDING_ID, "chromecast");
     }
 
     // channel IDs
@@ -34,10 +35,10 @@ public class BindingConstants {
         private Channel() {
         }
 
-        public static final String CONTROL = "control";
-        public static final String PLAY = "play";
-        public static final String PLAYURI = "playuri";
-        public static final String VOLUME = "volume";
+        public static final @NonNull String CONTROL = "control";
+        public static final @NonNull String PLAY = "play";
+        public static final @NonNull String PLAYURI = "playuri";
+        public static final @NonNull String VOLUME = "volume";
     }
 
     // config parameters
@@ -45,7 +46,7 @@ public class BindingConstants {
         private Config() {
         }
 
-        public static final String HOST = "ipAddress";
+        public static final @NonNull String HOST = "ipAddress";
     }
 
     // properties
@@ -53,6 +54,6 @@ public class BindingConstants {
         private Properties() {
         }
 
-        public static final String SERIAL_NUMBER = "serialNumber";
+        public static final @NonNull String SERIAL_NUMBER = "serialNumber";
     }
 }

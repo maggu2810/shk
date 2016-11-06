@@ -40,15 +40,24 @@ public class ChromecastAudioSink implements AudioSink {
     private static class SupportedAudioFormats extends HashSet<AudioFormat> {
         private static final long serialVersionUID = 1L;
 
+        private final @NonNull Set<@NonNull AudioFormat> formats;
+
         public SupportedAudioFormats() {
-            add(AudioFormat.WAV);
-            add(AudioFormat.MP3);
+            final @NonNull Set<@NonNull AudioFormat> formats = new HashSet<>();
+            formats.add(AudioFormat.WAV);
+            formats.add(AudioFormat.MP3);
+            this.formats = Collections.unmodifiableSet(formats);
+        }
+
+        public @NonNull Set<@NonNull AudioFormat> getFormats() {
+            return formats;
         }
     }
 
-    private static final Set<AudioFormat> SUPPORTED_FORMATS = Collections.unmodifiableSet(new SupportedAudioFormats());
+    private static final @NonNull Set<@NonNull AudioFormat> SUPPORTED_FORMATS = new SupportedAudioFormats()
+            .getFormats();
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(ChromecastAudioSink.class);
     private final @NonNull BundleContext bc;
     private final @NonNull AudioHTTPServer audioHttpServer;
     private final @NonNull ThingHandlerChromecast handler;
@@ -79,6 +88,10 @@ public class ChromecastAudioSink implements AudioSink {
 
     @Override
     public void process(final AudioStream audioStream) throws UnsupportedAudioFormatException {
+        if (audioStream == null) {
+            return;
+        }
+
         final String title = "AudioSink";
 
         final String mimeType;
@@ -93,21 +106,21 @@ public class ChromecastAudioSink implements AudioSink {
         if (audioStream instanceof URLAudioStream) {
             // it is an external URL, the speaker can access it itself and play it.
             final URLAudioStream urlAudioStream = (URLAudioStream) audioStream;
-            handler.playUri(urlAudioStream.getURL(), title, mimeType);
+            final String url = urlAudioStream.getURL();
+            handler.getCcHandler().playUri(url, title, mimeType);
             IOUtils.closeQuietly(audioStream);
         } else if (audioStream instanceof FixedLengthAudioStream) {
             final String relativeUrl = audioHttpServer.serve((FixedLengthAudioStream) audioStream, 10);
-            assert relativeUrl != null;
             final String absoluteUrl = getAbsoluteUrl(relativeUrl);
             if (absoluteUrl != null) {
-                handler.playUri(absoluteUrl, title, mimeType);
+                handler.getCcHandler().playUri(absoluteUrl, title, mimeType);
             }
         } else {
             IOUtils.closeQuietly(audioStream);
             throw new UnsupportedAudioFormatException(
                     String.format("Don't know how to handle given audio stream of class %s",
                             audioStream.getClass().getSimpleName()),
-                    null);
+                    audioStream.getFormat());
         }
     }
 
@@ -118,7 +131,7 @@ public class ChromecastAudioSink implements AudioSink {
 
     @Override
     public PercentType getVolume() {
-        final PercentType volume = handler.getVolume();
+        final PercentType volume = handler.getCcHandler().getVolume();
         if (volume != null) {
             return volume;
         } else {
@@ -127,8 +140,8 @@ public class ChromecastAudioSink implements AudioSink {
     }
 
     @Override
-    public void setVolume(final PercentType volume) {
-        handler.setVolume(volume.intValue());
+    public void setVolume(final @NonNull PercentType volume) {
+        handler.getCcHandler().setVolume(volume.intValue());
     }
 
     /**

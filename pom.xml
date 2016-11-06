@@ -580,7 +580,7 @@
         <!-- These properties will be set by the Maven Dependency plugin -->
         <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
         <!-- Uncomment to use the type annotations compiler. -->
-        <!-- <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac> -->
+        <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac>
       </properties>
 
       <dependencyManagement>
@@ -592,11 +592,11 @@
             <version>${checkerframework.version}</version>
           </dependency>
           <!-- The type annotations compiler - uncomment if desired -->
-          <!-- <dependency> -->
-          <!-- <groupId>org.checkerframework</groupId> -->
-          <!-- <artifactId>compiler</artifactId> -->
-          <!-- <version>${checkerframework.version}</version> -->
-          <!-- </dependency> -->
+          <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>compiler</artifactId>
+            <version>${checkerframework.version}</version>
+          </dependency>
           <!-- The annotated JDK to use -->
           <dependency>
             <groupId>org.checkerframework</groupId>
@@ -624,6 +624,19 @@
       <build>
         <plugins>
           <plugin>
+            <!-- This plugin will set the properties values using dependency information -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>properties</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
@@ -633,6 +646,11 @@
                 <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
               </annotationProcessors>
               <compilerArgs>
+                <!-- directory containing annotated library stubs -->
+                <arg>-Astubs=../../tools/checkerframework/stubs</arg>
+                <arg>-AstubWarnIfNotFound</arg>
+                <arg>-AstubWarnIfOverwritesBytecode</arg>
+                <arg>-AstubDebug</arg>
                 <!-- location of the annotated JDK, which comes from a Maven dependency -->
                 <arg>-Xbootclasspath/p:${annotatedJdk}</arg>
                 <!-- Uncomment the following line to use the type annotations compiler. -->
@@ -640,6 +658,7 @@
               </compilerArgs>
             </configuration>
           </plugin>
+
 
           <!-- <plugin> -->
           <!-- <groupId>org.apache.maven.plugins</groupId> -->

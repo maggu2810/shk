@@ -18,6 +18,8 @@ import java.util.Enumeration;
 
 import javax.jmdns.ServiceInfo;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.io.transport.mdns.discovery.MDNSDiscoveryParticipant;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
@@ -38,7 +40,7 @@ public class ChromeCastDiscoveryMdns extends AbstractDiscovery<ServiceInfo> impl
      * @param service the service that information should be logged
      * @param logger the logger that should be used for logging
      */
-    public static void logServiceInfo(final ServiceInfo service, final Logger logger) {
+    public static void logServiceInfo(final @NonNull ServiceInfo service, final @NonNull Logger logger) {
         logger.info("mDNS discovery result: {}", service);
         logger.info("hasData: {}", service.hasData());
         logger.info("getType: {}", service.getType());
@@ -80,17 +82,26 @@ public class ChromeCastDiscoveryMdns extends AbstractDiscovery<ServiceInfo> impl
     }
 
     @Override
-    protected String getUuidNoHyphens(final ServiceInfo service) {
+    protected @Nullable String getUuidNoHyphens(final @NonNull ServiceInfo service) {
         return service.getPropertyString("id");
     }
 
     @Override
-    protected String getFriendlyName(final ServiceInfo service) {
-        return service.getPropertyString("fn");
+    protected @NonNull String getFriendlyName(final @NonNull ServiceInfo service) {
+        String friendlyName;
+        friendlyName = service.getPropertyString("fn");
+        if (friendlyName != null) {
+            return friendlyName;
+        }
+        friendlyName = getUuidNoHyphens(service);
+        if (friendlyName != null) {
+            return friendlyName;
+        }
+        return FRIENDLY_NAME_LAST_RESORT;
     }
 
     @Override
-    protected String getHost(final ServiceInfo service) {
+    protected @Nullable String getHost(final @NonNull ServiceInfo service) {
         final String[] hostAddresses = service.getHostAddresses();
         if (hostAddresses != null && hostAddresses.length > 0) {
             return hostAddresses[0];
@@ -100,7 +111,7 @@ public class ChromeCastDiscoveryMdns extends AbstractDiscovery<ServiceInfo> impl
     }
 
     @Override
-    protected String getSerialNumber(final ServiceInfo service) {
+    protected @Nullable String getSerialNumber(final @NonNull ServiceInfo service) {
         // TODO: Is this really the serial number?
         return service.getPropertyString("bs");
     }

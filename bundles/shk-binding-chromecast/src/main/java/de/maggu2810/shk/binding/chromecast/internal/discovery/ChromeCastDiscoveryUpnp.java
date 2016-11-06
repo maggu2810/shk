@@ -15,6 +15,8 @@ package de.maggu2810.shk.binding.chromecast.internal.discovery;
 
 import java.net.URI;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.config.discovery.UpnpDiscoveryParticipant;
 import org.jupnp.model.meta.DeviceDetails;
 import org.jupnp.model.meta.ManufacturerDetails;
@@ -33,7 +35,7 @@ public class ChromeCastDiscoveryUpnp extends AbstractDiscovery<RemoteDevice> imp
     // private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    protected boolean use(final RemoteDevice device) {
+    protected boolean use(final @NonNull RemoteDevice device) {
         final DeviceDetails deviceDetails = device.getDetails();
         final ManufacturerDetails manufacturerDetails = deviceDetails.getManufacturerDetails();
         final ModelDetails modelDetails = deviceDetails.getModelDetails();
@@ -61,24 +63,29 @@ public class ChromeCastDiscoveryUpnp extends AbstractDiscovery<RemoteDevice> imp
     }
 
     @Override
-    protected String getUuidNoHyphens(final RemoteDevice device) {
+    protected @Nullable String getUuidNoHyphens(final @NonNull RemoteDevice device) {
         final RemoteDeviceIdentity identity = device.getIdentity();
         final String id = identity.getUdn().getIdentifierString();
         return id.replaceAll("-", "");
     }
 
     @Override
-    protected String getFriendlyName(final RemoteDevice device) {
-        return device.getDetails().getFriendlyName();
+    protected @NonNull String getFriendlyName(final @NonNull RemoteDevice device) {
+        String friendlyName;
+        friendlyName = device.getDetails().getFriendlyName();
+        if (friendlyName != null) {
+            return friendlyName;
+        }
+        return FRIENDLY_NAME_LAST_RESORT;
     }
 
     @Override
-    protected String getHost(final RemoteDevice device) {
+    protected @Nullable String getHost(final @NonNull RemoteDevice device) {
         return device.getDetails().getBaseURL().getHost();
     }
 
     @Override
-    protected String getSerialNumber(final RemoteDevice device) {
+    protected @Nullable String getSerialNumber(final @NonNull RemoteDevice device) {
         return device.getDetails().getSerialNumber();
     }
 

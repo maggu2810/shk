@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.config.discovery.DiscoveryResult;
 import org.eclipse.smarthome.config.discovery.DiscoveryResultBuilder;
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
@@ -26,6 +28,8 @@ import org.eclipse.smarthome.core.thing.ThingUID;
 import de.maggu2810.shk.binding.chromecast.internal.BindingConstants;
 
 public abstract class AbstractDiscovery<T> {
+
+    protected final @NonNull String FRIENDLY_NAME_LAST_RESORT = "?";
 
     /**
      * Defines the list of thing types that this participant can identify.
@@ -42,7 +46,7 @@ public abstract class AbstractDiscovery<T> {
      * @param info the information of the remote device
      * @return the according discovery result or {@code null}, if device is not supported
      */
-    public DiscoveryResult createResult(final T info) {
+    public @Nullable DiscoveryResult createResult(final @NonNull T info) {
         if (!use(info)) {
             return null;
         }
@@ -76,7 +80,7 @@ public abstract class AbstractDiscovery<T> {
      * @param info the information of the remote device
      * @return a thing UID on success, null if no UID could be built
      */
-    public ThingUID getThingUID(final T info) {
+    public @Nullable ThingUID getThingUID(final @NonNull T info) {
         final String uuidNoHyphens = getUuidNoHyphens(info);
         if (uuidNoHyphens == null) {
             return null;
@@ -94,15 +98,15 @@ public abstract class AbstractDiscovery<T> {
      * @param info the information of the remote device
      * @return true if the information should be processed, false if the processing should be canceled
      */
-    protected boolean use(final T info) {
+    protected boolean use(final @NonNull T info) {
         return true;
     }
 
-    protected abstract String getUuidNoHyphens(final T info);
+    protected abstract @Nullable String getUuidNoHyphens(final @NonNull T info);
 
-    protected abstract String getFriendlyName(final T info);
+    protected abstract @NonNull String getFriendlyName(final @NonNull T info);
 
-    protected abstract String getHost(final T info);
+    protected abstract @Nullable String getHost(final @NonNull T info);
 
-    protected abstract String getSerialNumber(final T info);
+    protected abstract @Nullable String getSerialNumber(final @NonNull T info);
 }
