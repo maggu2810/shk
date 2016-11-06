@@ -19,6 +19,8 @@ import java.util.Locale;
 import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.core.audio.AudioFormat;
 import org.eclipse.smarthome.core.audio.AudioHTTPServer;
 import org.eclipse.smarthome.core.audio.AudioSink;
@@ -47,9 +49,9 @@ public class ChromecastAudioSink implements AudioSink {
     private static final Set<AudioFormat> SUPPORTED_FORMATS = Collections.unmodifiableSet(new SupportedAudioFormats());
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
-    private final BundleContext bc;
-    private final AudioHTTPServer audioHttpServer;
-    private final ThingHandlerChromecast handler;
+    private final @NonNull BundleContext bc;
+    private final @NonNull AudioHTTPServer audioHttpServer;
+    private final @NonNull ThingHandlerChromecast handler;
 
     /**
      * Create a new ChromeCast audio sink.
@@ -58,8 +60,8 @@ public class ChromecastAudioSink implements AudioSink {
      * @param handler chromecast thing handler
      * @param audioHttpServer audio server
      */
-    public ChromecastAudioSink(final BundleContext bc, final ThingHandlerChromecast handler,
-            final AudioHTTPServer audioHttpServer) {
+    public ChromecastAudioSink(final @NonNull BundleContext bc, final @NonNull ThingHandlerChromecast handler,
+            final @NonNull AudioHTTPServer audioHttpServer) {
         this.bc = bc;
         this.handler = handler;
         this.audioHttpServer = audioHttpServer;
@@ -95,6 +97,7 @@ public class ChromecastAudioSink implements AudioSink {
             IOUtils.closeQuietly(audioStream);
         } else if (audioStream instanceof FixedLengthAudioStream) {
             final String relativeUrl = audioHttpServer.serve((FixedLengthAudioStream) audioStream, 10);
+            assert relativeUrl != null;
             final String absoluteUrl = getAbsoluteUrl(relativeUrl);
             if (absoluteUrl != null) {
                 handler.playUri(absoluteUrl, title, mimeType);
@@ -134,7 +137,7 @@ public class ChromecastAudioSink implements AudioSink {
      * @param relativeUrl the relative URL
      * @return an absolute URL on success, null if no absolute URL could be built.
      */
-    private String getAbsoluteUrl(final String relativeUrl) {
+    private @Nullable String getAbsoluteUrl(final @NonNull String relativeUrl) {
         final String ipAddress = NetUtil.getLocalIpv4HostAddress();
         if (ipAddress == null) {
             logger.warn("Don't find a candidate for a local IPv4 address.");

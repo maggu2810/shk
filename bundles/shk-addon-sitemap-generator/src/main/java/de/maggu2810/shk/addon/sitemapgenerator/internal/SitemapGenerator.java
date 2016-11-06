@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.function.Function;
 
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.eclipse.smarthome.core.items.ItemRegistry;
 import org.eclipse.smarthome.core.thing.ThingRegistry;
 import org.eclipse.smarthome.core.thing.link.ItemChannelLinkRegistry;
@@ -38,7 +39,7 @@ import org.slf4j.LoggerFactory;
 public class SitemapGenerator implements SitemapProvider {
 
     @FunctionalInterface
-    private interface SimpleSitemapGenerator extends Function<Sitemap, Sitemap> {
+    private interface SimpleSitemapGenerator extends Function<@NonNull Sitemap, @NonNull Sitemap> {
     }
 
     private static final String LOCATION_DFL = "others";
@@ -84,7 +85,7 @@ public class SitemapGenerator implements SitemapProvider {
         return generators.get(sitemapName).apply(sitemap);
     }
 
-    private Sitemap getSitemapLocation(final Sitemap sitemap) {
+    private @NonNull Sitemap getSitemapLocation(final @NonNull Sitemap sitemap) {
         final Map<String, Group> locations = new HashMap<>();
 
         final Frame mainFrame = sitemapFactory.createFrame();
@@ -143,7 +144,7 @@ public class SitemapGenerator implements SitemapProvider {
         return sitemap;
     }
 
-    private Sitemap getSitemapItems(final Sitemap sitemap) {
+    private @NonNull Sitemap getSitemapItems(final @NonNull Sitemap sitemap) {
         final Frame mainFrame = sitemapFactory.createFrame();
 
         itemRegistry.getAll().forEach(item -> {
