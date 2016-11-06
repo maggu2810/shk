@@ -872,8 +872,14 @@
         name="org.eclipse.mylyn.github.feature.feature.group"/>
     <requirement
         name="markdown.editor.feature.feature.group"/>
+    <requirement
+        name="code.satyagraha.gfm.viewer.feature.feature.group"/>
     <repository
         url="https://dl.bintray.com/bndtools/bndtools/latest/"/>
+    <repository
+        url="http://www.nodeclipse.org/updates/markdown/"/>
+    <repository
+        url="https://raw.github.com/satyagraha/gfm_viewer/master/p2-composite/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask
