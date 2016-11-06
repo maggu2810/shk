@@ -31,6 +31,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
+import org.checkerframework.checker.nullness.qual.EnsuresNonNullIf;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.config.core.ConfigConstants;
 import org.eclipse.smarthome.core.i18n.I18nProvider;
 import org.eclipse.smarthome.core.items.Item;
@@ -40,11 +44,13 @@ import org.eclipse.smarthome.core.persistence.FilterCriteria.Ordering;
 import org.eclipse.smarthome.core.persistence.ModifiablePersistenceService;
 import org.eclipse.smarthome.core.persistence.PersistenceItemInfo;
 import org.eclipse.smarthome.core.types.State;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -90,19 +96,21 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     private final String itemSchema;
 
     // TODO: How to add the reference / Require-Capability without a member object or function?
-    @Reference(cardinality = ReferenceCardinality.MANDATORY, target = "(osgi.jdbc.driver.class=org.h2.Driver)")
-    protected volatile org.osgi.service.jdbc.DataSourceFactory h2Driver;
+    @Reference(cardinality = ReferenceCardinality.MANDATORY, policy = ReferencePolicy.DYNAMIC, target = "(osgi.jdbc.driver.class=org.h2.Driver)")
+    @SuppressWarnings("initialization.fields.uninitialized")
+    protected org.osgi.service.jdbc.DataSourceFactory h2Driver;
 
     @Reference(cardinality = ReferenceCardinality.OPTIONAL)
-    protected volatile ItemRegistry itemRegistry;
+    protected volatile @Nullable ItemRegistry itemRegistry;
 
     @Reference
-    protected I18nProvider i18nProvider;
+    @SuppressWarnings("initialization.fields.uninitialized")
+    protected @NonNull I18nProvider i18nProvider;
 
-    protected Connection connection;
+    private @Nullable Connection connection;
     private final List<String> itemCache = new ArrayList<>();
 
-    private BundleContext bundleContext;
+    private @Nullable Bundle bundle;
 
     /**
      * Create a new persistence service.
@@ -114,21 +122,27 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     }
 
     @Activate
+    @EnsuresNonNull("bundle")
     protected void activate(final BundleContext bundleContext) {
-        this.bundleContext = bundleContext;
+        this.bundle = bundleContext.getBundle();
     }
 
     @Deactivate
     protected void deactivate() {
         disconnectFromDatabase();
-        this.bundleContext = null;
+        this.bundle = null;
     }
 
     @Override
     public String getLabel(final Locale locale) {
         final String key = String.format("%s.label", getId());
         final String dfl = String.format("%s: H2 Embedded Database", getId());
-        return i18nProvider.getText(bundleContext.getBundle(), key, dfl, locale);
+        final String label = i18nProvider.getText(bundle, key, dfl, locale);
+        if (label != null) {
+            return label;
+        } else {
+            return "?";
+        }
     }
 
     @Override
@@ -200,9 +214,17 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
                 final Set<PersistenceItemInfo> items = new HashSet<>();
                 while (rs.next()) {
-                    try (final Statement stTimes = connection.createStatement()) {
+                    try (final Statement stTimes = getConnection().createStatement()) {
+                        int rsIt = 0;
+                        final String rsTableName = rs.getString(++rsIt);
+                        if (rsTableName == null) {
+                            logger.warn("The table name must not be null");
+                            continue;
+                        }
+                        final int rsRowCountEstimate = rs.getInt(++rsIt);
+
                         final String minMax = String.format("SELECT MIN(%s), MAX(%s) FROM %s", Column.TIME, Column.TIME,
-                                getTableName(rs.getString(1)));
+                                getTableName(rsTableName));
                         try (final ResultSet rsTimes = stTimes.executeQuery(minMax)) {
 
                             final Date earliest;
@@ -214,8 +236,8 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
                                 earliest = null;
                                 latest = null;
                             }
-                            final PersistenceItemInfoImpl item = new PersistenceItemInfoImpl(rs.getString(1),
-                                    rs.getInt(2), earliest, latest);
+                            final PersistenceItemInfoImpl item = new PersistenceItemInfoImpl(rsTableName,
+                                    rsRowCountEstimate, earliest, latest);
                             items.add(item);
                         }
                     }
@@ -248,7 +270,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
                 filterWhere.prepared);
 
         // Retrieve the table array
-        try (final PreparedStatement st = connection.prepareStatement(queryString)) {
+        try (final PreparedStatement st = getConnection().prepareStatement(queryString)) {
             int i = 0;
             if (filterWhere.begin) {
                 st.setTimestamp(++i, new Timestamp(filter.getBeginDate().getTime()));
@@ -282,6 +304,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
      *
      * @return true if connection has been established, false otherwise
      */
+    @EnsuresNonNullIf(expression = "this.connection", result = true)
     private boolean isConnected() {
         // Check if connection is valid
         try {
@@ -299,6 +322,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
      *
      * @return true if the connection has been established, otherwise false
      */
+    @EnsuresNonNullIf(expression = "connection", result = true)
     protected boolean connectToDatabase() {
         // First, check if we're connected
         if (isConnected() == true) {
@@ -328,7 +352,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
             logger.info("{}: Connected to database {}", getId(), databaseFileName);
 
-            try (final Statement statement = connection.createStatement()) {
+            try (final Statement statement = getConnection().createStatement()) {
                 for (final String schema : new String[] { itemSchema, Schema.METAINFO }) {
                     statement.execute(String.format("CREATE SCHEMA IF NOT EXISTS %s;", schema));
                 }
@@ -396,6 +420,14 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
             return " LIMIT " + filter.getPageSize() + " OFFSET " + filter.getPageNumber() * filter.getPageSize();
         } else {
             return "";
+        }
+    }
+
+    protected @NonNull Connection getConnection() throws SQLException {
+        if (connection != null) {
+            return connection;
+        } else {
+            throw new SQLException("The connection must be established");
         }
     }
 

@@ -14,10 +14,18 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>checker-qual</artifactId>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>annotations</artifactId>
       <scope>provided</scope>
+      <optional>true</optional>
     </dependency>
+
     <dependency>
       <groupId>org.eclipse.smarthome.core</groupId>
       <artifactId>org.eclipse.smarthome.core</artifactId>

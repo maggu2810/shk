@@ -1,0 +1,8 @@
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+package org.eclipse.smarthome.core.i18n;
+
+interface I18nProvider {
+    @Nullable String getText(@Nullable Bundle bundle, @Nullable String key, @Nullable String defaultText, @Nullable Locale locale);
+}

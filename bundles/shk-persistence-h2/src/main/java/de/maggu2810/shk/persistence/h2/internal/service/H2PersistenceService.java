@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.checkerframework.checker.initialization.qual.UnknownInitialization;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.items.ItemNotFoundException;
 import org.eclipse.smarthome.core.library.types.DateTimeType;
@@ -91,13 +92,14 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
         addStateClass(UpDownType.class);
     }
 
-    private void addStateClass(final Class<? extends State> stateClass) {
+    private void addStateClass(@UnknownInitialization H2PersistenceService this,
+            final Class<? extends State> stateClass) {
         final List<Class<? extends State>> list = new ArrayList<>();
         list.add(stateClass);
         stateClasses.put(getStateClassKey(stateClass), list);
     }
 
-    private String getStateClassKey(final Class<? extends State> stateClass) {
+    private static String getStateClassKey(final Class<? extends State> stateClass) {
         return stateClass.getSimpleName();
     }
 
@@ -120,7 +122,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
         final String sql = String.format("CREATE TABLE IF NOT EXISTS %s (%s %s, %s %s,  %s %s, PRIMARY KEY(%s));",
                 tableName, Column.TIME, SqlType.TIMESTAMP, MyColumn.CLAZZ, SqlType.VARCHAR, Column.VALUE,
                 SqlType.VARCHAR, Column.TIME);
-        try (final Statement statement = connection.createStatement()) {
+        try (final Statement statement = getConnection().createStatement()) {
             statement.executeUpdate(sql);
             return true;
         } catch (final SQLException ex) {
@@ -133,7 +135,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
     protected boolean insert(final String tableName, final Date date, final State state) {
         final String sql = String.format("INSERT INTO %s (%s, %s, %s) VALUES(?,?,?);", tableName, Column.TIME,
                 MyColumn.CLAZZ, Column.VALUE);
-        try (final PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (final PreparedStatement stmt = getConnection().prepareStatement(sql)) {
             int i = 0;
             stmt.setTimestamp(++i, new Timestamp(date.getTime()));
             stmt.setString(++i, getStateClassKey(state.getClass()));
@@ -150,7 +152,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
     protected boolean update(final String tableName, final Date date, final State state) {
         final String sql = String.format("UPDATE %s SET %s = ?, %s = ? WHERE TIME = ?", tableName, MyColumn.CLAZZ,
                 Column.VALUE);
-        try (final PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (final PreparedStatement stmt = getConnection().prepareStatement(sql)) {
             int i = 0;
             stmt.setString(++i, getStateClassKey(state.getClass()));
             setStateValue(stmt, ++i, state);
@@ -165,14 +167,14 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
 
     @Override
     public Iterable<HistoricItem> query(final FilterCriteria filter) {
-        // Connect to H2 server if we're not already connected
-        if (!connectToDatabase()) {
-            logger.warn("{}: Query aborted on item {} - H2 not connected!", getId(), filter.getItemName());
-            return Collections.emptyList();
-        }
-
         // Get the item name from the filter
         final String itemName = filter.getItemName();
+
+        // Connect to H2 server if we're not already connected
+        if (!connectToDatabase()) {
+            logger.warn("{}: Query aborted on item {} - H2 not connected!", getId(), itemName);
+            return Collections.emptyList();
+        }
 
         final FilterWhere filterWhere = getFilterWhere(filter);
 
@@ -180,7 +182,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
                 Column.VALUE, getTableName(filter.getItemName()), filterWhere.prepared, getFilterStringOrder(filter),
                 getFilterStringLimit(filter));
 
-        try (final PreparedStatement st = connection.prepareStatement(queryString)) {
+        try (final PreparedStatement st = getConnection().prepareStatement(queryString)) {
             int i = 0;
             if (filterWhere.begin) {
                 st.setTimestamp(++i, new Timestamp(filter.getBeginDate().getTime()));
@@ -201,8 +203,23 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
 
                     i = 0;
                     time = rs.getTimestamp(++i);
+                    if (time == null) {
+                        logger.warn("{}: itemName: {}, time must be non null", getId(), itemName);
+                        continue;
+                    }
+
                     clazz = rs.getString(++i);
+                    if (clazz == null) {
+                        logger.warn("{}: itemName: {}, clazz must be non null", getId(), itemName);
+                        continue;
+                    }
+
                     value = rs.getString(++i);
+                    if (value == null) {
+                        logger.warn("{}: itemName: {}, value must be non null", getId(), itemName);
+                        continue;
+                    }
+
                     logger.trace("{}: itemName: {}, time: {}, clazz: {}, value: {}", getId(), itemName, time, clazz,
                             value);
 

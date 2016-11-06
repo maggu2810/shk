@@ -15,6 +15,8 @@ package de.maggu2810.shk.persistence.h2.internal;
 
 import java.util.Date;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 public class DateUtil {
     private DateUtil() {
     }
@@ -25,7 +27,7 @@ public class DateUtil {
      * @param date the date object to clone (may be null)
      * @return a new date object that is equal to the given or null if null has been given
      */
-    public static Date clone(final Date date) {
+    public static @Nullable Date clone(final @Nullable Date date) {
         if (date == null) {
             return null;
         } else {

@@ -15,14 +15,16 @@ package de.maggu2810.shk.persistence.h2.internal;
 
 import java.util.Date;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.core.persistence.PersistenceItemInfo;
 
 public class PersistenceItemInfoImpl implements PersistenceItemInfo {
 
-    private final String name;
-    private final Integer count;
-    private final Date earliest;
-    private final Date latest;
+    private final @NonNull String name;
+    private final @NonNull Integer count;
+    private final @Nullable Date earliest;
+    private final @Nullable Date latest;
 
     /**
      * Create a new persistence item information.
@@ -32,7 +34,8 @@ public class PersistenceItemInfoImpl implements PersistenceItemInfo {
      * @param earliest the date of the first entry (may be null)
      * @param latest the date of the last entry (may be null)
      */
-    public PersistenceItemInfoImpl(final String name, final Integer count, final Date earliest, final Date latest) {
+    public PersistenceItemInfoImpl(final @NonNull String name, final @NonNull Integer count,
+            final @Nullable Date earliest, final @Nullable Date latest) {
         this.name = name;
         this.count = count;
         this.earliest = DateUtil.clone(earliest);
@@ -45,17 +48,17 @@ public class PersistenceItemInfoImpl implements PersistenceItemInfo {
     }
 
     @Override
-    public Integer getCount() {
+    public @Nullable Integer getCount() {
         return count;
     }
 
     @Override
-    public Date getEarliest() {
+    public @Nullable Date getEarliest() {
         return DateUtil.clone(earliest);
     }
 
     @Override
-    public Date getLatest() {
+    public @Nullable Date getLatest() {
         return DateUtil.clone(latest);
     }
 }

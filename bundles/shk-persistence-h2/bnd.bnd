@@ -1,4 +1,9 @@
 -dsannotations-options: inherit
+
+Import-Package: \
+	org.checkerframework.*;resolution:=optional,\
+	*
+
 #-exportcontents: \
 #  !*.internal.*,\
 #  !*.impl.*,\
