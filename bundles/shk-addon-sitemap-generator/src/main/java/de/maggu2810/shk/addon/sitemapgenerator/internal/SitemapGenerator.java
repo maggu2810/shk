@@ -17,10 +17,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
 
 import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.core.items.ItemRegistry;
 import org.eclipse.smarthome.core.thing.ThingRegistry;
 import org.eclipse.smarthome.core.thing.link.ItemChannelLinkRegistry;
@@ -39,37 +39,50 @@ import org.slf4j.LoggerFactory;
 public class SitemapGenerator implements SitemapProvider {
 
     @FunctionalInterface
-    private interface SimpleSitemapGenerator extends Function<@NonNull Sitemap, @NonNull Sitemap> {
+    private interface SimpleSitemapGenerator {
+        /**
+         * Fill / generate a sitemap.
+         *
+         * @param generator the generator to use
+         * @param sitemapFactory the sitemap factory to use
+         * @param sitemap a pre-set-upped sitemap to use
+         * @return a set upped sitemap
+         */
+        @NonNull
+        Sitemap generate(@NonNull SitemapGenerator generator, @NonNull SitemapFactory sitemapFactory,
+                @NonNull Sitemap sitemap);
     }
 
     private static final String LOCATION_DFL = "others";
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(SitemapGenerator.class);
 
     private final Map<String, SimpleSitemapGenerator> generators = new HashMap<>();
 
     @Reference
-    private ThingRegistry thingRegistry;
+    @SuppressWarnings("initialization.fields.uninitialized")
+    private @NonNull ThingRegistry thingRegistry;
 
     @Reference
-    private ItemChannelLinkRegistry linkRegistry;
+    @SuppressWarnings("initialization.fields.uninitialized")
+    private @NonNull ItemChannelLinkRegistry linkRegistry;
 
     @Reference
-    private ItemRegistry itemRegistry;
-
-    private SitemapFactory sitemapFactory;
+    @SuppressWarnings("initialization.fields.uninitialized")
+    private @NonNull ItemRegistry itemRegistry;
 
     /**
      * Create a new sitemap generator instance.
      */
     public SitemapGenerator() {
-        generators.put("_locations", this::getSitemapLocation);
-        generators.put("_items", this::getSitemapItems);
+        generators.put("_locations", SitemapGenerator::getSitemapLocation);
+        generators.put("_items", SitemapGenerator::getSitemapItems);
     }
 
     @Override
-    public Sitemap getSitemap(final String sitemapName) {
-        if (sitemapFactory == null && (sitemapFactory = SitemapFactory.eINSTANCE) == null) {
+    public @Nullable Sitemap getSitemap(final String sitemapName) {
+        final @Nullable SitemapFactory sitemapFactory = SitemapFactory.eINSTANCE;
+        if (sitemapFactory == null) {
             logger.error("Sitemap Factory not available");
             return null;
         }
@@ -82,15 +95,16 @@ public class SitemapGenerator implements SitemapProvider {
         sitemap.setLabel("Home");
         sitemap.setName(sitemapName);
 
-        return generators.get(sitemapName).apply(sitemap);
+        return generators.get(sitemapName).generate(this, sitemapFactory, sitemap);
     }
 
-    private @NonNull Sitemap getSitemapLocation(final @NonNull Sitemap sitemap) {
+    private static @NonNull Sitemap getSitemapLocation(final @NonNull SitemapGenerator generator,
+            final @NonNull SitemapFactory sitemapFactory, final @NonNull Sitemap sitemap) {
         final Map<String, Group> locations = new HashMap<>();
 
         final Frame mainFrame = sitemapFactory.createFrame();
 
-        thingRegistry.getAll().forEach(thing -> {
+        generator.thingRegistry.getAll().forEach(thing -> {
             // Create a widget for the thing
             final Frame thingWidget = sitemapFactory.createFrame();
             thingWidget.setLabel(thing.getLabel());
@@ -113,7 +127,7 @@ public class SitemapGenerator implements SitemapProvider {
             // For every channel of the thing ...
             thing.getChannels().forEach(channel -> {
                 // ... inspect every linked item, ...
-                linkRegistry.getLinkedItems(channel.getUID()).forEach(item -> {
+                generator.linkRegistry.getLinkedItems(channel.getUID()).forEach(item -> {
                     // create a widget for the item
                     final Default widget = sitemapFactory.createDefault();
                     widget.setItem(item.getName());
@@ -144,10 +158,11 @@ public class SitemapGenerator implements SitemapProvider {
         return sitemap;
     }
 
-    private @NonNull Sitemap getSitemapItems(final @NonNull Sitemap sitemap) {
+    private static @NonNull Sitemap getSitemapItems(final @NonNull SitemapGenerator generator,
+            final @NonNull SitemapFactory sitemapFactory, final @NonNull Sitemap sitemap) {
         final Frame mainFrame = sitemapFactory.createFrame();
 
-        itemRegistry.getAll().forEach(item -> {
+        generator.itemRegistry.getAll().forEach(item -> {
             // create a widget for the item
             final Default widget = sitemapFactory.createDefault();
             widget.setItem(item.getName());
