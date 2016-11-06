@@ -17,6 +17,9 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
+import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.io.transport.mdns.MDNSService;
 import org.eclipse.smarthome.io.transport.mdns.ServiceDescription;
 import org.osgi.service.component.annotations.Activate;
@@ -34,44 +37,60 @@ import de.maggu2810.shk.web.HttpServiceListener;
 @ObjectClassDefinition(name = "REST mDNS advertiser")
 @interface MdnsAdvertiserConfig {
 
-    String mdnsName() default "smarthome";
+    String mdnsName() default MdnsAdvertiser.MDNS_NAME_FALLBACK;
 }
 
 @Component(immediate = true)
 @Designate(ocd = MdnsAdvertiserConfig.class)
 public class MdnsAdvertiser implements HttpServiceListener {
 
+    protected static final String MDNS_NAME_FALLBACK = "smarthome";
+
     // private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Reference
+    @SuppressWarnings("initialization.fields.uninitialized")
     private MDNSService mdnsService;
-    private HttpServiceInfoProvider provider;
-    private String mdnsName;
 
-    private final Map<Integer, Integer> ports = new HashMap<>();
-    private final Map<Integer, Integer> portsSecure = new HashMap<>();
+    private @Nullable HttpServiceInfoProvider provider;
+
+    private @Nullable String mdnsName;
+
+    private final @NonNull Map<@NonNull Integer, @NonNull Integer> ports = new HashMap<>();
+    private final @NonNull Map<@NonNull Integer, @NonNull Integer> portsSecure = new HashMap<>();
 
     @Activate
     protected void activate(final MdnsAdvertiserConfig config) {
         mdnsName = config.mdnsName();
-        provider.getHttpServices().stream()
-                .forEach((service) -> addHttpService(service, provider.getHttpServiceInfo(service)));
+        if (mdnsName == null) {
+            mdnsName = MDNS_NAME_FALLBACK;
+        }
+
+        assert provider != null : "@AssumeAssertion(nullness)";
+        addHttpServices(provider);
     }
 
     @Deactivate
     protected void deactivate() {
-        provider.getHttpServices().stream().forEach((service) -> removeHttpService(service));
+        assert provider != null : "@AssumeAssertion(nullness)";
+        removeHttpServices(provider);
     }
 
     @Reference
-    protected void setHttpServiceInfoProvider(final HttpServiceInfoProvider provider) {
-        this.provider = provider;
+    @EnsuresNonNull("this.provider")
+    protected void setHttpServiceInfoProvider(final @NonNull HttpServiceInfoProvider provider) {
         provider.addHttpServiceInfoListener(this);
+        this.provider = provider;
     }
 
     protected void unsetHttpServiceInfoProvider(final HttpServiceInfoProvider provider) {
         this.provider = null;
         provider.removeHttpServiceInfoListener(this);
+    }
+
+    private void addHttpServices(final HttpServiceInfoProvider provider) {
+        provider.getHttpServices().stream()
+                .forEach((service) -> addHttpService(service, provider.getHttpServiceInfo(service)));
     }
 
     @Override
@@ -86,8 +105,14 @@ public class MdnsAdvertiser implements HttpServiceListener {
         }
     }
 
+    private void removeHttpServices(final HttpServiceInfoProvider provider) {
+        provider.getHttpServices().stream().forEach((service) -> removeHttpService(service));
+    }
+
     @Override
     public void removeHttpService(final HttpService httpService) {
+        assert provider != null : "@AssumeAssertion(nullness)";
+
         final HttpServiceInfo info = provider.getHttpServiceInfo(httpService);
         if (info.getHttpPort() != -1 && decrease(ports, info.getHttpPort())) {
             // remove advertised non-ssl port
@@ -99,20 +124,18 @@ public class MdnsAdvertiser implements HttpServiceListener {
         }
     }
 
-    private boolean increase(final Map<Integer, Integer> map, final int key) {
-        final int cur;
-        if (map.containsKey(key)) {
-            cur = map.get(key);
-        } else {
+    private static boolean increase(final Map<Integer, Integer> map, final int key) {
+        Integer cur = map.get(key);
+        if (cur == null) {
             cur = 0;
         }
         map.put(key, cur + 1);
         return cur == 0;
     }
 
-    private boolean decrease(final Map<Integer, Integer> map, final int key) {
-        final int cur = map.get(key);
-        if (cur == 1) {
+    private static boolean decrease(final Map<Integer, Integer> map, final int key) {
+        final Integer cur = map.get(key);
+        if (cur == null || cur == 1) {
             map.remove(key);
             return true;
         } else {
@@ -121,7 +144,7 @@ public class MdnsAdvertiser implements HttpServiceListener {
         }
     }
 
-    private static Hashtable<String, String> getMdnsServiceProperties() {
+    private static @NonNull Hashtable<String, String> getMdnsServiceProperties() {
         final Hashtable<String, String> serviceProperties = new Hashtable<>();
         // TODO: Check if we can use the CM to get the rest servlet alias.
         serviceProperties.put("uri", "/rest");
@@ -129,12 +152,16 @@ public class MdnsAdvertiser implements HttpServiceListener {
     }
 
     private ServiceDescription getHttpPortServiceDescription(final int port) {
-        final String serviceType = "_" + mdnsName + "-server._tcp.local.";
-        final String serviceName = mdnsName;
+        assert mdnsName != null : "@AssumeAssertion(nullness)";
+
+        final @NonNull String serviceType = "_" + mdnsName + "-server._tcp.local.";
+        final @NonNull String serviceName = mdnsName;
         return new ServiceDescription(serviceType, serviceName, port, getMdnsServiceProperties());
     }
 
     private ServiceDescription getHttpPortSecureServiceDescription(final int port) {
+        assert mdnsName != null : "@AssumeAssertion(nullness)";
+
         final String serviceType = "_" + mdnsName + "-server-ssl._tcp.local.";
         final String serviceName = mdnsName + "-ssl";
         return new ServiceDescription(serviceType, serviceName, port, getMdnsServiceProperties());

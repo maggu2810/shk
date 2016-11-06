@@ -19,6 +19,10 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 
+import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.checkerframework.checker.nullness.qual.RequiresNonNull;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -40,10 +44,10 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
     // Pax-Web implements also the interface WebContainer
     // groupId: org.ops4j.pax.web
     // artifactId: pax-web-api
-    private ServiceTracker<HttpService, HttpService> serviceTrackerHttpService;
+    private @Nullable ServiceTracker<HttpService, HttpService> serviceTrackerHttpService;
     private final Collection<HttpServiceListener> listeners = new LinkedList<>();
 
-    private final Map<HttpService, HttpServiceInfo> services = new HashMap<>();
+    private final Map<HttpService, @NonNull HttpServiceInfo> services = new HashMap<>();
 
     /**
      * Start the service.
@@ -51,6 +55,7 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
      * @param context the bundle context
      */
     @Activate
+    @EnsuresNonNull("serviceTrackerHttpService")
     public void start(final BundleContext context) {
         serviceTrackerHttpService = new ServiceTracker<>(context, org.osgi.service.http.HttpService.class,
                 new HttpServiceServiceTrackerCustomizer(context, this));
@@ -62,6 +67,7 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
      *
      */
     @Deactivate
+    @RequiresNonNull("serviceTrackerHttpService")
     public void stop() {
         serviceTrackerHttpService.close();
     }
@@ -108,7 +114,11 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
 
     @Override
     public synchronized HttpServiceInfo getHttpServiceInfo(final HttpService service) {
-        return services.get(service);
+        if (services.containsKey(service)) {
+            return services.get(service);
+        } else {
+            throw new IllegalArgumentException(String.format("Unknown service: %s", service));
+        }
     }
 
 }

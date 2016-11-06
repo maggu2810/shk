@@ -13,6 +13,7 @@
 
 package de.maggu2810.shk.web.internal;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.http.HttpService;
@@ -90,7 +91,7 @@ public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustom
         return port;
     }
 
-    private static final int parsePort(final Object obj) {
+    private static final int parsePort(final @Nullable Object obj) {
         if (obj != null) {
             try {
                 return Integer.parseInt(obj.toString());
