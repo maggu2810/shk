@@ -20,6 +20,7 @@
 
 package de.maggu2810.shk.io.rest.docs.internal;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -37,14 +38,15 @@ public class RestDocs {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Reference
-    private HttpService httpService;
+    @SuppressWarnings("initialization.fields.uninitialized")
+    private @NonNull HttpService httpService;
 
     @Activate
     protected void activate() {
         try {
             httpService.registerResources(ALIAS, "swagger", httpService.createDefaultHttpContext());
         } catch (final NamespaceException ex) {
-            logger.error("Could not start up REST documentation service: {}", ex.getMessage());
+            logger.error("Could not start up REST documentation service.", ex);
         }
     }
 
