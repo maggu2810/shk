@@ -44,6 +44,7 @@
     <maven.build.resources.version>1.7</maven.build.resources.version>
     <quality.skip>false</quality.skip>
     <checkerframework.version>2.1.5</checkerframework.version>
+    <checkerframework.compiler.arg1>-AplaceholderToBeReplaced</checkerframework.compiler.arg1>
 
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <license.shortcut>epl_only_v1</license.shortcut>
@@ -646,6 +647,7 @@
                 <!-- <arg>-Awarns</arg> -->
                 <!-- <arg>-Xmaxwarns</arg> -->
                 <!-- <arg>10000</arg> -->
+                <arg>${checkerframework.compiler.arg1}</arg>
 
                 <!-- -AshowSuppressWarningKeys With each warning, show all possible keys to suppress that warning. -->
                 <arg>-AshowSuppressWarningKeys</arg>
