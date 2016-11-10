@@ -625,6 +625,16 @@
                 <arg>-AstubWarnIfNotFound</arg>
                 <arg>-AstubWarnIfOverwritesBytecode</arg>
                 <arg>-AstubDebug</arg>
+
+                <!-- -Awarns Treat checker errors as warnings. -->
+                <!-- If you use this, you may wish to also supply -Xmaxwarns 10000, because by default javac prints at most 100 warnings. -->
+                <!-- <arg>-Awarns</arg> -->
+                <!-- <arg>-Xmaxwarns</arg> -->
+                <!-- <arg>10000</arg> -->
+
+                <!-- -AshowSuppressWarningKeys With each warning, show all possible keys to suppress that warning. -->
+                <arg>-AshowSuppressWarningKeys</arg>
+
                 <!-- location of the annotated JDK, which comes from a Maven dependency -->
                 <arg>-Xbootclasspath/p:${annotatedJdk}</arg>
                 <!-- Uncomment the following line to use the type annotations compiler. -->
