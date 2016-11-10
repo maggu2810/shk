@@ -19,6 +19,7 @@
     <quality.skip>true</quality.skip>
     <license.skipUpdateLicense>true</license.skipUpdateLicense>
     <java.version>1.6</java.version>
+    <checkerframework.compiler.arg1>-Awarns</checkerframework.compiler.arg1>
   </properties>
 
   <licenses>
