@@ -14,7 +14,6 @@
 
   <properties>
     <license.shortcut>apache_v2</license.shortcut>
-    <checkerframework.compiler.arg1>-Awarns</checkerframework.compiler.arg1>
   </properties>
 
   <licenses>

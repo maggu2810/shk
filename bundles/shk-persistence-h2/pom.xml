@@ -12,10 +12,6 @@
 
   <name>shk :: Bundles :: Persistence :: h2</name>
 
-  <properties>
-    <checkerframework.compiler.arg1>-Awarns</checkerframework.compiler.arg1>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.checkerframework</groupId>

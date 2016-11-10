@@ -12,10 +12,6 @@
 
   <name>shk :: Bundles :: Addon :: Sitemap Generator</name>
 
-  <properties>
-    <checkerframework.compiler.arg1>-Awarns</checkerframework.compiler.arg1>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.checkerframework</groupId>
