@@ -358,6 +358,21 @@
         </plugin>
 
         <plugin>
+          <groupId>org.apache.karaf.tooling</groupId>
+          <artifactId>karaf-services-maven-plugin</artifactId>
+          <version>${karaf.version}</version>
+          <executions>
+            <execution>
+              <id>service-metadata-generate</id>
+              <phase>process-classes</phase>
+              <goals>
+                <goal>service-metadata-generate</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>license-maven-plugin</artifactId>
           <version>1.10</version>
@@ -413,7 +428,7 @@
             <dependency>
               <groupId>com.puppycrawl.tools</groupId>
               <artifactId>checkstyle</artifactId>
-              <version>6.19</version>
+              <version>7.1</version>
             </dependency>
             <dependency>
               <groupId>de.maggu2810.maven.build</groupId>
