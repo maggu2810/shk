@@ -609,6 +609,13 @@
           <artifactId>jdk8</artifactId>
           <scope>provided</scope>
         </dependency>
+
+        <!-- Without a dependency to the core framework the checker fails for every bundle not depend on it... -->
+        <!-- org.osgi.framework.Bundle -->
+        <dependency>
+          <groupId>org.osgi</groupId>
+          <artifactId>osgi.core</artifactId>
+        </dependency>
       </dependencies>
 
       <build>

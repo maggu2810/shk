@@ -1,5 +1,8 @@
+Import-Package: \
+	org.checkerframework.*;resolution:=optional,\
+	*
 -exportcontents: \
-  !*.internal.*,\
-  !*.impl.*,\
-  su.litvak.chromecast.api.v2.*
+	!*.internal.*,\
+	!*.impl.*,\
+	su.litvak.chromecast.api.v2.*
 
