@@ -29,7 +29,7 @@ import de.maggu2810.shk.binding.chromecast.internal.BindingConstants;
 
 public abstract class AbstractDiscovery<T> {
 
-    protected final @NonNull String FRIENDLY_NAME_LAST_RESORT = "?";
+    protected static final @NonNull String FRIENDLY_NAME_LAST_RESORT = "?";
 
     /**
      * Defines the list of thing types that this participant can identify.

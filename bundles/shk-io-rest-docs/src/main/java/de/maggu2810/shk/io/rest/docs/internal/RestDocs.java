@@ -35,7 +35,7 @@ public class RestDocs {
 
     private static final String ALIAS = "/doc";
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(RestDocs.class);
 
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")

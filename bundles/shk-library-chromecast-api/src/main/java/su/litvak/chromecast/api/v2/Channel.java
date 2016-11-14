@@ -143,6 +143,7 @@ class Channel implements Closeable {
                             parsed = jsonMapper.readTree(jsonMSG);
                         } catch (JsonProcessingException jpex) {
                             // Ignore
+                            continue;
                         }
 
                         if (isAppEvent(parsed)) {
