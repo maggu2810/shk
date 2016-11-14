@@ -567,8 +567,6 @@
       </activation>
 
       <properties>
-        <!-- These properties will be set by the Maven Dependency plugin -->
-        <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
         <!-- Uncomment to use the type annotations compiler. -->
         <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac>
       </properties>
@@ -587,12 +585,6 @@
             <artifactId>compiler</artifactId>
             <version>${checkerframework.version}</version>
           </dependency>
-          <!-- The annotated JDK to use -->
-          <dependency>
-            <groupId>org.checkerframework</groupId>
-            <artifactId>jdk8</artifactId>
-            <version>${checkerframework.version}</version>
-          </dependency>
         </dependencies>
       </dependencyManagement>
 
@@ -603,13 +595,6 @@
           <artifactId>checker</artifactId>
           <scope>provided</scope>
         </dependency>
-        <!-- The annotated JDK to use -->
-        <dependency>
-          <groupId>org.checkerframework</groupId>
-          <artifactId>jdk8</artifactId>
-          <scope>provided</scope>
-        </dependency>
-
         <!-- Without a dependency to the core framework the checker fails for every bundle not depend on it... -->
         <!-- org.osgi.framework.Bundle -->
         <dependency>
@@ -629,6 +614,28 @@
                 <goals>
                   <goal>properties</goal>
                 </goals>
+              </execution>
+              <execution>
+                <id>copy-checkerframework-stuff</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <!-- The annotated JDK to use -->
+                      <groupId>org.checkerframework</groupId>
+                      <artifactId>jdk8</artifactId>
+                      <version>${checkerframework.version}</version>
+                      <type>jar</type>
+                      <destFileName>annotated-jdk.jar</destFileName>
+                    </artifactItem>
+                  </artifactItems>
+                  <outputDirectory>${project.build.directory}/additions</outputDirectory>
+                  <overWriteReleases>false</overWriteReleases>
+                  <overWriteSnapshots>true</overWriteSnapshots>
+                </configuration>
               </execution>
             </executions>
           </plugin>
@@ -660,7 +667,7 @@
                 <arg>-AshowSuppressWarningKeys</arg>
 
                 <!-- location of the annotated JDK, which comes from a Maven dependency -->
-                <arg>-Xbootclasspath/p:${annotatedJdk}</arg>
+                <arg>-Xbootclasspath/p:${project.build.directory}/additions/annotated-jdk.jar</arg>
                 <!-- Uncomment the following line to use the type annotations compiler. -->
                 <!-- <arg>-J-Xbootclasspath/p:${typeAnnotationsJavac}</arg> -->
               </compilerArgs>
