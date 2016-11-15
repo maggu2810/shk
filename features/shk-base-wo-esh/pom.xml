@@ -13,6 +13,45 @@
 
   <name>shk :: Features :: Base (without ESH)</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-addon-sitemap-generator</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-binding-chromecast</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-io-rest-docs</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-io-webutil</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-library-chromecast-api</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-persistence-h2</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
