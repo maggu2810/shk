@@ -567,8 +567,9 @@
       </activation>
 
       <properties>
-        <!-- Uncomment to use the type annotations compiler. -->
-        <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac>
+        <fixloc.dir>${java.io.tmpdir}/maven.build/fixloc</fixloc.dir>
+        <fixloc.checkerframework.jdk8.jar>org.checkerframework.jdk8-${checkerframework.version}.jar</fixloc.checkerframework.jdk8.jar>
+        <fixloc.checkerframework.compiler.jar>org.checkerframework.compiler-${checkerframework.version}.jar</fixloc.checkerframework.compiler.jar>
       </properties>
 
       <dependencyManagement>
@@ -577,12 +578,6 @@
           <dependency>
             <groupId>org.checkerframework</groupId>
             <artifactId>checker</artifactId>
-            <version>${checkerframework.version}</version>
-          </dependency>
-          <!-- The type annotations compiler - uncomment if desired -->
-          <dependency>
-            <groupId>org.checkerframework</groupId>
-            <artifactId>compiler</artifactId>
             <version>${checkerframework.version}</version>
           </dependency>
         </dependencies>
@@ -629,10 +624,18 @@
                       <artifactId>jdk8</artifactId>
                       <version>${checkerframework.version}</version>
                       <type>jar</type>
-                      <destFileName>annotated-jdk.jar</destFileName>
+                      <destFileName>${fixloc.checkerframework.jdk8.jar}</destFileName>
+                    </artifactItem>
+                    <artifactItem>
+                      <!-- The type annotations compiler - uncomment if desired -->
+                      <groupId>org.checkerframework</groupId>
+                      <artifactId>compiler</artifactId>
+                      <version>${checkerframework.version}</version>
+                      <type>jar</type>
+                      <destFileName>${fixloc.checkerframework.compiler.jar}</destFileName>
                     </artifactItem>
                   </artifactItems>
-                  <outputDirectory>${project.build.directory}/additions</outputDirectory>
+                  <outputDirectory>${fixloc.dir}</outputDirectory>
                   <overWriteReleases>false</overWriteReleases>
                   <overWriteSnapshots>true</overWriteSnapshots>
                 </configuration>
@@ -667,9 +670,9 @@
                 <arg>-AshowSuppressWarningKeys</arg>
 
                 <!-- location of the annotated JDK, which comes from a Maven dependency -->
-                <arg>-Xbootclasspath/p:${project.build.directory}/additions/annotated-jdk.jar</arg>
+                <arg>-Xbootclasspath/p:${fixloc.dir}/${fixloc.checkerframework.jdk8.jar}</arg>
                 <!-- Uncomment the following line to use the type annotations compiler. -->
-                <!-- <arg>-J-Xbootclasspath/p:${typeAnnotationsJavac}</arg> -->
+                <!-- <arg>-J-Xbootclasspath/p:${fixloc.dir}/${fixloc.checkerframework.compiler.jar}</arg> -->
               </compilerArgs>
             </configuration>
           </plugin>
@@ -685,8 +688,8 @@
           <!-- </goals> -->
           <!-- <configuration> -->
           <!-- <tasks> -->
-          <!-- <echo>Displaying value of 'annotatedJdk' property</echo> -->
-          <!-- <echo>[annotatedJdk] ${annotatedJdk}</echo> -->
+          <!-- <echo>[fixloc.dir] ${fixloc.dir}</echo> -->
+          <!-- <echo>[fixloc.checkerframework.jdk8.jar] ${fixloc.checkerframework.jdk8.jar}</echo> -->
           <!-- </tasks> -->
           <!-- </configuration> -->
           <!-- </execution> -->
