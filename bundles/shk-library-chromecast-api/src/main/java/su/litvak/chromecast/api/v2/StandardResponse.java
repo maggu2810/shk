@@ -13,27 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
+
+import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 
-import java.util.Map;
-
 /**
  * Parent class for transport object representing messages received FROM ChromeCast device
  */
-@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property = "responseType")
-@JsonSubTypes({@JsonSubTypes.Type(name = "PING", value = StandardResponse.Ping.class),
-               @JsonSubTypes.Type(name = "PONG", value = StandardResponse.Pong.class),
-               @JsonSubTypes.Type(name = "RECEIVER_STATUS", value = StandardResponse.Status.class),
-               @JsonSubTypes.Type(name = "GET_APP_AVAILABILITY", value = StandardResponse.AppAvailability.class),
-               @JsonSubTypes.Type(name = "INVALID_REQUEST", value = StandardResponse.Invalid.class),
-               @JsonSubTypes.Type(name = "MEDIA_STATUS", value = StandardResponse.MediaStatus.class),
-               @JsonSubTypes.Type(name = "CLOSE", value = StandardResponse.Close.class),
-               @JsonSubTypes.Type(name = "LOAD_FAILED", value = StandardResponse.LoadFailed.class),
-               @JsonSubTypes.Type(name = "LAUNCH_ERROR", value = StandardResponse.LaunchError.class)})
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "responseType")
+@JsonSubTypes({ @JsonSubTypes.Type(name = "PING", value = StandardResponse.Ping.class),
+        @JsonSubTypes.Type(name = "PONG", value = StandardResponse.Pong.class),
+        @JsonSubTypes.Type(name = "RECEIVER_STATUS", value = StandardResponse.Status.class),
+        @JsonSubTypes.Type(name = "GET_APP_AVAILABILITY", value = StandardResponse.AppAvailability.class),
+        @JsonSubTypes.Type(name = "INVALID_REQUEST", value = StandardResponse.Invalid.class),
+        @JsonSubTypes.Type(name = "MEDIA_STATUS", value = StandardResponse.MediaStatus.class),
+        @JsonSubTypes.Type(name = "CLOSE", value = StandardResponse.Close.class),
+        @JsonSubTypes.Type(name = "LOAD_FAILED", value = StandardResponse.LoadFailed.class),
+        @JsonSubTypes.Type(name = "LAUNCH_ERROR", value = StandardResponse.LaunchError.class) })
 abstract class StandardResponse implements Response {
     Long requestId;
 
@@ -43,13 +44,18 @@ abstract class StandardResponse implements Response {
     }
 
     @Override
-    public final void setRequestId(Long requestId) {
+    public final void setRequestId(final Long requestId) {
         this.requestId = requestId;
     }
 
-    static class Ping extends StandardResponse {}
-    static class Pong extends StandardResponse {}
-    static class LoadFailed extends StandardResponse {}
+    static class Ping extends StandardResponse {
+    }
+
+    static class Pong extends StandardResponse {
+    }
+
+    static class LoadFailed extends StandardResponse {
+    }
 
     static class Close extends StandardResponse {
         @JsonProperty
@@ -58,7 +64,8 @@ abstract class StandardResponse implements Response {
         Close() {
             requestedBySender = false;
         }
-        Close(@JsonProperty("requestedBySender") boolean requestedBySender) {
+
+        Close(@JsonProperty("requestedBySender") final boolean requestedBySender) {
             this.requestedBySender = requestedBySender;
         }
     }
@@ -66,7 +73,7 @@ abstract class StandardResponse implements Response {
     static class Invalid extends StandardResponse {
         final String reason;
 
-        Invalid(@JsonProperty("reason") String reason) {
+        Invalid(@JsonProperty("reason") final String reason) {
             this.reason = reason;
         }
     }
@@ -74,7 +81,7 @@ abstract class StandardResponse implements Response {
     static class LaunchError extends StandardResponse {
         final String reason;
 
-        LaunchError(@JsonProperty("reason") String reason) {
+        LaunchError(@JsonProperty("reason") final String reason) {
             this.reason = reason;
         }
     }
@@ -83,7 +90,7 @@ abstract class StandardResponse implements Response {
         @JsonProperty
         final su.litvak.chromecast.api.v2.Status status;
 
-        Status(@JsonProperty("status") su.litvak.chromecast.api.v2.Status status) {
+        Status(@JsonProperty("status") final su.litvak.chromecast.api.v2.Status status) {
             this.status = status;
         }
     }
@@ -91,7 +98,7 @@ abstract class StandardResponse implements Response {
     static class MediaStatus extends StandardResponse {
         final su.litvak.chromecast.api.v2.MediaStatus statuses[];
 
-        MediaStatus(@JsonProperty("status") su.litvak.chromecast.api.v2.MediaStatus status[]) {
+        MediaStatus(@JsonProperty("status") final su.litvak.chromecast.api.v2.MediaStatus status[]) {
             this.statuses = status;
         }
     }

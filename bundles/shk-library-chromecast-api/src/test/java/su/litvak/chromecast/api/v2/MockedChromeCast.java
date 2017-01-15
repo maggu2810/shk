@@ -13,14 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
-
-import com.google.protobuf.MessageLite;
-import org.codehaus.jackson.map.ObjectMapper;
-
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
 
 import static su.litvak.chromecast.api.v2.Util.fromArray;
 import static su.litvak.chromecast.api.v2.Util.toArray;
@@ -29,22 +23,34 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.security.*;
+import java.security.GeneralSecurityException;
+import java.security.KeyStore;
+import java.security.SecureRandom;
 import java.util.Collections;
+
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+
+import org.codehaus.jackson.map.ObjectMapper;
+
+import com.google.protobuf.MessageLite;
 
 public class MockedChromeCast {
     final ServerSocket socket;
     final ClientThread clientThread;
 
     MockedChromeCast() throws IOException, GeneralSecurityException {
-        SSLContext sc = SSLContext.getInstance("SSL");
-        KeyStore keyStore = KeyStore.getInstance("JKS");
+        final SSLContext sc = SSLContext.getInstance("SSL");
+        final KeyStore keyStore = KeyStore.getInstance("JKS");
         keyStore.load(getClass().getResourceAsStream("/keystore.jks"), "changeit".toCharArray());
 
-        KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+        final KeyManagerFactory keyManagerFactory = KeyManagerFactory
+                .getInstance(KeyManagerFactory.getDefaultAlgorithm());
         keyManagerFactory.init(keyStore, "changeit".toCharArray());
 
-        sc.init(keyManagerFactory.getKeyManagers(), new TrustManager[] { new X509TrustAllManager() }, new SecureRandom());
+        sc.init(keyManagerFactory.getKeyManagers(), new TrustManager[] { new X509TrustAllManager() },
+                new SecureRandom());
         socket = sc.getServerSocketFactory().createServerSocket(8009);
 
         clientThread = new ClientThread();
@@ -63,20 +69,20 @@ public class MockedChromeCast {
                 while (!stop) {
                     handle(read(clientSocket));
                 }
-            } catch (IOException ioex) {
+            } catch (final IOException ioex) {
                 ioex.printStackTrace();
             } finally {
                 if (clientSocket != null) {
                     try {
                         clientSocket.close();
-                    } catch (IOException ioex) {
+                    } catch (final IOException ioex) {
                         ioex.printStackTrace();
                     }
                 }
             }
         }
 
-        void handle(CastChannel.CastMessage message) throws IOException {
+        void handle(final CastChannel.CastMessage message) throws IOException {
             System.out.println("Received message: ");
             System.out.println("   sourceId: " + message.getSourceId());
             System.out.println("   destinationId: " + message.getDestinationId());
@@ -87,71 +93,67 @@ public class MockedChromeCast {
             }
 
             if (message.getPayloadType() == CastChannel.CastMessage.PayloadType.BINARY) {
-                MessageLite response = handleBinary(CastChannel.DeviceAuthMessage.parseFrom(message.getPayloadBinary()));
+                final MessageLite response = handleBinary(
+                        CastChannel.DeviceAuthMessage.parseFrom(message.getPayloadBinary()));
                 write(clientSocket,
-                        CastChannel.CastMessage.newBuilder()
-                                .setProtocolVersion(message.getProtocolVersion())
-                                .setSourceId(message.getDestinationId())
-                                .setDestinationId(message.getSourceId())
+                        CastChannel.CastMessage.newBuilder().setProtocolVersion(message.getProtocolVersion())
+                                .setSourceId(message.getDestinationId()).setDestinationId(message.getSourceId())
                                 .setNamespace(message.getNamespace())
                                 .setPayloadType(CastChannel.CastMessage.PayloadType.BINARY)
-                                .setPayloadBinary(response.toByteString())
-                                .build());
+                                .setPayloadBinary(response.toByteString()).build());
             } else {
-                StandardMessage json = jsonMapper.readValue(message.getPayloadUtf8(), StandardMessage.class);
-                StandardResponse response = handleJSON(json);
+                final StandardMessage json = jsonMapper.readValue(message.getPayloadUtf8(), StandardMessage.class);
+                final StandardResponse response = handleJSON(json);
                 if (response != null) {
                     if (json instanceof Request) {
-                        Request request = (Request) json;
+                        final Request request = (Request) json;
                         response.requestId = request.getRequestId();
                     }
 
                     write(clientSocket,
-                            CastChannel.CastMessage.newBuilder()
-                                    .setProtocolVersion(message.getProtocolVersion())
-                                    .setSourceId(message.getDestinationId())
-                                    .setDestinationId(message.getSourceId())
+                            CastChannel.CastMessage.newBuilder().setProtocolVersion(message.getProtocolVersion())
+                                    .setSourceId(message.getDestinationId()).setDestinationId(message.getSourceId())
                                     .setNamespace(message.getNamespace())
                                     .setPayloadType(CastChannel.CastMessage.PayloadType.STRING)
-                                    .setPayloadUtf8(jsonMapper.writeValueAsString(response))
-                                    .build());
+                                    .setPayloadUtf8(jsonMapper.writeValueAsString(response)).build());
                 }
             }
         }
 
-        MessageLite handleBinary(CastChannel.DeviceAuthMessage message) throws IOException {
+        MessageLite handleBinary(final CastChannel.DeviceAuthMessage message) throws IOException {
             return message;
         }
 
-        StandardResponse handleJSON(Message message) {
+        StandardResponse handleJSON(final Message message) {
             if (message instanceof StandardMessage.Ping) {
                 return new StandardResponse.Pong();
             } else if (message instanceof StandardRequest.Status) {
-                Status status = new Status(new Volume(1f, false, Volume.default_increment,
-                        Volume.default_increment.doubleValue(), Volume.default_controlType), Collections.<Application>emptyList(), false, true);
+                final Status status = new Status(new Volume(1f, false, Volume.default_increment,
+                        Volume.default_increment.doubleValue(), Volume.default_controlType),
+                        Collections.<Application> emptyList(), false, true);
                 return new StandardResponse.Status(status);
             }
             return null;
         }
 
-        CastChannel.CastMessage read(Socket socket) throws IOException {
-            InputStream is = socket.getInputStream();
+        CastChannel.CastMessage read(final Socket socket) throws IOException {
+            final InputStream is = socket.getInputStream();
             byte[] buf = new byte[4];
 
             int read = 0;
             while (read < buf.length) {
-                int nextByte = is.read();
+                final int nextByte = is.read();
                 if (nextByte == -1) {
                     throw new ChromeCastException("Remote socket was closed");
                 }
                 buf[read++] = (byte) nextByte;
             }
 
-            int size = fromArray(buf);
+            final int size = fromArray(buf);
             buf = new byte[size];
             read = 0;
             while (read < size) {
-                int nowRead = is.read(buf, read, buf.length - read);
+                final int nowRead = is.read(buf, read, buf.length - read);
                 if (nowRead == -1) {
                     throw new ChromeCastException("Remote socket was closed");
                 }
@@ -161,7 +163,7 @@ public class MockedChromeCast {
             return CastChannel.CastMessage.parseFrom(buf);
         }
 
-        void write(Socket socket, CastChannel.CastMessage message) throws IOException {
+        void write(final Socket socket, final CastChannel.CastMessage message) throws IOException {
             socket.getOutputStream().write(toArray(message.getSerializedSize()));
             message.writeTo(socket.getOutputStream());
         }

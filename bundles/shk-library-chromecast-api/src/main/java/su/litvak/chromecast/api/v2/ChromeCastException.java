@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import java.io.IOException;
 
 public class ChromeCastException extends IOException {
-    public ChromeCastException(String message) {
+    public ChromeCastException(final String message) {
         super(message);
     }
 
-    public ChromeCastException(String message, Throwable cause) {
+    public ChromeCastException(final String message, final Throwable cause) {
         super(message, cause);
     }
 }

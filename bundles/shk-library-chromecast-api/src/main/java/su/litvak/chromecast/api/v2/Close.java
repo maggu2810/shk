@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -22,7 +23,8 @@ import org.codehaus.jackson.annotate.JsonProperty;
  */
 public class Close {
     public final boolean requestedBySender;
-    Close(@JsonProperty("requestedBySender") boolean requestedBySender) {
+
+    Close(@JsonProperty("requestedBySender") final boolean requestedBySender) {
         this.requestedBySender = requestedBySender;
     }
 }

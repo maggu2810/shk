@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
-import javax.net.ssl.X509TrustManager;
 import java.security.cert.X509Certificate;
+
+import javax.net.ssl.X509TrustManager;
 
 /**
  * Google Cast's certificate cannot be validated against standard keystore,
@@ -24,9 +26,15 @@ import java.security.cert.X509Certificate;
  */
 class X509TrustAllManager implements X509TrustManager {
     @Override
-    public X509Certificate[] getAcceptedIssuers() { return null; }
+    public X509Certificate[] getAcceptedIssuers() {
+        return null;
+    }
+
     @Override
-    public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+    public void checkClientTrusted(final X509Certificate[] certs, final String authType) {
+    }
+
     @Override
-    public void checkServerTrusted(X509Certificate[] certs, String authType) {}
+    public void checkServerTrusted(final X509Certificate[] certs, final String authType) {
+    }
 }

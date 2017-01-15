@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.map.DeserializationConfig;
@@ -20,7 +21,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 class JacksonHelper {
     static ObjectMapper createJSONMapper() {
-        ObjectMapper jsonMapper = new ObjectMapper();
+        final ObjectMapper jsonMapper = new ObjectMapper();
         jsonMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return jsonMapper;
     }

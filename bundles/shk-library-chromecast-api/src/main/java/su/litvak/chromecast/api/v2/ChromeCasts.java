@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
-import javax.jmdns.JmDNS;
-import javax.jmdns.ServiceEvent;
-import javax.jmdns.ServiceListener;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceEvent;
+import javax.jmdns.ServiceListener;
 
 /**
  * Utility class that discovers ChromeCast devices and holds references to all of them.
@@ -31,18 +33,18 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
 
     private JmDNS mDNS;
 
-    private List<ChromeCastsListener> listeners = new ArrayList<ChromeCastsListener>();
+    private final List<ChromeCastsListener> listeners = new ArrayList<ChromeCastsListener>();
 
     private ChromeCasts() {
     }
 
-    private void _startDiscovery(InetAddress addr) throws IOException {
+    private void _startDiscovery(final InetAddress addr) throws IOException {
         if (mDNS == null) {
-            if(addr != null) {
+            if (addr != null) {
                 mDNS = JmDNS.create(addr);
             } else {
                 mDNS = JmDNS.create();
-            }            
+            }
             mDNS.addServiceListener(ChromeCast.SERVICE_TYPE, this);
         }
     }
@@ -55,24 +57,24 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
     }
 
     @Override
-    public void serviceAdded(ServiceEvent event) {
+    public void serviceAdded(final ServiceEvent event) {
         if (event.getInfo() != null) {
-            ChromeCast device = new ChromeCast(mDNS, event.getInfo().getName());
+            final ChromeCast device = new ChromeCast(mDNS, event.getInfo().getName());
             add(device);
-            for (ChromeCastsListener listener : listeners) {
+            for (final ChromeCastsListener listener : listeners) {
                 listener.newChromeCastDiscovered(device);
             }
         }
     }
 
     @Override
-    public void serviceRemoved(ServiceEvent event) {
+    public void serviceRemoved(final ServiceEvent event) {
         if (ChromeCast.SERVICE_TYPE.equals(event.getType())) {
             // We have a ChromeCast device unregistering
-            List<ChromeCast> copy = new ArrayList<ChromeCast>(this);
+            final List<ChromeCast> copy = new ArrayList<ChromeCast>(this);
             ChromeCast deviceRemoved = null;
             // Probably better keep a map to better lookup devices
-            for (ChromeCast device : copy) {
+            for (final ChromeCast device : copy) {
                 if (device.getName().equals(event.getInfo().getName())) {
                     deviceRemoved = device;
                     this.remove(device);
@@ -80,7 +82,7 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
                 }
             }
             if (deviceRemoved != null) {
-                for (ChromeCastsListener listener : listeners) {
+                for (final ChromeCastsListener listener : listeners) {
                     listener.chromeCastRemoved(deviceRemoved);
                 }
             }
@@ -88,7 +90,7 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
     }
 
     @Override
-    public void serviceResolved(ServiceEvent event) {
+    public void serviceResolved(final ServiceEvent event) {
     }
 
     /**
@@ -97,13 +99,13 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
     public static void startDiscovery() throws IOException {
         INSTANCE._startDiscovery(null);
     }
-    
+
     /**
      * Starts ChromeCast device discovery
      *
      * @param addr the address of the interface that should be used for discovery
      */
-    public static void startDiscovery(InetAddress addr) throws IOException {
+    public static void startDiscovery(final InetAddress addr) throws IOException {
         INSTANCE._startDiscovery(addr);
     }
 
@@ -121,13 +123,13 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
         stopDiscovery();
         startDiscovery();
     }
-    
+
     /**
      * Restarts discovery by sequentially calling 'stop' and 'start' methods
      *
      * @param addr the address of the interface that should be used for discovery
      */
-    public static void restartDiscovery(InetAddress addr) throws IOException {
+    public static void restartDiscovery(final InetAddress addr) throws IOException {
         stopDiscovery();
         startDiscovery(addr);
     }
@@ -139,13 +141,13 @@ public class ChromeCasts extends ArrayList<ChromeCast> implements ServiceListene
         return INSTANCE;
     }
 
-    public static void registerListener(ChromeCastsListener listener) {
+    public static void registerListener(final ChromeCastsListener listener) {
         if (listener != null) {
             INSTANCE.listeners.add(listener);
         }
     }
 
-    public static void unregisterListener(ChromeCastsListener listener) {
+    public static void unregisterListener(final ChromeCastsListener listener) {
         if (listener != null) {
             INSTANCE.listeners.remove(listener);
         }

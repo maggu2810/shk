@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -26,7 +27,7 @@ public class AppEvent {
     @JsonProperty
     public final String message;
 
-    AppEvent(String namespace, String message) {
+    AppEvent(final String namespace, final String message) {
         this.namespace = namespace;
         this.message = message;
     }

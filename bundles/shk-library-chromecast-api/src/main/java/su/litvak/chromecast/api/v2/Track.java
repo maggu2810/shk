@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -20,21 +21,26 @@ import org.codehaus.jackson.annotate.JsonProperty;
 /**
  * Track meta data information
  *
- * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track</a>
+ * @see <a href=
+ *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media.Track</a>
  */
 public class Track {
     /**
      * Media track type
      *
-     * @see <a href="https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType</a>
+     * @see <a href=
+     *      "https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType">https://developers.google.com/cast/docs/reference/receiver/cast.receiver.media#.TrackType</a>
      */
-    public enum TrackType { TEXT, AUDIO, VIDEO }
+    public enum TrackType {
+        TEXT,
+        AUDIO,
+        VIDEO
+    }
 
     public final long id;
     public final TrackType type;
 
-    public Track(@JsonProperty("trackId") long id,
-                 @JsonProperty("trackType") TrackType type) {
+    public Track(@JsonProperty("trackId") final long id, @JsonProperty("trackType") final TrackType type) {
         this.id = id;
         this.type = type;
     }

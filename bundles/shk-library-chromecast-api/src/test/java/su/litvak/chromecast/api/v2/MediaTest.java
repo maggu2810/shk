@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package su.litvak.chromecast.api.v2;
 
 import static org.hamcrest.CoreMatchers.not;
@@ -31,14 +32,14 @@ public class MediaTest {
     final ObjectMapper jsonMapper = JacksonHelper.createJSONMapper();
 
     @Test
-    public void itIncludesOptionalFieldsWhenSet () throws Exception {
-        Map<String, Object> customData = new HashMap<String, Object>();
+    public void itIncludesOptionalFieldsWhenSet() throws Exception {
+        final Map<String, Object> customData = new HashMap<String, Object>();
         customData.put("a", "b");
-        Map<String, Object> metadata = new HashMap<String, Object>();
+        final Map<String, Object> metadata = new HashMap<String, Object>();
         metadata.put("1", "2");
-        Media m = new Media(null, null, 123.456d, StreamType.BUFFERED, customData, metadata, null, null);
+        final Media m = new Media(null, null, 123.456d, StreamType.BUFFERED, customData, metadata, null, null);
 
-        String json = jsonMapper.writeValueAsString(m);
+        final String json = jsonMapper.writeValueAsString(m);
 
         assertThat(json, containsString("\"duration\":123.456"));
         assertThat(json, containsString("\"streamType\":\"BUFFERED\""));
@@ -47,10 +48,10 @@ public class MediaTest {
     }
 
     @Test
-    public void itDoseNotContainOptionalFieldsWhenNotSet () throws Exception {
-        Media m = new Media(null, null, null, null, null, null, null, null);
+    public void itDoseNotContainOptionalFieldsWhenNotSet() throws Exception {
+        final Media m = new Media(null, null, null, null, null, null, null, null);
 
-        String json = jsonMapper.writeValueAsString(m);
+        final String json = jsonMapper.writeValueAsString(m);
 
         assertThat(json, not(containsString("duration")));
         assertThat(json, not(containsString("streamType")));
