@@ -898,12 +898,24 @@
         name="markdown.editor.feature.feature.group"/>
     <requirement
         name="code.satyagraha.gfm.viewer.feature.feature.group"/>
+    <requirement
+        name="angular2-feature.feature.group"/>
+    <requirement
+        name="ts-nodejs.embed-feature.feature.group"/>
+    <requirement
+        name="ts-feature.feature.group"/>
+    <requirement
+        name="ts-json-feature.feature.group"/>
+    <requirement
+        name="ts-validation-feature.feature.group"/>
     <repository
         url="https://dl.bintray.com/bndtools/bndtools/latest/"/>
     <repository
         url="http://www.nodeclipse.org/updates/markdown/"/>
     <repository
         url="https://raw.github.com/satyagraha/gfm_viewer/master/p2-composite/"/>
+    <repository
+        url="http://oss.opensagres.fr/angular2-eclipse/1.1.0/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask
