@@ -7,3 +7,6 @@ bundles/*/bin_test/
 bundles/cnf/cache/
 bundles/cnf/local/
 bundles/cnf/release/
+
+# Github Falvored Markdown Eclipse IDE plugin
+**/.*.md.html
