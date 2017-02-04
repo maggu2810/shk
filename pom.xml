@@ -29,7 +29,6 @@
 
     <!-- Check to fit to Karaf version bundled one -->
     <karaf.version>4.0.8</karaf.version>
-    <cxf.version>3.1.9</cxf.version>
     <jetty.version>9.2.19.v20160908</jetty.version>
     <pax.web.version>4.3.0</pax.web.version>
     <pax.jdbc.version>0.9.0</pax.jdbc.version>
