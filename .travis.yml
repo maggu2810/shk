@@ -3,12 +3,10 @@ jdk: oraclejdk8
 
 env:
 - MVN_ARGS=
-- MVN_ARGS=-Dkaraf-snapshot=4.0
 - MVN_ARGS=-Dkaraf-snapshot=4.1
 
 matrix:
   allow_failures:
-    - env: MVN_ARGS=-Dkaraf-snapshot=4.0
     - env: MVN_ARGS=-Dkaraf-snapshot=4.1
 
 before_install:

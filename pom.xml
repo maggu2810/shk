@@ -28,11 +28,11 @@
     <kat.version>1.6</kat.version>
 
     <!-- Check to fit to Karaf version bundled one -->
-    <karaf.version>4.0.8</karaf.version>
-    <jetty.version>9.2.19.v20160908</jetty.version>
-    <pax.web.version>4.3.0</pax.web.version>
-    <pax.jdbc.version>0.9.0</pax.jdbc.version>
-    <spring.version>4.2.8.RELEASE_1</spring.version>
+    <karaf.version>4.1.0</karaf.version>
+    <jetty.version>9.3.15.v20161220</jetty.version>
+    <pax.web.version>6.0.2</pax.web.version>
+    <pax.jdbc.version>1.0.0</pax.jdbc.version>
+    <spring.version>4.3.5.RELEASE_1</spring.version>
 
     <!-- TODO -->
     <jersey.version>2.22.2</jersey.version>
@@ -790,18 +790,6 @@
       </pluginRepositories>
     </profile>
     <profile>
-      <id>K40x-SNAPSHOT</id>
-      <activation>
-        <property>
-          <name>karaf-snapshot</name>
-          <value>4.0</value>
-        </property>
-      </activation>
-      <properties>
-        <karaf.version>4.0.9-SNAPSHOT</karaf.version>
-      </properties>
-    </profile>
-    <profile>
       <id>K41x-SNAPSHOT</id>
       <activation>
         <property>
@@ -810,8 +798,38 @@
         </property>
       </activation>
       <properties>
-        <karaf.version>4.1.0-SNAPSHOT</karaf.version>
+        <karaf.version>4.1.1-SNAPSHOT</karaf.version>
       </properties>
+    </profile>
+    <profile>
+      <id>K410-staging-2</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>k410-staging-2</name>
+        </property>
+      </activation>
+      <properties>
+        <karaf.version>4.1.0</karaf.version>
+        <jetty.version>9.3.15.v20161220</jetty.version>
+        <pax.web.version>6.0.2</pax.web.version>
+        <pax.jdbc.version>1.0.0</pax.jdbc.version>
+        <spring.version>4.3.5.RELEASE_1</spring.version>
+      </properties>
+      <repositories>
+        <repository>
+          <id>k401-staging-2</id>
+          <name>Apache Karaf 4.1.0 Staging Repository - 2</name>
+          <url>https://repository.apache.org/content/repositories/orgapachekaraf-1089/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>k401-staging-2</id>
+          <name>Apache Karaf 4.1.0 Staging Repository - 2</name>
+          <url>https://repository.apache.org/content/repositories/orgapachekaraf-1089/</url>
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
   </profiles>
 
