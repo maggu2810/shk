@@ -98,7 +98,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     // TODO: How to add the reference / Require-Capability without a member object or function?
     @Reference(cardinality = ReferenceCardinality.MANDATORY, policy = ReferencePolicy.DYNAMIC, target = "(osgi.jdbc.driver.class=org.h2.Driver)")
     @SuppressWarnings("initialization.fields.uninitialized")
-    protected org.osgi.service.jdbc.DataSourceFactory h2Driver;
+    protected volatile org.osgi.service.jdbc.DataSourceFactory h2Driver;
 
     @Reference(cardinality = ReferenceCardinality.OPTIONAL)
     protected volatile @Nullable ItemRegistry itemRegistry;
