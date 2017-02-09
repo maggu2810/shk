@@ -397,6 +397,9 @@
                 <excludes>
                   <exclude>**/feature.xml</exclude>
                 </excludes>
+                <canUpdateCopyright>true</canUpdateCopyright>
+                <canUpdateDescription>true</canUpdateDescription>
+                <canUpdateLicense>true</canUpdateLicense>
               </configuration>
             </execution>
           </executions>
