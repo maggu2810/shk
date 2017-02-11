@@ -84,52 +84,13 @@ public class SimpleProxyServlet extends ProxyServlet {
     @Override
     protected void copyRequestHeaders(final HttpServletRequest clientRequest, final Request proxyRequest) {
         logger.trace("copyRequestHeaders (req: {})", getUrl(clientRequest));
-        // final Map<String, String> additionalHeaders = new HashMap<>();
-        // for (final Enumeration<String> headerNames = clientRequest.getHeaderNames(); headerNames.hasMoreElements();)
-        // {
-        // final String headerName = headerNames.nextElement();
-        // final String lowerHeaderName = headerName.toLowerCase(Locale.ENGLISH);
-        // if (HOP_HEADERS.contains(lowerHeaderName)) {
-        // // if ("upgrade".equals(lowerHeaderName)) {
-        // for (final Enumeration<String> headerValues = clientRequest.getHeaders(headerName); headerValues
-        // .hasMoreElements();) {
-        // final String headerValue = headerValues.nextElement();
-        // if (headerValue != null) {
-        // additionalHeaders.put(headerName, headerValue);
-        // } else {
-        // logger.info("Skip because of missing value ({})", headerName);
-        // }
-        // }
-        // // }
-        // }
-        // }
         super.copyRequestHeaders(clientRequest, proxyRequest);
-        // additionalHeaders.forEach((key, value) -> {
-        // logger.info("Add header to proxy request; key={}, value={}", key, value);
-        // proxyRequest.header(key, value);
-        // });
     }
 
     @Override
     protected void onServerResponseHeaders(final HttpServletRequest clientRequest,
             final HttpServletResponse proxyResponse, final Response serverResponse) {
         logger.trace("onServerResponseHeaders (req: {})", getUrl(clientRequest));
-        // final Map<String, String> additionalHeaders = new HashMap<>();
-        // for (final HttpField field : serverResponse.getHeaders()) {
-        // final String headerName = field.getName();
-        // final String lowerHeaderName = headerName.toLowerCase(Locale.ENGLISH);
-        // if (HOP_HEADERS.contains(lowerHeaderName)) {
-        // // if ("upgrade".equals(lowerHeaderName)) {
-        // final String newHeaderValue = filterServerResponseHeader(clientRequest, serverResponse, headerName,
-        // field.getValue());
-        // if (newHeaderValue == null || newHeaderValue.trim().length() == 0) {
-        // logger.info("Skip because of missing value ({})", headerName);
-        // continue;
-        // }
-        // additionalHeaders.put(headerName, newHeaderValue);
-        // // }
-        // }
-        // }
         super.onServerResponseHeaders(clientRequest, proxyResponse, serverResponse);
 
         // Flush the proxy response header
@@ -138,10 +99,6 @@ public class SimpleProxyServlet extends ProxyServlet {
         } catch (final IOException ex) {
             logger.warn("Flush buffer for proxy response failed.", ex);
         }
-        // additionalHeaders.forEach((key, value) -> {
-        // logger.info("Add header to proxy response; key={}, value={}", key, value);
-        // proxyResponse.addHeader(key, value);
-        // });
     }
 
     @Override
