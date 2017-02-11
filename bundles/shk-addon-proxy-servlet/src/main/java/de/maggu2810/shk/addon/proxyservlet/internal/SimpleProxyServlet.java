@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import javax.servlet.ReadListener;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -17,29 +18,30 @@ import org.eclipse.jetty.client.api.ContentProvider;
 import org.eclipse.jetty.client.api.Request;
 import org.eclipse.jetty.client.api.Response;
 import org.eclipse.jetty.client.api.Response.Listener;
-import org.eclipse.jetty.proxy.ProxyServlet;
+import org.eclipse.jetty.client.util.DeferredContentProvider;
+import org.eclipse.jetty.proxy.AsyncProxyServlet;
 import org.eclipse.jetty.util.Callback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SimpleProxyServlet extends ProxyServlet {
+public class SimpleProxyServlet extends AsyncProxyServlet {
 
     private static final long serialVersionUID = 1L;
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    // @Override
-    // protected ReadListener newReadListener(final HttpServletRequest request, final HttpServletResponse response,
-    // final Request proxyRequest, final DeferredContentProvider provider) {
-    // logger.trace("newReadListener");
-    // return super.newReadListener(request, response, proxyRequest, provider);
-    // }
-    //
-    // @Override
-    // protected StreamWriter newWriteListener(final HttpServletRequest request, final Response proxyResponse) {
-    // logger.trace("newWriteListener");
-    // return super.newWriteListener(request, proxyResponse);
-    // }
+    @Override
+    protected ReadListener newReadListener(final HttpServletRequest request, final HttpServletResponse response,
+            final Request proxyRequest, final DeferredContentProvider provider) {
+        logger.trace("newReadListener");
+        return super.newReadListener(request, response, proxyRequest, provider);
+    }
+
+    @Override
+    protected StreamWriter newWriteListener(final HttpServletRequest request, final Response proxyResponse) {
+        logger.trace("newWriteListener");
+        return super.newWriteListener(request, proxyResponse);
+    }
 
     @Override
     public void init(final ServletConfig config) throws ServletException {
@@ -93,7 +95,7 @@ public class SimpleProxyServlet extends ProxyServlet {
         logger.trace("onServerResponseHeaders (req: {})", getUrl(clientRequest));
         super.onServerResponseHeaders(clientRequest, proxyResponse, serverResponse);
 
-        // Flush the proxy response header
+        // Flush the proxy final response header
         try {
             proxyResponse.flushBuffer();
         } catch (final IOException ex) {
@@ -116,11 +118,11 @@ public class SimpleProxyServlet extends ProxyServlet {
         super.onResponseContent(request, response, proxyResponse, buffer, offset, length, callback);
         logger.trace("onResponseContent: super returned");
 
-        try {
-            response.flushBuffer();
-        } catch (final IOException ex) {
-            logger.warn("Flush reponse output stream failed.", ex);
-        }
+        // try {
+        // response.flushBuffer();
+        // } catch (final IOException ex) {
+        // logger.warn("Flush reponse output stream failed.", ex);
+        // }
     }
 
     @Override
@@ -369,6 +371,9 @@ public class SimpleProxyServlet extends ProxyServlet {
 
     @Override
     public void service(final ServletRequest req, final ServletResponse res) throws ServletException, IOException {
+        // Use a small buffer so data gets be written as soon as possible.
+        res.setBufferSize(0);
+
         logger.trace("service");
         super.service(req, res);
     }
