@@ -121,11 +121,6 @@ public class SimpleProxyServlet extends ProxyServlet {
         } catch (final IOException ex) {
             logger.warn("Flush reponse output stream failed.", ex);
         }
-        // try {
-        // request.getAsyncContext().getResponse().getOutputStream().flush();
-        // } catch (final IOException ex) {
-        // logger.warn("Flush reponse output stream failed.", ex);
-        // }
     }
 
     @Override
