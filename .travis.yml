@@ -1,3 +1,7 @@
+dist: trusty
+sudo: false
+#sudo: required
+
 language: java
 jdk: oraclejdk8
 
@@ -9,7 +13,23 @@ matrix:
   allow_failures:
     - env: MVN_ARGS=-Dkaraf-snapshot=4.1
 
+#$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+#$ mvn test -B
+
 before_install:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V ${MVN_ARGS}
+  - echo "MAVEN_OPTS='-Xms1g -Xmx2g -XX:PermSize=512m -XX:MaxPermSize=1g'" > ~/.mavenrc
+
+install:
+  - echo 'mvn clean install -B -V "${@}" 1> .build.stdout 2> .build.stderr' > .build.sh
+  - chmod 0755 .build.sh
+
 script:
-  - mvn test -B ${MVN_ARGS}
+  - travis_wait 60 ./.build.sh ${MVN_ARGS}
+
+after_success: 
+  - tail -n  200 .build.stdout
+
+after_failure:
+  - tail -n  300 .build.stderr
+  - tail -n 2000 .build.stdout
+
