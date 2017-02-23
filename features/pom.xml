@@ -14,10 +14,125 @@
 
   <name>shk :: Features</name>
 
+  <dependencies>
+    <!-- Distribution -->
+    <dependency>
+      <groupId>org.apache.karaf.features</groupId>
+      <artifactId>framework</artifactId>
+      <version>${karaf.version}</version>
+      <type>kar</type>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Repositories -->
+    <dependency>
+      <groupId>org.apache.karaf.features</groupId>
+      <artifactId>standard</artifactId>
+      <version>${karaf.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.karaf.features</groupId>
+      <artifactId>enterprise</artifactId>
+      <version>${karaf.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome</groupId>
+      <artifactId>esh-tp</artifactId>
+      <version>${esh.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome</groupId>
+      <artifactId>esh-core</artifactId>
+      <version>${esh.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.smarthome</groupId>
+      <artifactId>esh-ext</artifactId>
+      <version>${esh.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.karaf.tooling</groupId>
+          <artifactId>karaf-maven-plugin</artifactId>
+          <configuration>
+            <startLevel>80</startLevel>
+            <aggregateFeatures>true</aggregateFeatures>
+          </configuration>
+          <executions>
+            <execution>
+              <id>compile</id>
+              <phase>generate-resources</phase>
+              <goals>
+                <goal>features-generate-descriptor</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>verify</id>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>verify</goal>
+              </goals>
+              <configuration>
+                <descriptors>
+                  <!-- Apache Karaf -->
+                  <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
+                  <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
+                  <descriptor>mvn:org.apache.karaf.features/enterprise/${karaf.version}/xml/features</descriptor>
+
+                  <!-- Eclipse SmartHome -->
+                  <descriptor>mvn:org.eclipse.smarthome/esh-tp/${esh.version}/xml/features</descriptor>
+                  <descriptor>mvn:org.eclipse.smarthome/esh-core/${esh.version}/xml/features</descriptor>
+                  <descriptor>mvn:org.eclipse.smarthome/esh-ext/${esh.version}/xml/features</descriptor>
+
+                  <!-- Current feature under verification -->
+                  <descriptor>file:${project.build.directory}/feature/feature.xml</descriptor>
+                </descriptors>
+                <distribution>org.apache.karaf.features:framework</distribution>
+                <javase>${java.version}</javase>
+                <framework>
+                  <feature>framework</feature>
+                </framework>
+                <features>
+                  <feature>shk-*</feature>
+                </features>
+                <verifyTransitive>false</verifyTransitive>
+                <ignoreMissingConditions>true</ignoreMissingConditions>
+                <fail>first</fail>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
   <modules>
     <module>shk-base</module>
-    <module>shk-base-wo-esh</module>
-    <module>verify</module>
   </modules>
 
 </project>
