@@ -54,7 +54,7 @@
     </dependency>
     <dependency>
       <groupId>de.maggu2810.kat.features</groupId>
-      <artifactId>kat</artifactId>
+      <artifactId>kat-bpg</artifactId>
       <version>${kat.version}</version>
       <classifier>features</classifier>
       <type>xml</type>
