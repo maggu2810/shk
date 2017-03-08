@@ -43,7 +43,7 @@
 
     <maven.build.resources.version>1.7</maven.build.resources.version>
     <quality.skip>false</quality.skip>
-    <checkerframework.version>2.1.5</checkerframework.version>
+    <checkerframework.version>2.1.9</checkerframework.version>
     <checkerframework.compiler.arg1>-AplaceholderToBeReplaced</checkerframework.compiler.arg1>
 
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
