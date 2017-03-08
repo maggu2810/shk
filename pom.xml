@@ -122,7 +122,17 @@
       </dependency>
       <dependency>
         <groupId>org.eclipse.smarthome.core</groupId>
+        <artifactId>org.eclipse.smarthome.core.autoupdate</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.smarthome.core</groupId>
         <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
+        <version>${esh.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.smarthome.core</groupId>
+        <artifactId>org.eclipse.smarthome.core.thing</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
@@ -133,11 +143,6 @@
       <dependency>
         <groupId>org.eclipse.smarthome.config</groupId>
         <artifactId>org.eclipse.smarthome.config.discovery</artifactId>
-        <version>${esh.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.eclipse.smarthome.core</groupId>
-        <artifactId>org.eclipse.smarthome.core.thing</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>

@@ -147,6 +147,7 @@
   </profiles>
 
   <modules>
+    <module>shk-addon-autoupdate-configurator</module>
     <module>shk-addon-sitemap-generator</module>
     <module>shk-binding-chromecast</module>
     <module>shk-io-rest-docs</module>

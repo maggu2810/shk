@@ -22,6 +22,11 @@
     <feature>war</feature>
   </feature>
 
+  <feature name="shk-addon-autoupdate-configurator" description="Configurator for ESH Auto Update" version="${project.version}">
+    <bundle>mvn:de.maggu2810.shk.bundles/shk-addon-autoupdate-configurator/${project.version}</bundle>
+    <feature dependency="true">esh-base</feature>
+  </feature>
+
   <feature name="shk-addon-sitemap-generator" description="Sitemap generators" version="${project.version}">
     <bundle>mvn:de.maggu2810.shk.bundles/shk-addon-sitemap-generator/${project.version}</bundle>
     <feature dependency="true">esh-model-sitemap</feature>
