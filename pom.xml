@@ -24,7 +24,7 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <bnd.version>3.3.0</bnd.version>
-    <esh.version>0.9.0.a31</esh.version>
+    <esh.version>0.9.0.a34</esh.version>
     <kat.version>1.7</kat.version>
 
     <!-- Check to fit to Karaf version bundled one -->
