@@ -36,7 +36,7 @@ public class AutoUpdateConfiguratorImpl implements AutoUpdateBindingConfigProvid
     private static final Map<ChannelUID, Boolean> BINDING_GLOBAL_FALSE = new HashMap<>();
 
     @Reference(cardinality = ReferenceCardinality.OPTIONAL, policy = ReferencePolicy.DYNAMIC)
-    protected @Nullable ItemChannelLinkRegistry itemChannelLinkRegistry;
+    protected volatile @Nullable ItemChannelLinkRegistry itemChannelLinkRegistry;
 
     // Binding specific settings
     protected Map<String, Map<ChannelUID, Boolean>> bindingSpecificSettings = new ConcurrentHashMap<>();
