@@ -283,13 +283,6 @@
           <groupId>biz.aQute.bnd</groupId>
           <artifactId>bnd-maven-plugin</artifactId>
           <version>${bnd.version}</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>bnd-process</goal>
-              </goals>
-            </execution>
-          </executions>
         </plugin>
 
         <plugin>
