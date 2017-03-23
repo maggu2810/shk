@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.shk.tools</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.13-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>shk-repo-p2</artifactId>
+  <packaging>pom</packaging>
+
+  <name>shk :: Tools :: Repository :: p2</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.reficio</groupId>
+        <artifactId>p2-maven-plugin</artifactId>
+        <version>1.2.0</version>
+        <executions>
+          <execution>
+            <id>default-cli</id>
+            <configuration>
+              <artifacts>
+                <artifact>
+                  <id>${project.groupId}:shk-repo:jar:${project.version}</id>
+                  <source>true</source>
+                  <transitive>true</transitive>
+                </artifact>
+              </artifacts>
+              <skipInvalidArtifacts>true</skipInvalidArtifacts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>8.1.5.v20120716</version>
+        <configuration>
+          <scanIntervalSeconds>10</scanIntervalSeconds>
+          <webAppSourceDirectory>${basedir}/target/repository/</webAppSourceDirectory>
+          <webApp>
+            <contextPath>/site</contextPath>
+          </webApp>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
