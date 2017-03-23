@@ -41,6 +41,7 @@
         <artifactId>karaf-maven-plugin</artifactId>
         <configuration>
           <installedFeatures>
+            <feature>shk-persistence-es</feature>
             <feature>wrapper</feature>
           </installedFeatures>
           <startupFeatures>

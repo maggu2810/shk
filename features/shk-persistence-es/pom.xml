@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.shk.features</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.13-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>shk-persistence-es</artifactId>
+  <packaging>feature</packaging>
+
+  <name>shk :: Features :: Persistence :: Elasticsearch</name>
+  
+  <properties>
+    <es.meta.version>5.2.2-SNAPSHOT</es.meta.version>
+  </properties>
+
+  <dependencies>
+    <!-- Repositories -->
+
+    <!-- Direct bundle dependencies -->
+    <dependency>
+      <groupId>de.maggu2810.shk.bundles</groupId>
+      <artifactId>shk-persistence-es</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+</project>

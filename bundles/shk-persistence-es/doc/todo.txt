@@ -1,0 +1,44 @@
+feature:install wrap
+bundle:install 'wrap:mvn:org.elasticsearch.plugin/transport-netty3-client/5.2.2$Bundle-SymbolicName=elasticsearch.plugin.transport.netty3.client&Bundle-Version=5.2.2&Import-Package=org.elasticsearch.transport,*;resolution:=optional'
+bundle:install 'wrap:mvn:org.elasticsearch/elasticsearch/5.2.2$Bundle-SymbolicName=elasticsearch&Bundle-Version=5.2.2&Import-Package=org.joda.time.format,org.elasticsearch.transport,*;resolution:=optional'
+bundle:install 'wrap:mvn:org.elasticsearch.client/transport/5.2.2$Bundle-SymbolicName=elasticsearch.client.transport&Bundle-Version=5.2.2&Import-Package=org.elasticsearch.client.transport,*;resolution:=optional'
+bundle:install mvn:de.maggu2810.shk.bundles/shk-persistence-es/1.13-SNAPSHOT
+log:clear
+bundle:start 226
+log:display
+
+
+
+
+
+
+
+# Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
+bundle:install mvn:io.netty/netty/3.10.6.Final
+bundle:install mvn:io.netty/netty-buffer/4.1.7.Final
+bundle:install mvn:io.netty/netty-codec/4.1.7.Final
+bundle:install mvn:io.netty/netty-codec-http/4.1.7.Final
+bundle:install mvn:io.netty/netty-common/4.1.7.Final
+bundle:install mvn:io.netty/netty-handler/4.1.7.Final
+bundle:install mvn:io.netty/netty-resolver/4.1.7.Final
+bundle:install mvn:io.netty/netty-transport/4.1.7.Final
+
+# Core part of Jackson that defines Streaming API as well as basic shared abstractions
+bundle:install mvn:com.fasterxml.jackson.core/jackson-core/2.8.6
+
+# HPPC: High Performance Primitive Collections
+# https://github.com/carrotsearch/hppc
+bundle:install mvn:com.carrotsearch/hppc/0.7.2
+
+# A new data structure for accurate on-line accumulation of rank-based statistics such as quantiles and trimmed means
+# https://github.com/tdunning/t-digest/pull/80
+feature:install wrap
+bundle:install 'wrap:mvn:com.tdunning/t-digest/3.0$Bundle-SymbolicName=t-digest&Bundle-Version=3.0&Import-Package=*'
+
+bundle:install mvn:de.maggu2810.osgi-ify.elasticsearch/elasticsearch-meta/5.2.2-SNAPSHOT
+bundle:install mvn:de.maggu2810.shk.bundles/shk-persistence-es/1.13-SNAPSHOT
+log:clear
+bundle:start 234
+log:tail
+
+

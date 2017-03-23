@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <!-- <repository>mvn:org.eclipse.smarthome/esh-tp/${esh.version}/xml/features</repository> -->
+  <!-- <repository>mvn:org.eclipse.smarthome/esh-core/${esh.version}/xml/features</repository> -->
+  <!-- <repository>mvn:org.eclipse.smarthome/esh-ext/${esh.version}/xml/features</repository> -->
+
+  <feature name="shk-es" description="Elasticsearch Client" version="${es.meta.version}">
+    <bundle>mvn:de.maggu2810.osgi-ify.elasticsearch/elasticsearch-meta/${es.meta.version}</bundle>
+
+    <bundle dependency="true">mvn:io.netty/netty/3.10.6.Final</bundle>
+    <bundle dependency="true">mvn:io.netty/netty-buffer/4.1.7.Final</bundle>
+    <bundle dependency="true">mvn:io.netty/netty-codec/4.1.7.Final</bundle>
+    <bundle dependency="true">mvn:io.netty/netty-codec-http/4.1.7.Final</bundle>
+    <bundle dependency="true">mvn:io.netty/netty-common/4.1.7.Final</bundle>
+    <bundle dependency="true">mvn:io.netty/netty-handler/4.1.7.Final</bundle>
+    <bundle dependency="true">mvn:io.netty/netty-resolver/4.1.7.Final</bundle>
+    <bundle dependency="true">mvn:io.netty/netty-transport/4.1.7.Final</bundle>
+
+    <!-- Core part of Jackson that defines Streaming API as well as basic shared abstractions -->
+    <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/2.8.6</bundle>
+
+    <!-- HPPC: High Performance Primitive Collections -->
+    <!-- https://github.com/carrotsearch/hppc -->
+    <bundle dependency="true">mvn:com.carrotsearch/hppc/0.7.2</bundle>
+
+    <!-- A new data structure for accurate on-line accumulation of rank-based statistics such as quantiles and trimmed means -->
+    <!-- https://github.com/tdunning/t-digest/pull/80 -->
+    <feature prerequisite="true">wrap</feature>
+    <bundle>wrap:mvn:com.tdunning/t-digest/3.0$Bundle-SymbolicName=t-digest&amp;Bundle-Version=3.0&amp;Import-Package=*</bundle>
+  </feature>
+
+  <feature name="shk-persistence-es" description="${project.name}" version="${project.version}">
+    <details>${project.description}</details>
+    <bundle>mvn:de.maggu2810.shk.bundles/shk-persistence-es/${project.version}</bundle>
+    <feature dependency="true">shk-es</feature>
+  </feature>
+
+</features>
