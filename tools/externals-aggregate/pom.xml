@@ -38,6 +38,14 @@
       <type>pom</type>
     </dependency>
 
+    <!-- Eclipse Equinox -->
+    <dependency>
+      <groupId>de.maggu2810.shk.tools.externals</groupId>
+      <artifactId>eclipse-equinox</artifactId>
+      <version>${project.version}</version>
+      <type>pom</type>
+    </dependency>
+
     <!-- Eclipse Jetty -->
     <dependency>
       <groupId>de.maggu2810.shk.tools.externals</groupId>

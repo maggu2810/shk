@@ -18,6 +18,7 @@
     <module>apache-commons</module>
     <module>apache-felix</module>
     <module>apache-xbean</module>
+    <module>eclipse-equinox</module>
     <module>eclipse-jetty</module>
     <module>eclipse-paho</module>
     <module>eclipse-smarthome</module>
