@@ -28,10 +28,11 @@
     <kat.version>1.7</kat.version>
 
     <!-- Check to fit to Karaf version bundled one -->
-    <karaf.version>4.1.0</karaf.version>
-    <jetty.version>9.3.15.v20161220</jetty.version>
-    <pax.web.version>6.0.2</pax.web.version>
-    <pax.jdbc.version>1.0.0</pax.jdbc.version>
+    <karaf.version>4.1.1</karaf.version>
+    <hibernate.version>5.2.8.Final</hibernate.version>
+    <jetty.version>9.3.14.v20161028</jetty.version>
+    <pax.web.version>6.0.3</pax.web.version>
+    <pax.jdbc.version>1.0.1</pax.jdbc.version>
     <spring.version>4.3.5.RELEASE_1</spring.version>
 
     <!-- TODO -->
