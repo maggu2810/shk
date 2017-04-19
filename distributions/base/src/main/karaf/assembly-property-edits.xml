@@ -25,5 +25,17 @@
       <key>org.ops4j.pax.url.mvn.repositories</key>
       <value>https://oss.jfrog.org/artifactory/simple/libs-snapshot@id=ojo-libs-snapshot@snapshots@noreleases</value>
     </edit>
+    <edit>
+      <file>org.ops4j.pax.web.cfg</file>
+      <operation>put</operation>
+      <key>org.osgi.service.http.port</key>
+      <value>8080</value>
+    </edit>
+    <edit>
+      <file>org.ops4j.pax.web.cfg</file>
+      <operation>put</operation>
+      <key>org.osgi.service.http.port.secure</key>
+      <value>8443</value>
+    </edit>
   </edits>
 </property-edits>
