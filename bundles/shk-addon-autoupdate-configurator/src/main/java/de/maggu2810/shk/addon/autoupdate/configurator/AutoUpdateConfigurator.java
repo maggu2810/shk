@@ -16,7 +16,7 @@ package de.maggu2810.shk.addon.autoupdate.configurator;
 import org.eclipse.smarthome.core.thing.ChannelUID;
 
 /**
- * This class defines an interface to configure an auto-update service programmatical.
+ * This class defines an interface to configure an auto-update service programmatically.
  *
  * @author Markus Rathgeb - Initial contribution
  */

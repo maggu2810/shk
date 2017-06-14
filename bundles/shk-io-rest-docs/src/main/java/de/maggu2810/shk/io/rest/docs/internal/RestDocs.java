@@ -30,6 +30,11 @@ import org.osgi.service.http.NamespaceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Register the resources as HTTP servlet.
+ *
+ * @author Markus Rathgeb - Initial contribution
+ */
 @Component(immediate = true)
 public class RestDocs {
 

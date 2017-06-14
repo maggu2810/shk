@@ -29,6 +29,11 @@ import org.osgi.service.component.annotations.ReferencePolicy;
 
 import de.maggu2810.shk.addon.autoupdate.configurator.AutoUpdateConfigurator;
 
+/**
+ * A service to configure an auto-update service programmatically.
+ *
+ * @author Markus Rathgeb - Initial contribution
+ */
 @Component
 public class AutoUpdateConfiguratorImpl implements AutoUpdateBindingConfigProvider, AutoUpdateConfigurator {
 
