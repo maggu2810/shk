@@ -1,8 +1,14 @@
 #!/bin/sh
 
-CHECKER_JAR=${HOME}/.m2/repository/org/checkerframework/checker/2.1.5/checker-2.1.5.jar
+#
+# Configuration Parameters
+#
+CHECKER_VERSION="2.1.9"
 
-FQCN=org.eclipse.smarthome.core.audio.AudioSink
+#
+# Constants
+#
+CHECKER_JAR="${HOME}/.m2/repository/org/checkerframework/checker/${CHECKER_VERSION}/checker-${CHECKER_VERSION}.jar"
 
 gen() {
   local FQCN="${1}"; shift
