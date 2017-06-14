@@ -1,13 +1,6 @@
 runbundles.shk.addon.sitemap-generator: \
 	shk-addon-sitemap-generator
 
-runbundles.shk.binding.chromecast: \
-	com.google.protobuf,\
-	jackson-mapper-asl,\
-	jackson-core-asl,\
-	shk-library-chromecast-api,\
-	shk-binding-chromecast
-
 runbundles.shk.io.rest-docs: \
 	shk-io-rest-docs
 

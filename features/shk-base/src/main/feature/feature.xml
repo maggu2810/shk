@@ -32,16 +32,6 @@
     <feature dependency="true">esh-model-sitemap</feature>
   </feature>
 
-  <feature name="shk-binding-chromecast" description="Google Chromecast Binding" version="${project.version}">
-    <bundle>mvn:de.maggu2810.shk.bundles/shk-binding-chromecast/${project.version}</bundle>
-    <feature>esh-io-transport-mdns</feature>
-    <feature>esh-io-transport-upnp</feature>
-    <bundle dependency="true">mvn:de.maggu2810.shk.bundles/shk-library-chromecast-api/${project.version}</bundle>
-    <bundle dependency="true">mvn:com.google.protobuf/protobuf-java/${protobuf.version}</bundle>
-    <bundle dependency="true">mvn:org.codehaus.jackson/jackson-core-asl/${jackson.version}</bundle>
-    <bundle dependency="true">mvn:org.codehaus.jackson/jackson-mapper-asl/${jackson.version}</bundle>
-  </feature>
-
   <feature name="shk-io-rest-docs" version="${project.version}">
     <config name="com.eclipsesource.jaxrs.swagger.config">
       swagger.basePath = /rest

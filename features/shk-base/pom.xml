@@ -31,12 +31,6 @@
     </dependency>
     <dependency>
       <groupId>de.maggu2810.shk.bundles</groupId>
-      <artifactId>shk-binding-chromecast</artifactId>
-      <version>${project.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.shk.bundles</groupId>
       <artifactId>shk-io-rest-docs</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
@@ -44,12 +38,6 @@
     <dependency>
       <groupId>de.maggu2810.shk.bundles</groupId>
       <artifactId>shk-io-webutil</artifactId>
-      <version>${project.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.shk.bundles</groupId>
-      <artifactId>shk-library-chromecast-api</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>

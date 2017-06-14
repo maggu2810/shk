@@ -41,7 +41,6 @@ icondata: data:image/gif;base64,${base64;icon.gif}
 
 runbundles.shk: \
 	${runbundles.shk.addon.sitemap-generator},\
-	${runbundles.shk.binding.chromecast},\
 	${runbundles.shk.io.rest-docs},\
 	${runbundles.shk.io.webutil}, \
 	${runbundles.shk.persistence.h2}
