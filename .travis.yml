@@ -7,11 +7,11 @@ jdk: oraclejdk8
 
 env:
 - MVN_ARGS=
-- MVN_ARGS=-Dkaraf-snapshot=4.1
+- MVN_ARGS=-Dkaraf-snapshot=4.1.2
 
 matrix:
   allow_failures:
-    - env: MVN_ARGS=-Dkaraf-snapshot=4.1
+    - env: MVN_ARGS=-Dkaraf-snapshot=4.1.2
 
 #$ mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 #$ mvn test -B

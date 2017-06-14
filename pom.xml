@@ -46,6 +46,7 @@
     <quality.skip>false</quality.skip>
     <checkerframework.version>2.1.10</checkerframework.version>
     <checkerframework.compiler.arg1>-AplaceholderToBeReplaced</checkerframework.compiler.arg1>
+    <checkerframework.qual.groupId>de.maggu2810.osgi-ify.org.checkerframework.checker-qual</checkerframework.qual.groupId>
 
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <license.shortcut>epl_only_v1</license.shortcut>
@@ -105,7 +106,7 @@
       <!-- Checker Framework -->
       <dependency>
         <!-- annotations from the Checker Framework: nullness, interning, locking, ... -->
-        <groupId>org.checkerframework</groupId>
+        <groupId>${checkerframework.qual.groupId}</groupId>
         <artifactId>checker-qual</artifactId>
         <version>${checkerframework.version}</version>
       </dependency>
@@ -329,35 +330,6 @@
         </plugin>
 
         <plugin>
-          <groupId>net.revelc.code</groupId>
-          <artifactId>formatter-maven-plugin</artifactId>
-          <version>0.5.2</version>
-          <executions>
-            <execution>
-              <phase>process-sources</phase>
-              <goals>
-                <goal>format</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <directories>
-              <directory>${project.build.sourceDirectory}</directory>
-              <directory>${project.build.directory}/generated-sources</directory>
-            </directories>
-            <lineEnding>LF</lineEnding>
-            <configFile>eclipse/code-formatter.xml</configFile>
-          </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-
-        <plugin>
           <groupId>org.apache.karaf.tooling</groupId>
           <artifactId>karaf-maven-plugin</artifactId>
           <version>${karaf.version}</version>
@@ -426,6 +398,12 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>2.17</version>
           <configuration>
@@ -473,11 +451,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.0</version>
-          <configuration>
-            <archive>
-              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-            </archive>
-          </configuration>
         </plugin>
 
         <plugin>
@@ -570,8 +543,7 @@
       <id>checkerframework-check</id>
       <activation>
         <property>
-          <name>checkerframework</name>
-          <value>check</value>
+          <name>check</name>
         </property>
       </activation>
 
@@ -653,6 +625,24 @@
           </plugin>
 
           <plugin>
+            <groupId>org.commonjava.maven.plugins</groupId>
+            <artifactId>directory-maven-plugin</artifactId>
+            <version>0.1</version>
+            <executions>
+              <execution>
+                <id>directories</id>
+                <goals>
+                  <goal>highest-basedir</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <property>basedirRoot</property>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
@@ -663,7 +653,7 @@
               </annotationProcessors>
               <compilerArgs>
                 <!-- directory containing annotated library stubs -->
-                <arg>-Astubs=../../tools/checkerframework/stubs</arg>
+                <arg>-Astubs=${basedirRoot}/tools/checkerframework/stubs</arg>
                 <arg>-AstubWarnIfNotFound</arg>
                 <arg>-AstubWarnIfOverwritesBytecode</arg>
                 <arg>-AstubDebug</arg>
@@ -709,20 +699,13 @@
     </profile>
 
     <profile>
-      <id>formatter</id>
-      <build>
-        <defaultGoal>clean install</defaultGoal>
-        <plugins>
-          <plugin>
-            <groupId>net.revelc.code</groupId>
-            <artifactId>formatter-maven-plugin</artifactId>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
-      <id>buildsystem</id>
+      <id>check-buildsystem</id>
+      <activation>
+        <property>
+          <name>check</name>
+          <value>buildsystem</value>
+        </property>
+      </activation>
       <properties>
         <license.skipUpdateLicense>true</license.skipUpdateLicense>
       </properties>
@@ -732,9 +715,27 @@
     </profile>
 
     <profile>
-      <id>preCommit</id>
+      <id>check-commit-goals</id>
+      <activation>
+        <property>
+          <name>check</name>
+          <value>commit</value>
+        </property>
+      </activation>
       <build>
         <defaultGoal>clean install findbugs:check pmd:check checkstyle:check javadoc:javadoc</defaultGoal>
+      </build>
+    </profile>
+
+    <profile>
+      <id>check-commit-style</id>
+      <activation>
+        <property>
+          <name>check</name>
+          <value>commit</value>
+        </property>
+      </activation>
+      <build>
         <plugins>
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
@@ -766,6 +767,7 @@
       </build>
     </profile>
 
+    <!-- Karaf Snapshot -->
     <profile>
       <id>repos-apache-snapshots</id>
       <activation>
@@ -799,23 +801,28 @@
       </pluginRepositories>
     </profile>
     <profile>
-      <id>K41x-SNAPSHOT</id>
+      <id>K412-SNAPSHOT</id>
       <activation>
         <property>
           <name>karaf-snapshot</name>
-          <value>4.1</value>
+          <value>4.1.2</value>
         </property>
       </activation>
       <properties>
-        <karaf.version>4.1.1-SNAPSHOT</karaf.version>
+        <karaf.version>4.1.2-SNAPSHOT</karaf.version>
+        <hibernate.version>5.2.8.Final</hibernate.version>
+        <jetty.version>9.3.14.v20161028</jetty.version>
+        <pax.web.version>6.0.5</pax.web.version>
+        <pax.jdbc.version>1.0.1</pax.jdbc.version>
+        <spring.version>4.3.7.RELEASE_1</spring.version>
       </properties>
     </profile>
     <profile>
       <id>K410-staging-2</id>
       <activation>
-        <activeByDefault>false</activeByDefault>
         <property>
-          <name>k410-staging-2</name>
+          <name>karaf-staging</name>
+          <value>4.1.0-2</value>
         </property>
       </activation>
       <properties>
@@ -827,14 +834,14 @@
       </properties>
       <repositories>
         <repository>
-          <id>k401-staging-2</id>
+          <id>K410-staging-2</id>
           <name>Apache Karaf 4.1.0 Staging Repository - 2</name>
           <url>https://repository.apache.org/content/repositories/orgapachekaraf-1089/</url>
         </repository>
       </repositories>
       <pluginRepositories>
         <pluginRepository>
-          <id>k401-staging-2</id>
+          <id>K410-staging-2</id>
           <name>Apache Karaf 4.1.0 Staging Repository - 2</name>
           <url>https://repository.apache.org/content/repositories/orgapachekaraf-1089/</url>
         </pluginRepository>
