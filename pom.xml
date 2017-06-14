@@ -953,18 +953,6 @@
       </snapshots>
     </repository>
 
-    <!-- maggu2810's ESH snapshot repository -->
-    <repository>
-      <id>github-maggu2810-esh-snapshots</id>
-      <url>https://github.com/maggu2810/mvn-repo/raw/esh-snapshots</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-
     <!-- jUPnP -->
     <repository>
       <id>jupnp-bintray</id>
