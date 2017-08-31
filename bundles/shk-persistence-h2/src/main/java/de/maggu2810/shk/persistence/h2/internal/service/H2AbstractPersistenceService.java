@@ -36,7 +36,7 @@ import org.checkerframework.checker.nullness.qual.EnsuresNonNullIf;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.config.core.ConfigConstants;
-import org.eclipse.smarthome.core.i18n.I18nProvider;
+import org.eclipse.smarthome.core.i18n.TranslationProvider;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.items.ItemRegistry;
 import org.eclipse.smarthome.core.persistence.FilterCriteria;
@@ -105,7 +105,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")
-    protected @NonNull I18nProvider i18nProvider;
+    protected @NonNull TranslationProvider translationProvider;
 
     private @Nullable Connection connection;
     private final List<String> itemCache = new ArrayList<>();
@@ -137,7 +137,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     public String getLabel(final Locale locale) {
         final String key = String.format("%s.label", getId());
         final String dfl = String.format("%s: H2 Embedded Database", getId());
-        final String label = i18nProvider.getText(bundle, key, dfl, locale);
+        final String label = translationProvider.getText(bundle, key, dfl, locale);
         if (label != null) {
             return label;
         } else {
