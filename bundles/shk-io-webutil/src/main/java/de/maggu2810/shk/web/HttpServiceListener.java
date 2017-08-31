@@ -13,6 +13,7 @@
 
 package de.maggu2810.shk.web;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.osgi.service.http.HttpService;
 
 public interface HttpServiceListener {
@@ -23,12 +24,12 @@ public interface HttpServiceListener {
      * @param httpService the added http service
      * @param httpServiceInfo the information about the added http service
      */
-    void addHttpService(HttpService httpService, HttpServiceInfo httpServiceInfo);
+    void addHttpService(@NonNull HttpService httpService, @NonNull HttpServiceInfo httpServiceInfo);
 
     /**
      * Inform that a http service has been removed.
      *
      * @param httpService the service that has been removed
      */
-    void removeHttpService(HttpService httpService);
+    void removeHttpService(@NonNull HttpService httpService);
 }

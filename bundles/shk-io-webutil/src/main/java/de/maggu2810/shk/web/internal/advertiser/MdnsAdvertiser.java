@@ -44,7 +44,7 @@ import de.maggu2810.shk.web.HttpServiceListener;
 @Designate(ocd = MdnsAdvertiserConfig.class)
 public class MdnsAdvertiser implements HttpServiceListener {
 
-    protected static final String MDNS_NAME_FALLBACK = "smarthome";
+    protected static final @NonNull String MDNS_NAME_FALLBACK = "smarthome";
 
     // private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -54,16 +54,16 @@ public class MdnsAdvertiser implements HttpServiceListener {
 
     private @Nullable HttpServiceInfoProvider provider;
 
-    private @Nullable String mdnsName;
+    private @NonNull String mdnsName = MDNS_NAME_FALLBACK;
 
     private final @NonNull Map<@NonNull Integer, @NonNull Integer> ports = new HashMap<>();
     private final @NonNull Map<@NonNull Integer, @NonNull Integer> portsSecure = new HashMap<>();
 
     @Activate
     protected void activate(final MdnsAdvertiserConfig config) {
-        mdnsName = config.mdnsName();
-        if (mdnsName == null) {
-            mdnsName = MDNS_NAME_FALLBACK;
+        final String mdnsName = config.mdnsName();
+        if (mdnsName != null) {
+            this.mdnsName = mdnsName;
         }
 
         assert provider != null : "@AssumeAssertion(nullness)";
@@ -94,7 +94,7 @@ public class MdnsAdvertiser implements HttpServiceListener {
     }
 
     @Override
-    public void addHttpService(final HttpService httpService, final HttpServiceInfo info) {
+    public void addHttpService(final @NonNull HttpService httpService, final @NonNull HttpServiceInfo info) {
         if (info.getHttpPort() != -1 && increase(ports, info.getHttpPort())) {
             // advertise non-ssl port
             mdnsService.registerService(getHttpPortServiceDescription(info.getHttpPort()));
@@ -110,7 +110,7 @@ public class MdnsAdvertiser implements HttpServiceListener {
     }
 
     @Override
-    public void removeHttpService(final HttpService httpService) {
+    public void removeHttpService(final @NonNull HttpService httpService) {
         assert provider != null : "@AssumeAssertion(nullness)";
 
         final HttpServiceInfo info = provider.getHttpServiceInfo(httpService);
@@ -152,16 +152,12 @@ public class MdnsAdvertiser implements HttpServiceListener {
     }
 
     private ServiceDescription getHttpPortServiceDescription(final int port) {
-        assert mdnsName != null : "@AssumeAssertion(nullness)";
-
         final @NonNull String serviceType = "_" + mdnsName + "-server._tcp.local.";
         final @NonNull String serviceName = mdnsName;
         return new ServiceDescription(serviceType, serviceName, port, getMdnsServiceProperties());
     }
 
     private ServiceDescription getHttpPortSecureServiceDescription(final int port) {
-        assert mdnsName != null : "@AssumeAssertion(nullness)";
-
         final String serviceType = "_" + mdnsName + "-server-ssl._tcp.local.";
         final String serviceName = mdnsName + "-ssl";
         return new ServiceDescription(serviceType, serviceName, port, getMdnsServiceProperties());

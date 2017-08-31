@@ -22,7 +22,6 @@ import java.util.Map;
 import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.checkerframework.checker.nullness.qual.RequiresNonNull;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -67,13 +66,15 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
      *
      */
     @Deactivate
-    @RequiresNonNull("serviceTrackerHttpService")
     public void stop() {
-        serviceTrackerHttpService.close();
+        if (serviceTrackerHttpService != null) {
+            serviceTrackerHttpService.close();
+        }
     }
 
     @Override
-    public synchronized void addHttpService(final HttpService httpService, final HttpServiceInfo httpServiceInfo) {
+    public synchronized void addHttpService(final @NonNull HttpService httpService,
+            final @NonNull HttpServiceInfo httpServiceInfo) {
         logger.trace("add http service: {}, {}", httpService, httpServiceInfo);
         if (services.containsKey(httpService)) {
             logger.warn("Received the same service multiple times.");
@@ -86,7 +87,7 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
     }
 
     @Override
-    public synchronized void removeHttpService(final HttpService httpService) {
+    public synchronized void removeHttpService(final @NonNull HttpService httpService) {
         logger.trace("remove http service: {}", httpService);
         if (!services.containsKey(httpService)) {
             logger.warn("An unknown service is removed.");
@@ -98,22 +99,22 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
     }
 
     @Override
-    public synchronized void addHttpServiceInfoListener(final HttpServiceListener listener) {
+    public synchronized void addHttpServiceInfoListener(final @NonNull HttpServiceListener listener) {
         listeners.add(listener);
     }
 
     @Override
-    public synchronized void removeHttpServiceInfoListener(final HttpServiceListener listener) {
+    public synchronized void removeHttpServiceInfoListener(final @NonNull HttpServiceListener listener) {
         listeners.remove(listener);
     }
 
     @Override
-    public synchronized Collection<HttpService> getHttpServices() {
+    public synchronized @NonNull Collection<@NonNull HttpService> getHttpServices() {
         return new HashSet<>(services.keySet());
     }
 
     @Override
-    public synchronized HttpServiceInfo getHttpServiceInfo(final HttpService service) {
+    public synchronized @NonNull HttpServiceInfo getHttpServiceInfo(final @NonNull HttpService service) {
         if (services.containsKey(service)) {
             return services.get(service);
         } else {

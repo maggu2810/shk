@@ -105,7 +105,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")
-    protected @NonNull TranslationProvider translationProvider;
+    protected TranslationProvider translationProvider;
 
     private @Nullable Connection connection;
     private final List<String> itemCache = new ArrayList<>();
@@ -202,7 +202,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
         }
 
         // Retrieve the table array
-        try (final Statement st = connection.createStatement()) {
+        try (final Statement st = getConnection().createStatement()) {
             final String queryString = String.format(
                     "SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='%s';",
                     itemSchema);

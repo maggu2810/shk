@@ -15,6 +15,7 @@ package de.maggu2810.shk.web;
 
 import java.util.Collection;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.osgi.service.http.HttpService;
 
 public interface HttpServiceInfoProvider {
@@ -24,21 +25,22 @@ public interface HttpServiceInfoProvider {
      *
      * @param listener the listener to add
      */
-    void addHttpServiceInfoListener(HttpServiceListener listener);
+    void addHttpServiceInfoListener(@NonNull HttpServiceListener listener);
 
     /**
      * Remove a listener.
      *
      * @param listener the listener to be removed
      */
-    void removeHttpServiceInfoListener(HttpServiceListener listener);
+    void removeHttpServiceInfoListener(@NonNull HttpServiceListener listener);
 
     /**
      * Get currently known http services.
      *
      * @return the currently known http services
      */
-    Collection<HttpService> getHttpServices();
+    @NonNull
+    Collection<@NonNull HttpService> getHttpServices();
 
     /**
      * Get the service info for a http service.
@@ -46,6 +48,7 @@ public interface HttpServiceInfoProvider {
      * @param service the service the info is requested for
      * @return the service info for given service
      */
-    HttpServiceInfo getHttpServiceInfo(HttpService service);
+    @NonNull
+    HttpServiceInfo getHttpServiceInfo(@NonNull HttpService service);
 
 }

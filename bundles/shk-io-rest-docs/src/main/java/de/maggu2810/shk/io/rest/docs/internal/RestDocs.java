@@ -20,7 +20,6 @@
 
 package de.maggu2810.shk.io.rest.docs.internal;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -44,7 +43,7 @@ public class RestDocs {
 
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")
-    private @NonNull HttpService httpService;
+    private HttpService httpService;
 
     @Activate
     protected void activate() {

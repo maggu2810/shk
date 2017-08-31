@@ -66,15 +66,15 @@ public class SitemapGenerator implements SitemapProvider {
 
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")
-    private @NonNull ThingRegistry thingRegistry;
+    private ThingRegistry thingRegistry;
 
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")
-    private @NonNull ItemChannelLinkRegistry linkRegistry;
+    private ItemChannelLinkRegistry linkRegistry;
 
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")
-    private @NonNull ItemRegistry itemRegistry;
+    private ItemRegistry itemRegistry;
 
     /**
      * Create a new sitemap generator instance.

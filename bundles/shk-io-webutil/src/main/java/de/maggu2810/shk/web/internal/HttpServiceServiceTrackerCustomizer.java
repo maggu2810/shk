@@ -13,6 +13,7 @@
 
 package de.maggu2810.shk.web.internal;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -49,6 +50,9 @@ public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustom
     public HttpService addingService(final ServiceReference<HttpService> reference) {
         logger.trace("adding service");
         final HttpService httpService = context.getService(reference);
+        if (httpService == null) {
+            return null;
+        }
         final HttpServiceInfo httpServiceInfo = getHttpServiceInfo(reference);
         listener.addHttpService(httpService, httpServiceInfo);
         return httpService;
@@ -57,6 +61,10 @@ public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustom
     @Override
     public void modifiedService(final ServiceReference<HttpService> reference, final HttpService httpService) {
         logger.trace("modified service");
+        if (httpService == null) {
+            return;
+        }
+
         listener.removeHttpService(httpService);
 
         final HttpServiceInfo httpServiceInfo = getHttpServiceInfo(reference);
@@ -66,10 +74,14 @@ public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustom
     @Override
     public void removedService(final ServiceReference<HttpService> reference, final HttpService httpService) {
         logger.trace("removed service");
+        if (httpService == null) {
+            return;
+        }
+
         listener.removeHttpService(httpService);
     }
 
-    private final HttpServiceInfo getHttpServiceInfo(final ServiceReference<HttpService> reference) {
+    private final @NonNull HttpServiceInfo getHttpServiceInfo(final ServiceReference<HttpService> reference) {
         // for (final String key : reference.getPropertyKeys()) {
         // logger.info("{}={}", key, reference.getProperty(key));
         // }
