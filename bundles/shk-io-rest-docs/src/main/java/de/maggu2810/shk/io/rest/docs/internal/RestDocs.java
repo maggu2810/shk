@@ -20,6 +20,7 @@
 
 package de.maggu2810.shk.io.rest.docs.internal;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -37,7 +38,7 @@ import org.slf4j.LoggerFactory;
 @Component(immediate = true)
 public class RestDocs {
 
-    private static final String ALIAS = "/doc";
+    private static final @NonNull String ALIAS = "/doc";
 
     private final Logger logger = LoggerFactory.getLogger(RestDocs.class);
 

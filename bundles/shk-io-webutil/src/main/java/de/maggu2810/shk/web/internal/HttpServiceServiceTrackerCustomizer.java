@@ -25,7 +25,8 @@ import org.slf4j.LoggerFactory;
 import de.maggu2810.shk.web.HttpServiceInfo;
 import de.maggu2810.shk.web.HttpServiceListener;
 
-public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustomizer<HttpService, HttpService> {
+public class HttpServiceServiceTrackerCustomizer
+        implements ServiceTrackerCustomizer<@NonNull HttpService, HttpService> {
 
     private static final String PROP_HTTP_PORT = "org.osgi.service.http.port";
     private static final String PROP_HTTP_PORT_SECURE = "org.osgi.service.http.port.secure";
@@ -47,19 +48,16 @@ public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustom
     }
 
     @Override
-    public HttpService addingService(final ServiceReference<HttpService> reference) {
+    public HttpService addingService(final ServiceReference<@NonNull HttpService> reference) {
         logger.trace("adding service");
         final HttpService httpService = context.getService(reference);
-        if (httpService == null) {
-            return null;
-        }
         final HttpServiceInfo httpServiceInfo = getHttpServiceInfo(reference);
         listener.addHttpService(httpService, httpServiceInfo);
         return httpService;
     }
 
     @Override
-    public void modifiedService(final ServiceReference<HttpService> reference, final HttpService httpService) {
+    public void modifiedService(final ServiceReference<@NonNull HttpService> reference, final HttpService httpService) {
         logger.trace("modified service");
         if (httpService == null) {
             return;
@@ -72,7 +70,7 @@ public class HttpServiceServiceTrackerCustomizer implements ServiceTrackerCustom
     }
 
     @Override
-    public void removedService(final ServiceReference<HttpService> reference, final HttpService httpService) {
+    public void removedService(final ServiceReference<@NonNull HttpService> reference, final HttpService httpService) {
         logger.trace("removed service");
         if (httpService == null) {
             return;

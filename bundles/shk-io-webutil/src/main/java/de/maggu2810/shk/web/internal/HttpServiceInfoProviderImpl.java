@@ -46,7 +46,7 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
     private @Nullable ServiceTracker<HttpService, HttpService> serviceTrackerHttpService;
     private final Collection<HttpServiceListener> listeners = new LinkedList<>();
 
-    private final Map<HttpService, @NonNull HttpServiceInfo> services = new HashMap<>();
+    private final Map<@NonNull HttpService, @NonNull HttpServiceInfo> services = new HashMap<>();
 
     /**
      * Start the service.
