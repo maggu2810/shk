@@ -212,7 +212,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
             try (final ResultSet rs = st.executeQuery(queryString)) {
 
-                final Set<PersistenceItemInfo> items = new HashSet<>();
+                final @NonNull Set<@NonNull PersistenceItemInfo> items = new HashSet<>();
                 while (rs.next()) {
                     try (final Statement stTimes = getConnection().createStatement()) {
                         int rsIt = 0;
@@ -431,7 +431,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
         }
     }
 
-    protected abstract State getStateForItem(final Item item);
+    protected abstract @NonNull State getStateForItem(final Item item);
 
     protected abstract boolean createTable(Class<? extends State> stateClass, final String tableName);
 

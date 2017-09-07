@@ -90,16 +90,28 @@ public class H2SqlPersistenceService extends H2AbstractPersistenceService {
     }
 
     @Override
-    protected State getStateForItem(final Item item) {
+    protected @NonNull State getStateForItem(final Item item) {
         // Do some type conversion to ensure we know the data type.
         // This is necessary for items that have multiple types and may return their
         // state in a format that's not preferred or compatible with the H2SQL type.
         // eg. DimmerItem can return OnOffType (ON, OFF), or PercentType (0-100).
-        // We need to make sure we cover the best type for serialisation.
+        // We need to make sure we cover the best type for serialization.
         if (item instanceof DimmerItem || item instanceof RollershutterItem) {
-            return item.getStateAs(PercentType.class);
+            final State state = item.getStateAs(PercentType.class);
+            if (state == null) {
+                logger.warn("Cannot get state for '{}' ({}) as PercentType (got null).", item,
+                        item.getClass().getSimpleName());
+                throw new IllegalStateException("Got null which is not expected here.");
+            }
+            return state;
         } else if (item instanceof ColorItem) {
-            return item.getStateAs(HSBType.class);
+            final State state = item.getStateAs(HSBType.class);
+            if (state == null) {
+                logger.warn("Cannot get state for '{}' ({}) as HSBType (got null).", item,
+                        item.getClass().getSimpleName());
+                throw new IllegalStateException("Got null which is not expected here.");
+            }
+            return state;
         } else {
             // All other items should return the best format by default
             return item.getState();
@@ -159,6 +171,9 @@ public class H2SqlPersistenceService extends H2AbstractPersistenceService {
 
         // Get the item name from the filter
         final String itemName = filter.getItemName();
+        if (itemName == null) {
+            throw new IllegalArgumentException("Filter misses item name.");
+        }
 
         // Get the item name from the filter
         // Also get the Item object so we can determine the type
@@ -197,7 +212,7 @@ public class H2SqlPersistenceService extends H2AbstractPersistenceService {
             st.setFetchSize(50);
 
             try (final ResultSet rs = st.executeQuery()) {
-                final List<HistoricItem> items = new ArrayList<>();
+                final @NonNull List<@NonNull HistoricItem> items = new ArrayList<>();
                 while (rs.next()) {
                     final Date time;
                     final String value;
@@ -223,6 +238,11 @@ public class H2SqlPersistenceService extends H2AbstractPersistenceService {
                         state = new StringType(value);
                     } else {
                         state = TypeParser.parseState(item.getAcceptedDataTypes(), value);
+                        if (state == null) {
+                            logger.warn("{}: Cannot parse state (accepted data types: {}, value: {}).", getId(),
+                                    item.getAcceptedDataTypes(), value);
+                            continue;
+                        }
                     }
 
                     final HistoricItemImpl sqlItem = new HistoricItemImpl(itemName, state, time);

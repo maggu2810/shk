@@ -20,11 +20,14 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.eclipse.smarthome.core.persistence.HistoricItem;
 import org.eclipse.smarthome.core.types.State;
 
+/**
+ * Implementation of {@link HistoricItem}.
+ */
 public class HistoricItemImpl implements HistoricItem {
 
-    private final String name;
-    private final State state;
-    private final Date timestamp;
+    private final @NonNull String name;
+    private final @NonNull State state;
+    private final @NonNull Date timestamp;
 
     /**
      * Create a new historic item.
@@ -33,7 +36,7 @@ public class HistoricItemImpl implements HistoricItem {
      * @param state the state
      * @param timestamp the timestamp
      */
-    public HistoricItemImpl(final String name, final State state, final Date timestamp) {
+    public HistoricItemImpl(final @NonNull String name, final @NonNull State state, final @NonNull Date timestamp) {
         this.name = name;
         this.state = state;
         this.timestamp = new Date(timestamp.getTime());

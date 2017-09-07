@@ -114,7 +114,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
     }
 
     @Override
-    protected State getStateForItem(final Item item) {
+    protected @NonNull State getStateForItem(final Item item) {
         return item.getState();
     }
 
@@ -170,6 +170,9 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
     public @NonNull Iterable<@NonNull HistoricItem> query(final @NonNull FilterCriteria filter) {
         // Get the item name from the filter
         final String itemName = filter.getItemName();
+        if (itemName == null) {
+            throw new IllegalArgumentException("Filter misses item name.");
+        }
 
         // Connect to H2 server if we're not already connected
         if (!connectToDatabase()) {
@@ -196,7 +199,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
             st.setFetchSize(50);
 
             try (final ResultSet rs = st.executeQuery()) {
-                final List<HistoricItem> items = new ArrayList<>();
+                final @NonNull List<@NonNull HistoricItem> items = new ArrayList<>();
                 while (rs.next()) {
                     final Date time;
                     final String clazz;
@@ -246,6 +249,11 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
 
                     if (stateClasses.containsKey(clazz)) {
                         state = TypeParser.parseState(stateClasses.get(clazz), value);
+                        if (state == null) {
+                            logger.warn("{}: Cannot parse state (class: {}, state classes: {}, value: {}).", getId(),
+                                    clazz, stateClasses.get(clazz), value);
+                            continue;
+                        }
                     } else {
                         logger.warn("Unknown state class '{}'", clazz);
                         continue;
