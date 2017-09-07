@@ -973,6 +973,8 @@
     <requirement
         name="bndtools.main.feature.feature.group"/>
     <requirement
+        name="bndtools.m2e.feature.feature.group"/>
+    <requirement
         name="org.eclipse.m2e.feature.feature.group"/>
     <requirement
         name="org.eclipse.mylyn.github.feature.feature.group"/>
