@@ -43,7 +43,7 @@ public class PersistenceItemInfoImpl implements PersistenceItemInfo {
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return name;
     }
 

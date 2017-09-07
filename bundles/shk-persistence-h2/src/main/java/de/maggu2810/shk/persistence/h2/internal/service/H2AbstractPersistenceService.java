@@ -134,7 +134,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     }
 
     @Override
-    public String getLabel(final Locale locale) {
+    public @NonNull String getLabel(final Locale locale) {
         final String key = String.format("%s.label", getId());
         final String dfl = String.format("%s: H2 Embedded Database", getId());
         final String label = translationProvider.getText(bundle, key, dfl, locale);
@@ -146,17 +146,17 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     }
 
     @Override
-    public void store(final Item item, final String alias) {
+    public void store(final @NonNull Item item, final @NonNull String alias) {
         store(item);
     }
 
     @Override
-    public void store(final Item item) {
+    public void store(final @NonNull Item item) {
         store(item, new Date(), getStateForItem(item));
     }
 
     @Override
-    public void store(final Item item, final Date date, final State state) {
+    public void store(final @NonNull Item item, final @NonNull Date date, final @NonNull State state) {
         if (state == null) {
             logger.warn("Skip store... Received a null state for item '{}' of type '{}'", item,
                     item.getClass().getSimpleName());
@@ -194,7 +194,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     }
 
     @Override
-    public Set<PersistenceItemInfo> getItemInfo() {
+    public @NonNull Set<@NonNull PersistenceItemInfo> getItemInfo() {
         // Connect to H2 server if we're not already connected
         if (!connectToDatabase()) {
             logger.warn("{}: No connection to database.", getId());
@@ -252,7 +252,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     }
 
     @Override
-    public boolean remove(final FilterCriteria filter) throws InvalidParameterException {
+    public boolean remove(final @NonNull FilterCriteria filter) throws InvalidParameterException {
         // Connect to H2 server if we're not already connected
         if (!connectToDatabase()) {
             logger.warn("{}: No connection to database.", getId());

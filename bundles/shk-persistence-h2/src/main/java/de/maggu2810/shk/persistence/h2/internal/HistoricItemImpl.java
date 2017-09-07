@@ -16,6 +16,7 @@ package de.maggu2810.shk.persistence.h2.internal;
 import java.text.DateFormat;
 import java.util.Date;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.eclipse.smarthome.core.persistence.HistoricItem;
 import org.eclipse.smarthome.core.types.State;
 
@@ -39,17 +40,17 @@ public class HistoricItemImpl implements HistoricItem {
     }
 
     @Override
-    public String getName() {
+    public @NonNull String getName() {
         return name;
     }
 
     @Override
-    public State getState() {
+    public @NonNull State getState() {
         return state;
     }
 
     @Override
-    public Date getTimestamp() {
+    public @NonNull Date getTimestamp() {
         return new Date(timestamp.getTime());
     }
 

@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.checkerframework.checker.initialization.qual.UnknownInitialization;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.items.ItemNotFoundException;
 import org.eclipse.smarthome.core.library.types.DateTimeType;
@@ -104,7 +105,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
     }
 
     @Override
-    public String getId() {
+    public @NonNull String getId() {
         return "h2";
     }
 
@@ -166,7 +167,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
     }
 
     @Override
-    public Iterable<HistoricItem> query(final FilterCriteria filter) {
+    public @NonNull Iterable<@NonNull HistoricItem> query(final @NonNull FilterCriteria filter) {
         // Get the item name from the filter
         final String itemName = filter.getItemName();
 

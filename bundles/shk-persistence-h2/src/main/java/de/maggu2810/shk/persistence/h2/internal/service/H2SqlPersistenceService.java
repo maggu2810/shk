@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.eclipse.smarthome.core.items.GroupItem;
 import org.eclipse.smarthome.core.items.Item;
 import org.eclipse.smarthome.core.items.ItemNotFoundException;
@@ -64,7 +65,7 @@ public class H2SqlPersistenceService extends H2AbstractPersistenceService {
     }
 
     @Override
-    public String getId() {
+    public @NonNull String getId() {
         return "h2sql";
     }
 
@@ -149,7 +150,7 @@ public class H2SqlPersistenceService extends H2AbstractPersistenceService {
     }
 
     @Override
-    public Iterable<HistoricItem> query(final FilterCriteria filter) {
+    public @NonNull Iterable<@NonNull HistoricItem> query(final @NonNull FilterCriteria filter) {
         // Connect to H2 server if we're not already connected
         if (!connectToDatabase()) {
             logger.warn("{}: Query aborted on item {} - H2 not connected!", getId(), filter.getItemName());
