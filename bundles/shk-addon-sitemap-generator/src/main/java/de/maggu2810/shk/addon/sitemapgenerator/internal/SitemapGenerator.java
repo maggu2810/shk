@@ -18,10 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.core.items.ItemRegistry;
+import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingRegistry;
 import org.eclipse.smarthome.core.thing.link.ItemChannelLinkRegistry;
 import org.eclipse.smarthome.model.sitemap.Default;
@@ -116,8 +116,7 @@ public class SitemapGenerator implements SitemapProvider {
             thingWidget.setIcon("player");
 
             // Create or use already existing location widget
-            final String thingLocation = thing.getLocation();
-            final String location = StringUtils.isEmpty(thingLocation) ? LOCATION_DFL : thingLocation;
+            final String location = getLocation(thing);
             final Group locationWidget;
             if (locations.containsKey(location)) {
                 // Location widget already exists
@@ -185,6 +184,15 @@ public class SitemapGenerator implements SitemapProvider {
     @Override
     public Set<String> getSitemapNames() {
         return Collections.unmodifiableSet(generators.keySet());
+    }
+
+    private static String getLocation(final Thing thing) {
+        final String thingLocation = thing.getLocation();
+        if (thingLocation == null || thingLocation.isEmpty()) {
+            return LOCATION_DFL;
+        } else {
+            return thingLocation;
+        }
     }
 
 }

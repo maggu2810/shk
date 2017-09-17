@@ -57,8 +57,9 @@ import org.slf4j.LoggerFactory;
 import de.maggu2810.shk.persistence.h2.internal.PersistenceItemInfoImpl;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-@SuppressFBWarnings(value = { "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE",
-        "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING" }, //
+@SuppressFBWarnings(
+        value = { "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE",
+                "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING" }, //
         justification = "Needs to be checked carefully, but ATM we need to build some stuff (e.g. table name).")
 public abstract class H2AbstractPersistenceService implements ModifiablePersistenceService {
     protected static class Column {
@@ -96,7 +97,8 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     private final String itemSchema;
 
     // TODO: How to add the reference / Require-Capability without a member object or function?
-    @Reference(cardinality = ReferenceCardinality.MANDATORY, policy = ReferencePolicy.DYNAMIC, target = "(osgi.jdbc.driver.class=org.h2.Driver)")
+    @Reference(cardinality = ReferenceCardinality.MANDATORY, policy = ReferencePolicy.DYNAMIC,
+            target = "(osgi.jdbc.driver.class=org.h2.Driver)")
     @SuppressWarnings("initialization.fields.uninitialized")
     protected volatile org.osgi.service.jdbc.DataSourceFactory h2Driver;
 
@@ -135,6 +137,11 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
     @Override
     public @NonNull String getLabel(final Locale locale) {
+        final Bundle bundle = this.bundle;
+        if (bundle == null) {
+            return "?";
+        }
+
         final String key = String.format("%s.label", getId());
         final String dfl = String.format("%s: H2 Embedded Database", getId());
         final String label = translationProvider.getText(bundle, key, dfl, locale);
