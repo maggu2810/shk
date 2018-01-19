@@ -1,0 +1,9 @@
+Import-Package: \
+	org.checkerframework.*;resolution:=optional,\
+	*
+
+-exportcontents: \
+  !*.internal.*,\
+  !*.impl.*,\
+  de.maggu2810.shk.*
+

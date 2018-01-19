@@ -8,9 +8,9 @@
     <version>1.13-SNAPSHOT</version>
   </parent>
 
-  <artifactId>shk-systemstate</artifactId>
+  <artifactId>shk-propertymanager</artifactId>
 
-  <name>shk :: Bundles :: System State</name>
+  <name>shk :: Bundles :: Property Manager</name>
 
   <dependencies>
     <dependency>
@@ -37,12 +37,6 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>de.maggu2810.shk.bundles</groupId>
-      <artifactId>shk-propertymanager</artifactId>
-      <version>${project.version}</version>
     </dependency>
   </dependencies>
 

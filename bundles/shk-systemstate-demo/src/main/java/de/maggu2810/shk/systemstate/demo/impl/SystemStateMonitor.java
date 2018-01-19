@@ -25,28 +25,27 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.maggu2810.shk.systemstate.api.SystemStateProvider;
+import de.maggu2810.shk.propertymanager.api.PropertyProvider;
 
 @Component(immediate = true)
 public class SystemStateMonitor {
 
     private final Logger logger = LoggerFactory.getLogger(SystemStateMonitor.class);
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC,
-            policyOption = ReferencePolicyOption.GREEDY)
-    protected void addSystemStateProvider(final ServiceReference<SystemStateProvider> srv) {
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, policyOption = ReferencePolicyOption.GREEDY)
+    protected void addSystemStateProvider(final ServiceReference<PropertyProvider> srv) {
         logger.info("add state provider '{}'; props: {}", srv, propsToString(srv));
     }
 
-    protected void updatedSystemStateProvider(final ServiceReference<SystemStateProvider> srv) {
+    protected void updatedSystemStateProvider(final ServiceReference<PropertyProvider> srv) {
         logger.info("updated state provider '{}'; props: {}", srv, propsToString(srv));
     }
 
-    protected void removeSystemStateProvider(final ServiceReference<SystemStateProvider> srv) {
+    protected void removeSystemStateProvider(final ServiceReference<PropertyProvider> srv) {
         logger.info("remove state provider '{}'; props: {}", srv, propsToString(srv));
     }
 
-    final String propsToString(final ServiceReference<SystemStateProvider> srv) {
+    final <T> String propsToString(final ServiceReference<T> srv) {
         return String.join(";", Arrays.stream(srv.getPropertyKeys())
                 .map(key -> String.format("%s=%s", key, srv.getProperty(key))).collect(Collectors.toList()));
     }

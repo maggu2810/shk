@@ -11,9 +11,9 @@
  * #L%
  */
 
-package de.maggu2810.shk.systemstate.api;
+package de.maggu2810.shk.propertymanager.api;
 
-public interface SystemStateInjector {
+public interface PropertyInjector {
 
-    void setState(final String key, final Object value);
+    void setProperty(final String key, final Object value);
 }

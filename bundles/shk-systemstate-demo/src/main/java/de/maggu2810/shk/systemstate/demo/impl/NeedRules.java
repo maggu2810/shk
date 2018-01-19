@@ -18,15 +18,15 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.maggu2810.shk.systemstate.api.SystemStateProvider;
+import de.maggu2810.shk.propertymanager.api.PropertyProvider;
 
 @Component(immediate = true)
 public class NeedRules {
 
     private final Logger logger = LoggerFactory.getLogger(NeedRules.class);
 
-    @Reference(target = "(rules=ready)")
-    protected SystemStateProvider ssp;
+    @Reference(target = "(&(id=systemstate)(rules=ready))")
+    protected PropertyProvider ssp;
 
     protected void activate() {
         logger.info("rules are ready");

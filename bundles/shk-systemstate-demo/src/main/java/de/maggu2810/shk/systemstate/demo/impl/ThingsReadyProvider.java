@@ -20,7 +20,7 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.maggu2810.shk.systemstate.api.SystemStateInjector;
+import de.maggu2810.shk.propertymanager.api.PropertyInjector;
 import de.maggu2810.shk.systemstate.demo.impl.fakesrv.ThingHandler;
 import de.maggu2810.shk.systemstate.demo.impl.fakesrv.ThingRegistry;
 
@@ -29,8 +29,8 @@ public class ThingsReadyProvider {
 
     private final Logger logger = LoggerFactory.getLogger(ThingsReadyProvider.class);
 
-    @Reference
-    private SystemStateInjector ssi;
+    @Reference(target = "(id=systemstate)")
+    private PropertyInjector ssi;
 
     @Reference
     private ThingHandler thingHandler;
@@ -41,12 +41,12 @@ public class ThingsReadyProvider {
     @Activate
     protected void activate() {
         logger.info("mark things ready");
-        ssi.setState("things", "ready");
+        ssi.setProperty("things", "ready");
     }
 
     @Deactivate
     protected void deactivate() {
         logger.info("mark thing non-ready");
-        ssi.setState("things", "not-ready");
+        ssi.setProperty("things", "not-ready");
     }
 }

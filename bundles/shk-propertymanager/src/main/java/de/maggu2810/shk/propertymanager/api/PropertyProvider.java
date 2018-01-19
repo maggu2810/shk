@@ -11,9 +11,9 @@
  * #L%
  */
 
-package de.maggu2810.shk.systemstate.api;
+package de.maggu2810.shk.propertymanager.api;
 
-public interface SystemStateProvider {
+public interface PropertyProvider {
 
-    Object getState(final String key);
+    Object getProperty(final String key);
 }
