@@ -43,11 +43,14 @@ public class PropertyManagerImpl implements PropertyManager, PropertyInjector, P
 
     @Override
     public void open(final BundleContext bc, final boolean injector, final boolean provider) {
-        final Dictionary<String, Object> props = new Hashtable<>(this.props);
         if (injector) {
+            final Dictionary<String, Object> props = new Hashtable<>();
+            props.put(KEY_ID, this.id);
+            props.put(KEY_UUID, this.uuid);
             regInjector.set(bc.registerService(PropertyInjector.class, this, props));
         }
         if (provider) {
+            final Dictionary<String, Object> props = new Hashtable<>(this.props);
             regProvider.set(bc.registerService(PropertyProvider.class, this, props));
         }
     }
@@ -78,7 +81,6 @@ public class PropertyManagerImpl implements PropertyManager, PropertyInjector, P
 
         final Dictionary<String, Object> props = new Hashtable<>(this.props);
         Optional.ofNullable(regProvider.get()).ifPresent(reg -> reg.setProperties(props));
-        Optional.ofNullable(regInjector.get()).ifPresent(reg -> reg.setProperties(props));
     }
 
 }
