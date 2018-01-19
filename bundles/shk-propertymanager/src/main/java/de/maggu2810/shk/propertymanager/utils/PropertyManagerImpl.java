@@ -1,6 +1,8 @@
 
 package de.maggu2810.shk.propertymanager.utils;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Map;
@@ -21,6 +23,9 @@ public class PropertyManagerImpl implements PropertyManager, PropertyInjector, P
 
     private static final String KEY_ID = "id";
     private static final String KEY_UUID = "uuid";
+
+    private static final Collection<String> FORBIDDEN_KEYS = Arrays.asList(KEY_ID, KEY_UUID, "objectClass",
+            "service.bundleid", "service.id", "service.scope");
 
     private final Map<String, Object> props = new ConcurrentHashMap<>();
     private final String id;
@@ -60,7 +65,7 @@ public class PropertyManagerImpl implements PropertyManager, PropertyInjector, P
 
     @Override
     public void setProperty(final String key, final @Nullable Object value) {
-        if (KEY_ID.equals(key) || KEY_UUID.equals(key)) {
+        if (FORBIDDEN_KEYS.contains(key)) {
             throw new IllegalArgumentException(
                     String.format("The key '%s' is a static one and must not be used.", key));
         }
