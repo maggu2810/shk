@@ -2,7 +2,7 @@
  * #%L
  * shk :: Bundles :: Addon :: Sitemap Generator
  * %%
- * Copyright (C) 2015 - 2017 maggu2810
+ * Copyright (C) 2015 - 2018 maggu2810
  * %%
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -112,7 +112,10 @@ public class SitemapGenerator implements SitemapProvider {
         generator.thingRegistry.getAll().forEach(thing -> {
             // Create a widget for the thing
             final Frame thingWidget = sitemapFactory.createFrame();
-            thingWidget.setLabel(thing.getLabel());
+            final String thingLabel = thing.getLabel();
+            if (thingLabel != null) {
+                thingWidget.setLabel(thingLabel);
+            }
             thingWidget.setIcon("player");
 
             // Create or use already existing location widget
