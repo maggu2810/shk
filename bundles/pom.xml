@@ -14,6 +14,14 @@
 
   <name>shk :: Bundles</name>
 
+  <modules>
+    <module>shk-addon-autoupdate-configurator</module>
+    <module>shk-addon-sitemap-generator</module>
+    <module>shk-io-rest-docs</module>
+    <module>shk-io-webutil</module>
+    <module>shk-persistence-h2</module>
+  </modules>
+
   <build>
     <pluginManagement>
       <plugins>
@@ -72,13 +80,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <modules>
-    <module>shk-addon-autoupdate-configurator</module>
-    <module>shk-addon-sitemap-generator</module>
-    <module>shk-io-rest-docs</module>
-    <module>shk-io-webutil</module>
-    <module>shk-persistence-h2</module>
-  </modules>
 
 </project>

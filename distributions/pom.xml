@@ -14,6 +14,10 @@
 
   <name>shk :: Distributions</name>
 
+  <modules>
+    <module>base</module>
+  </modules>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.karaf.features</groupId>
@@ -31,9 +35,9 @@
     <dependency>
       <groupId>org.apache.karaf.features</groupId>
       <artifactId>framework</artifactId>
+      <version>${karaf.version}</version>
       <classifier>features</classifier>
       <type>xml</type>
-      <version>${karaf.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -126,68 +130,64 @@
   <repositories>
     <!-- Apache ServiceMix repository (for region) -->
     <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
       <id>apache.servicemix.m2</id>
       <name>Apache ServiceMix M2 repository</name>
       <url>https://svn.apache.org/repos/asf/servicemix/m2-repo</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
     </repository>
     <!-- Gemini Blueprint repository -->
     <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
       <id>zodiac-repository</id>
       <name>Zodiac Release Repository</name>
       <url>http://repository.springsource.com/maven/bundles/release</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
     </repository>
     <!-- Spring EBR repository -->
     <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
       <id>spring-ebr-repository</id>
       <name>Spring EBR Repository</name>
       <url>http://repository.springsource.com/maven/bundles/external</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
     </repository>
     <!-- OPS4J SNAPSHOT repository -->
     <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
       <id>ops4j.sonatype.snapshots.deploy</id>
       <name>OPS4J snapshot repository</name>
       <url>https://oss.sonatype.org/content/repositories/ops4j-snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
     </repository>
     <!-- Apache SNAPSHOT -->
     <repository>
-      <id>apache.snapshots.deploy</id>
-      <name>Apache snapshot repository</name>
-      <url>https://repository.apache.org/content/groups/snapshots-group</url>
       <releases>
         <enabled>false</enabled>
       </releases>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
+      <id>apache.snapshots.deploy</id>
+      <name>Apache snapshot repository</name>
+      <url>https://repository.apache.org/content/groups/snapshots-group</url>
     </repository>
   </repositories>
-
-  <modules>
-    <module>base</module>
-  </modules>
 
 </project>

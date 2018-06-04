@@ -14,6 +14,10 @@
 
   <name>shk :: Features</name>
 
+  <modules>
+    <module>shk-base</module>
+  </modules>
+
   <dependencies>
     <!-- Distribution -->
     <dependency>
@@ -80,17 +84,17 @@
           <executions>
             <execution>
               <id>compile</id>
-              <phase>generate-resources</phase>
               <goals>
                 <goal>features-generate-descriptor</goal>
               </goals>
+              <phase>generate-resources</phase>
             </execution>
             <execution>
               <id>verify</id>
-              <phase>process-resources</phase>
               <goals>
                 <goal>verify</goal>
               </goals>
+              <phase>process-resources</phase>
               <configuration>
                 <descriptors>
                   <!-- Apache Karaf -->
@@ -130,9 +134,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <modules>
-    <module>shk-base</module>
-  </modules>
 
 </project>

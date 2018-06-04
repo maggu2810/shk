@@ -2,10 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <prerequisites>
-    <maven>3.0</maven>
-  </prerequisites>
-
   <groupId>de.maggu2810.shk</groupId>
   <artifactId>shk</artifactId>
   <version>1.13-SNAPSHOT</version>
@@ -13,6 +9,17 @@
 
   <name>shk</name>
   <description>SmartHome for Karaf</description>
+
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+
+  <modules>
+    <module>bundles</module>
+    <module>distributions</module>
+    <module>features</module>
+    <module>tools</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,43 +58,6 @@
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <license.shortcut>epl_only_v1</license.shortcut>
   </properties>
-
-  <licenses>
-    <license>
-      <name>Eclipse Public License</name>
-      <url>http://www.eclipse.org/legal/epl-v10.html</url>
-    </license>
-  </licenses>
-
-  <organization>
-    <name>maggu2810</name>
-    <url>https://github.com/maggu2810/</url>
-  </organization>
-
-  <inceptionYear>2015</inceptionYear>
-
-  <scm>
-    <connection>scm:git:https://github.com/maggu2810/shk.git</connection>
-    <developerConnection>scm:git:git@github.com:maggu2810/shk.git</developerConnection>
-    <url>https://github.com/maggu2810/shk</url>
-    <tag>HEAD</tag>
-  </scm>
-
-  <issueManagement>
-    <url>https://github.com/maggu2810/shk/issues</url>
-    <system>Github</system>
-  </issueManagement>
-
-  <distributionManagement>
-    <repository>
-      <id>bintray</id>
-      <url>https://api.bintray.com/maven/maggu2810/smarthome/shk</url>
-    </repository>
-    <snapshotRepository>
-      <id>bintray</id>
-      <url>https://oss.jfrog.org/artifactory/simple/oss-snapshot-local/</url>
-    </snapshotRepository>
-  </distributionManagement>
 
   <dependencyManagement>
     <dependencies>
@@ -336,10 +306,10 @@
           <executions>
             <execution>
               <id>service-metadata-generate</id>
-              <phase>process-classes</phase>
               <goals>
                 <goal>service-metadata-generate</goal>
               </goals>
+              <phase>process-classes</phase>
             </execution>
           </executions>
         </plugin>
@@ -355,6 +325,13 @@
             <emptyLineAfterHeader>true</emptyLineAfterHeader>
             <ignoreNoFileToScan>true</ignoreNoFileToScan>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.maven.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${maven.build.resources.version}</version>
+            </dependency>
+          </dependencies>
           <executions>
             <execution>
               <goals>
@@ -374,13 +351,6 @@
               </configuration>
             </execution>
           </executions>
-          <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
         </plugin>
 
         <plugin>
@@ -506,10 +476,10 @@
           <executions>
             <execution>
               <id>package</id>
-              <phase>prepare-package</phase>
               <goals>
                 <goal>update-stylesheets</goal>
               </goals>
+              <phase>prepare-package</phase>
             </execution>
           </executions>
         </plugin>
@@ -520,16 +490,213 @@
           <version>1.0.4</version>
           <executions>
             <execution>
-              <phase>process-sources</phase>
               <goals>
                 <goal>trim</goal>
               </goals>
+              <phase>process-sources</phase>
             </execution>
           </executions>
         </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <inceptionYear>2015</inceptionYear>
+
+  <organization>
+    <name>maggu2810</name>
+    <url>https://github.com/maggu2810/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>Eclipse Public License</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:https://github.com/maggu2810/shk.git</connection>
+    <developerConnection>scm:git:git@github.com:maggu2810/shk.git</developerConnection>
+    <url>https://github.com/maggu2810/shk</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/maggu2810/shk/issues</url>
+  </issueManagement>
+
+  <repositories>
+    <!-- Maven Central -->
+    <!-- Use this first, so we prefer Central all the time -->
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Maven Repository Switchboard</name>
+      <url>https://repo1.maven.org/maven2</url>
+    </repository>
+
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>jCenter</id>
+      <url>https://jcenter.bintray.com/</url>
+    </repository>
+
+    <!-- maggu2810's private repository -->
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>bintray-maggu2810-maven</id>
+      <url>https://dl.bintray.com/maggu2810/maven/</url>
+    </repository>
+
+    <!-- maggu2810's SmartHome repository -->
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>bintray-maggu2810-smarthome</id>
+      <url>https://dl.bintray.com/maggu2810/smarthome/</url>
+    </repository>
+
+    <!-- jUPnP -->
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>jupnp-bintray</id>
+      <url>https://dl.bintray.com/jupnp/mvn/</url>
+    </repository>
+
+    <!-- Eclipse Release Repository -->
+    <!-- <repository> -->
+    <!-- <id>eclipse-releases</id> -->
+    <!-- <name>Eclipse Release Repository</name> -->
+    <!-- <layout>default</layout> -->
+    <!-- <url>https://repo.eclipse.org/content/repositories/releases/</url> -->
+    <!-- <snapshots> -->
+    <!-- <enabled>false</enabled> -->
+    <!-- </snapshots> -->
+    <!-- </repository> -->
+
+    <!-- Eclipse Snapshot Repository -->
+    <!-- <repository> -->
+    <!-- <id>eclipse-snapshots</id> -->
+    <!-- <name>Eclipse Snapshot Repository</name> -->
+    <!-- <layout>default</layout> -->
+    <!-- <url>https://repo.eclipse.org/content/repositories/snapshots/</url> -->
+    <!-- <snapshots> -->
+    <!-- <enabled>true</enabled> -->
+    <!-- </snapshots> -->
+    <!-- </repository> -->
+
+    <!-- <repository> -->
+    <!-- <id>ojo-libs-release</id> -->
+    <!-- <url>https://oss.jfrog.org/artifactory/simple/libs-release/</url> -->
+    <!-- <releases> -->
+    <!-- <enabled>true</enabled> -->
+    <!-- </releases> -->
+    <!-- <snapshots> -->
+    <!-- <enabled>false</enabled> -->
+    <!-- </snapshots> -->
+    <!-- </repository> -->
+    <!-- <repository> -->
+    <!-- <id>ojo-libs-snapshot</id> -->
+    <!-- <url>https://oss.jfrog.org/artifactory/simple/libs-snapshot/</url> -->
+    <!-- <releases> -->
+    <!-- <enabled>false</enabled> -->
+    <!-- </releases> -->
+    <!-- <snapshots> -->
+    <!-- <enabled>true</enabled> -->
+    <!-- </snapshots> -->
+    <!-- </repository> -->
+  </repositories>
+
+  <pluginRepositories>
+    <!-- Maven Central -->
+    <!-- Use this first, so we prefer Central all the time -->
+    <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Maven Plugin Repository</name>
+      <url>https://repo1.maven.org/maven2</url>
+    </pluginRepository>
+
+    <pluginRepository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>bintray-maggu2810-maven</id>
+      <url>https://dl.bintray.com/maggu2810/maven/</url>
+    </pluginRepository>
+    <!-- <pluginRepository> -->
+    <!-- <id>ojo-libs-release</id> -->
+    <!-- <url>https://oss.jfrog.org/artifactory/simple/libs-release/</url> -->
+    <!-- <releases> -->
+    <!-- <enabled>true</enabled> -->
+    <!-- </releases> -->
+    <!-- <snapshots> -->
+    <!-- <enabled>false</enabled> -->
+    <!-- </snapshots> -->
+    <!-- </pluginRepository> -->
+    <!-- <pluginRepository> -->
+    <!-- <id>ojo-libs-snapshot</id> -->
+    <!-- <url>https://oss.jfrog.org/artifactory/simple/libs-snapshot/</url> -->
+    <!-- <releases> -->
+    <!-- <enabled>false</enabled> -->
+    <!-- </releases> -->
+    <!-- <snapshots> -->
+    <!-- <enabled>true</enabled> -->
+    <!-- </snapshots> -->
+    <!-- </pluginRepository> -->
+  </pluginRepositories>
+
+  <distributionManagement>
+    <repository>
+      <id>bintray</id>
+      <url>https://api.bintray.com/maven/maggu2810/smarthome/shk</url>
+    </repository>
+    <snapshotRepository>
+      <id>bintray</id>
+      <url>https://oss.jfrog.org/artifactory/simple/oss-snapshot-local/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <profiles>
     <profile>
@@ -586,10 +753,10 @@
               </execution>
               <execution>
                 <id>copy-checkerframework-stuff</id>
-                <phase>validate</phase>
                 <goals>
                   <goal>copy</goal>
                 </goals>
+                <phase>validate</phase>
                 <configuration>
                   <artifactItems>
                     <artifactItem>
@@ -770,26 +937,26 @@
       </activation>
       <repositories>
         <repository>
-          <id>apache-snapshots</id>
-          <url>https://repository.apache.org/snapshots/</url>
           <releases>
             <enabled>false</enabled>
           </releases>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
+          <id>apache-snapshots</id>
+          <url>https://repository.apache.org/snapshots/</url>
         </repository>
       </repositories>
       <pluginRepositories>
         <pluginRepository>
-          <id>apache-snapshots</id>
-          <url>https://repository.apache.org/snapshots/</url>
           <releases>
             <enabled>false</enabled>
           </releases>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
+          <id>apache-snapshots</id>
+          <url>https://repository.apache.org/snapshots/</url>
         </pluginRepository>
       </pluginRepositories>
     </profile>
@@ -841,172 +1008,5 @@
       </pluginRepositories>
     </profile>
   </profiles>
-
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.5</version>
-      </plugin>
-    </plugins>
-  </reporting>
-
-  <pluginRepositories>
-    <!-- Maven Central -->
-    <!-- Use this first, so we prefer Central all the time -->
-    <pluginRepository>
-      <releases>
-        <updatePolicy>never</updatePolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>Maven Plugin Repository</name>
-      <url>https://repo1.maven.org/maven2</url>
-    </pluginRepository>
-
-    <pluginRepository>
-      <id>bintray-maggu2810-maven</id>
-      <url>https://dl.bintray.com/maggu2810/maven/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </pluginRepository>
-    <!-- <pluginRepository> -->
-    <!-- <id>ojo-libs-release</id> -->
-    <!-- <url>https://oss.jfrog.org/artifactory/simple/libs-release/</url> -->
-    <!-- <releases> -->
-    <!-- <enabled>true</enabled> -->
-    <!-- </releases> -->
-    <!-- <snapshots> -->
-    <!-- <enabled>false</enabled> -->
-    <!-- </snapshots> -->
-    <!-- </pluginRepository> -->
-    <!-- <pluginRepository> -->
-    <!-- <id>ojo-libs-snapshot</id> -->
-    <!-- <url>https://oss.jfrog.org/artifactory/simple/libs-snapshot/</url> -->
-    <!-- <releases> -->
-    <!-- <enabled>false</enabled> -->
-    <!-- </releases> -->
-    <!-- <snapshots> -->
-    <!-- <enabled>true</enabled> -->
-    <!-- </snapshots> -->
-    <!-- </pluginRepository> -->
-  </pluginRepositories>
-
-  <repositories>
-    <!-- Maven Central -->
-    <!-- Use this first, so we prefer Central all the time -->
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>Maven Repository Switchboard</name>
-      <url>https://repo1.maven.org/maven2</url>
-    </repository>
-
-    <repository>
-      <id>jCenter</id>
-      <url>https://jcenter.bintray.com/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-
-    <!-- maggu2810's private repository -->
-    <repository>
-      <id>bintray-maggu2810-maven</id>
-      <url>https://dl.bintray.com/maggu2810/maven/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-
-    <!-- maggu2810's SmartHome repository -->
-    <repository>
-      <id>bintray-maggu2810-smarthome</id>
-      <url>https://dl.bintray.com/maggu2810/smarthome/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-
-    <!-- jUPnP -->
-    <repository>
-      <id>jupnp-bintray</id>
-      <url>https://dl.bintray.com/jupnp/mvn/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-
-    <!-- Eclipse Release Repository -->
-    <!-- <repository> -->
-    <!-- <id>eclipse-releases</id> -->
-    <!-- <name>Eclipse Release Repository</name> -->
-    <!-- <layout>default</layout> -->
-    <!-- <url>https://repo.eclipse.org/content/repositories/releases/</url> -->
-    <!-- <snapshots> -->
-    <!-- <enabled>false</enabled> -->
-    <!-- </snapshots> -->
-    <!-- </repository> -->
-
-    <!-- Eclipse Snapshot Repository -->
-    <!-- <repository> -->
-    <!-- <id>eclipse-snapshots</id> -->
-    <!-- <name>Eclipse Snapshot Repository</name> -->
-    <!-- <layout>default</layout> -->
-    <!-- <url>https://repo.eclipse.org/content/repositories/snapshots/</url> -->
-    <!-- <snapshots> -->
-    <!-- <enabled>true</enabled> -->
-    <!-- </snapshots> -->
-    <!-- </repository> -->
-
-    <!-- <repository> -->
-    <!-- <id>ojo-libs-release</id> -->
-    <!-- <url>https://oss.jfrog.org/artifactory/simple/libs-release/</url> -->
-    <!-- <releases> -->
-    <!-- <enabled>true</enabled> -->
-    <!-- </releases> -->
-    <!-- <snapshots> -->
-    <!-- <enabled>false</enabled> -->
-    <!-- </snapshots> -->
-    <!-- </repository> -->
-    <!-- <repository> -->
-    <!-- <id>ojo-libs-snapshot</id> -->
-    <!-- <url>https://oss.jfrog.org/artifactory/simple/libs-snapshot/</url> -->
-    <!-- <releases> -->
-    <!-- <enabled>false</enabled> -->
-    <!-- </releases> -->
-    <!-- <snapshots> -->
-    <!-- <enabled>true</enabled> -->
-    <!-- </snapshots> -->
-    <!-- </repository> -->
-  </repositories>
-
-  <modules>
-    <module>bundles</module>
-    <module>distributions</module>
-    <module>features</module>
-    <module>tools</module>
-  </modules>
 
 </project>

@@ -16,15 +16,15 @@
   <build>
     <resources>
       <resource>
-        <directory>${project.basedir}/src/main/resources</directory>
         <filtering>false</filtering>
+        <directory>${project.basedir}/src/main/resources</directory>
         <includes>
           <include>**/*</include>
         </includes>
       </resource>
       <resource>
-        <directory>${project.basedir}/src/main/filtered-resources</directory>
         <filtering>true</filtering>
+        <directory>${project.basedir}/src/main/filtered-resources</directory>
         <includes>
           <include>**/*</include>
         </includes>

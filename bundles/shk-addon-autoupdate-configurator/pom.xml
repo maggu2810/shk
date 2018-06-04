@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -49,17 +49,13 @@
         <groupId>biz.aQute.bnd</groupId>
         <artifactId>bnd-maven-plugin</artifactId>
         <configuration>
-          <bnd>
-<![CDATA[
-Import-Package: \
+          <bnd><![CDATA[Import-Package: \
   org.checkerframework.*;resolution:=optional,\
   *
 -exportcontents: \
   !*.internal.*,\
   !*.impl.*,\
-  de.maggu2810.shk.*
-]]>
-          </bnd>
+  de.maggu2810.shk.*]]></bnd>
         </configuration>
       </plugin>
     </plugins>
