@@ -24,6 +24,7 @@ import org.eclipse.smarthome.core.items.ItemRegistry;
 import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingRegistry;
 import org.eclipse.smarthome.core.thing.link.ItemChannelLinkRegistry;
+import org.eclipse.smarthome.model.core.ModelRepositoryChangeListener;
 import org.eclipse.smarthome.model.sitemap.Default;
 import org.eclipse.smarthome.model.sitemap.Frame;
 import org.eclipse.smarthome.model.sitemap.Group;
@@ -196,6 +197,12 @@ public class SitemapGenerator implements SitemapProvider {
         } else {
             return thingLocation;
         }
+    }
+
+    public void addModelChangeListener(final ModelRepositoryChangeListener listener) {
+    }
+
+    public void removeModelChangeListener(final ModelRepositoryChangeListener listener) {
     }
 
 }
