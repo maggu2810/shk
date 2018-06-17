@@ -1,8 +1,0 @@
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
-package org.eclipse.smarthome.core.thing.binding;
-
-class BaseThingHandlerFactory implements ThingHandlerFactory {
-    protected @Nullable ThingHandler createHandler(@NonNull Thing arg0);
-}

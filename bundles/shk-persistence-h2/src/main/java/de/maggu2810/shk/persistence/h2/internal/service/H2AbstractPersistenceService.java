@@ -136,7 +136,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     }
 
     @Override
-    public @NonNull String getLabel(final Locale locale) {
+    public @NonNull String getLabel(final @Nullable Locale locale) {
         final Bundle bundle = this.bundle;
         if (bundle == null) {
             return "?";
