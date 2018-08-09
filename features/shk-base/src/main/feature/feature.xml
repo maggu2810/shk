@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
 
-  <!-- <repository>mvn:org.eclipse.smarthome/esh-tp/${esh.version}/xml/features</repository> -->
-  <!-- <repository>mvn:org.eclipse.smarthome/esh-core/${esh.version}/xml/features</repository> -->
-  <!-- <repository>mvn:org.eclipse.smarthome/esh-ext/${esh.version}/xml/features</repository> -->
+  <!-- <repository>mvn:${esh.groupId.prefix}/esh-tp/${esh.version}/xml/features</repository> -->
+  <!-- <repository>mvn:${esh.groupId.prefix}/esh-core/${esh.version}/xml/features</repository> -->
+  <!-- <repository>mvn:${esh.groupId.prefix}/esh-ext/${esh.version}/xml/features</repository> -->
 
   <feature name="shk-runtime" description="${project.name}" version="${project.version}">
     <details>${project.description}</details>

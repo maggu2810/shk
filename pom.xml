@@ -27,7 +27,8 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <bnd.version>4.0.0</bnd.version>
-    <esh.version>0.10.0.a8</esh.version>
+    <esh.version>0.10.0.a12</esh.version>
+    <esh.groupId.prefix>de.maggu2810.3rdparty.esh</esh.groupId.prefix>
     <kat.version>1.9.7</kat.version>
 
     <!-- BEG - Check to fit to Karaf version bundled one -->
@@ -89,52 +90,52 @@
 
       <!-- Eclipse SmartHome -->
       <dependency>
-        <groupId>org.eclipse.smarthome.core</groupId>
+        <groupId>${esh.groupId.prefix}.core</groupId>
         <artifactId>org.eclipse.smarthome.core</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.core</groupId>
+        <groupId>${esh.groupId.prefix}.core</groupId>
         <artifactId>org.eclipse.smarthome.core.audio</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.core</groupId>
+        <groupId>${esh.groupId.prefix}.core</groupId>
         <artifactId>org.eclipse.smarthome.core.autoupdate</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.core</groupId>
+        <groupId>${esh.groupId.prefix}.core</groupId>
         <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.core</groupId>
+        <groupId>${esh.groupId.prefix}.core</groupId>
         <artifactId>org.eclipse.smarthome.core.thing</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.config</groupId>
+        <groupId>${esh.groupId.prefix}.config</groupId>
         <artifactId>org.eclipse.smarthome.config.core</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.config</groupId>
+        <groupId>${esh.groupId.prefix}.config</groupId>
         <artifactId>org.eclipse.smarthome.config.discovery</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.io</groupId>
+        <groupId>${esh.groupId.prefix}.io</groupId>
         <artifactId>org.eclipse.smarthome.io.transport.mdns</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.model</groupId>
+        <groupId>${esh.groupId.prefix}.model</groupId>
         <artifactId>org.eclipse.smarthome.model.core</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.eclipse.smarthome.model</groupId>
+        <groupId>${esh.groupId.prefix}.model</groupId>
         <artifactId>org.eclipse.smarthome.model.sitemap</artifactId>
         <version>${esh.version}</version>
       </dependency>

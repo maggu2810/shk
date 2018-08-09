@@ -65,7 +65,7 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome</groupId>
+      <groupId>${esh.groupId.prefix}</groupId>
       <artifactId>esh-tp</artifactId>
       <version>${esh.version}</version>
       <classifier>features</classifier>
@@ -73,7 +73,7 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome</groupId>
+      <groupId>${esh.groupId.prefix}</groupId>
       <artifactId>esh-core</artifactId>
       <version>${esh.version}</version>
       <classifier>features</classifier>
@@ -81,7 +81,7 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome</groupId>
+      <groupId>${esh.groupId.prefix}</groupId>
       <artifactId>esh-ext</artifactId>
       <version>${esh.version}</version>
       <classifier>features</classifier>

@@ -30,15 +30,15 @@
     </dependency>
 
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.autoupdate</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.thing</artifactId>
     </dependency>
     <dependency>

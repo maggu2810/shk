@@ -46,7 +46,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome</groupId>
+      <groupId>${esh.groupId.prefix}</groupId>
       <artifactId>esh-tp</artifactId>
       <version>${esh.version}</version>
       <classifier>features</classifier>
@@ -54,7 +54,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome</groupId>
+      <groupId>${esh.groupId.prefix}</groupId>
       <artifactId>esh-core</artifactId>
       <version>${esh.version}</version>
       <classifier>features</classifier>
@@ -62,7 +62,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome</groupId>
+      <groupId>${esh.groupId.prefix}</groupId>
       <artifactId>esh-ext</artifactId>
       <version>${esh.version}</version>
       <classifier>features</classifier>
@@ -103,9 +103,9 @@
                   <descriptor>mvn:org.apache.karaf.features/enterprise/${karaf.version}/xml/features</descriptor>
 
                   <!-- Eclipse SmartHome -->
-                  <descriptor>mvn:org.eclipse.smarthome/esh-tp/${esh.version}/xml/features</descriptor>
-                  <descriptor>mvn:org.eclipse.smarthome/esh-core/${esh.version}/xml/features</descriptor>
-                  <descriptor>mvn:org.eclipse.smarthome/esh-ext/${esh.version}/xml/features</descriptor>
+                  <descriptor>mvn:${esh.groupId.prefix}/esh-tp/${esh.version}/xml/features</descriptor>
+                  <descriptor>mvn:${esh.groupId.prefix}/esh-core/${esh.version}/xml/features</descriptor>
+                  <descriptor>mvn:${esh.groupId.prefix}/esh-ext/${esh.version}/xml/features</descriptor>
 
                   <!-- Current feature under verification -->
                   <descriptor>file:${project.build.directory}/feature/feature.xml</descriptor>

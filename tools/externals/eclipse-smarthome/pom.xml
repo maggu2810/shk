@@ -15,427 +15,427 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.api</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.commands</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.core</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.module.core</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.module.script.defaultscope</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.module.script</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.module.timer</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.parser.gson</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.providers</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.rest</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.sample.extension.java</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.sample.extension.json</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.automation</groupId>
+      <groupId>${esh.groupId.prefix}.automation</groupId>
       <artifactId>org.eclipse.smarthome.automation.sample.rest.api</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.binding</groupId>
+      <groupId>${esh.groupId.prefix}.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.digitalstrom</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.binding</groupId>
+      <groupId>${esh.groupId.prefix}.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.fsinternetradio</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.binding</groupId>
+      <groupId>${esh.groupId.prefix}.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.hue</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.binding</groupId>
+      <groupId>${esh.groupId.prefix}.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.lifx</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.binding</groupId>
+      <groupId>${esh.groupId.prefix}.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.ntp</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.binding</groupId>
+      <groupId>${esh.groupId.prefix}.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.sonos</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.binding</groupId>
+      <groupId>${esh.groupId.prefix}.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.wemo</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.binding</groupId>
+      <groupId>${esh.groupId.prefix}.binding</groupId>
       <artifactId>org.eclipse.smarthome.binding.yahooweather</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.config</groupId>
+      <groupId>${esh.groupId.prefix}.config</groupId>
       <artifactId>org.eclipse.smarthome.config.core</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.config</groupId>
+      <groupId>${esh.groupId.prefix}.config</groupId>
       <artifactId>org.eclipse.smarthome.config.discovery</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.config</groupId>
+      <groupId>${esh.groupId.prefix}.config</groupId>
       <artifactId>org.eclipse.smarthome.config.dispatch</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.config</groupId>
+      <groupId>${esh.groupId.prefix}.config</groupId>
       <artifactId>org.eclipse.smarthome.config.xml</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.audio</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.autoupdate</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.binding.xml</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.extension.sample</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.id</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.scheduler</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.thing.xml</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.thing</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.transform</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.voice</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.extension.ui.iconset</groupId>
+      <groupId>${esh.groupId.prefix}.extension.ui.iconset</groupId>
       <artifactId>org.eclipse.smarthome.ui.iconset.classic</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.extension.ui</groupId>
+      <groupId>${esh.groupId.prefix}.extension.ui</groupId>
       <artifactId>org.eclipse.smarthome.ui.basic</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.extension.ui</groupId>
+      <groupId>${esh.groupId.prefix}.extension.ui</groupId>
       <artifactId>org.eclipse.smarthome.ui.classic</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.extension.ui</groupId>
+      <groupId>${esh.groupId.prefix}.extension.ui</groupId>
       <artifactId>org.eclipse.smarthome.ui.paper</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.console.eclipse</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.console.karaf</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.console.rfc147</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.console</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.javasound</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.monitor</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.net</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.rest.core</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.rest.mdns</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.rest.sitemap</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.rest.sse</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.rest.voice</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.rest</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.transport.dbus</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.transport.mdns</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.transport.mqtt</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.io</groupId>
+      <groupId>${esh.groupId.prefix}.io</groupId>
       <artifactId>org.eclipse.smarthome.io.transport.upnp</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.core</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.item.runtime</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.item</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.lazygen</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.persistence.runtime</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.persistence</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.rule.runtime</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.rule</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.script.runtime</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.script</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.sitemap.runtime</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.sitemap</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.thing.runtime</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.model</groupId>
+      <groupId>${esh.groupId.prefix}.model</groupId>
       <artifactId>org.eclipse.smarthome.model.thing</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.storage</groupId>
+      <groupId>${esh.groupId.prefix}.storage</groupId>
       <artifactId>org.eclipse.smarthome.storage.mapdb</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.test</groupId>
+      <groupId>${esh.groupId.prefix}.test</groupId>
       <artifactId>org.eclipse.smarthome.test</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.transform</groupId>
+      <groupId>${esh.groupId.prefix}.transform</groupId>
       <artifactId>org.eclipse.smarthome.transform.exec</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.transform</groupId>
+      <groupId>${esh.groupId.prefix}.transform</groupId>
       <artifactId>org.eclipse.smarthome.transform.javascript</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.transform</groupId>
+      <groupId>${esh.groupId.prefix}.transform</groupId>
       <artifactId>org.eclipse.smarthome.transform.jsonpath</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.transform</groupId>
+      <groupId>${esh.groupId.prefix}.transform</groupId>
       <artifactId>org.eclipse.smarthome.transform.map</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.transform</groupId>
+      <groupId>${esh.groupId.prefix}.transform</groupId>
       <artifactId>org.eclipse.smarthome.transform.regex</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.transform</groupId>
+      <groupId>${esh.groupId.prefix}.transform</groupId>
       <artifactId>org.eclipse.smarthome.transform.scale</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.transform</groupId>
+      <groupId>${esh.groupId.prefix}.transform</groupId>
       <artifactId>org.eclipse.smarthome.transform.xpath</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.transform</groupId>
+      <groupId>${esh.groupId.prefix}.transform</groupId>
       <artifactId>org.eclipse.smarthome.transform.xslt</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.ui</groupId>
+      <groupId>${esh.groupId.prefix}.ui</groupId>
       <artifactId>org.eclipse.smarthome.ui.icon</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.ui</groupId>
+      <groupId>${esh.groupId.prefix}.ui</groupId>
       <artifactId>org.eclipse.smarthome.ui</artifactId>
       <version>${esh.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.voice</groupId>
+      <groupId>${esh.groupId.prefix}.voice</groupId>
       <artifactId>org.eclipse.smarthome.voice.mactts</artifactId>
       <version>${esh.version}</version>
     </dependency>

@@ -27,15 +27,15 @@
     </dependency>
 
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.core</groupId>
+      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.smarthome.config</groupId>
+      <groupId>${esh.groupId.prefix}.config</groupId>
       <artifactId>org.eclipse.smarthome.config.core</artifactId>
     </dependency>
     <dependency>
