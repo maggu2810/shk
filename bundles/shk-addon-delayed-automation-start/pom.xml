@@ -32,15 +32,7 @@
     </dependency>
     <dependency>
       <groupId>${esh.groupId.prefix}.core</groupId>
-      <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>${esh.groupId.prefix}.config</groupId>
-      <artifactId>org.eclipse.smarthome.config.core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jdt</groupId>
-      <artifactId>org.eclipse.jdt.annotation</artifactId>
+      <artifactId>org.eclipse.smarthome.core.thing</artifactId>
     </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
