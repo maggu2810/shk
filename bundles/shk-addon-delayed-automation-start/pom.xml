@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.shk.bundles</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.13-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>shk-addon-delayed-automation-start</artifactId>
+
+  <name>shk :: Bundles :: Addon :: Delayed Automation Start</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>${checkerframework.qual.groupId}</groupId>
+      <artifactId>checker-qual</artifactId>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>annotations</artifactId>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>${esh.groupId.prefix}.core</groupId>
+      <artifactId>org.eclipse.smarthome.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${esh.groupId.prefix}.core</groupId>
+      <artifactId>org.eclipse.smarthome.core.persistence</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${esh.groupId.prefix}.config</groupId>
+      <artifactId>org.eclipse.smarthome.config.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jdt</groupId>
+      <artifactId>org.eclipse.jdt.annotation</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>osgi.cmpn</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>

@@ -1,0 +1,11 @@
+Import-Package: \
+	org.checkerframework.*;resolution:=optional,\
+	*
+
+Bundle-Activator: de.maggu2810.shk.addon.das.impl.BundleActivatorImpl
+
+#-exportcontents: \
+#  !*.internal.*,\
+#  !*.impl.*,\
+#  de.maggu2810.shk.*
+
