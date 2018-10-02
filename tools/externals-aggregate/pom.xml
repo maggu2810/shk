@@ -11,7 +11,7 @@
   <artifactId>externals-aggregate</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals Aggregate</name>
+  <name>shk - Tools - Externals Aggregate</name>
 
   <dependencies>
     <!-- Apache Commons -->

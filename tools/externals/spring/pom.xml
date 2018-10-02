@@ -11,7 +11,7 @@
   <artifactId>spring</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Spring</name>
+  <name>shk - Tools - Externals - Spring</name>
 
   <dependencies>
     <dependency>

@@ -10,7 +10,7 @@
 
   <artifactId>shk-addon-sitemap-generator</artifactId>
 
-  <name>shk :: Bundles :: Addon :: Sitemap Generator</name>
+  <name>shk - Bundles - Addon - Sitemap Generator</name>
 
   <dependencies>
     <dependency>

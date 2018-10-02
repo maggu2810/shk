@@ -10,7 +10,7 @@
 
   <artifactId>shk-persistence-h2</artifactId>
 
-  <name>shk :: Bundles :: Persistence :: h2</name>
+  <name>shk - Bundles - Persistence - h2</name>
 
   <dependencies>
     <dependency>

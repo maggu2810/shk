@@ -11,7 +11,7 @@
   <artifactId>xtext</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Xtext</name>
+  <name>shk - Tools - Externals - Xtext</name>
 
   <dependencies>
     <dependency>

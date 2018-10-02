@@ -11,7 +11,7 @@
   <artifactId>logging</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Logging</name>
+  <name>shk - Tools - Externals - Logging</name>
 
   <dependencies>
     <dependency>

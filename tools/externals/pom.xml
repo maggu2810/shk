@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals</name>
+  <name>shk - Tools - Externals</name>
 
   <modules>
     <module>apache-commons</module>

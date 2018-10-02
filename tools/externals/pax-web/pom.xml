@@ -11,7 +11,7 @@
   <artifactId>pax-web</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Pax Web</name>
+  <name>shk - Tools - Externals - Pax Web</name>
 
   <dependencies>
     <dependency>

@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Distributions</name>
+  <name>shk - Distributions</name>
 
   <modules>
     <module>base</module>

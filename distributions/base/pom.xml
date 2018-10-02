@@ -11,7 +11,7 @@
   <artifactId>base</artifactId>
   <packaging>karaf-assembly</packaging>
 
-  <name>shk :: Distributions :: Base</name>
+  <name>shk - Distributions - Base</name>
 
   <build>
     <resources>

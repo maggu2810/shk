@@ -10,7 +10,7 @@
 
   <artifactId>shk-addon-autoupdate-configurator</artifactId>
 
-  <name>shk :: Bundles :: Addon :: Auto Update Configurator</name>
+  <name>shk - Bundles - Addon - Auto Update Configurator</name>
 
   <dependencies>
     <dependency>

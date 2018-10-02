@@ -11,7 +11,7 @@
   <artifactId>osgi-jax-rs-connector</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: OSGi JAX-RS Connector</name>
+  <name>shk - Tools - Externals - OSGi JAX-RS Connector</name>
 
   <dependencies>
     <dependency>

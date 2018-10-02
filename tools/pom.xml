@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools</name>
+  <name>shk - Tools</name>
 
   <modules>
     <module>externals</module>

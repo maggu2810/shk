@@ -11,7 +11,7 @@
   <artifactId>shk-repo-p2</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Repository :: p2</name>
+  <name>shk - Tools - Repository - p2</name>
 
   <build>
     <plugins>

@@ -11,7 +11,7 @@
   <artifactId>apache-commons</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Apache Commons</name>
+  <name>shk - Tools - Externals - Apache Commons</name>
 
   <dependencies>
     <dependency>

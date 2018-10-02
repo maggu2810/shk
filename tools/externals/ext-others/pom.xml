@@ -11,7 +11,7 @@
   <artifactId>ext-others</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Others</name>
+  <name>shk - Tools - Externals - Others</name>
 
   <dependencies>
 

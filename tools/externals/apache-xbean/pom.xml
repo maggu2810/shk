@@ -11,7 +11,7 @@
   <artifactId>apache-xbean</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Apache Xbean</name>
+  <name>shk - Tools - Externals - Apache Xbean</name>
 
   <dependencies>
     <dependency>

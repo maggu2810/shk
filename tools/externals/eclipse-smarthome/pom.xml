@@ -11,7 +11,7 @@
   <artifactId>eclipse-smarthome</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Eclipse SmartHome</name>
+  <name>shk - Tools - Externals - Eclipse SmartHome</name>
 
   <dependencies>
     <dependency>

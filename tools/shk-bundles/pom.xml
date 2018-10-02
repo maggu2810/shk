@@ -11,7 +11,7 @@
   <artifactId>shk-bundles</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Bundles</name>
+  <name>shk - Tools - Bundles</name>
 
   <dependencies>
     <dependency>

@@ -10,7 +10,7 @@
 
   <artifactId>shk-io-rest-docs</artifactId>
 
-  <name>shk :: Bundles :: IO :: REST Docs</name>
+  <name>shk - Bundles - IO - REST Docs</name>
 
   <properties>
     <license.shortcut>apache_v2</license.shortcut>

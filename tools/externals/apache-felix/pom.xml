@@ -11,7 +11,7 @@
   <artifactId>apache-felix</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Apache Felix</name>
+  <name>shk - Tools - Externals - Apache Felix</name>
 
   <dependencies>
     <dependency>

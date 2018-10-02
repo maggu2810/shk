@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Features</name>
+  <name>shk - Features</name>
 
   <modules>
     <module>shk-base</module>

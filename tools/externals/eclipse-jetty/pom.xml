@@ -11,7 +11,7 @@
   <artifactId>eclipse-jetty</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Eclipse Jetty</name>
+  <name>shk - Tools - Externals - Eclipse Jetty</name>
 
   <dependencies>
     <dependency>

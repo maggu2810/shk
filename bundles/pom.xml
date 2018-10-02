@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Bundles</name>
+  <name>shk - Bundles</name>
 
   <modules>
     <module>shk-addon-autoupdate-configurator</module>

@@ -10,7 +10,7 @@
 
   <artifactId>shk-io-webutil</artifactId>
 
-  <name>shk :: Bundles :: IO :: Web Util</name>
+  <name>shk - Bundles - IO - Web Util</name>
 
   <dependencies>
     <dependency>

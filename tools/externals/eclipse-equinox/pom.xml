@@ -11,7 +11,7 @@
   <artifactId>eclipse-equinox</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: Eclipse Equinox</name>
+  <name>shk - Tools - Externals - Eclipse Equinox</name>
 
   <dependencies>
     <dependency>

@@ -11,7 +11,7 @@
   <artifactId>shk-repo</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Repository</name>
+  <name>shk - Tools - Repository</name>
 
   <dependencies>
     <dependency>

@@ -11,7 +11,7 @@
   <artifactId>shk-base</artifactId>
   <packaging>feature</packaging>
 
-  <name>shk :: Features :: Base</name>
+  <name>shk - Features - Base</name>
 
   <dependencies>
     <!-- Repositories -->

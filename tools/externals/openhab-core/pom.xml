@@ -11,7 +11,7 @@
   <artifactId>openhab-core</artifactId>
   <packaging>pom</packaging>
 
-  <name>shk :: Tools :: Externals :: openHAB Core</name>
+  <name>shk - Tools - Externals - openHAB Core</name>
 
   <dependencies>
     <dependency>
