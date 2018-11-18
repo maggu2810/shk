@@ -77,12 +77,6 @@
       <version>18.0</version>
     </dependency>
 
-    <!-- Google Protocol Buffers -->
-    <dependency>
-      <groupId>com.google.protobuf</groupId>
-      <artifactId>protobuf-java</artifactId>
-    </dependency>
-
     <!-- H2 database -->
     <dependency>
       <groupId>com.h2database</groupId>
@@ -121,14 +115,6 @@
       <groupId>org.mapdb</groupId>
       <artifactId>mapdb</artifactId>
       <version>1.0.9</version>
-    </dependency>
-
-    <!-- openHAB Core -->
-    <dependency>
-      <groupId>de.maggu2810.shk.tools.externals</groupId>
-      <artifactId>openhab-core</artifactId>
-      <version>${project.version}</version>
-      <type>pom</type>
     </dependency>
 
     <!-- OSGi service specification for JDBC -->

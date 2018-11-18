@@ -146,11 +146,6 @@
     </dependency>
     <dependency>
       <groupId>${esh.groupId.prefix}.core</groupId>
-      <artifactId>org.eclipse.smarthome.core.autoupdate</artifactId>
-      <version>${esh.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>${esh.groupId.prefix}.core</groupId>
       <artifactId>org.eclipse.smarthome.core.binding.xml</artifactId>
       <version>${esh.version}</version>
     </dependency>

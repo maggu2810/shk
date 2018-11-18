@@ -26,33 +26,29 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
-    <bnd.version>4.0.0</bnd.version>
-    <esh.version>0.10.0.a12</esh.version>
-    <esh.groupId.prefix>de.maggu2810.3rdparty.esh</esh.groupId.prefix>
-    <kat.version>1.9.7</kat.version>
-
     <!-- BEG - Check to fit to Karaf version bundled one -->
-    <karaf.version>4.2.0</karaf.version>
+    <karaf.version>4.2.1</karaf.version>
     <hibernate.version>5.2.9.Final</hibernate.version>
-    <jetty.version>9.4.6.v20170531</jetty.version>
-    <pax.web.version>7.0.0</pax.web.version>
-    <pax.jdbc.version>1.2.0</pax.jdbc.version>
-    <spring.version>5.0.4.RELEASE_1</spring.version>
+    <jetty.version>9.4.11.v20180605</jetty.version>
+    <pax.web.version>7.2.3</pax.web.version>
+    <pax.jdbc.version>1.3.0</pax.jdbc.version>
+    <spring.version>5.0.8.RELEASE_1</spring.version>
     <!-- END - Check to fit to Karaf version bundled one -->
 
-    <!-- TODO -->
-    <slf4j.version>1.7.21</slf4j.version>
-    <jackson.version>1.9.13</jackson.version>
-    <jersey.version>2.22.2</jersey.version>
-    <ohc.version>2.0.0.b3</ohc.version>
-    <protobuf.version>2.6.0</protobuf.version>
-
-    <maven.build.resources.version>1.7</maven.build.resources.version>
-    <quality.skip>false</quality.skip>
-    <checkerframework.version>2.5.1</checkerframework.version>
+    <bnd.version>4.1.0</bnd.version>
+    <checkerframework.version>2.5.7</checkerframework.version>
     <checkerframework.compiler.arg1>-AplaceholderToBeReplaced</checkerframework.compiler.arg1>
     <checkerframework.qual.groupId>de.maggu2810.osgi-ify.org.checkerframework.checker-qual</checkerframework.qual.groupId>
-    <pmd.version>5.8.1</pmd.version>
+    <esh.version>0.10.0.a18</esh.version>
+    <esh.groupId.prefix>de.maggu2810.3rdparty.esh</esh.groupId.prefix>
+    <jackson.version>1.9.13</jackson.version>
+    <jersey.version>2.22.2</jersey.version>
+    <kat.version>1.9.9</kat.version>
+    <slf4j.version>1.7.21</slf4j.version>
+    <spotbugs.version>3.1.6</spotbugs.version>
+    <pmd.version>6.5.0</pmd.version>
+
+    <quality.skip>false</quality.skip>
 
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <license.shortcut>epl_only_v1</license.shortcut>
@@ -97,11 +93,6 @@
       <dependency>
         <groupId>${esh.groupId.prefix}.core</groupId>
         <artifactId>org.eclipse.smarthome.core.audio</artifactId>
-        <version>${esh.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>${esh.groupId.prefix}.core</groupId>
-        <artifactId>org.eclipse.smarthome.core.autoupdate</artifactId>
         <version>${esh.version}</version>
       </dependency>
       <dependency>
@@ -196,28 +187,17 @@
         <groupId>org.osgi</groupId>
         <artifactId>osgi.core</artifactId>
         <version>6.0.0</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <!--Apache License, Version 2.0 -->
         <groupId>org.osgi</groupId>
         <artifactId>osgi.cmpn</artifactId>
         <version>6.0.0</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>osgi.annotation</artifactId>
         <version>6.0.1</version>
-        <scope>provided</scope>
-      </dependency>
-
-      <!-- Protocol Buffers - Google's data interchange format -->
-      <dependency>
-        <!--BSD 2-Clause License; https://opensource.org/licenses/bsd-license.php -->
-        <groupId>com.google.protobuf</groupId>
-        <artifactId>protobuf-java</artifactId>
-        <version>${protobuf.version}</version>
       </dependency>
 
       <!-- Simple Logging Facade for Java (SLF4J) -->
@@ -226,7 +206,6 @@
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j.version}</version>
-        <scope>provided</scope>
       </dependency>
 
     </dependencies>
@@ -283,7 +262,7 @@
         <plugin>
           <groupId>com.github.spotbugs</groupId>
           <artifactId>spotbugs-maven-plugin</artifactId>
-          <version>3.1.0-RC8</version>
+          <version>${spotbugs.version}</version>
           <configuration>
             <skip>${quality.skip}</skip>
             <plugins>
@@ -300,19 +279,14 @@
             <effort>Max</effort>
             <threshold>Low</threshold>
             <maxRank>20</maxRank>
-            <excludeFilterFile>findbugs/findbugs_exclude.xml</excludeFilterFile>
+            <excludeFilterFile>${basedirRoot}/quality/findbugs/findbugs_exclude.xml</excludeFilterFile>
           </configuration>
           <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
             <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
             <dependency>
               <groupId>com.github.spotbugs</groupId>
               <artifactId>spotbugs</artifactId>
-              <version>3.1.0</version>
+              <version>${spotbugs.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -350,13 +324,6 @@
             <emptyLineAfterHeader>true</emptyLineAfterHeader>
             <ignoreNoFileToScan>true</ignoreNoFileToScan>
           </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
           <executions>
             <execution>
               <goals>
@@ -393,23 +360,18 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.17</version>
+          <version>3.0.0</version>
           <configuration>
             <skip>${quality.skip}</skip>
-            <configLocation>checkstyle/checkstyle.xml</configLocation>
-            <propertiesLocation>checkstyle/checkstyle_maven.properties</propertiesLocation>
+            <configLocation>${basedirRoot}/quality/checkstyle/checkstyle.xml</configLocation>
+            <propertyExpansion>config_loc=${basedirRoot}/quality/checkstyle</propertyExpansion>
             <violationSeverity>info</violationSeverity>
           </configuration>
           <dependencies>
             <dependency>
               <groupId>com.puppycrawl.tools</groupId>
               <artifactId>checkstyle</artifactId>
-              <version>7.8.1</version>
-            </dependency>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
+              <version>8.11</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -417,7 +379,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.7.0</version>
+          <version>3.8.0</version>
         </plugin>
 
         <plugin>
@@ -460,20 +422,15 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
-          <version>3.8</version>
+          <version>3.10.0</version>
           <configuration>
             <skip>${quality.skip}</skip>
             <linkXRef>false</linkXRef>
             <rulesets>
-              <ruleset>pmd/pmd_ruleset.xml</ruleset>
+              <ruleset>${basedirRoot}/quality/pmd/pmd_ruleset.xml</ruleset>
             </rulesets>
           </configuration>
           <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
             <dependency>
               <groupId>net.sourceforge.pmd</groupId>
               <artifactId>pmd-core</artifactId>
@@ -843,7 +800,7 @@
       </activation>
 
       <properties>
-        <fixloc.dir>${java.io.tmpdir}/maven.build/fixloc</fixloc.dir>
+        <fixloc.dir>${java.io.tmpdir}/maven.build.${user.name}/fixloc</fixloc.dir>
         <fixloc.checkerframework.jdk8.jar>org.checkerframework.jdk8-${checkerframework.version}.jar</fixloc.checkerframework.jdk8.jar>
       </properties>
 
@@ -973,7 +930,7 @@
         <license.skipUpdateLicense>true</license.skipUpdateLicense>
       </properties>
       <build>
-        <defaultGoal>clean install spotbugs:spotbugs pmd:pmd pmd:cpd checkstyle:checkstyle javadoc:aggregate</defaultGoal>
+        <defaultGoal>clean install spotbugs:spotbugs pmd:pmd pmd:cpd checkstyle:checkstyle javadoc:javadoc</defaultGoal>
       </build>
     </profile>
 

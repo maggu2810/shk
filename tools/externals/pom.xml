@@ -25,7 +25,6 @@
     <module>ext-others</module>
     <module>ext-test</module>
     <module>logging</module>
-    <module>openhab-core</module>
     <module>osgi-jax-rs-connector</module>
     <module>pax-web</module>
     <module>spring</module>

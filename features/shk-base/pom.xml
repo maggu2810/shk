@@ -19,12 +19,6 @@
     <!-- Direct bundle dependencies -->
     <dependency>
       <groupId>de.maggu2810.shk.bundles</groupId>
-      <artifactId>shk-addon-autoupdate-configurator</artifactId>
-      <version>${project.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>de.maggu2810.shk.bundles</groupId>
       <artifactId>shk-addon-sitemap-generator</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
