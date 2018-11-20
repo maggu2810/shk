@@ -1,8 +1,8 @@
 /*-
  * #%L
- * shk :: Bundles :: IO :: REST Docs
+ * shk - Bundles - IO - REST Docs
  * %%
- * Copyright (C) 2015 - 2017 maggu2810
+ * Copyright (C) 2015 - 2018 maggu2810
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
