@@ -1,8 +1,8 @@
 /*-
  * #%L
- * shk :: Bundles :: Persistence :: h2
+ * shk - Bundles - Persistence - h2
  * %%
- * Copyright (C) 2015 - 2017 maggu2810
+ * Copyright (C) 2015 - 2018 maggu2810
  * %%
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -57,9 +57,8 @@ import org.slf4j.LoggerFactory;
 import de.maggu2810.shk.persistence.h2.internal.PersistenceItemInfoImpl;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-@SuppressFBWarnings(
-        value = { "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE",
-                "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING" }, //
+@SuppressFBWarnings(value = { "SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE",
+        "SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING" }, //
         justification = "Needs to be checked carefully, but ATM we need to build some stuff (e.g. table name).")
 public abstract class H2AbstractPersistenceService implements ModifiablePersistenceService {
     protected static class Column {
@@ -97,8 +96,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
     private final String itemSchema;
 
     // TODO: How to add the reference / Require-Capability without a member object or function?
-    @Reference(cardinality = ReferenceCardinality.MANDATORY, policy = ReferencePolicy.DYNAMIC,
-            target = "(osgi.jdbc.driver.class=org.h2.Driver)")
+    @Reference(cardinality = ReferenceCardinality.MANDATORY, policy = ReferencePolicy.DYNAMIC, target = "(osgi.jdbc.driver.class=org.h2.Driver)")
     @SuppressWarnings("initialization.fields.uninitialized")
     protected volatile org.osgi.service.jdbc.DataSourceFactory h2Driver;
 
@@ -209,7 +207,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
         }
 
         // Retrieve the table array
-        try (final Statement st = getConnection().createStatement()) {
+        try (Statement st = getConnection().createStatement()) {
             final String queryString = String.format(
                     "SELECT TABLE_NAME, ROW_COUNT_ESTIMATE FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='%s';",
                     itemSchema);
@@ -217,11 +215,11 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
             // Turn use of the cursor on.
             st.setFetchSize(50);
 
-            try (final ResultSet rs = st.executeQuery(queryString)) {
+            try (ResultSet rs = st.executeQuery(queryString)) {
 
                 final @NonNull Set<@NonNull PersistenceItemInfo> items = new HashSet<>();
                 while (rs.next()) {
-                    try (final Statement stTimes = getConnection().createStatement()) {
+                    try (Statement stTimes = getConnection().createStatement()) {
                         int rsIt = 0;
                         final String rsTableName = rs.getString(++rsIt);
                         if (rsTableName == null) {
@@ -232,7 +230,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
                         final String minMax = String.format("SELECT MIN(%s), MAX(%s) FROM %s", Column.TIME, Column.TIME,
                                 getTableName(rsTableName));
-                        try (final ResultSet rsTimes = stTimes.executeQuery(minMax)) {
+                        try (ResultSet rsTimes = stTimes.executeQuery(minMax)) {
 
                             final Date earliest;
                             final Date latest;
@@ -277,13 +275,13 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
                 filterWhere.prepared);
 
         // Retrieve the table array
-        try (final PreparedStatement st = getConnection().prepareStatement(queryString)) {
-            int i = 0;
+        try (PreparedStatement st = getConnection().prepareStatement(queryString)) {
+            int cnt = 0;
             if (filterWhere.begin) {
-                st.setTimestamp(++i, new Timestamp(filter.getBeginDate().getTime()));
+                st.setTimestamp(++cnt, new Timestamp(filter.getBeginDate().getTime()));
             }
             if (filterWhere.end) {
-                st.setTimestamp(++i, new Timestamp(filter.getEndDate().getTime()));
+                st.setTimestamp(++cnt, new Timestamp(filter.getEndDate().getTime()));
             }
 
             st.execute(queryString);
@@ -291,7 +289,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
             // Do some housekeeping...
             // See how many rows remain - if it's 0, we should remove the table from the database
-            try (final ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM " + getTableName(filter.getItemName()))) {
+            try (ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM " + getTableName(filter.getItemName()))) {
                 rs.next();
                 if (rs.getInt(1) == 0) {
                     final String drop = "DROP TABLE " + getTableName(filter.getItemName());
@@ -359,7 +357,7 @@ public abstract class H2AbstractPersistenceService implements ModifiablePersiste
 
             logger.info("{}: Connected to database {}", getId(), databaseFileName);
 
-            try (final Statement statement = getConnection().createStatement()) {
+            try (Statement statement = getConnection().createStatement()) {
                 for (final String schema : new String[] { itemSchema, Schema.METAINFO }) {
                     statement.execute(String.format("CREATE SCHEMA IF NOT EXISTS %s;", schema));
                 }

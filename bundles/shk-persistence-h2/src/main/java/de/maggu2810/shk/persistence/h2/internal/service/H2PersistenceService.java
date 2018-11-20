@@ -1,8 +1,8 @@
 /*-
  * #%L
- * shk :: Bundles :: Persistence :: h2
+ * shk - Bundles - Persistence - h2
  * %%
- * Copyright (C) 2015 - 2017 maggu2810
+ * Copyright (C) 2015 - 2018 maggu2810
  * %%
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -123,7 +123,7 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
         final String sql = String.format("CREATE TABLE IF NOT EXISTS %s (%s %s, %s %s,  %s %s, PRIMARY KEY(%s));",
                 tableName, Column.TIME, SqlType.TIMESTAMP, MyColumn.CLAZZ, SqlType.VARCHAR, Column.VALUE,
                 SqlType.VARCHAR, Column.TIME);
-        try (final Statement statement = getConnection().createStatement()) {
+        try (Statement statement = getConnection().createStatement()) {
             statement.executeUpdate(sql);
             return true;
         } catch (final SQLException ex) {
@@ -136,11 +136,11 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
     protected boolean insert(final String tableName, final Date date, final State state) {
         final String sql = String.format("INSERT INTO %s (%s, %s, %s) VALUES(?,?,?);", tableName, Column.TIME,
                 MyColumn.CLAZZ, Column.VALUE);
-        try (final PreparedStatement stmt = getConnection().prepareStatement(sql)) {
-            int i = 0;
-            stmt.setTimestamp(++i, new Timestamp(date.getTime()));
-            stmt.setString(++i, getStateClassKey(state.getClass()));
-            setStateValue(stmt, ++i, state);
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            int cnt = 0;
+            stmt.setTimestamp(++cnt, new Timestamp(date.getTime()));
+            stmt.setString(++cnt, getStateClassKey(state.getClass()));
+            setStateValue(stmt, ++cnt, state);
             stmt.executeUpdate();
             return true;
         } catch (final SQLException ex) {
@@ -153,11 +153,11 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
     protected boolean update(final String tableName, final Date date, final State state) {
         final String sql = String.format("UPDATE %s SET %s = ?, %s = ? WHERE TIME = ?", tableName, MyColumn.CLAZZ,
                 Column.VALUE);
-        try (final PreparedStatement stmt = getConnection().prepareStatement(sql)) {
-            int i = 0;
-            stmt.setString(++i, getStateClassKey(state.getClass()));
-            setStateValue(stmt, ++i, state);
-            stmt.setTimestamp(++i, new Timestamp(date.getTime()));
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            int cnt = 0;
+            stmt.setString(++cnt, getStateClassKey(state.getClass()));
+            setStateValue(stmt, ++cnt, state);
+            stmt.setTimestamp(++cnt, new Timestamp(date.getTime()));
             stmt.executeUpdate();
             return true;
         } catch (final SQLException ex) {
@@ -186,39 +186,39 @@ public class H2PersistenceService extends H2AbstractPersistenceService {
                 Column.VALUE, getTableName(filter.getItemName()), filterWhere.prepared, getFilterStringOrder(filter),
                 getFilterStringLimit(filter));
 
-        try (final PreparedStatement st = getConnection().prepareStatement(queryString)) {
-            int i = 0;
+        try (PreparedStatement st = getConnection().prepareStatement(queryString)) {
+            int cnt = 0;
             if (filterWhere.begin) {
-                st.setTimestamp(++i, new Timestamp(filter.getBeginDate().getTime()));
+                st.setTimestamp(++cnt, new Timestamp(filter.getBeginDate().getTime()));
             }
             if (filterWhere.end) {
-                st.setTimestamp(++i, new Timestamp(filter.getEndDate().getTime()));
+                st.setTimestamp(++cnt, new Timestamp(filter.getEndDate().getTime()));
             }
 
             // Turn use of the cursor on.
             st.setFetchSize(50);
 
-            try (final ResultSet rs = st.executeQuery()) {
+            try (ResultSet rs = st.executeQuery()) {
                 final @NonNull List<@NonNull HistoricItem> items = new ArrayList<>();
                 while (rs.next()) {
                     final Date time;
                     final String clazz;
                     final String value;
 
-                    i = 0;
-                    time = rs.getTimestamp(++i);
+                    cnt = 0;
+                    time = rs.getTimestamp(++cnt);
                     if (time == null) {
                         logger.warn("{}: itemName: {}, time must be non null", getId(), itemName);
                         continue;
                     }
 
-                    clazz = rs.getString(++i);
+                    clazz = rs.getString(++cnt);
                     if (clazz == null) {
                         logger.warn("{}: itemName: {}, clazz must be non null", getId(), itemName);
                         continue;
                     }
 
-                    value = rs.getString(++i);
+                    value = rs.getString(++cnt);
                     if (value == null) {
                         logger.warn("{}: itemName: {}, value must be non null", getId(), itemName);
                         continue;
