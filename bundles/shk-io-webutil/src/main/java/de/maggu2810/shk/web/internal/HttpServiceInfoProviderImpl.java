@@ -1,8 +1,8 @@
 /*-
  * #%L
- * shk :: Bundles :: IO :: Web Util
+ * shk - Bundles - IO - Web Util
  * %%
- * Copyright (C) 2015 - 2017 maggu2810
+ * Copyright (C) 2015 - 2018 maggu2810
  * %%
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -20,7 +20,6 @@ import java.util.LinkedList;
 import java.util.Map;
 
 import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
@@ -46,7 +45,7 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
     private @Nullable ServiceTracker<HttpService, HttpService> serviceTrackerHttpService;
     private final Collection<HttpServiceListener> listeners = new LinkedList<>();
 
-    private final Map<@NonNull HttpService, @NonNull HttpServiceInfo> services = new HashMap<>();
+    private final Map<HttpService, HttpServiceInfo> services = new HashMap<>();
 
     /**
      * Start the service.
@@ -73,8 +72,7 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
     }
 
     @Override
-    public synchronized void addHttpService(final @NonNull HttpService httpService,
-            final @NonNull HttpServiceInfo httpServiceInfo) {
+    public synchronized void addHttpService(final HttpService httpService, final HttpServiceInfo httpServiceInfo) {
         logger.trace("add http service: {}, {}", httpService, httpServiceInfo);
         if (services.containsKey(httpService)) {
             logger.warn("Received the same service multiple times.");
@@ -87,7 +85,7 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
     }
 
     @Override
-    public synchronized void removeHttpService(final @NonNull HttpService httpService) {
+    public synchronized void removeHttpService(final HttpService httpService) {
         logger.trace("remove http service: {}", httpService);
         if (!services.containsKey(httpService)) {
             logger.warn("An unknown service is removed.");
@@ -99,22 +97,22 @@ public class HttpServiceInfoProviderImpl implements HttpServiceListener, HttpSer
     }
 
     @Override
-    public synchronized void addHttpServiceInfoListener(final @NonNull HttpServiceListener listener) {
+    public synchronized void addHttpServiceInfoListener(final HttpServiceListener listener) {
         listeners.add(listener);
     }
 
     @Override
-    public synchronized void removeHttpServiceInfoListener(final @NonNull HttpServiceListener listener) {
+    public synchronized void removeHttpServiceInfoListener(final HttpServiceListener listener) {
         listeners.remove(listener);
     }
 
     @Override
-    public synchronized @NonNull Collection<@NonNull HttpService> getHttpServices() {
+    public synchronized Collection<HttpService> getHttpServices() {
         return new HashSet<>(services.keySet());
     }
 
     @Override
-    public synchronized @NonNull HttpServiceInfo getHttpServiceInfo(final @NonNull HttpService service) {
+    public synchronized HttpServiceInfo getHttpServiceInfo(final HttpService service) {
         if (services.containsKey(service)) {
             return services.get(service);
         } else {

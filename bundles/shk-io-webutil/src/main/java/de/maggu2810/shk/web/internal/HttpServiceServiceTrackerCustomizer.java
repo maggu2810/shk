@@ -1,8 +1,8 @@
 /*-
  * #%L
- * shk :: Bundles :: IO :: Web Util
+ * shk - Bundles - IO - Web Util
  * %%
- * Copyright (C) 2015 - 2017 maggu2810
+ * Copyright (C) 2015 - 2018 maggu2810
  * %%
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -79,7 +79,7 @@ public class HttpServiceServiceTrackerCustomizer
         listener.removeHttpService(httpService);
     }
 
-    private final @NonNull HttpServiceInfo getHttpServiceInfo(final ServiceReference<HttpService> reference) {
+    private HttpServiceInfo getHttpServiceInfo(final ServiceReference<HttpService> reference) {
         // for (final String key : reference.getPropertyKeys()) {
         // logger.info("{}={}", key, reference.getProperty(key));
         // }
@@ -89,7 +89,7 @@ public class HttpServiceServiceTrackerCustomizer
         return new HttpServiceInfo(httpPort, httpPortSecure);
     }
 
-    private static final int extractPort(final ServiceReference<HttpService> reference, final String prop) {
+    private static int extractPort(final ServiceReference<HttpService> reference, final String prop) {
         int port;
 
         port = parsePort(reference.getProperty(prop));
@@ -101,7 +101,7 @@ public class HttpServiceServiceTrackerCustomizer
         return port;
     }
 
-    private static final int parsePort(final @Nullable Object obj) {
+    private static int parsePort(final @Nullable Object obj) {
         if (obj != null) {
             try {
                 return Integer.parseInt(obj.toString());
