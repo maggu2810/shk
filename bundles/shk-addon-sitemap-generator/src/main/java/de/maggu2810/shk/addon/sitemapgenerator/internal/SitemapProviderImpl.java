@@ -22,6 +22,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.core.items.ItemRegistry;
 import org.eclipse.smarthome.core.thing.ThingRegistry;
 import org.eclipse.smarthome.core.thing.link.ItemChannelLinkRegistry;
+import org.eclipse.smarthome.core.thing.type.ChannelTypeRegistry;
 import org.eclipse.smarthome.model.core.ModelRepositoryChangeListener;
 import org.eclipse.smarthome.model.sitemap.Sitemap;
 import org.eclipse.smarthome.model.sitemap.SitemapFactory;
@@ -46,6 +47,10 @@ public class SitemapProviderImpl implements SitemapProvider {
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")
     ThingRegistry thingRegistry;
+
+    @Reference
+    @SuppressWarnings("initialization.fields.uninitialized")
+    ChannelTypeRegistry channelTypeRegistry;
 
     @Reference
     @SuppressWarnings("initialization.fields.uninitialized")

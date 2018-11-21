@@ -15,13 +15,13 @@ package de.maggu2810.shk.addon.sitemapgenerator.internal;
 
 import java.util.Collection;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.function.BiConsumer;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.eclipse.smarthome.core.thing.Thing;
-import org.eclipse.smarthome.model.sitemap.Default;
 import org.eclipse.smarthome.model.sitemap.Frame;
 import org.eclipse.smarthome.model.sitemap.Group;
 import org.eclipse.smarthome.model.sitemap.LinkableWidget;
@@ -35,7 +35,7 @@ public class SitemapGeneratorLocations implements SitemapGenerator {
 
     private static class ThingData {
         public final Frame frame;
-        public final SortedMap<String, Default> items = new TreeMap<>();
+        public final SortedMap<String, Widget> items = new TreeMap<>();
 
         public ThingData(final Frame frame) {
             this.frame = frame;
@@ -88,8 +88,19 @@ public class SitemapGeneratorLocations implements SitemapGenerator {
             thing.getChannels().forEach(channel -> {
                 // ... inspect every linked item, ...
                 generator.linkRegistry.getLinkedItems(channel.getUID()).forEach(item -> {
-                    // create a widget for the item
-                    final Default widget = sitemapFactory.createDefault();
+                    final boolean readOnly = Optional.ofNullable(channel.getChannelTypeUID())
+                            .map(channelTypeUID -> generator.channelTypeRegistry.getChannelType(channelTypeUID))
+                            .map(channelType -> channelType.getState())
+                            .map(stateDescription -> stateDescription.isReadOnly()).orElse(false);
+
+                    // Create a widget for the item.
+                    final Widget widget;
+                    if (readOnly) {
+                        widget = sitemapFactory.createText();
+                        widget.setLabel(Optional.ofNullable(item.getLabel()).orElse(" ") + "[%s]");
+                    } else {
+                        widget = sitemapFactory.createDefault();
+                    }
                     widget.setItem(item.getName());
 
                     thingData.items.put(createId(item.getName(), item), widget);
@@ -131,10 +142,9 @@ public class SitemapGeneratorLocations implements SitemapGenerator {
         }
     }
 
-    private void addItems(final Collection<Widget> parent, final SortedMap<String, Default> items) {
-        for (final Entry<String, Default> itemEntry : items.entrySet()) {
-            final Default itemWidget = itemEntry.getValue();
-            parent.add(itemWidget);
+    private void addItems(final Collection<Widget> parent, final SortedMap<String, Widget> items) {
+        for (final Entry<String, Widget> itemEntry : items.entrySet()) {
+            parent.add(itemEntry.getValue());
         }
     }
 
